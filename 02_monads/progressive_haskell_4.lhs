@@ -103,34 +103,29 @@ After:
 This is similar, but awkward. All these `let ... in`. Even if with Haskell
 you could remove most, it's still awkard.
 
-But there is a clear pattern. Each line is of the form:
+The lesson, is, naive IO implementation in Pure functional language is awkward!
 
-let (x,w') = f w in
-...
-
-and the output type is a couple, (answer, newWorldValue).
-
-Guess what. Somebody as found a way to make it nicer by "hidding" a bit of information.
-Here it will be the world variable.
-
-How? All lines have the following pattern:
+Fortunately, some have found a better way to handle this problem.
+We see a pattern. Each line is of the form:
 
 ~~~
-let (x,w') = f w in ...
+let (y,w') = f x w in
 ~~~
 
-then each function `f` must have a type of kind:
+Even if for some line the first `x` argument isn't needed.
+The output type is a couple, `(answer, newWorldValue)`.
+Each function `f` must have a type of kind:
 
 ~~~
 f :: World -> (a,World)
 ~~~
 
-Not only this, but we can also remark we use them always with the following general pattern:
+Not only this, but we can also remark we use them always 
+with the following general pattern:
 
 ~~~
-let (x,w0) = f w in
-let (y,w1) = g w0 in
-...
+let (y,w0) = f x w in
+let (z,w1) = g y w0 in
 ~~~
 
 We can `bind` the two lines, here is how. Let's define the bind function.
@@ -182,7 +177,7 @@ Which is equivalent to:
 ~~~
 
 Didn't you remark something?
-Yes, there isn't anymore temporary world variable used anywhere!
+Yes, there isn't anymore temporary World variable used anywhere!
 This is Ma. Gic.
 
 We can make thinks look better. Let's call bind (>>=) which is an infix function.
@@ -194,4 +189,26 @@ Infix is like (+), 3 + 4 <=> "(+) 3 4"
             (\line2 -> print (line1 ++ line2)))
 ~~~
 
+Ho Ho Ho! Happy Christmas Everyone!
+Haskell has made a syntactical sugar for us:
 
+~~~
+    do
+      y <- f x
+      z <- g y
+      t <- h y z
+~~~
+
+Is replaced by:
+
+~~~
+    (f     >>= (\y ->
+     g y   >>= (\z ->
+     h y z >>= (\t ->
+      ...
+    ))))
+~~~
+
+Which is perfect for IO.
+Now we also just need a way to remove the last statement containing a World value.
+Easy, just write a simple function return
