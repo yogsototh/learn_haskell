@@ -1,3 +1,5 @@
+# Some examples
+
 Let's start with the obligatory "Hello World".
 
 > main = print "Hello World!"
