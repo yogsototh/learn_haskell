@@ -6,6 +6,7 @@ It looks a bit like magic.
 For now let's just forget about all the pure part of our program, and focus
 on the impure part:
 
+>
 > askUser :: IO [Integer]
 > askUser = do
 >   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
@@ -20,28 +21,54 @@ on the impure part:
 >   list <- askUser
 >   print $ sum list
 
-You remark the structure looks similar to an imperative language.
-If you read me after reading the general references about Haskell.
-You should ask, why, but why using something so similar to imperative programming?
-Functional is so much better.
+The first thing you should remark, is that the structure is very similar to the one of an imperative language.
+The fact is, Haskell is powerful enough to recreate function to help code look like in an imperative language.
+For example, if you wish you could create a `while` in Haskell.
+In fact, for dealing with IO, imperative style is generally more appropriate.
 
-Now imagine writting this in a pure and lazy functional language.
-Here we go. To simulate purity, we have to change the type of our function.
+But, you also see there are some slight differences.
+The notation is a bit strange.
+
+This is here that reside the beauty of how Haskell handle IO.
+
+Let's start.
+
+Imagine you want to write a pure language.
+But, a completely pure language will have few utility in real life.
+As it will have no effect. You couldn't print anything on a screen, read the user input, etc...
+
+You can imagine, in standard impure language, there is a hidden global variable.
+For example, you could write something in a file.
+Somebody else could modify this file.
+And you could later read the content of the file.
+
+Each time something changed in the external world, it was like a global variable had changed its value. 
+This global variable can be represented as a World state.
+
+Now, to have a pure language with some utility you could simply state the execution of your program will be an evaluation of the main function with the following type.
+
+~~~
+main :: World -> World
+~~~
+
+Which means, main instead of having a global variable accessible by all functions of you program.
+Main will be given as parameter an id representing the state of the World on which you can access.
+And it will certainly make some changes to it.
+
+In reality, the real type is closer to
 
 ~~~
 main :: World -> ((),World)
 ~~~
 
-which once compiled will for each change of the World parameter will change
-something in the real environment. And in the end it will return something
-of type (). Which means returns nothing (or 0).
+The () type is the null type. Nothing to see here.
 
-Now let's see how we should code it:
+Now let's write our main function:
 
 ~~~
 main w0 =
     let (list,w1) = askUser w0 in
-    let (x,w2) = print (list,w1) in
+    let (x,w2) = print (sum list,w1) in
     x 
 ~~~
 
@@ -92,9 +119,9 @@ Before:
 After:
 
 > askUser w0 =
->     let (_,w1)     = putStrLn "Enter a list of numbers" in
->     let (input,w2) = getLine w1 in
->     let (l,w3)     = case getListFromString input of
+>     let (_,w1)     = putStrLn "Enter a list of numbers"
+>         (input,w2) = getLine w1
+>         (l,w3)     = case getListFromString input of
 >                       Just l   -> (l,w2)
 >                       Nothing  -> askUser w2
 >     in
@@ -109,7 +136,7 @@ Fortunately, some have found a better way to handle this problem.
 We see a pattern. Each line is of the form:
 
 ~~~
-let (y,w') = f x w in
+let (y,w') = action x w in
 ~~~
 
 Even if for some line the first `x` argument isn't needed.
@@ -124,11 +151,13 @@ Not only this, but we can also remark we use them always
 with the following general pattern:
 
 ~~~
-let (y,w0) = f x w in
-let (z,w1) = g y w0 in
+let (y,w1) = action1 x w0 in
+let (z,w2) = action2 y w1 in
+...
 ~~~
 
-We can `bind` the two lines, here is how. Let's define the bind function.
+Now, we will make a magic trick. We will make the world variable "disappear".
+We will `bind` the two lines. Let's define the `bind` function.
 
 ~~~
 bind :: (World -> (a,World)) 
@@ -136,12 +165,71 @@ bind :: (World -> (a,World))
         -> (World -> (b,World)) 
 ~~~
 
-The type is quite intimidating. But stay with me here:
+(World -> (a,World)) is the type for an IO action. Like getLine, printing something, etc... Now let's rename it for more clarity.
+
+~~~
+type IO a = World -> (a, World)
+~~~
+
+Some example of functions:
+
+~~~
+getLine :: IO String
+print :: Show a => a -> IO ()
+~~~
+
+getLine is an IO action which take a world as parameter, then return a couple (String,World).
+Which can be said as: getLine is of type IO String.
+Which we also see as, an IO action which will return a String "embeded inside an IO".
+
+The function print is also interresting.
+It takes on argument which can be shown.
+In fact it takes two arguments.
+The first is the value to print and the other is the state of world.
+It then return a couple ((),World). 
+This means it changes the world state, but don't give anymore data.
+
+
+We simplify the bind type:
+
+~~~
+bind :: IO a 
+        -> (b -> IO b) 
+        -> IO b
+~~~
+
+The function bind take two actions.
+
+The type is quite intimidating. But stay with me here.
+On a line like 
+
+~~~
+let (x,w1) = action1 w0 in
+let (y,w2) = action2 x w1 in
+(y,w2)
+~~~
+
+on the first line, action1 is of type
+
+(World -> (a,World))
+
+On the second line, action2 is of type
+
+(a -> (World -> (b,World))
+
 
 bind ::
     take a function similar to all lines as first argument with return a (a,World)
     take a function with take an a as argument and returns a line wich return a (b,World)
     return a line wich returns a (b,World).
+
+~~~
+(bind action1 action2) w0 =
+    let (x, w1) = action1 w0
+        (y, w2) = action2 x w1
+    in  (y, w2)
+~~~
+
 
 The idea is to hide the World argument with this function. Let's go:
 As example imagine if we wanted to simulate:
