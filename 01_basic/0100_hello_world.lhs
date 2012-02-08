@@ -1,4 +1,4 @@
-# Some examples
+## Basic examples
 
 Let's start with the obligatory "Hello World".
 

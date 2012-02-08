@@ -1,3 +1,4 @@
+Just the next step.
 Let's write a program that ask your name and display "Hello 'your name'!".
 
 > main = do
