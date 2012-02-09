@@ -1,0 +1,3 @@
+./create_ymd.sh > ~/Sites/webroot/latest.ymd 
+cd ~/Sites/webroot
+./tasks/recompile

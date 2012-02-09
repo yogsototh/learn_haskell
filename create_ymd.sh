@@ -24,4 +24,7 @@ enddiv
 
 END
 
-cat **/*.lhs | perl -pe 'BEGIN{$/="";} s#((^>.*\n)+)#<code class="haskell">\n$1</code>\n#mg' | perl -pe 's#^> ?##'
+for fic in **/*.lhs; do
+    echo "\n<hr/><div class=\"cut\" style=\"color: #AAA; width: 100%; font-size: 12px; text-align: center; \">${fic:h}/<strong>${fic:t}</strong></div>\n"
+    cat $fic
+done | perl -pe 'BEGIN{$/="";} s#((^>.*\n)+)#<div class="codehighlight">\n<code class="haskell">\n$1</code>\n</div>#mg' | perl -pe 's#^> ?##'

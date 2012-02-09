@@ -1,3 +1,5 @@
+begindiv(intro)
+
 I will try to learn you the basics of Haskell,
 and particularly to break the wall which blocked me the longest.
 
@@ -15,3 +17,5 @@ The things start to be very difficult when arriving on how to use type nicely.
 What are these barbarian things. Monads? Functor? Applicative? Category? argh... So much Math. But why?
 
 First the concept of monad is hard to grasp. But examples of monad usages are _very easy_ to understand and use.
+
+enddiv

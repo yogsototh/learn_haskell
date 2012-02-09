@@ -6,7 +6,7 @@ Let's write a program that ask your name and display "Hello 'your name'!".
 >     name <- getLine
 >     print ("Hello " ++ name ++ "!")
 
-First, let us compare with a similar program in Python and Ruby: 
+First, let us compare with a similar program in other imperative languages:
 
 <code class="python">
 # Python
@@ -22,15 +22,28 @@ name = gets.chomp
 puts "Hello #{name}!"
 </code>
 
-The structure is the same, but there are some syntax differences:
+<code class="c">
+// In C
+#include <stdio.h>
+int main (int argc, char **argv) {
+    char name[666]; // <- An Evil Number!
+    // What if my name is more than 665 character long?
+    printf("What is your name?\n"); 
+    scanf("%s", name);
+    printf("Hello %s!\n", name);
+    return 0;
+}
+</code>
 
-- The `main` function. Haskell isn't an imperative scripting language. All your program execution is in fact simply the evaluation of the `main` function. 
-- A `do` keyword, that wasn't needed for the "Hello World!" example.
-- The use of "<-" instead of "=".
+The structure is the same, but there are some syntax differences.
+A major part of this tutorial would be to explain why?
 
-Haskell makes it clear in which part of your program
-there will be side effect (like writting on the screen, read input, launch the missile) and which part remains pure (no side effect, only computing).
-
-If we look at the type of main it is `IO ()`.
-It is a way to say, main can cause side effects.
-`IO` is a ... . No, I won't say it now. If I say it, I'm afraid you will run away crying. For now, I won't talk about what really is `IO`.
+In Haskell, there is a `main` function.
+In Haskell every object has a type.
+The type of `main` is `IO ()`.
+This means, `main` will cause side effects.
+`IO` is a ... . 
+Wait! No! I won't say it now!
+I am afraid to terrify you.
+You might run away crying.
+For now, I won't talk about what `IO` really is.
