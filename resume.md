@@ -13,6 +13,72 @@ For pure functional style, LYAH make an excellent work to learn it to you.
 - create its own complex type
 - move into you data structures
 
+## The walls
+
+### Functional programming is declarative not imperative.
+
+Imperative programs read mostly like a story with an action:
+
+> The program start.
+>   Go to the kitchen.
+>   Open the water fall.
+>   Close the water fall.
+>   Get back to the main room.
+
+Object imperative programs read like Imperative programs but with characters:
+
+> The application initialize.
+>   Bobby tell Scotty to make some tea.
+> 
+>   When is asked to make some to by "Somebody"
+>       Scotty go to the kitchen.
+>       He opens the water fall.
+>       He closes the water fall.
+>       He go back to "Somebody".
+
+Remark: Scotty forgot to take a tea pot. A bug will ensue.
+
+Functional programs reads like a huge description.
+
+> My program is some "hot tea"
+> a "hot tea" is a 
+>       "tea pot" containing a "tea packet" and "hot water"
+>       "a tea" packet is a "packet" inside the kitchen
+>       ...
+
+This is a very different style.
+The execution of a functional program is just:
+
+    give me my program. 
+        -> I need to get some "hot tea"
+            -> I need to get a "tea pot" and some "hot water"
+                ...
+
+Also there isn't really "actor". Therefore, you can easily say:
+Hey, the two of you, make me my program.
+And some will get the tea pot, while the other will get the hot water in parallel.
+
+It is also possible in imperative programming, but, it is far easier in imperative programming that actor will percute.
+
+Imperative programming:
+It is like having one slave which will obey your order one after one. If you need another slave, you'll have to tell each slave a lot of detail to be sure they won't use the same resource at the same time.
+
+Imperative style => Story. You are a chief who give order.
+Functional style => Description. You are a demiurge who describe his world.
+
+- Imperative style, easier to make war and destroy cathedrals.
+- Functional style, easier to construct cathedrals.
+
+### Forget everything
+
+- No variable!
+- No loop!
+- A lot of recursion!
+- Can be extremely terse and difficult to read.
+- Close to mathematic notations.
+
+If you think you can handle it.
+Just stay a bit more up until Hardcore parts.
 
 # Second Head: Monadic style
 
