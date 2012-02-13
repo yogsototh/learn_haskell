@@ -10,21 +10,22 @@ f :: a -> b -> c    <= Means f is a function from a to (b -> c)  - Yes Curry -
 f :: Num a => a -> a <= Means f is a function from a to a
                         With the constraint
                         a must be in the typeclass Num
+                        more on typeclass later.
 ~~~
 
 ### Basic examples
 
 > square :: Num a => a -> a  -- defining the type isn't mandatory
->                            -- Haskell find the most general type for you.
->                            -- But it is considered a good practice.
+>               -- Haskell infers the most general type for you.
+>               -- But it is considered a good practice to do so.
 > square x = x^2
 
 We can remove `x` in the left and right side!
 
 > square = (^2)      
 
-A test. The absolute function.
-
+Also you can test values. 
+For example an implementation of the absolute function.
 
 > abs x :: Num a => a -> a
 > abs = if x >= 0 then x else -x
@@ -33,12 +34,10 @@ Another notation
 
 > abs x
 >     | x >= 0 = x
->     | otherwise
+>     | otherwise = -x
 
-### Recursivity
 
-Haskell don't have for loop, it has `map`, `filter`, `foldl` and `foldr`.
-Note, 98% of the time you don't want to use `foldl` but `foldl'` in `Data.List` instead.
+<h3>Recursion</h3>
 
 Let's tackle the following problem.
 
@@ -51,15 +50,39 @@ We will use the following functions:
 > head :: [a] -> a
 > tail :: [a] -> [a]
 
+Even verify if a number is even.
+
 ~~~
+even :: Integral a => a -> Bool
 even 3       => False
 even 2       => True
+~~~
+
+Head gives the head of a list.
+
+~~~
+head :: [a] -> a
 head [1,2,3] => 1
 head []      => ERROR
+~~~
+
+Tail, returns (surprise!) the tail of a list
+
+~~~
+tail :: [a] -> [a]
 tail [1,2,3] => [2,3]
+tail [3]     => []
+tail []      => ERROR
+~~~
+
+Remark that:
+
+~~~
 l = [1,2,3]
 l == (head l):(tail l)
 ~~~
+
+Get the sum of all even numbers in a list:
 
 > -- Version 1
 > evenSum :: [Integer] -> Integer
@@ -121,17 +144,17 @@ We can replace
 >  foo l =  let x  = head l 
 >               xs = tail l
 >           in if even x 
->               then foo xs (n+x)
->               else foo xs n
+>               then foo (n+x) xs
+>               else foo n xs
 
 by
 
 >  foo (x:xs) = if even x 
->                   then foo xs (n+x)
->                   else foo xs n
+>                   then foo (n+x) xs
+>                   else foo n xs
 
 This is a very useful feature.
-It makes our code both tersier and easier to read.
+It makes our code both terse and easier to read.
 
 We also can currify a bit our definition
 
@@ -146,11 +169,11 @@ We also can currify a bit our definition
 >                 then accumSum (n+x) xs
 >                 else accumSum n xs
 
-### High level functions
+<h3> Higher Level Functions </h3>
 
-To make things even better we should use high level functions.
+To make things even better we should use higher level functions.
 What are these beast?
-High level functions are functions taking functions as parameters.
+Higher level functions are functions taking another functions as parameters.
 
 Here are some examples:
 
@@ -167,14 +190,14 @@ Let's proceed by small steps.
 >       mysum n [] = n
 >       mysum n (x:xs) = mysum xs (n+x) 
 
-Now you can use the `fold'` to accumlate a value.
+Now you can use the `foldl'` to accumulate a value.
 
 > -- Version 6
 > import Data.List
 > evenSum l = foldl' mysum 0 (filter even l)
 >   where mysum acc value = acc + value
 
-For each element of the list, foldl' will add it to the next.
+For each element of the list, `foldl'` will add it to the next.
 And finally add 0.
 
 ~~~
@@ -193,7 +216,7 @@ evenSum [1,2,3,4]
 Beware! 95% of the time you want to use `foldl'` and not `foldl`.
 More on that later.
 
-This is nice, but as mysum is a very simple function, giving it a name is a burden.
+This is nice, but as `mysum` is a very simple function, giving it a name is a burden.
 We can use anonymous functions or lambdas.
 
 > -- Version 7
@@ -214,8 +237,11 @@ Finaly
 > evenSum :: Integral a => [a] -> a
 > evenSum l = foldl' (+) 0 (filter even l)
 
-foldl isn't the easiest function to intuit.
-There is another higher order function I'd like to introduce: `(.)`.
+`foldl'` isn't the easiest function to intuit.
+If you are not used to it, you should exercise a bit.
+Also note `foldl` is even more evil than `foldl'`.
+
+I would like to introduce another higher order function: `(.)`.
 The `(.)` function correspond to the mathematical composition.
 
 > (f . g . h) x ⇔  f ( g (h x))
@@ -234,87 +260,23 @@ Also, there already exists a `sum` function.
 > evenSum :: Integral a => [a] -> a
 > evenSum = sum . (filter even)
 
-Why is this last for superior to the first one?
+Why is this last definition of evenSum superior to the first one?
 Imagine I want not only to make the sum of even numbers of a list.
 But now, I want to get the sum of all even square of element of the list.
 
+~~~
 [1,2,3,4] ~> [1,4,9,16] ~> [4,16] ~> 20
+~~~
 
-To modify Version 10:
+Update version 10 is extremely easy:
 
 > squareEvenSum = sum . (filter even) . (map (^2))
 
-I simply, add another "transformation function".
+Simply add another "transformation function".
+
+~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
+~~~
 
-Modify version 1 is left as an exercise to the reader.
-
-# Types
-
-Haskell has static strong types.
-
-Every value as a type and the type is know at compile time.
-Static typing is generally essential to reach fast execution time.
-But in common languages static typing has the price of bad generalization.
-
-
-<code class="c">
-// in C
-int     int_square(int x) { return x*x; }
-float   fl_square(float x) {return x*x; }
-complex complex_square (complex z) {
-    complex tmp; 
-    tmp.real = z.real * z.real - z.img * z.img;
-    tmp.img = 2 * z.img * z.real;
-}
-</code>
-
-To compensate a bit, C++ has templates:
-
-<code class="c++">
-class Number<T> {
-    T value;
-    square() {
-        value = value*value;
-    }
-}
-
-Number<int> i;
-i.square;
-
-Number<float> f;
-f.square;
-
-class Complex {
-    int real;
-    int img;
-    Complex operator<*>(Complex z) {
-        Complex result;
-        result.real = real*z.real - img*z.img;
-        result.img  = img*z.real + real*z.img;
-        return res;
-    }
-}
-
-Number<Complex> z;
-z.square
-</code>
-
-In Haskell
-
-<code class="haskell">
-square x = x * x
-
-square 2
-4
-square 2.1
-4.41
-
-:m Data.Complex
-(2 :+ 1) * (2 :+ 1) 
-3.0 :+ 4.0
-</code>
-
-`x :+ y` is the notation for the complex (<i>x + ib</i>).
-As with `C++`, the code for the multiplication is made inside the module `Data.Complex`.
+To modify version 1 is left as an exercise to the reader.
 

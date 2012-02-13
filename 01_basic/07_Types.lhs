@@ -1,4 +1,4 @@
-# Types
+## Types
 
 Types are in the heart of Haskell.
 In Haskell, types are strong and static.
@@ -14,20 +14,10 @@ in other statically typed langauges:
 
 
 > square x = x * x
-> 
-> square 2
-> 4
-> square 2.1
-> 4.41
-> 
-> :m Data.Complex
-> (2 :+ 1) * (2 :+ 1) 
-> 3.0 :+ 4.0
 
-`x :+ y` is the notation for the complex (<i>x + ib</i>).
+Now compare to the code necessary in C:
 
 <code class="c">
-// in C
 int     int_square(int x) { return x*x; }
 float   fl_square(float x) {return x*x; }
 complex complex_square (complex z) {
@@ -37,7 +27,7 @@ complex complex_square (complex z) {
 }
 </code>
 
-To compensate a bit, C++ has templates:
+And in C++. To compensate a bit, C++ has templates:
 
 <code class="c++">
 class Number<T> {
@@ -70,4 +60,21 @@ z.square
 
 I have given the `C++` implementation of the (C++) class Complex.
 
+> square 2
+> 4
+> square 2.1
+> 4.41
+> :m Data.Complex
+> (2 :+ 1) * (2 :+ 1) 
+> 3.0 :+ 4.0
+
+`x :+ y` is the notation for the complex (<i>x + ib</i>).
+To be fair, there is also a definition of the multiplication of Complex in Haskell.
+But it takes only one line.
+Somewhere in the source of `Data.Complex`:
+
+> instance Num (Complex a) where
+>   ...
+>   (x:+y) * (x':+y')   =  (x*x'-y*y') :+ (x*y'+y*x')
+>   ...
 
