@@ -1,12 +1,24 @@
 # Basics
 
+## Install
+
+- [Haskell Platform] is the standard way to install Haskell.
+
+Tools:
+
+- `ghc`: Compiler similar to gcc
+- `ghci`: Interactive Haskell
+- `runghc`: Run a program without compiling it. Convenient but very slow compared to compiled program.
+
 ## Notations
+
+<h5>Arithmetic</h5>
 
 ~~~
 3 + 2 * 6 / 3 <=> 3 + ((2*6)/3)
 ~~~
 
-Logic notation
+<h5>Logic</h5>
 
 ~~~
 True || False => True
@@ -15,7 +27,7 @@ True == False => False
 True /= False => True  (/=) is the operator for different
 ~~~
 
-Powers
+<h5>Powers</h5>
 
 ~~~
 x^n     for n an integral
@@ -40,22 +52,23 @@ Data.Ratio> (11%15) * (5%3)
 11 % 9
 ~~~
 
-Lists
+<h5>Lists</h5>
 
 ~~~
 []                      => empty list
 [1,2,3]                 => List of integral
-["foo","bar","baz"]     => List of string
+["foo","bar","baz"]     => List of String
 1:[2,3]                 => [1,2,3], (:) prepend one element
-[1,2,3] ++ [4]          => [1,2,3,4], (++) concatenate two lists
-[1,2,3] ++ ["foo"]      => ERROR String /= Integral
-[1..10]                 => [1,2,3,4,5,6,7,8,9,10]
+1:2:[]                  => [1,2]
+[1,2] ++ [3,4]          => [1,2,3,4], (++) concatenate
+[1,2,3] ++ ["foo"]      => ERROR String ≠ Integral
+[1..4]                  => [1,2,3,4]
 [1,3..10]               => [1,3,5,7,9]
 [2,3,5,7,11..100]       => ERROR! I am not so smart!
 [10,9..1]               => [10,9,8,7,6,5,4,3,2,1]
 ~~~
 
-Strings. 
+<h5>Strings</h5>
 
 In Haskell strings are list of `Char`.
 
@@ -70,7 +83,7 @@ In Haskell strings are list of `Char`.
 In real code you shouldn't use list of char to represent text.
 You should mostly use `Data.Text` instead.
 
-Tuples
+<h5>Tuples</h5>
 
 The type of couple is `(a,b)`. 
 Elements in a tuple can have different type.
