@@ -3,32 +3,45 @@
 Every Haskell object has a type.
 
 ~~~
-x :: Int            <= Means x is of type Int
-f :: Int -> Int     <= Means f is a function from Int to Int
-f :: a -> a         <= Means f is a function to any type a to the same type a
-f :: a -> b -> c    <= Means f is a function from a to (b -> c)  - Yes Curry -
-f :: Num a => a -> a <= Means f is a function from a to a
-                        With the constraint
-                        a must be in the typeclass Num
-                        more on typeclass later.
+x :: Int            ⇔ x is of type Int
+x :: a              ⇔ x can be of any type
+x :: Num a => a     ⇔ x can be any type a
+                      such that a belongs to Num class 
+f :: a -> b         ⇔ f is a function from a to b
+f :: a -> b -> c    ⇔ f is a function from a to (b→c)
+f :: (a -> b) -> c  ⇔ f is a function from (a→b) to c
 ~~~
 
 ### Basic examples
 
-> square :: Num a => a -> a  -- defining the type isn't mandatory
->               -- Haskell infers the most general type for you.
->               -- But it is considered a good practice to do so.
+Defining the type of a function before its declaration isn't mandatory.
+Haskell infers the most general type for you.
+But it is considered a good practice to do so.
+
+> square :: Num a => a -> a  
 > square x = x^2
 
-We can remove `x` in the left and right side!
+Note `^` use infix notation. 
+For each infix operator there its associated prefix notation.
+You just have to put it inside parathesis.
 
-> square = (^2)      
+> square x = (^) x 2
+> 
+> square x = (^2) x
+
+We can remove `x` in the left and right side!
+It's called currying.
+
+> square = (^2)
 
 Also you can test values. 
 For example an implementation of the absolute function.
 
 > abs x :: Num a => a -> a
 > abs = if x >= 0 then x else -x
+
+Note: the `if .. then .. else` Haskell notation is more like the
+`¤?¤:¤` C operator. You cannot forget the `else`.
 
 Another notation
 
@@ -37,20 +50,24 @@ Another notation
 >     | otherwise = -x
 
 
-<h3>Recursion</h3>
+
+<h3>Functional style</h3>
 
 Let's tackle the following problem.
 
-Given a list of integer, return the sum of even numbers.
-Beware, the implementation will go from very naive to better and better.
+ > Given a list of integer, return the sum of even numbers.
+ > Beware, the implementation will go from very naive to better and better.
 
-We will use the following functions:
+The first thing you should note, is there isn't any `for` or `while` loop.
+Don't worry, you can use _recursion_.
+
+To answer this problem, we will use the following functions:
 
 > even :: Integral a => a -> Bool
 > head :: [a] -> a
 > tail :: [a] -> [a]
 
-Even verify if a number is even.
+`even` verify if a number is even.
 
 ~~~
 even :: Integral a => a -> Bool
@@ -58,7 +75,7 @@ even 3       => False
 even 2       => True
 ~~~
 
-Head gives the head of a list.
+`head` gives the head of a list.
 
 ~~~
 head :: [a] -> a
@@ -66,7 +83,7 @@ head [1,2,3] => 1
 head []      => ERROR
 ~~~
 
-Tail, returns (surprise!) the tail of a list
+`tail`, returns (surprise!) the tail of a list
 
 ~~~
 tail :: [a] -> [a]
@@ -97,12 +114,35 @@ Get the sum of all even numbers in a list:
 >                               then accumSum (n+x) xs
 >                               else accumSum n xs
 
-Many things can be improved.
+Here is an example of execution[^2]: 
+
+[^2]: I know I cheat. But I will talk about non-strict later.
+
+~~~
+*Main> evenSum [1..5]
+accumSum 0 [1,2,3,4,5]
+1 is odd 
+accumSum 0 [2,3,4,5]
+2 is even
+accumSum 2 [3,4,5]
+3 is odd 
+accumSum 2 [4,5]
+4 is even
+accumSum 6 [5]
+5 is odd 
+accumSum 6 []
+l == []
+6
+~~~
+
+Comming from an imperative language all should seems right.
+In reality many things can be improved.
 First, we can generalize the type.
 
 > evenSum :: Integral a => [a] -> a
 
 Next, we can use sub functions using `where` or `let`.
+This way our `accumSum` function won't polute the global name space.
 
 > -- Version 2
 > evenSum :: Integral a => [a] -> a
@@ -117,7 +157,7 @@ Next, we can use sub functions using `where` or `let`.
 >                             then accumSum (n+x) xs
 >                             else accumSum n xs
 
-After you can use pattern matching.
+Next, we can use pattern matching.
 
 > -- Version 3
 > evenSum l = accumSum 0 l
@@ -190,6 +230,8 @@ Let's proceed by small steps.
 >       mysum n [] = n
 >       mysum n (x:xs) = mysum xs (n+x) 
 
+> filter even [1..10] ⇔  [2,4,6,8,10]
+
 Now you can use the `foldl'` to accumulate a value.
 
 > -- Version 6
@@ -199,6 +241,19 @@ Now you can use the `foldl'` to accumulate a value.
 
 For each element of the list, `foldl'` will add it to the next.
 And finally add 0.
+
+If you really want to know how the magic works.
+Here is the definition of `foldl`.
+
+> foldl f z [] = z
+> foldl f z (x:xs) = foldl f (f z x) xs
+
+But as Haskell is lazy, it doesn't evaluate `(f z x)` and push this in the stack.
+`foldl'` is a strict version of `foldl`.
+If you don't understand what "lazy" and "strict" means,
+don't worry, just follow the code as if `fold` and `foldl'` where identical.
+
+Here is what occurs:
 
 ~~~
 evenSum [1,2,3,4]
@@ -213,8 +268,8 @@ evenSum [1,2,3,4]
 ⇒ 6
 ~~~
 
-Beware! 95% of the time you want to use `foldl'` and not `foldl`.
-More on that later.
+Beware! 
+Most of the time you want to use `foldl'` and not `foldl`.
 
 This is nice, but as `mysum` is a very simple function, giving it a name is a burden.
 We can use anonymous functions or lambdas.
@@ -239,7 +294,6 @@ Finaly
 
 `foldl'` isn't the easiest function to intuit.
 If you are not used to it, you should exercise a bit.
-Also note `foldl` is even more evil than `foldl'`.
 
 I would like to introduce another higher order function: `(.)`.
 The `(.)` function correspond to the mathematical composition.
@@ -272,11 +326,10 @@ Update version 10 is extremely easy:
 
 > squareEvenSum = sum . (filter even) . (map (^2))
 
-Simply add another "transformation function".
+We simply had to add another "transformation function".
 
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
 ~~~
 
 To modify version 1 is left as an exercise to the reader.
-
