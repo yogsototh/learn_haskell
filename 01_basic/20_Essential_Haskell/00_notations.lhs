@@ -1,6 +1,6 @@
-# Basics
+## Essential Haskell
 
-## Install
+### Install
 
 - [Haskell Platform] is the standard way to install Haskell.
 
@@ -10,7 +10,7 @@ Tools:
 - `ghci`: Interactive Haskell
 - `runghc`: Run a program without compiling it. Convenient but very slow compared to compiled program.
 
-## Notations
+### Notations
 
 <h5>Arithmetic</h5>
 

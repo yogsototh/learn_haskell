@@ -53,10 +53,12 @@ Another notation
 
 <h3>Functional style</h3>
 
-Let's tackle the following problem.
+In this section, we will see how you should code in functional style.
+We will refactor the code to make it hopefully better and better.
 
- > Given a list of integer, return the sum of even numbers.
- > Beware, the implementation will go from very naive to better and better.
+Let's tackle the following problem:
+
+ > Given a list of integer, return the sum of its even numbers.
 
 The first thing you should note, is there isn't any `for` or `while` loop.
 Don't worry, you can use _recursion_.
@@ -71,25 +73,25 @@ To answer this problem, we will use the following functions:
 
 ~~~
 even :: Integral a => a -> Bool
-even 3       => False
-even 2       => True
+even 3  ⇒ False
+even 2  ⇒ True
 ~~~
 
 `head` gives the head of a list.
 
 ~~~
 head :: [a] -> a
-head [1,2,3] => 1
-head []      => ERROR
+head [1,2,3] ⇒ 1
+head []      ⇒ ERROR
 ~~~
 
 `tail`, returns (surprise!) the tail of a list
 
 ~~~
 tail :: [a] -> [a]
-tail [1,2,3] => [2,3]
-tail [3]     => []
-tail []      => ERROR
+tail [1,2,3] ⇒ [2,3]
+tail [3]     ⇒ []
+tail []      ⇒ ERROR
 ~~~
 
 Remark that:
@@ -99,7 +101,8 @@ l = [1,2,3]
 l == (head l):(tail l)
 ~~~
 
-Get the sum of all even numbers in a list:
+Here is a first solution.
+The function `evenSum` returns the sum of all even numbers in a list:
 
 > -- Version 1
 > evenSum :: [Integer] -> Integer
@@ -196,7 +199,7 @@ by
 This is a very useful feature.
 It makes our code both terse and easier to read.
 
-We also can currify a bit our definition
+We also can currify a bit our definition by removing the `l`:
 
 > -- Version 4
 > evenSum :: Integral a => [a] -> a
