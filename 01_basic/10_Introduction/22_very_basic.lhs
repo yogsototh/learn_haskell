@@ -12,18 +12,18 @@ For example, in `C`, you'll have to declare a function for int, for float, for l
 But, what type should we declare?
 To discover the type Haskell as found for us, just launch ghci:
 
-~~~
+<pre>
 % ghci
-GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+<span style="color: #999;">GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
-Prelude> :load very_basic_3.lhs 
-[1 of 1] Compiling Main             ( very_basic_3.lhs, interpreted )
+Prelude&gt;</span> :load 22_very_basic.lhs<span style="color: #999;">  
+[1 of 1] Compiling Main    ( 22_very_basic.lhs, interpreted )
 Ok, modules loaded: Main.
-*Main> :type f
+*Main&gt;</span> :type f
 f :: Num a => a -> a -> a
-~~~
+</pre>
 
 Hey? What is this strange type?
 
@@ -31,49 +31,55 @@ Hey? What is this strange type?
 Num a => a -> a -> a
 ~~~
 
-First what is the `a` symbol? It is a type variable.
-You can replace `a` by Int, or Integer of Float.
-And the function will work.
+First, `a` is a type variable. 
+It means, that the first and the second argument will have the same type.
+And furthermore, the result will also be of the same type.
+The type variable `a` could take many different type value.
+For example `Int`, `Integer`, `Float`...
 
-Generally `a` can be any type. 
-For example a String, an Int, but also more complex types, like Trees, functions, etc...
+So instead of having a forced type like in `C` with declaring the function for `int`, `long`, `float`, `double`, etc... 
+We declare only one function like in a dynamic typed language.
+
+Generally, without the type class constraint, `a` can be any type. 
+For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
 But here with have a `Num a => `. 
 
-Num is a type class.
+`Num` is a typeclass.
 It contains only type which behave like numbers.
-In fact, Num is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
+In fact, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
 
-Typeclass is a very efficient language construction. We can do some incredibly powerful construction with this. More on this later.
+Typeclass is a very efficient language construction.
+We can do some incredibly powerful construction with this.
+More on this later.
 
-Then, `Num a => a -> a -> a` means:
+Finally, `Num a => a -> a -> a` means:
 
-Let `a` be a type belonging to the Num typeclass.
+Let `a` be a type belonging to the `Num` typeclass.
 This is a function from type `a` to (`a -> a`).
 
 Yes, strange, in Haskell no function have two argument.
 Instead all function have only one argument.
 
-In fact when evaluating: `f 3 4`. All occurs as
+In fact `f 3 4` is equivalent to `(f 3) 4`. 
+Note `f 3` is a function:
 
 ~~~
+f :: Num a :: a -> a -> a
+
 g :: Num a :: a -> a
 g = f 3
 
-result = g 4
+g y ⇔ 3*3 + y*y
 ~~~
 
-where `g` is the function.
-
-~~~
-g y = 3*3 + y*y
-~~~
-
-In fact there is also another way to anotate function using the lambda notation. A lambda notation is a way to create function without giving them a name.
+Another notation exists for function. 
+The lambda notation permit us to create function without assigning them a name.
+We call them anonymous function.
 We could have written:
 
 ~~~
 g = \y -> 3*3 + y*y
 ~~~
 
-Ok, now, if you are not used to functional programming your brain should start to heat up.
+If you are not used to functional programming your brain should start to heat up.
 It is time to make some real application.

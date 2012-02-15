@@ -94,34 +94,6 @@ f :: Int -> Int -> Int
 f x y = x*x + y*y
 </code>
 
-Not bad, but what should we do if we want to add Float instead? 
-Or some strange type like complex?
-
-Don't worry, here is the solution:
-
-<code class="haskell">
-f :: Num a => a -> a -> a
-f x y = x*x + y*y
-</code>
-
-First, `a` is a type variable. 
-It means, that the first and the second argument will have the same type.
-And furthermore, the result will also be of the same type.
-
-So instead of having a forced type like in `C` with declaring the function for int, for long, for float, for double, etc... 
-We declare only one function.
-But remember our type is statically typed! Great.
-It feels like dynamic typed language, and for this, this is good.
-
-But what is this `Num a => ` part about?
-
-`Num` is a typeclass.
-Which means we are authorized to use any type which belongs to the class Num.
-If a type declare himself to be a num, he must provide a definition for some functions. 
-And for this example, the Num class ensure there will exists a `+` and a `*` for our type.
-
-In very few lines I had given _a lot_ of informations.
-
 Let's play a little.
 
 > f :: Int -> Int -> Int

@@ -22,13 +22,12 @@ At first I wanted write the list of explanation to break the wall I hitted when 
 All these useful informations are explained in the second part.
 But I realized, a very short introduction should be given.
 As my goal is to make you jump as fast as possible to the second part, I only give the essential.
-I will try the best as I can to remove as much stuff as possible to make it the fastest way possible to go from "I don't know Haskell" to "I can read the part 2".
+I will try the best as I can to remove as much stuff as possible to make it the fastest way possible to go from "I don't know Haskell" to "I can read the last part".
 
-Learning Haskell is like fighting a two head monster.
+???
 
-To beat the first head, you have to love pure functional programming.
-To beat the second one, you have to understand how Haskell can simulate imperative style programming while remaining pure.
-
-Enough blablah. Let's dive into Haskell. Be prepared, only Hardcore learner would be able to go up to the end of this two part article! Best of luck!
+- First part: a fast dig inside some real Haskell example
+- Second part: learn Haskell like in school, just faster
+- Third part: Monads
 
 enddiv
