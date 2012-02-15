@@ -16,7 +16,7 @@ until the input is right.
 
 > askUser :: IO [Integer]
 > askUser = do
->   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
+>   putStrLn "Enter a list of numbers (separated by comma):"
 >   input <- getLine
 >   let maybeList = getListFromString input in
 >       case maybeList of

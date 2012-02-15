@@ -6,10 +6,10 @@ It looks a bit like magic.
 For now let's just forget about all the pure part of our program, and focus
 on the impure part:
 
->
+
 > askUser :: IO [Integer]
 > askUser = do
->   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
+>   putStrLn "Enter a list of numbers (separated by comma):"
 >   input <- getLine
 >   let maybeList = getListFromString input in
 >       case maybeList of
@@ -21,21 +21,20 @@ on the impure part:
 >   list <- askUser
 >   print $ sum list
 
-The first thing you should remark, is that the structure is very similar to the one of an imperative language.
+First noticiable thing: 
+the structure of these function is very similar to the one of an imperative language.
 The fact is, Haskell is powerful enough to recreate function to help code look like in an imperative language.
 For example, if you wish you could create a `while` in Haskell.
-In fact, for dealing with IO, imperative style is generally more appropriate.
+In fact, for dealing with `IO`, imperative style is generally more appropriate.
 
-But, you also see there are some slight differences.
+But, you also see there are some light differences.
 The notation is a bit strange.
 
-This is here that reside the beauty of how Haskell handle IO.
-
-Let's start.
+This is here that reside the beauty of how Haskell handle IOs.
 
 Imagine you want to write a pure language.
 But, a completely pure language will have few utility in real life.
-As it will have no effect. You couldn't print anything on a screen, read the user input, etc...
+Wihout effect, you couldn't print anything on a screen, read the user input, etc...
 
 You can imagine, in standard impure language, there is a hidden global variable.
 For example, you could write something in a file.
@@ -61,7 +60,8 @@ In reality, the real type is closer to
 main :: World -> ((),World)
 ~~~
 
-The () type is the null type. Nothing to see here.
+The `()` type is the null type.
+Nothing to see here.
 
 Now let's write our main function:
 
@@ -73,22 +73,25 @@ main w0 =
 ~~~
 
 Also remember, the order of evaluation is generally not fixed in Haskell.
-When calculating :
+For example in general to evaluate `f a b`, you have many choices: 
 
-`f a b` -> you should first eval `a` then `b` then `f a b`
-or eval `b` then `a` then `f a b`.
+- first eval `a` then `b` then `f a b`
+- first eval `b` then `a` then `f a b`.
+- eval `a` and `b` in parallel then `f a b`
+
 This is true, because we should work in a pure language.
 
 Now, if you look at the main function, it is clear you must eval the first
-line before the second one since, you to evaluate the second line you have
+line before the second one since, to evaluate the second line you have
 to get a parameter given by the evaluation of the first line.
 
-Such trick works nicely. The compiler will at each step provide a pointer
-to a new real world id.
-Under the hood, print will be evaluate by:
+Such trick works nicely.
+The compiler will at each step provide a pointer to a new real world id.
+Under the hood, `print` will evaluate as:
 
-if print -> print something on the screen, modify the id of the world, return
-((),new world id).
+- print something on the screen
+- modify the id of the world
+- evaluate as `((),new world id)`.
 
 Now, if you look at the style of the main function, it is clearly awkward.
 Let's try to make the same to the askUser function:
@@ -99,8 +102,7 @@ askUser :: World -> ([Integer],World)
 
 The type has changed as we will modify the "World" we simulate this by
 returning a world value different than the input "World" value.
-This way we remain completely "pure" in the language. 
-There is no hole of impurity.
+This way we remain "pure" in the language. 
 You could write a completely pure implementation and it will works.
 In the real world, the evaluation will have some side effect each time a function
 return another value of the world input.
@@ -109,7 +111,7 @@ Before:
 
 > askUser :: IO [Integer]
 > askUser = do
->   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
+>   putStrLn "Enter a list of numbers:"
 >   input <- getLine
 >   let maybeList = getListFromString input in
 >       case maybeList of
@@ -119,7 +121,7 @@ Before:
 After:
 
 > askUser w0 =
->     let (_,w1)     = putStrLn "Enter a list of numbers"
+>     let (_,w1)     = putStrLn "Enter a list of numbers:"
 >         (input,w2) = getLine w1
 >         (l,w3)     = case getListFromString input of
 >                       Just l   -> (l,w2)
@@ -133,7 +135,8 @@ you could remove most, it's still awkard.
 The lesson, is, naive IO implementation in Pure functional language is awkward!
 
 Fortunately, some have found a better way to handle this problem.
-We see a pattern. Each line is of the form:
+We see a pattern.
+Each line is of the form:
 
 ~~~
 let (y,w') = action x w in
@@ -178,17 +181,16 @@ getLine :: IO String
 print :: Show a => a -> IO ()
 ~~~
 
-getLine is an IO action which take a world as parameter, then return a couple (String,World).
-Which can be said as: getLine is of type IO String.
+`getLine` is an IO action which take a world as parameter, then return a couple (String,World).
+Which can be said as: `getLine` is of type IO String.
 Which we also see as, an IO action which will return a String "embeded inside an IO".
 
-The function print is also interresting.
+The function `print` is also interresting.
 It takes on argument which can be shown.
 In fact it takes two arguments.
 The first is the value to print and the other is the state of world.
-It then return a couple ((),World). 
+It then return a couple of type `((),World)`. 
 This means it changes the world state, but don't give anymore data.
-
 
 We simplify the bind type:
 
@@ -209,19 +211,15 @@ let (y,w2) = action2 x w1 in
 (y,w2)
 ~~~
 
-on the first line, action1 is of type
-
-(World -> (a,World))
-
-On the second line, action2 is of type
-
-(a -> (World -> (b,World))
+On the first line, action1 is of type `(World -> (a,World))`.
+On the second line, action2 is of type `(a -> (World -> (b,World))`.
 
 
-bind ::
-    take a function similar to all lines as first argument with return a (a,World)
-    take a function with take an a as argument and returns a line wich return a (b,World)
-    return a line wich returns a (b,World).
+`bind`:
+
+- take a function similar to all lines as first argument wich returns a `(a,World)`
+- take a function with take an `a` as argument and returns a line wich return a `(b,World)`
+- return a line wich returns a `(b,World)`.
 
 ~~~
 (bind action1 action2) w0 =
@@ -235,15 +233,15 @@ The idea is to hide the World argument with this function. Let's go:
 As example imagine if we wanted to simulate:
 
 ~~~
-    let (line1,w1) = getLine w0 in
-    let ((),w2) = print line1 in
-    ((),w2)
+let (line1,w1) = getLine w0 in
+let ((),w2) = print line1 in
+((),w2)
 ~~~
 
 Now, using the bind function:
 
 ~~~
-   (res,w2) = (bind getLine (\l -> print l)) w0
+(res,w2) = (bind getLine (\l -> print l)) w0
 ~~~
 
 As print is of type (World -> ((),World)), we know res = () (null type).
@@ -251,22 +249,23 @@ If you didn't saw what was magic here, let's try with three lines this time.
 
 
 ~~~
-    let (line1,w1) = getLine w0 in
-    let (line2,w2) = getLine w1 in
-    let ((),w3) = print (line1 ++ line2) in
-    ((),w3)
+let (line1,w1) = getLine w0 in
+let (line2,w2) = getLine w1 in
+let ((),w3) = print (line1 ++ line2) in
+((),w3)
 ~~~
 
 Which is equivalent to:
 
 ~~~
-    (res,w3) = bind getLine (\line1 ->
-                                bind getLine (\line2 -> print (line1 ++ line2)))
+(res,w3) = bind getLine (\line1 ->
+             bind getLine (\line2 -> 
+               print (line1 ++ line2)))
 ~~~
 
 Didn't you remark something?
 Yes, there isn't anymore temporary World variable used anywhere!
-This is Ma. Gic.
+This is _MA_. _GIC_.
 
 We can make thinks look better. Let's call bind (>>=) which is an infix function.
 Infix is like (+), 3 + 4 <=> "(+) 3 4"
@@ -281,10 +280,10 @@ Ho Ho Ho! Happy Christmas Everyone!
 Haskell has made a syntactical sugar for us:
 
 ~~~
-    do
-      y <- f x
-      z <- g y
-      t <- h y z
+do
+  y <- f x
+  z <- g y
+  t <- h y z
 ~~~
 
 Is replaced by:

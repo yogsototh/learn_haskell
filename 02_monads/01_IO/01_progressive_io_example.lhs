@@ -1,11 +1,16 @@
-To learn Haskell, let's start directly.
+<h2> Deal With IO </h2>
 
-1. The problem, ask a user to enter a list of numbers.
-   Return the sum of the numbers
+Start by resolving a simple example wich deal with user interaction.
 
+ > Ask a user to enter a list of numbers.
+ > Return the sum of the numbers
+
+> toList :: String -> [Integer]
+> toList input = read ("[" ++ input ++ "]")
+>
 > main = do
->   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
+>   putStrLn "Enter a list of numbers (separated by comma):"
 >   input <- getLine
->   print (sum (read ("[" ++ input ++ "]") :: [Integer]))
+>   print $ sum (toList input)
 
-Very straightforward.
+It should be straightforward.

@@ -2,13 +2,13 @@ But what occurs if the user enter something strange?
 Let's try:
 
 ~~~
-% runghc progressive_haskell.lhs
-Enter a list of numbers separated with ',' (1,2,3 for example):
+% runghc 02_progressive_io_example.lhs
+Enter a list of numbers (separated by comma):
 foo
-progressive_haskell.lhs: Prelude.read: no parse
+Prelude.read: no parse
 ~~~
 
-Argh, an evil error message. 
+Argh, an evil error message and a crash! 
 Now we just want to put our own, more Human readable message.
 
 For this, we must detect, something went wrong.
@@ -25,9 +25,9 @@ Use the type `Maybe`. It is a very common type in Haskell.
 What is this thing? Maybe is a type which takes one parameter.
 Its definition is:
 
-~~~
+<code class="haskell">
 data Maybe a = Nothing | Just a
-~~~
+</code>
 
 This is a nice way to tell there was an error while trying to create/compute
 a value.
@@ -47,25 +47,21 @@ Now to be a bit more readable, we define a function which goes like this:
 If the string has the wrong format, it will return `Nothing`.
 Otherwise, for example for "1,2,3", it will return `Just [1,2,3]`.
 
-This time I didn't use a forced cast, instead I made the type of the function
-`getListFromString` explicit. Now the compiler know maybeRead should return
-a value of type "Maybe [Integer]".
-
-Now in our main function, we just have to test the value.
+We simply test the value in our main function.
 
 > main = IO ()
 > main = do
->   putStrLn "Enter a list of numbers separated with ',' (1,2,3 for example):"
+>   putStrLn "Enter a list of numbers (separated by comma):"
 >   input <- getLine
 >   let maybeList = getListFromString input in
 >       case maybeList of
 >           Just l  -> print (sum l)
->           Nothing -> error "Please enter numbers correctly, I must shut down"
+>           Nothing -> error "Bad format. Good Bye."
 
-Now you see our nice error message in case of error.
+In case of error, we prompt a nice error message.
 
 One very important thing to note is the type of all the function used.
-There is only one function which contains `IO` ; `main`. 
+There is only one function which contains `IO` in its type: `main`. 
 That means, all other functions are pure.
 
 Why purity matters? As a pure function has no side effect, you can for example
