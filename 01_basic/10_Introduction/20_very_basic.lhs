@@ -11,15 +11,18 @@ But you will discover a lot of new concepts!
 _Smart Static Typing_
 
 Instead of being in your way like in `C`, `C++` or `Java`.
-The typing is here to help you.
-It is never in your way.
+The type system is here to help you.
 
 _Purity_
 
 Generally your function won't modify anything of the outside world.
 This means, it can't modify the value of a variable, can't get user input, can't write on the screen, can't launch a missile.
 On the other hand, parallelism will be very easy to achieve.
-The fact is Haskell make it clear where effects occurs and where you are pure.
+Haskell makes it clear where effects occurs and where you are pure.
+
+Furthermore there is an essential respected law in Haskell:
+
+ > Applying a function with the same parameter always return the same value.
 
 _Lazyness_
 
@@ -27,7 +30,10 @@ You can manipulate infinite structures.
 Inifinte lists, infinite trees etc...
 Tail recursion has generally few importance in Haskell.
 
-A last warning though. Once you know Haskell, all other language will have a taste of "not powerful enough", "not the right way"...
+
+A last warning.
+
+Once you know Haskell, most (all?) other languages will have a taste of "not powerful enough", "not the right way"...
 But you will know why.
 
 ### Function declaration

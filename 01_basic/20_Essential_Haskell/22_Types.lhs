@@ -10,7 +10,7 @@ In fact you can replace Name, Color and String everywhere.
 The compiler will treat them as completely identical.
 
 
-The second type creation it to create your own types using the keyword `data`.
+Another method is to create your own types using the keyword `data`.
 
 > data Name   = NameConstr String
 > data Color  = ColorConstr String

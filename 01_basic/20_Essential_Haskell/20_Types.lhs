@@ -12,7 +12,7 @@ But in common languages static typing has the price of bad generalization.
 What saves Haskell is that types can be inferred.
 
 Here are some examples on how to simulate a simple square function in Haskell
-in other statically typed langauges:
+in other statically typed languages:
 
 > square x = x * x
 

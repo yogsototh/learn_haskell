@@ -1,8 +1,15 @@
 ## Essential Haskell
 
+This is the boring part of Haskell. 
+Think of it like a reference.
+Haskell has a lot of features. 
+Many informations are missing here.
+I suggest you to read this part as fast as possible. 
+You could get back if notation seems strange for you.
+
 ### Install
 
-- [Haskell Platform] is the standard way to install Haskell.
+- [Haskell Platform](http://www.haskell.org/platform) is the standard way to install Haskell.
 
 Tools:
 
