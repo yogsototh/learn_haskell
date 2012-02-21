@@ -14,4 +14,4 @@ The two parameter must have the same type.
 
 If you believe it is a bad idea, and the compiler should make the transformation from a type to another for you, you should really watch this great (and funny) video:
 
-[http://www.destroyallsoftware.com/talks/wat](https://www.destroyallsoftware.com/talks/wat)
+[`http://www.destroyallsoftware.com/talks/wat`](https://www.destroyallsoftware.com/talks/wat)

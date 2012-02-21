@@ -1,9 +1,11 @@
 ## Types
 
-Types are in the heart of Haskell.
 In Haskell, types are strong and static.
 
 Why is this important? It will help you _a lot_ not to make some mistake.
+In fact, most bugs are catched during the compilation of your program.
+And the main reason is because of the type inference during compilation.
+It will be easy to detect where you used the bad parameter at the wrong place for example.
 
 ### Type inference
 

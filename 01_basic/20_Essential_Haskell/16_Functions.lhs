@@ -35,7 +35,7 @@ But now, we want to get the sum of all even square of element of the list.
 [1,2,3,4] ~> [1,4,9,16] ~> [4,16] ~> 20
 ~~~
 
-Update version 10 is extremely easy:
+Update the version 10 is extremely easy:
 
 > squareEvenSum = sum . (filter even) . (map (^2))
 
@@ -46,3 +46,20 @@ map (^2) [1,2,3,4] ⇔ [1,4,9,16]
 ~~~
 
 To modify version 1 is left as an exercise to the reader.
+
+This example should show you how pure functional programming is
+great. Unfortunately, using pure functional programming isn't well
+suited for all usages. Or at least it isn't found yet.
+
+One of the great power of Haskell, is the ability to create DSL 
+(Domain Specific Language)
+making it easy to change the programming paradigm.
+
+In fact, Haskell is also great when you want to write imperative style
+programming. Understand this was really hard for me when learning Haskell.
+Because a lot of effort is provided to explain you how much functional
+approach is superior. Than when you attack the imperative style of Haskell, it
+is hard to understand why and how.
+
+But before talking about this Haskell super-power, we must talk about another
+essential aspect of Haskell; the _types_.
