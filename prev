@@ -1,3 +1,16 @@
-./create_ymd.sh > ~/Sites/webroot/latest.ymd 
-cd ~/Sites/webroot
+#!/usr/bin/env zsh
+
+webroot="$HOME/Sites/webroot"
+
+print -- "Create article"
+./create_ymd.sh > $webroot/latest.ymd
+
+print -- "Copy sources"
+for langue in en fr; do
+    dst="$webroot/output/Scratch/$langue/blog/Haskell-the-Hard-Way/code"
+    mkdir $dst
+    cp -r *.lhs ??_*(/)  $dst
+done
+
+cd $webroot
 ./tasks/recompile
