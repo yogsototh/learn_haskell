@@ -47,6 +47,9 @@ map (^2) [1,2,3,4] ⇔ [1,4,9,16]
 
 To modify version 1 is left as an exercise to the reader.
 
+If you believe we reached the end of generalization, then know you are very wrong. For example, there is a way to not only use this function on list but on any recursive type. If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/0
+1/db-utwente-40501F46.pdf).
+
 This example should show you how pure functional programming is
 great. Unfortunately, using pure functional programming isn't well
 suited for all usages. Or at least it isn't found yet.
