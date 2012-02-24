@@ -48,7 +48,7 @@ But here with have a `Num a => `.
 It contains only type which behave like numbers.
 In fact, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
 
-Typeclass is a very efficient language construction.
+Typeclass is a very powerful language construction.
 We can do some incredibly powerful construction with this.
 More on this later.
 

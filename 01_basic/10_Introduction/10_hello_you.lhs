@@ -1,5 +1,4 @@
-Just the next step.
-Let's write a program that ask your name and display "Hello 'your name'!".
+Now, a program that ask your name and display `Hello <your name>!`.
 
 > main = do
 >     print "What is your name?"
@@ -36,7 +35,7 @@ int main (int argc, char **argv) {
 </code>
 
 The structure is the same, but there are some syntax differences.
-A major part of this tutorial would be to explain why?
+A major part of this tutorial will explain why.
 
 In Haskell, there is a `main` function.
 In Haskell every object has a type.
@@ -47,3 +46,5 @@ Wait! No! I won't say it now!
 I am afraid to terrify you.
 You might run away crying.
 For now, I won't talk about what `IO` really is.
+
+Just remember, Haskell can look a lot like other imperative languages.

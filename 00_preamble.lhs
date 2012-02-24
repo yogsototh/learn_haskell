@@ -1,33 +1,38 @@
 begindiv(intro)
 
-There is plenty of resources to learn Haskell.
-This is another way to learn it.
-Which problem should this article try to resolve?
+This article should be named: "Blow your mind with Haskell".
 
-Generaly learning Haskell means you have ingurgitate a lot of _concepts_
-before being able to really make something useful.
-If you are also a fast learner and already know many functional programming concepts it seems a very long introduction before begining the interresting stuff.
+As many people it was hard for me to bend my mind to the Haskell language.
+In this article I give some ressource to help pass some wall of incomprehension. 
 
-The analogy:
+First, in order to make things work I deliever a as short as possible list of boring syntax notation used by Haskell.
 
-- Beginner level: "Learn You a Haskell"
-- Medium level:  "Real World Haskell"
-- Hard level: First part of this article
-- Hell level: Second part of this article
+Once you understand the notation, we could reach the real stuff. The one that make Haskell both unique and hard to learn.
 
-Notion are given one after another without much explanation but with examples.
-If you hit a wall of incomprehension, I suggest you to read the corresponding article in LYAH or RWH.
+First, what you _shouldn't_ expect from Haskell?
+From my experience:
 
-At first I wanted write the list of explanation to break the wall I hitted when learning Haskell myself.
-All these useful informations are explained in the second part.
-But I realized, a very short introduction should be given.
-As my goal is to make you jump as fast as possible to the second part, I only give the essential.
-I will try the best as I can to remove as much stuff as possible to make it the fastest way possible to go from "I don't know Haskell" to "I can read the last part".
+- _Terseness_. Haskell can be extremely terse, but some language are better at this game, for example codegolf, ruby and python.
+- _Readability_. Many might say it is a question of habit, but personally I find Haskell harder to read than Python and Ruby. It is not necessarily a drawback. Haskell code can be compared to a scientific paper. You have some very readable part, but sometimes you can encounter a mathematical formula. In these case, you need to focus because something hard is happening.
 
-???
+What to expect then?
 
-- First part: a fast dig inside some real Haskell example
-- Second part: learn Haskell like in school, just faster
-- Third part: Monads
+An excelent balance between speed and high level.
+Haskell is very fast even if not as fast as C but it has an incredible ability to make your code generalizable.
+In fact the only limit of generalization of your code are either your intellectual capacity or some mathematical properties.
+Guess which limit is generally reached first?
+
+This actual article contains three parts.
+
+- Introduction: a fast dig inside some real Haskell example
+- Basic Haskell: Haskell syntax, and some essential notions
+- Haskell Walls: Explaining the hard parts; IO and Monads
+
+ > Note: Each time you'll see a separator with a filename ending in `.lhs`, you could click the filename to get this file. If you save the file as `filename.lhs`, you can run it with 
+ > <pre>
+ > runhaskell filename.lhs
+ > </pre>
+ > 
+ > You should seen a link just below the line.
 
 enddiv

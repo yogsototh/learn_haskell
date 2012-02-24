@@ -8,7 +8,7 @@ print -- "Create article"
 print -- "Copy sources"
 for langue in en fr; do
     dst="$webroot/output/Scratch/$langue/blog/Haskell-the-Hard-Way/code"
-    mkdir $dst
+    [[ ! -d $dst ]] && mkdir $dst
     cp -r *.lhs ??_*(/)  $dst
 done
 

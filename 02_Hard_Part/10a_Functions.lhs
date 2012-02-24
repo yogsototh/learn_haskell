@@ -1,4 +1,4 @@
-## Functions
+### Functions
 
 Every Haskell object has a type.
 
@@ -12,7 +12,7 @@ f :: a -> b -> c    ⇔ f is a function from a to (b→c)
 f :: (a -> b) -> c  ⇔ f is a function from (a→b) to c
 ~~~
 
-### Basic examples
+#### Basic examples
 
 Defining the type of a function before its declaration isn't mandatory.
 Haskell infers the most general type for you.

@@ -1,6 +1,7 @@
-## Very basic Haskell
+### Very basic Haskell
 
-Before some example, some essential concepts. These are more some warning.
+Before continuing you need be warned.
+You have to know some essential properties of Haskell. 
 
 _Functional_
 
@@ -28,13 +29,10 @@ _Lazyness_
 
 You can manipulate infinite structures. 
 Inifinte lists, infinite trees etc...
-Tail recursion has generally few importance in Haskell.
-
 
 A last warning.
 
 Once you know Haskell, most (all?) other languages will have a taste of "not powerful enough", "not the right way"...
-But you will know why.
 
 ### Function declaration
 
