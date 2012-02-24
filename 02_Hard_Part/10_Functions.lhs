@@ -1,8 +1,8 @@
-# Hard Part
+## Hard Part
 
 The hard part could now begins.
 
-## 1st Level: Functional style
+### Functional style
 
 In this section, I give a short example of the impressive refactoring ability provided by Haskell.
 We will choose a problem and resolve it the standard way. 
