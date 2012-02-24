@@ -22,6 +22,19 @@ Let's proceed by small steps.
 > filter even [1..10] ⇔  [2,4,6,8,10]
 
 Now you can use the `foldl'` to accumulate a value.
+The function `foldl` capture a general coding pattern:
+
+<code class="haskell">
+myfunc list = foo initialValue list
+    foo accumulated []     = accumulated
+    foo tmpValue    (x:xs) = foo (bar tmpValue x) xs
+</code>
+
+Which can be replaced by:
+
+<code class="haskell">
+myfunc list = foldl bar initialValue list
+</code>
 
 > -- Version 6
 > import Data.List

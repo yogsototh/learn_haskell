@@ -27,9 +27,14 @@ Also, there already exists a `sum` function.
 > evenSum :: Integral a => [a] -> a
 > evenSum = sum . (filter even)
 
-Why is this last definition of evenSum superior to the first one?
-Imagine we want not only to make the sum of even numbers of a list.
-But now, we want to get the sum of all even square of element of the list.
+!!!!!
+What power did we gain by using `foldl'`?
+You have no more different case to test, it feels more like a mathematical function.
+And it become far easier to compose the function with other ones.
+!!!!!
+
+Suppose we want to modify slightly our function.
+We want to get the sum of all even square of element of the list.
 
 ~~~
 [1,2,3,4] ~> [1,4,9,16] ~> [4,16] ~> 20
@@ -44,6 +49,12 @@ We simply had to add another "transformation function".
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
 ~~~
+
+!!!!!
+The main advantage is you didn't have to modify _inside_ the function definition, but you just had to use another function.
+You encapsulate the function and you could use a "pipe-like" notation and way of thinking.
+With the ability of not having to open the pipe to modify the behaviour of your program will fastly become a huge help to think about it.
+!!!!!
 
 To modify version 1 is left as an exercise to the reader.
 
