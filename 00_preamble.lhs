@@ -33,6 +33,6 @@ This actual article contains three parts.
  > runhaskell filename.lhs
  > </pre>
  > 
- > You should seen a link just below the line.
+ > You should see a link just below the line.
 
 enddiv

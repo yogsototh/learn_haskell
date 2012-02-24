@@ -91,7 +91,9 @@ Don't forget, Haskell is mainly built on function and types.
 It is thus very easy to define functions and types.
 The syntax was particularly well thought for these objects.
 
-Generally it is a good idea to write the type of your function before its definition. But it is not mandatory. The compiler is smart enough to discover it for you.
+Generally it is a good idea to write the type of your function before its definition.
+But it is not mandatory.
+The compiler is smart enough to discover it for you.
 
 <code class="haskell">
 f :: Int -> Int -> Int
