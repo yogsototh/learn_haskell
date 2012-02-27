@@ -13,12 +13,52 @@ Let's resolve the following problem:
 
  > Given a list of integer, return the sum of its even numbers.
 
-The first thing you should note, is there isn't any `for` or `while` loop.
-Don't worry, there is _recursion_[^0120101].
+To show differences between functional and imperative approach, 
+I'll start by providing an imperative solution (in javascript):
+
+<code class="javascript">
+function evenSum(list) {
+    var result = 0
+    for (i=0; i< length(list) ; i++) {
+        result += list[i];
+    }
+    return result;
+}
+</code>
+
+But, in Haskell we don't have variables, nor for or while loop.
+This is why we will use recursion[^0120101].
+Here is a recursive javascript function which should be easier to translate:
 
 [^0120101]: Don't worry if you comme from imperative programming. Generally Haskell handles recursion efficiently.
 
-To answer this problem, we will use the following functions (which are defined in `Prelude`):
+Here is a `C` version of the recursive function.
+Note, for simplicity, I assume the int list should end with the first `0`:
+
+<code class="c">
+int accumSum(int n, int *list);
+
+int evenSum(int *list) {
+    return accumSum(0,list);
+}
+
+int accumSum(int n, int *list) {
+    if (list == nil) {
+        return n;
+    } else {
+        x = list[0];
+        xs = list+1;
+        if ( 0 == (x%2) ) {
+            return accumSum(n+x, xs);
+        } else {
+            return accumSum(n, xs);
+        }
+    }
+}
+</code>
+
+Keep this code in mind. We will translate it in Haskell.
+But before, I need to introduce three simple but useful function we will use:
 
 > even :: Integral a => a -> Bool
 > head :: [a] -> a

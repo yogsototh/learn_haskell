@@ -1,4 +1,4 @@
-Here is a first solution.
+The first Haskell solution.
 The function `evenSum` returns the sum of all even numbers in a list:
 
 > -- Version 1
