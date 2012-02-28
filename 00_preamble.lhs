@@ -12,8 +12,8 @@ Once you understand the notation, we could reach the real stuff. The one that ma
 First, what you _shouldn't_ expect from Haskell?
 From my experience:
 
-- _Terseness_. Haskell can be extremely terse, but some language are better at this game, for example codegolf, ruby and python.
-- _Readability_. Many might say it is a question of habit, but personally I find Haskell harder to read than Python and Ruby. It is not necessarily a drawback. Haskell code can be compared to a scientific paper. You have some very readable part, but sometimes you can encounter a mathematical formula. In these case, you need to focus because something hard is happening.
+- _Terseness_. Haskell can be extremely terse, but some language are better at this game, for example codegolf and to a certain extent (understand for small programs) ruby and python .
+- _Readability_. Many might say it is a question of habit, but personally I find Haskell a bit harder to read than Python and Ruby. It is not necessarily a drawback. Haskell code can be compared to a scientific paper. You have some very readable part, but sometimes you can encounter a mathematical formula. In these case, you need to focus because something hard is happening.
 
 What to expect then?
 
@@ -26,7 +26,10 @@ This actual article contains three parts.
 
 - Introduction: a fast dig inside some real Haskell example
 - Basic Haskell: Haskell syntax, and some essential notions
-- Haskell Walls: Explaining the hard parts; IO and Monads
+- Haskell New Things: Explaining the hard parts; IO and Monads
+    - Functional style; an example from imperative to functional
+    - Purity and IO; how to use and how it is incredible
+    - Monads; incredible how we can generalize
 
  > Note: Each time you'll see a separator with a filename ending in `.lhs`, you could click the filename to get this file. If you save the file as `filename.lhs`, you can run it with 
  > <pre>
