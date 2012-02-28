@@ -1,32 +1,37 @@
 begindiv(intro)
 
-This article should be named: "Blow your mind with Haskell".
+Bend his mind to Haskell can be hard.
+It was for me.
+In this article I will try to provide you what I lacked to learn Haskell.
 
-As many people it was hard for me to bend my mind to the Haskell language.
-In this article I give some ressource to help pass some wall of incomprehension. 
+Why should you care about learning Haskell?
+You will learn far more than just a new language.
 
-First, in order to make things work I deliever a as short as possible list of boring syntax notation used by Haskell.
+By learning Haskell you'll learn a lot of new concepts.
+You will certainly learn how to make your code much better in most languages.
 
-Once you understand the notation, we could reach the real stuff. The one that make Haskell both unique and hard to learn.
+Haskell has an excelent balance between speed and high level.
+Haskell is very fast compared to interpreted languages such as Pyton and Ruby.
+But it is not its main advantage ; `C` and `C++` remains faster... _yet_.
+For me, the best part of this language, is its ability to organize your code.
 
-First, what you _shouldn't_ expect from Haskell?
-From my experience:
+When you read Haskell, it is like reading a scientific paper.
+Some part are very clear, but time to time, there are formulas and proofs.
+During these parts, you'll have to focus a bit more and to read _slower_.
 
-- _Terseness_. Haskell can be extremely terse, but some language are better at this game, for example codegolf and to a certain extent (understand for small programs) ruby and python .
-- _Readability_. Many might say it is a question of habit, but personally I find Haskell a bit harder to read than Python and Ruby. It is not necessarily a drawback. Haskell code can be compared to a scientific paper. You have some very readable part, but sometimes you can encounter a mathematical formula. In these case, you need to focus because something hard is happening.
+The part to learn are:
 
-What to expect then?
-
-An excelent balance between speed and high level.
-Haskell is very fast even if not as fast as C but it has an incredible ability to make your code generalizable.
-In fact the only limit of generalization of your code are either your intellectual capacity or some mathematical properties.
-Guess which limit is generally reached first?
+- the syntax
+- functional approach
+- purity and IO
+- lazyness (use infinite structures!)
+- Monads, Arrows, Monoid, Applicatives, etc...
 
 This actual article contains three parts.
 
 - Introduction: a fast dig inside some real Haskell example
 - Basic Haskell: Haskell syntax, and some essential notions
-- Haskell New Things: Explaining the hard parts; IO and Monads
+- The real start: Explaining the hard parts; IO and Monads
     - Functional style; an example from imperative to functional
     - Purity and IO; how to use and how it is incredible
     - Monads; incredible how we can generalize
