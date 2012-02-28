@@ -7,7 +7,7 @@ don't declare type and let Haskell find the most possible general type for us:
 
 It works! 
 Great, we don't have to declare a new function for each different type.
-For example, in `C`, you'll have to declare a function for int, for float, for long, for double, etc...
+For example, in `C`, you'll have to declare a function for `int`, for `float`, for `long`, for `double`, etc...
 
 But, what type should we declare?
 To discover the type Haskell as found for us, just launch ghci:

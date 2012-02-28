@@ -30,14 +30,13 @@ _Lazyness_
 You can manipulate infinite structures. 
 Inifinte lists, infinite trees etc...
 
-A last warning.
-
-Once you know Haskell, most (all?) other languages will have a taste of "not powerful enough", "not the right way"...
+A last warning on how you should read Haskell code.
+For me, it is like reading scientific paper.
+Some part are very clear, but when you see a formula, just focus and read slower.
+Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details. If you cross a `>>=`, `<$>`, `<-` or any other bararish symbol, just ignore them and follows the flow of the code.
+I'll do my best to help you thought.
 
 ### Function declaration
-
-Function are first class object in Haskell.
-That means, you can use function as argument, as any other object (like Integer, data structure, etc...)
 
 You might be used to declare functions like this:
 
@@ -91,8 +90,8 @@ Don't forget, Haskell is mainly built on function and types.
 It is thus very easy to define functions and types.
 The syntax was particularly well thought for these objects.
 
-Generally it is a good idea to write the type of your function before its definition.
-But it is not mandatory.
+The common usage is to declare the type of your function.
+This is not mandatory.
 The compiler is smart enough to discover it for you.
 
 <code class="haskell">

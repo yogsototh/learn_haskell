@@ -9,6 +9,34 @@ Now:
 > data BinTree a = (Ord a) => Leaf
 >                            | Node a (BinTree a) (BinTree a)
 
+I personnaly had difficulty to understand very well this notation and structure.
+Then I will write it in English.
+
+`BinTree` is a type which take another type as parameter.
+
+A `BinTree` can be a `Leaf`. The `Leaf` type does not exists, in fact `Leaf` is a type constructor. As `Leaf` has no argument it can be considered simply as a name.
+On the other case, a `BinTree a` can be a:
+
+~~~
+Node a (BinTree a) (BinTree a)
+~~~
+
+Understand that `Node` is a type construction. It is a function of type:
+
+~~~
+Node :: a -> BinTree a -> BinTree a -> BinTree a
+~~~
+
+For example, 
+
+~~~
+Node 3 Leaf Leaf ⇔ the binary tree 3 without child.
+Node 3 (Node 0 Leaf Leaf) Leaf ⇔ the binary tree 
+                                      3
+                                     /
+                                    4
+~~~
+
 Now let's create a function to add an element to a `BinTree`.
 
 > treeInsert :: a -> BinTree a -> BinTree a
