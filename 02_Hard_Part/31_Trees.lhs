@@ -20,8 +20,16 @@ Without the `deriving (Show)`, Haskell doesn't create a show method for us.
 Now, we will create our version of show.
 For this, we want our newly created type `BinTree a` to be an instance of
 the type class `Show`.
-Don't worry about the apparent complexity, I made a lot of improvement in order to display strange objects.
-Here is how you achieve this:
+To achieve this, the general syntax is:
+
+<code class="haskell">
+instance Show (BinTree a) where
+   show t = ... -- You declare your function here
+</code>
+
+Here is my version on how to show a binary tree.
+Don't worry about the apparent complexity.
+I made a lot of improvement in order to display even strange objects.
 
 > -- declare BinTree a to be an instance of Show
 > instance (Show a) => Show (BinTree a) where
@@ -46,7 +54,7 @@ Here is how you achieve this:
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
->     -- show a son tree using some specific strings to make it nicer
+>     -- show a tree using some prefixes to make it nice
 >     showSon pref before next t = 
 >                   pref ++ before ++ treeshow (pref ++ next) t
 >
@@ -62,6 +70,7 @@ Here is how you achieve this:
 >               | otherwise = x:[] -- "x"
 
 
+
 The `treeInsert` method remain identical.
 
 > treeInsert :: (Ord a) => BinTree a -> a -> BinTree a
@@ -71,25 +80,15 @@ The `treeInsert` method remain identical.
 >           | x < y     = (Node y (treeInsert left x) right)
 >           | otherwise = (Node y left (treeInsert right x))
 
-And now, we can play:
-
-<%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
+To help creating tree, we define:
 
 > treeFromList list = foldl' treeInsert Empty list
-> 
+
+And now, we can play:
+
 > main = do
 >   putStrLn "Int binary tree:"
 >   print $ treeFromList [7,2,4,8,1,3,6,21,12,23]
->   putStrLn "\nString binary tree:"
->   print $ treeFromList ["foo","bar","baz","gorilla","yogsototh"]
->   putStrLn "\nBinary tree of Char binary trees:"
->   print $ treeFromList (map treeFromList ["baz","zara","bar"])
->   putStrLn "\nBinary tree of Binary trees of Char binary trees:"
->   print $ treeFromList (map treeFromList 
->                           [ map treeFromList ["Ia!","Ia!"]
->                           , map treeFromList ["cthul","hu"]
->                           , map treeFromList ["Fhtagn!"] ])
-
 
 ~~~
 Int binary tree:
@@ -103,14 +102,33 @@ Int binary tree:
 :    `--21
 :       |--12
 :       `--23
+~~~
 
+Now it is far better! 
+The root is shown by starting by the `<` character.
+And each other line start by a `:`.
+But we could also use another type.
+
+>   putStrLn "\nString binary tree:"
+>   print $ treeFromList ["foo","bar","baz","gor","yog"]
+
+~~~
 String binary tree:
 < "foo"
 : |--"bar"
 : |  `--"baz"
-: `--"gorilla"
-:    `--"yogsototh"
+: `--"gor"
+:    `--"yog"
+~~~
 
+As we can test equality and order trees, we can
+make tree of trees!
+
+>   putStrLn "\nBinary tree of Char binary trees:"
+>   print ( treeFromList 
+>            (map treeFromList ["baz","zara","bar"]))
+
+~~~
 Binary tree of Char binary trees:
 < < 'b'
 : : |--'a'
@@ -121,7 +139,20 @@ Binary tree of Char binary trees:
 : `--< 'z'
 :    : `--'a'
 :    :    `--'r'
+~~~
 
+This is why I chosen to prefix each line of tree display by `:` (except for the root).
+
+<%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
+
+>   putStrLn "\nTree of Binary trees of Char binary trees:"
+>   print $ treeFromList 
+>             (map treeFromList 
+>                [ map treeFromList ["Ia!","Ia!"]
+>                , map treeFromList ["cthul","hu"]
+>                , map treeFromList ["Fhtagn!"] ])
+
+~~~
 Binary tree of Binary trees of Char binary trees:
 < < < 'I'
 : : : |--'!'
@@ -141,10 +172,6 @@ Binary tree of Binary trees of Char binary trees:
 :    : `--< 'h'
 :    :    : `--'u'
 ~~~
-
-Yeah, Now it is far better!
-
-There are some trick in the code to handle object that show themselve on many lines (like trees).
 
 Remark how you can't insert two identical tree;
 there is only one tree corresponding to "Ia!" in the last example.
