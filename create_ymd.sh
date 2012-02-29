@@ -24,6 +24,11 @@ en: <%= tldr %>
 
 fr: <%= tlal %>
 
+> <center><sc><b>Table of Content</b></sc></center>
+> 
+> * Table of Content (generated)
+> {:toc}
+
 enddiv
 
 END
