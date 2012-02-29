@@ -7,21 +7,25 @@ Many informations are missing here.
 I suggest you to read this part as fast as possible. 
 You could get back if notation seems strange for you.
 
+I use the `⇔` symbol to state that two expression are equivalent.
+It is a meta notation, `⇔` does not exists in Haskell.
+I will also use `⇒` to show what is the return of an expression.
+
 ### Notations
 
 <h5>Arithmetic</h5>
 
 ~~~
-3 + 2 * 6 / 3 <=> 3 + ((2*6)/3)
+3 + 2 * 6 / 3 ⇔ 3 + ((2*6)/3)
 ~~~
 
 <h5>Logic</h5>
 
 ~~~
-True || False => True
-True && False => False
-True == False => False
-True /= False => True  (/=) is the operator for different
+True || False ⇒ True
+True && False ⇒ False
+True == False ⇒ False
+True /= False ⇒ True  (/=) is the operator for different
 ~~~
 
 <h5>Powers</h5>
@@ -40,6 +44,7 @@ Integer have no limit except the capacity of your machine:
 
 Yeah!
 And also rational numbers FTW!
+But you need to import the module `Data.Ratio`:
 
 ~~~
 $ ghci

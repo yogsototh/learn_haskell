@@ -1,4 +1,4 @@
-### Very basic Haskell
+<h3>Very basic Haskell</h3>
 
 Before continuing you need be warned.
 You have to know some essential properties of Haskell. 
@@ -6,8 +6,8 @@ You have to know some essential properties of Haskell.
 _Functional_
 
 Haskell is a functional language.
-If you come from imperative language, you'll have to re-learn everything.
-But you will discover a lot of new concepts!
+If you come from imperative language, you'll have to re-learn a lot.
+But you will discover many new concepts!
 
 _Smart Static Typing_
 
@@ -33,10 +33,10 @@ Inifinte lists, infinite trees etc...
 A last warning on how you should read Haskell code.
 For me, it is like reading scientific paper.
 Some part are very clear, but when you see a formula, just focus and read slower.
-Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details. If you cross a `>>=`, `<$>`, `<-` or any other bararish symbol, just ignore them and follows the flow of the code.
+Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details. If you cross a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
 I'll do my best to help you thought.
 
-### Function declaration
+<h4>Function declaration</h4>
 
 You might be used to declare functions like this:
 
@@ -94,11 +94,6 @@ The common usage is to declare the type of your function.
 This is not mandatory.
 The compiler is smart enough to discover it for you.
 
-<code class="haskell">
-f :: Int -> Int -> Int
-f x y = x*x + y*y
-</code>
-
 Let's play a little.
 
 > f :: Int -> Int -> Int
@@ -106,3 +101,7 @@ Let's play a little.
 >
 > main = print (f 2 3)
 
+~~~
+~ runhaskell 20_very_basic.lhs
+13
+~~~

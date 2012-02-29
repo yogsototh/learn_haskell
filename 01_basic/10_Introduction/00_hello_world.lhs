@@ -10,7 +10,7 @@ Tools:
 - `ghci`: Interactive Haskell (REPL)
 - `runhaskell`: Execute a program without compiling it. Convenient but very slow compared to compiled program.
 
-### That was easy!
+### Don't be afraid
 
 At first I won't show you any Haskell super power.
 I will show you similarities between Haskell and other programming languages.
@@ -18,7 +18,7 @@ We'll just start with the obligatory "Hello World".
 
 > main = print "Hello World!"
 
-To run it, save this code in a `hello.hs` and:
+To run it, you can save this code in a `hello.hs` and:
 
 <code class="zsh">
 ~ runhaskell ./hello.hs

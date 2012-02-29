@@ -29,7 +29,8 @@ This actual article contains three parts.
  > <pre>
  > runhaskell filename.lhs
  > </pre>
- > 
- > You should see a link just below the line.
+ >
+ > Some might not work, but most will.
+ > You should see a link just below.
 
 enddiv
