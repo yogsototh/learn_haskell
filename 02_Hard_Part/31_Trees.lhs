@@ -25,23 +25,34 @@ Here is how you achieve this:
 
 > -- declare BinTree a to be an instance of Show
 > instance (Show a) => Show (BinTree a) where
+>   -- will start by a '<' before the root
+>   -- and put a : a begining of line
 >   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
 >     where
 >     treeshow pref Empty = ""
->     treeshow pref (Node x Empty Empty) = (safeshow pref x)
->     treeshow pref (Node x left Empty) = (safeshow pref x) ++ "\n" ++
+>     treeshow pref (Node x Empty Empty) = 
+>                   (pshow pref x)
+>
+>     treeshow pref (Node x left Empty) = 
+>                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " left)
->     treeshow pref (Node x Empty right) = (safeshow pref x) ++ "\n" ++
+>
+>     treeshow pref (Node x Empty right) = 
+>                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
+>
 >     treeshow pref (Node x left right) = 
->                   (safeshow pref x) ++ "\n" ++
+>                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
+>
 >     -- show a son tree using some specific strings to make it nicer
 >     showSon pref before next t = 
 >                   pref ++ before ++ treeshow (pref ++ next) t
->     -- safeshow replace "\n" by "\n"++pref
->     safeshow pref x = replace '\n' ("\n"++pref) (show x)
+>
+>     -- pshow replace "\n" by "\n"++pref
+>     pshow pref x = replace '\n' ("\n"++pref) (show x)
+>
 >     -- replace on char by another string
 >     replace c new string =
 >       concatMap (change c new) string
@@ -67,17 +78,17 @@ And now, we can play:
 > treeFromList list = foldl' treeInsert Empty list
 > 
 > main = do
->           putStrLn "Int binary tree:"
->           print $ treeFromList [7,2,4,8,1,3,6,21,12,23]
->           putStrLn "\nString binary tree:"
->           print $ treeFromList ["foo","bar","baz","gorilla","yogsototh"]
->           putStrLn "\nBinary tree of Char binary trees:"
->           print $ treeFromList (map treeFromList ["baz","zara","bar"])
->           putStrLn "\nBinary tree of Binary trees of Char binary trees:"
->           print $ treeFromList (map treeFromList 
->                                   [ map treeFromList ["Ia!","Ia!"]
->                                   , map treeFromList ["cthul","hu"]
->                                   , map treeFromList ["Fhtagn!"] ])
+>   putStrLn "Int binary tree:"
+>   print $ treeFromList [7,2,4,8,1,3,6,21,12,23]
+>   putStrLn "\nString binary tree:"
+>   print $ treeFromList ["foo","bar","baz","gorilla","yogsototh"]
+>   putStrLn "\nBinary tree of Char binary trees:"
+>   print $ treeFromList (map treeFromList ["baz","zara","bar"])
+>   putStrLn "\nBinary tree of Binary trees of Char binary trees:"
+>   print $ treeFromList (map treeFromList 
+>                           [ map treeFromList ["Ia!","Ia!"]
+>                           , map treeFromList ["cthul","hu"]
+>                           , map treeFromList ["Fhtagn!"] ])
 
 
 ~~~
