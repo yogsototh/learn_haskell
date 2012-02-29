@@ -28,27 +28,27 @@ function evenSum(list) {
 
 But, in Haskell we don't have variables, nor for or while loop.
 This is why we will use recursion[^0120101].
-Here is a recursive javascript function which should be easier to translate:
+Here is a `C` version of the recursive function.
+Note, for simplicity, I assume the int list should end with the first `null` value (`0`):
 
 [^0120101]: Don't worry if you comme from imperative programming. Generally Haskell handles recursion efficiently.
 
-Here is a `C` version of the recursive function.
-Note, for simplicity, I assume the int list should end with the first `0`:
 
 <code class="c">
-int accumSum(int n, int *list);
-
 int evenSum(int *list) {
     return accumSum(0,list);
 }
 
+// In C I should have declared this 
+// function before evenSum, but
+// I find it easier this way
 int accumSum(int n, int *list) {
-    if (list == nil) {
+    if (list == nil) { // if the list is empty
         return n;
     } else {
-        x = list[0];
-        xs = list+1;
-        if ( 0 == (x%2) ) {
+        x = list[0]; // let x be the first element of the list
+        xs = list+1; // let xs be the list without its head
+        if ( 0 == (x%2) ) { // if x is even
             return accumSum(n+x, xs);
         } else {
             return accumSum(n, xs);
