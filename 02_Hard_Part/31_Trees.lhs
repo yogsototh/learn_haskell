@@ -174,7 +174,7 @@ Binary tree of Binary trees of Char binary trees:
 ~~~
 
 Remark how you can't insert two identical tree;
-there is only one tree corresponding to "Ia!" in the last example.
+there is only one tree corresponding to "Ia!".
 
 Note how awesome this structure is.
 We can make tree containing not only integer, string and char, but also other trees.
