@@ -20,7 +20,9 @@ I'll start by providing an imperative solution (in javascript):
 function evenSum(list) {
     var result = 0
     for (i=0; i< length(list) ; i++) {
-        result += list[i];
+        if (list[i] % 2 ==0) {
+            result += list[i];
+        }
     }
     return result;
 }
@@ -89,5 +91,5 @@ tail [3]     ⇒ []
 tail []      ⇒ ERROR
 ~~~
 
-Remark that for any list `l`, 
+Remark that for any non empty list `l`, 
 `l ⇔ (head l):(tail l)`
