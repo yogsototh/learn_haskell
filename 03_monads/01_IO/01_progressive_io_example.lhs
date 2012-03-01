@@ -1,4 +1,4 @@
-<h2> Deal With IO </h2>
+<h3> Deal With IO </h3>
 
 Start by resolving a simple example wich deal with user interaction.
 

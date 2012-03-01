@@ -1,4 +1,4 @@
-## Types
+### Types
 
 In Haskell, types are strong and static.
 
@@ -7,7 +7,7 @@ In fact, most bugs are catched during the compilation of your program.
 And the main reason is because of the type inference during compilation.
 It will be easy to detect where you used the bad parameter at the wrong place for example.
 
-### Type inference
+#### Type inference
 
 Static typing is generally essential to reach fast execution time.
 But in common languages static typing has the price of bad generalization.

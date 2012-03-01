@@ -1,4 +1,4 @@
-<h3>Type construction</h3>
+<h4>Type construction</h4>
 
 You can construct you own types.
 First you can use aliases or type synonyms.

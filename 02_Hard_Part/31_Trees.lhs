@@ -146,35 +146,54 @@ This is why I chosen to prefix each line of tree display by `:` (except for the 
 <%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
 
 >   putStrLn "\nTree of Binary trees of Char binary trees:"
->   print $ treeFromList 
->             (map treeFromList 
->                [ map treeFromList ["Ia!","Ia!"]
->                , map treeFromList ["cthul","hu"]
->                , map treeFromList ["Fhtagn!"] ])
+>   print $ (treeFromList . map (treeFromList . map treeFromList))
+>                [ ["YO","DAWG"]
+>                , ["I","HEARD"]
+>                , ["I","HEARD"]
+>                , ["YOU","LIKE","TREES"] ]
+
+Which is equivalent to
+
+<code class="haskell">
+print ( treeFromList (
+          map treeFromList 
+             [ map treeFromList ["YO","DAWG"]
+             , map treeFromList ["I","HEARD"]
+             , map treeFromList ["I","HEARD"]
+             , map treeFromList ["YOU","LIKE","TREES"] ]))
+</code>
+
+and gives:
 
 ~~~
 Binary tree of Binary trees of Char binary trees:
-< < < 'I'
-: : : |--'!'
-: : : `--'a'
-: |--< < 'F'
-: |  : : |--'!'
-: |  : : `--'h'
-: |  : :    |--'a'
-: |  : :    |  `--'g'
-: |  : :    `--'t'
-: |  : :       `--'n'
-: `--< < 'c'
-:    : : `--'t'
-:    : :    |--'h'
-:    : :    |  `--'l'
-:    : :    `--'u'
-:    : `--< 'h'
-:    :    : `--'u'
+< < < 'Y'
+: : : `--'O'
+: : `--< 'D'
+: :    : |--'A'
+: :    : `--'W'
+: :    :    `--'G'
+: |--< < 'I'
+: |  : `--< 'H'
+: |  :    : |--'E'
+: |  :    : |  `--'A'
+: |  :    : |     `--'D'
+: |  :    : `--'R'
+: `--< < 'Y'
+:    : : `--'O'
+:    : :    `--'U'
+:    : `--< 'L'
+:    :    : `--'I'
+:    :    :    |--'E'
+:    :    :    `--'K'
+:    :    `--< 'T'
+:    :       : `--'R'
+:    :       :    |--'E'
+:    :       :    `--'S'
 ~~~
 
 Remark how you can't insert two identical tree;
-there is only one tree corresponding to "Ia!".
+there is only one tree corresponding to `"I","HEARD"`.
 
 Note how awesome this structure is.
 We can make tree containing not only integer, string and char, but also other trees.

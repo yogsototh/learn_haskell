@@ -1,4 +1,4 @@
-# Hell Difficulty Part
+## Hell Difficulty Part
 
 <%= blogimage("hell_difficulty.jpg","Hell difficulty") %>
 

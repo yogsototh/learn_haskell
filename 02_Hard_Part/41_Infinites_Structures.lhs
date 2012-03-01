@@ -1,0 +1,106 @@
+<h5>Infinite Tree</h5>
+
+<div class="hidden">
+
+> import Data.List
+> data BinTree a = Empty 
+>                  | Node a (BinTree a) (BinTree a) 
+>                   deriving (Eq,Ord)
+> 
+> -- declare BinTree a to be an instance of Show
+> instance (Show a) => Show (BinTree a) where
+>   -- will start by a '<' before the root
+>   -- and put a : a begining of line
+>   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
+>     where
+>     treeshow pref Empty = ""
+>     treeshow pref (Node x Empty Empty) = 
+>                   (pshow pref x)
+>
+>     treeshow pref (Node x left Empty) = 
+>                   (pshow pref x) ++ "\n" ++
+>                   (showSon pref "`--" "   " left)
+>
+>     treeshow pref (Node x Empty right) = 
+>                   (pshow pref x) ++ "\n" ++
+>                   (showSon pref "`--" "   " right)
+>
+>     treeshow pref (Node x left right) = 
+>                   (pshow pref x) ++ "\n" ++
+>                   (showSon pref "|--" "|  " left) ++ "\n" ++
+>                   (showSon pref "`--" "   " right)
+>
+>     -- show a tree using some prefixes to make it nice
+>     showSon pref before next t = 
+>                   pref ++ before ++ treeshow (pref ++ next) t
+>
+>     -- pshow replace "\n" by "\n"++pref
+>     pshow pref x = replace '\n' ("\n"++pref) (show x)
+>
+>     -- replace on char by another string
+>     replace c new string =
+>       concatMap (change c new) string
+>       where
+>           change c new x 
+>               | x == c = new
+>               | otherwise = x:[] -- "x"
+> 
+> treeFromList list = foldl' treeInsert Empty list
+
+</div>
+
+For this example, we will limit ourselve to integer.
+We change slightly the treeInsert function.
+
+
+> treeInsert :: (Ord a,Integral a) => BinTree a -> a -> BinTree a
+> treeInsert Empty x    = Node x Empty Empty
+> treeInsert (Node y left right) x
+>           | x == y     = (Node y left right)
+>           | x `mod` y < (y `div` 2)   
+>                        = (Node y (treeInsert left x) right)
+>           | otherwise  = (Node y left (treeInsert right x))
+
+Here is the result to:
+
+<code class="haskell">
+main = print $ treeFromList [1..20]
+</code>
+
+~~~
+< 1
+: `--2
+:    |--4
+:    |  |--8
+:    |  |  |--16
+:    |  |  `--12
+:    |  |     `--20
+:    |  `--6
+:    |     |--14
+:    |     |  `--18
+:    |     `--10
+:    `--3
+:       |--9
+:       |  `--15
+:       `--5
+:          |--11
+:          `--7
+:             `--13
+:                |--17
+:                `--19
+~~~
+
+Now, let's construct an infinite tree
+(`[1..]` is the infinite list `[1,2,3...]`):
+
+> infiniTree = foldl treeInsert Empty [1..]
+
+And a function that troncate a tree up to a certain depth
+
+> treeTakeDepth 0 _     = Empty
+> treeTakeDepth _ Empty = Empty
+> treeTakeDepth n (Node x left right) 
+>                       = Node x (treeTakeDepth (n-1) left)
+>                                (treeTakeDepth (n-1) right)
+
+> main = print $ treeTakeDepth 4 infiniTree

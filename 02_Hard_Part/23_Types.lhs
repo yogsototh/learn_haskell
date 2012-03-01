@@ -1,4 +1,4 @@
-### Recursive type
+#### Recursive type
 
 You already encountered recursive types.
 Typically, you can re-create lists, but with a more verbose syntax:

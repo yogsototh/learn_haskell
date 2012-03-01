@@ -8,7 +8,7 @@ Finaly
 `foldl'` isn't the easiest function to intuit.
 If you are not used to it, you should exercise a bit.
 
-I would like to introduce another higher order function: `(.)`.
+Another useful higher order function is `(.)`.
 The `(.)` function correspond to the mathematical composition.
 
 > (f . g . h) x ⇔  f ( g (h x))
@@ -27,12 +27,10 @@ Also, there already exists a `sum` function.
 > evenSum :: Integral a => [a] -> a
 > evenSum = sum . (filter even)
 
-!!!!!
 What power did we gain by using `foldl'`?
-You have no more different case to test, it feels more like a mathematical function.
-And it become far easier to compose the function with other ones.
-!!!!!
 
+At first, you can say it is terseness.
+But in fact, it has more to do with better thinking.
 Suppose we want to modify slightly our function.
 We want to get the sum of all even square of element of the list.
 
@@ -43,27 +41,33 @@ We want to get the sum of all even square of element of the list.
 Update the version 10 is extremely easy:
 
 > squareEvenSum = sum . (filter even) . (map (^2))
+> squareEvenSum' = evenSum . (map (^2))
 
-We simply had to add another "transformation function".
+We just had to add another "transformation function".
 
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
 ~~~
 
-!!!!!
-The main advantage is you didn't have to modify _inside_ the function definition, but you just had to use another function.
-You encapsulate the function and you could use a "pipe-like" notation and way of thinking.
-With the ability of not having to open the pipe to modify the behaviour of your program will fastly become a huge help to think about it.
-!!!!!
+The `map` function simply apply a function to all element of a list.
+
+We didn't had to modify _inside_ the function definition.
+It feels more modular.
+But there is also you can think more mathematically about your function.
+You could then use your function as any other one.
+You could compose, map, fold, filter using your new function.
 
 To modify version 1 is left as an exercise to the reader.
 
-If you believe we reached the end of generalization, then know you are very wrong. For example, there is a way to not only use this function on list but on any recursive type. If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/0
+If you believe we reached the end of generalization, then know you are very wrong.
+For example, there is a way to not only use this function on list but on any recursive type.
+If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/0
 1/db-utwente-40501F46.pdf).
 
 This example should show you how pure functional programming is
 great. Unfortunately, using pure functional programming isn't well
-suited for all usages. Or at least it isn't found yet.
+suited for all usages.
+Or at least it isn't found yet.
 
 One of the great power of Haskell, is the ability to create DSL 
 (Domain Specific Language)

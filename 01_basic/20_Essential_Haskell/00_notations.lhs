@@ -103,3 +103,21 @@ fst (x,y,z)     ⇒  ERROR: fst :: (a,b) -> a
 snd (x,y,z)     ⇒  ERROR: snd :: (a,b) -> b
 ~~~
 
+<h5>Deal with parenthesis</h5>
+
+To remove some parenthesis you can use two functions: `($)` and `(.)`.
+
+~~~
+-- By default:
+f g h x         ⇔  (((f g) h) x)
+
+-- the $ replace parenthesis from the $
+-- to the end of the expression 
+f g $ h x       ⇔  f g (h x) ⇔ (f g) (h x)
+f $ g h x       ⇔  f (g h x) ⇔ f ((g h) x)
+f $ g $ h x     ⇔  f (g (h x))
+
+-- (.) the composition function
+(f . g) x       ⇔  f (g x)
+(f . g . h) x   ⇔  f (g (h x))
+~~~
