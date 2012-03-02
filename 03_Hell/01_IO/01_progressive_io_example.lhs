@@ -1,9 +1,13 @@
 <h3> Deal With IO </h3>
 
-Start by resolving a simple example wich deal with user interaction.
+In this section, I won't explain how IO works.
+I just show how to use it by providing some progressive examples.
+I will also show you how Haskell separate well pure part from impure part of the program.
+
+What we want:
 
  > Ask a user to enter a list of numbers.
- > Return the sum of the numbers
+ > Print the sum of the numbers
 
 > toList :: String -> [Integer]
 > toList input = read ("[" ++ input ++ "]")
