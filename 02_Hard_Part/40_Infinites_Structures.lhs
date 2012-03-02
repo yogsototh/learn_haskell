@@ -1,8 +1,8 @@
-<h4>Infinite Structures</h4>
+<h3>Infinite Structures</h3>
 
 It is often stated that Haskell is _lazy_.
 
-In fact, If you are a bit pedantic, you should state that [Haskell is not lazy but _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).
+In fact, if you are a bit pedantic, you should state that [Haskell is _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).
 Lazyness is just a common implementation for non-strict languages.
 
 Then what does not-strict means (from the haskell wiki):
@@ -18,7 +18,7 @@ For example in Haskell you can do:
 > 
 > take' n [] = []
 > take' 0 l = []
-> take' n (x:xs) = x:take (n-1) xs
+> take' n (x:xs) = x:take' (n-1) xs
 > 
 > main = print $ take' 10 numbers
 
