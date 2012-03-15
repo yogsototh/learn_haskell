@@ -8,20 +8,21 @@ Why should you care about learning Haskell?
 You will learn far more than just a new language.
 By learning Haskell you will learn a lot of new concept you certainly never heard about.
 
-This article is not intented to be easy.
-It will certainly be a bit hard to follow.
-If you can't follow me you'll certainly have a far better and longer version in "Learn You a Haskell" and "Real World Haskell".
+This article might be a bit hard to follow.
+In that case, I suggest you to get more details by reading: "Learn You a Haskell" and "Real World Haskell".
 Try to follow me until the end.
 Hopefully, you'll be rewarded by having learned a lot of new concepts.
+Concepts that will certainly be helpful in you day to day coding job.
 
-This actual article contains three parts.
+This actual article contains four parts.
 
 - Introduction: a fast short example to show Haskell can be friendly.
 - Basic Haskell: Haskell syntax, and some essential notions.
-- Hard Part: 
+- Hard Difficulty Part:
     - Functional style; an example from imperative to functional
     - Types; a standard binary tree example
-    - Purity and IO; how the Haskell solution is incredible.
+- Hell Difficulty Part:
+    - Purity and IO; the Haskell solution
     - Monads; incredible how we can generalize
     - Other links.
 

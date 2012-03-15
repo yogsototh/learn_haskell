@@ -19,7 +19,7 @@ I'll start by providing an imperative solution (in javascript):
 <code class="javascript">
 function evenSum(list) {
     var result = 0
-    for (i=0; i< length(list) ; i++) {
+    for (i=0; i< list.length ; i++) {
         if (list[i] % 2 ==0) {
             result += list[i];
         }

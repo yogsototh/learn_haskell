@@ -42,6 +42,7 @@ Update the version 10 is extremely easy:
 
 > squareEvenSum = sum . (filter even) . (map (^2))
 > squareEvenSum' = evenSum . (map (^2))
+> squareEvenSum'' = sum . (map (^2)) . (filter even)
 
 We just had to add another "transformation function".
 
@@ -73,11 +74,10 @@ One of the great power of Haskell, is the ability to create DSL
 (Domain Specific Language)
 making it easy to change the programming paradigm.
 
-In fact, Haskell is also great when you want to write imperative style
-programming. Understand this was really hard for me when learning Haskell.
-Because a lot of effort is provided to explain you how much functional
-approach is superior. Than when you attack the imperative style of Haskell, it
-is hard to understand why and how.
+In fact, Haskell is also great when you want to write imperative style programming.
+Understanding this was really hard for me when learning Haskell.
+A lot of effort is provided to explain you how much functional approach is superior. 
+Then when you attack the imperative style of Haskell, it is hard to understand why and how.
 
 But before talking about this Haskell super-power, we must talk about another
 essential aspect of Haskell; the _types_.

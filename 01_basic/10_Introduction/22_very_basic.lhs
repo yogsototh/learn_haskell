@@ -12,16 +12,15 @@ For example, in `C`, you'll have to declare a function for `int`, for `float`, f
 But, what type should we declare?
 To discover the type Haskell as found for us, just launch ghci:
 
-<pre>
-% ghci
-<span style="color: #999;">GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+<pre><code style="color: #999">
+%</code> ghci<code style="color: #999">
+GHCi, version 7.0.4: http://www.haskell.org/ghc/  :? for help
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
-Prelude&gt;</span> :load 22_very_basic.lhs<span style="color: #999;">  
-[1 of 1] Compiling Main    ( 22_very_basic.lhs, interpreted )
-Ok, modules loaded: Main.
-*Main&gt;</span> :type f
+Loading package ffi-1.0 ... linking ... done.
+Prelude></code> let f x y = x*x + y*y
+<code style="color: #999">Prelude></code> :type f
 f :: Num a => a -> a -> a
 </pre>
 
@@ -31,9 +30,18 @@ Hey? What is this strange type?
 Num a => a -> a -> a
 ~~~
 
-First, `a` is a type variable. 
-It means, that the first and the second argument will have the same type.
-And furthermore, the result will also be of the same type.
+First, let's focus on the right part `a -> a -> a`.
+Here are some notation for type in Haskell:
+
+- `Int`           → the type `Int`
+- `Int -> Int`    → the type function from `Int` to `Int`.
+- `Float -> Int`  → the type function from `Float` to `Int`.
+- `a -> Int`      → the type function from any type to `Int`.
+- `a -> a`        → the type function from any type `a` to the same type `a`.
+- `a -> a -> a`   → the type function of two arguments of any type `a` to the same type `a`.
+
+In the type `a -> a -> a`, the letter `a` is a _type variable_. 
+It means `f` is a function with two argument and both argument and the result have the same type.
 The type variable `a` could take many different type value.
 For example `Int`, `Integer`, `Float`...
 
@@ -44,12 +52,13 @@ Generally, without the type class constraint, `a` can be any type.
 For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
 But here with have a `Num a => `. 
 
-`Num` is a typeclass.
-It contains only type which behave like numbers.
-In fact, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
+`Num` is a _typeclass_.
+A typeclass can be understood as a set of types.
+`Num` contains only type which behave like numbers.
+More precisely, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
 
 Typeclass is a very powerful language construction.
-We can do some incredibly powerful construction with this.
+We can do some incredibly powerful stuff with this.
 More on this later.
 
 Finally, `Num a => a -> a -> a` means:
@@ -57,10 +66,11 @@ Finally, `Num a => a -> a -> a` means:
 Let `a` be a type belonging to the `Num` typeclass.
 This is a function from type `a` to (`a -> a`).
 
-Yes, strange, in Haskell no function have two argument.
-Instead all function have only one argument.
+Yes, strange. 
+In fact, in Haskell no function really have two arguments.
+Instead all functions have only one argument.
 
-In fact `f 3 4` is equivalent to `(f 3) 4`. 
+More precisely `f 3 4` is equivalent to `(f 3) 4`. 
 Note `f 3` is a function:
 
 ~~~
@@ -80,6 +90,8 @@ We could have written:
 ~~~
 g = \y -> 3*3 + y*y
 ~~~
+
+The `\` is used because it looks like `λ` and is ASCII.
 
 If you are not used to functional programming your brain should start to heat up.
 It is time to make some real application.

@@ -37,8 +37,7 @@ int main (int argc, char **argv) {
 The structure is the same, but there are some syntax differences.
 A major part of this tutorial will explain why.
 
-In Haskell, there is a `main` function.
-In Haskell every object has a type.
+In Haskell, there is a `main` function and every object has a type.
 The type of `main` is `IO ()`.
 This means, `main` will cause side effects.
 `IO` is a ... . 

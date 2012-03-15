@@ -22,7 +22,7 @@ To test a function you can use `ghci`:
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
-Prelude&gt;</span> :l 11_Functions.lhs 
+Prelude&gt;</span> :load 11_Functions.lhs 
 <span style="color: #AAA">[1 of 1] Compiling Main             ( 11_Functions.lhs, interpreted )
 Ok, modules loaded: Main.
 *Main&gt;</span> evenSum [1..5]

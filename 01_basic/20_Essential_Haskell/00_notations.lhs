@@ -1,11 +1,10 @@
 ## Essential Haskell
 
-This is the part that certainly will be the most boring.
+I suggest you to skim this part. 
 Think of it like a reference.
 Haskell has a lot of features. 
 Many informations are missing here.
-I suggest you to read this part as fast as possible. 
-You could get back if notation seems strange for you.
+Get back here if notation feels strange.
 
 I use the `⇔` symbol to state that two expression are equivalent.
 It is a meta notation, `⇔` does not exists in Haskell.
@@ -84,6 +83,7 @@ In Haskell strings are list of `Char`.
 
 In real code you shouldn't use list of char to represent text.
 You should mostly use `Data.Text` instead.
+If you want to represent stream of ASCII char, you should use `Data.ByteString`.
 
 <h5>Tuples</h5>
 

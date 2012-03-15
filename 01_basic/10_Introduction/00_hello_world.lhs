@@ -12,9 +12,11 @@ Tools:
 
 ### Don't be afraid
 
+Many book/articles about Haskell start by introducing some esoteric formula (quicksort, fibonacci serie, etc...).
+I will make the exact opposite.
 At first I won't show you any Haskell super power.
-I will show you similarities between Haskell and other programming languages.
-We'll just start with the obligatory "Hello World".
+I will start with similarities between Haskell and other programming languages.
+Let's jump in the obligatory "Hello World".
 
 > main = print "Hello World!"
 

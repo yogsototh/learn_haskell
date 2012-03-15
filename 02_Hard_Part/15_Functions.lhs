@@ -57,18 +57,18 @@ don't worry, just follow the code as if `fold` and `foldl'` where identical.
 
 Here is what occurs:
 
-~~~
-evenSum [1,2,3,4]
-⇒ foldl' mysum 0 (filter even [1,2,3,4])
-⇒ foldl' mysum 0 [2,4]
-⇒ foldl' mysum (mysum 0 2) [4]
-⇒ foldl' mysum (0+2) [4]
-⇒ foldl' mysum 2 [4]
-⇒ foldl' mysum (mysum 2 4) []
-⇒ foldl' mysum (2+4) []
-⇒ foldl' mysum 6 []
-⇒ 6
-~~~
+<pre>
+  <span style="color: #CF6A4C">evenSum [1,2,3,4]</span>
+⇒ foldl' mysum 0 (<span style="color: #CF6A4C">filter even [1,2,3,4]</span>)
+⇒ <span style="color: #CF6A4C">foldl' mysum 0 <span style="color: #CDA869">[2,4]</span></span>
+⇒ <span style="color: #CDA869">foldl' mysum (<span style="color: #CF6A4C">mysum 0 2</span>) [4]</span> 
+⇒ foldl' mysum (<span style="color: #CF6A4C">0+2</span>) [4]
+⇒ <span style="color: #CF6A4C">foldl' mysum <span style="color: #CDA869">2</span> [4]</span>
+⇒ <span style="color: #CDA869">foldl' mysum (<span style="color: #CF6A4C">mysum 2 4</span>) []</span>
+⇒ foldl' mysum (<span style="color: #CF6A4C">2+4</span>) []
+⇒ <span style="color: #CF6A4C">foldl' mysum <span style="color: #CDA869">6</span> []</span>
+⇒ <span style="color: #CDA869">6</span>
+</pre>
 
 Beware! 
 Most of the time you want to use `foldl'` and not `foldl`.
