@@ -1,6 +1,6 @@
 <h4>Type construction</h4>
 
-You can construct you own types.
+You can construct your own types.
 First you can use aliases or type synonyms.
 
 > type Name   = String

@@ -21,13 +21,20 @@ in other statically typed languages:
 This function can square any Numeral type.
 You can provide square an Int, an Integer, a Float a Fractional and even Complex.
 
-> square 2
-> 4
-> square 2.1
-> 4.41
-> :m Data.Complex
-> (2 :+ 1) * (2 :+ 1) 
-> 3.0 :+ 4.0
+~~~
+% ghci
+GHCi, version 7.0.4:
+...
+Prelude> let square x = x*x
+Prelude> square 2
+4
+Prelude> square 2.1
+4.41
+Prelude> -- load the Data.Complex module
+Prelude> :m Data.Complex
+Prelude Data.Complex> square (2 :+ 1)
+3.0 :+ 4.0
+~~~
 
 `x :+ y` is the notation for the complex (<i>x + ib</i>).
 
@@ -83,10 +90,12 @@ To be fair, there is also a definition of the multiplication of Complex in Haske
 But it takes only one line.
 Somewhere in the source of the module `Data.Complex`:
 
-> instance Num (Complex a) where
->   ...
->   (x:+y) * (x':+y')   =  (x*x'-y*y') :+ (x*y'+y*x')
->   ...
+<code class="haskell">
+instance Num (Complex a) where
+  ...
+  (x:+y) * (x':+y')   =  (x*x'-y*y') :+ (x*y'+y*x')
+  ...
+</code>
 
 The inference of type gives Haskell a feeling of the freedom that dynamic 
 typed languages provide.

@@ -2,11 +2,9 @@ Just for fun, let's code a better display for our trees.
 I simply had fun into making a nice function to display tree in a general way.
 You can safely pass this part if you find it too difficult to follow.
 
-We have few to change to make. 
-First, as we will play a bit with string, we import the function `replace`
-from `Data.String.Utils`.
+We have few changes to make.
 
-> import Data.List
+> import Data.List (foldl')
 
 We remove the `deriving (Show)` in the declaration of our `BinTree` type.
 And it also might be useful to make our BinTree an instance of (Eq and Ord).
@@ -37,18 +35,25 @@ I made a lot of improvement in order to display even strange objects.
 >   -- and put a : a begining of line
 >   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
 >     where
+>     -- treeshow pref Tree 
+>     --   show a tree and start each line with pref
+>     -- We don't display Empty tree
 >     treeshow pref Empty = ""
+>     -- Leaf
 >     treeshow pref (Node x Empty Empty) = 
 >                   (pshow pref x)
 >
+>     -- Right branch is empty
 >     treeshow pref (Node x left Empty) = 
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " left)
 >
+>     -- Left branch is empty
 >     treeshow pref (Node x Empty right) = 
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
+>     -- Tree with left and right sons non empty
 >     treeshow pref (Node x left right) = 
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
