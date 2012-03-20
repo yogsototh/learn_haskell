@@ -90,6 +90,8 @@ Don't forget, Haskell is mainly built on function and types.
 It is thus very easy to define functions and types.
 The syntax was particularly well thought for these objects.
 
+<h4 id="a-type-example">A Type Example</h4>
+
 The common usage is to declare the type of your function.
 This is not mandatory.
 The compiler is smart enough to discover it for you.

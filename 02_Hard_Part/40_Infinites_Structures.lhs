@@ -13,6 +13,7 @@ Then what does not-strict means (from the haskell wiki):
 
 For example in Haskell you can do:
 
+> -- numbers = [1,2,..]
 > numbers :: [Integer]
 > numbers = 0:map (1+) numbers
 > 
@@ -27,4 +28,14 @@ And it stops.
 How?
 
 Instead of trying to evaluate `numbers` entirely, 
-it evaluates only needed elements.
+it evaluates elements only when needed.
+
+Also, note in Haskell there is a notation for infinite lists
+
+~~~
+[1..]   ⇔ [1,2,3,4...]
+[1,3..] ⇔ [1,3,5,7,9,11...]
+~~~
+
+And most function will work with them. 
+Also there exists the function `take` equivalent to our `take'`.

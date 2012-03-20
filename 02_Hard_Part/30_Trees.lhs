@@ -1,4 +1,4 @@
-<h3 id="trees">Trees</h3>
+<h4 id="trees">Trees</h4>
 
 Now we'll just give another typical example, binary trees.
 

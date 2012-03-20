@@ -1,6 +1,6 @@
 <h4 id="infinite-tree">Infinite Tree</h4>
 
-<div class="hidden">
+<div style="display:none">
 
 > import Data.List
 > data BinTree a = Empty 
@@ -47,7 +47,9 @@
 
 </div>
 
-For this example, using a fold of `treeInsert` won't work.
+For this example, we will use the same code as in the [tree section](#trees). 
+
+Using a fold of `treeInsert` won't work for infinite tree.
 Instead we will construct directly a `treeFromList`.
 
 
@@ -56,6 +58,7 @@ Instead we will construct directly a `treeFromList`.
 > treeFromList (x:xs) = Node x (treeFromList (filter (<x) xs))
 >                              (treeFromList (filter (>x) xs))
 
+Look at how elegant this code is. 
 Also we use a shuffle function to create pseudo-random number list:
 
 > shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
@@ -131,3 +134,9 @@ Simply because, it will try to access the head of `filter (<1) [2..]`.
 But filter is not smart enought to understand that the result is the empty list.
 
 Nonetheless, it is still a very cool example of what non strict program has to offer.
+
+Left as an exercise to the reader:
+
+- Could you prove that there exists some number `n` such that `treeTakeDepth n (treeFromList shuffle)` will enter in an infinite loop.
+- Find an upper bound for `n`.
+- Prove there is no `shuffle` list such that for any depth the program ends.
