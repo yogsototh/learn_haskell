@@ -5,7 +5,7 @@ It is often stated that Haskell is _lazy_.
 In fact, if you are a bit pedantic, you should state that [Haskell is _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).
 Lazyness is just a common implementation for non-strict languages.
 
-Then what does not-strict means (from the haskell wiki):
+Then what does not-strict means? From the haskell wiki:
 
  > Reduction (the mathematical term for evaluation) proceeds from the outside in.
  >

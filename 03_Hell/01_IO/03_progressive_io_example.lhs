@@ -1,6 +1,6 @@
-Now how could we ask the user again and again util it enters the right answer? 
+Our next evolution will be to ask the user again and again util it enters a valid answer.
 
-We keep this the first part:
+We keep the first part:
 
 > import Data.Maybe
 > 
@@ -25,11 +25,11 @@ until the input is right.
 
 This function is of type `IO [Integer]`. 
 Such a type means, that we retrieved a value of this type through some IO actions.
-Sometimes you could see someone telling you while waving their hands: 
+Some people might explain while waving their hands: 
 
-    "This is an `[Integer]` but inside an IO"
+    "This is an `[Integer]` inside an `IO`"
 
-If you want to understand the details behind all of this, you have to continue.
+If you want to understand the details behind all of this, you'll have to continue.
 
 Finally our main function is quite simpler:
 

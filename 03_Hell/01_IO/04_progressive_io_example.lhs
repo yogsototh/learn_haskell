@@ -6,7 +6,6 @@ It looks a bit like magic.
 For now let's just forget about all the pure part of our program, and focus
 on the impure part:
 
-
 > askUser :: IO [Integer]
 > askUser = do
 >   putStrLn "Enter a list of numbers (separated by comma):"
@@ -23,36 +22,26 @@ on the impure part:
 
 First noticiable thing: 
 the structure of these function is very similar to the one of an imperative language.
-The fact is, Haskell is powerful enough to recreate function to help code look like in an imperative language.
+Haskell is powerful enough to create structure such that the code looks like it is imperative.
 For example, if you wish you could create a `while` in Haskell.
 In fact, for dealing with `IO`, imperative style is generally more appropriate.
 
-But, you also see there are some light differences.
-The notation is a bit strange.
+But, you should had remarked the notation is a bit unusual.
 
-This is here that reside the beauty of how Haskell handle IOs.
+Here is how Haskell handle IOs.
 
-Imagine you want to write a pure language.
-But, a completely pure language will have few utility in real life.
-Wihout effect, you couldn't print anything on a screen, read the user input, etc...
-
-You can imagine, in standard impure language, there is a hidden global variable.
-For example, you could write something in a file.
-Somebody else could modify this file.
-And you could later read the content of the file.
-
-Each time something changed in the external world, it was like a global variable had changed its value. 
-This global variable can be represented as a World state.
-
-Now, to have a pure language with some utility you could simply state the execution of your program will be an evaluation of the main function with the following type.
+Haskell consider the state of the world is an input variable for `main`.
 
 ~~~
 main :: World -> World
 ~~~
 
-Which means, main instead of having a global variable accessible by all functions of you program.
-Main will be given as parameter an id representing the state of the World on which you can access.
-And it will certainly make some changes to it.
+In an impure language, the state of the world is generally like a huge hidden global variable. 
+This hidden variable is accessible by all function of your language.
+For example, you can read, write, in any function.
+
+In Haskell, instead of having a global variable accessible by all functions of your program, the state of the world is simply an input parameter of your `main` function.
+If your `main` function call another function without giving this world parameter, this function could simply not modify or read the state of the world.
 
 In reality, the real type is closer to
 
@@ -63,7 +52,7 @@ main :: World -> ((),World)
 The `()` type is the null type.
 Nothing to see here.
 
-Now let's write our main function:
+Now let's rewrite our main function with this in mind:
 
 ~~~
 main w0 =
@@ -72,8 +61,17 @@ main w0 =
     x 
 ~~~
 
-Also remember, the order of evaluation is generally not fixed in Haskell.
-For example in general to evaluate `f a b`, you have many choices: 
+First, we remark, that all function which have side effect must have the type:
+
+~~~
+World -> (a,World)
+~~~
+
+Where `a` is the type of result. 
+For example, a `getChar` function should have the type `World -> (Char,World)`.
+
+Another thing to remark is the trick to fix the order of evaluation.
+In Haskell to evaluate `f a b`, you generally have many choices: 
 
 - first eval `a` then `b` then `f a b`
 - first eval `b` then `a` then `f a b`.
@@ -100,13 +98,6 @@ Let's try to make the same to the askUser function:
 askUser :: World -> ([Integer],World)
 ~~~
 
-The type has changed as we will modify the "World" we simulate this by
-returning a world value different than the input "World" value.
-This way we remain "pure" in the language. 
-You could write a completely pure implementation and it will works.
-In the real world, the evaluation will have some side effect each time a function
-return another value of the world input.
-
 Before:
 
 > askUser :: IO [Integer]
@@ -129,8 +120,9 @@ After:
 >     in
 >         (l,w3)
 
-This is similar, but awkward. All these `let ... in`. Even if with Haskell
-you could remove most, it's still awkard.
+This is similar, but awkward.
+All these `let ... in`.
+Even if with Haskell you could remove most, it's still awkard.
 
 The lesson, is, naive IO implementation in Pure functional language is awkward!
 
@@ -159,8 +151,12 @@ let (z,w2) = action2 y w1 in
 ...
 ~~~
 
-Now, we will make a magic trick. We will make the world variable "disappear".
-We will `bind` the two lines. Let's define the `bind` function.
+<%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
+
+Now, we will make a magic trick.
+We will make the world variable "disappear".
+We will `bind` the two lines. 
+Let's define the `bind` function.
 
 ~~~
 bind :: (World -> (a,World)) 

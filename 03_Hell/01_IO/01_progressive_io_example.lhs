@@ -1,10 +1,13 @@
 <h3 id="deal-with-io">Deal With IO</h3>
 
 In this section, I won't explain how IO works.
-I just show how to use it by providing some progressive examples.
-I will also show you how Haskell separate well pure part from impure part of the program.
+I'll just show how to use it by providing some progressive examples.
+You'll see how Haskell separate pure from impure part of the program.
 
-What we want:
+A warning, until next section, you shouldn't try to understand the details of
+the functions. Just try to understand the meaning.
+
+What to achieve?
 
  > Ask a user to enter a list of numbers.
  > Print the sum of the numbers

@@ -121,7 +121,7 @@ treeTakeDepth 5 (treeFromList shuffle)
 ~~~
 
 Yay! It ends! 
-Beware thought, it will only work if you alway have something to put into a branch.
+Beware thought, it will only work if you always have something to put into a branch.
 
 For example 
 

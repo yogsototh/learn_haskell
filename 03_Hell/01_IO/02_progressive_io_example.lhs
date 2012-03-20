@@ -9,18 +9,14 @@ Prelude.read: no parse
 ~~~
 
 Argh, an evil error message and a crash! 
-Now we just want to put our own, more Human readable message.
+The first evolution will be to answer with a more friendly message.
 
 For this, we must detect, something went wrong.
 Here is one way to do this.
-Use the type `Maybe`. It is a very common type in Haskell.
+Use the type `Maybe`.
+It is a very common type in Haskell.
 
 > import Data.Maybe
-> 
-> maybeRead :: Read a => String -> Maybe a
-> maybeRead s = case reads s of
->                   [(x,"")]    -> Just x
->                   _           -> Nothing
 
 What is this thing? Maybe is a type which takes one parameter.
 Its definition is:
@@ -31,23 +27,29 @@ data Maybe a = Nothing | Just a
 
 This is a nice way to tell there was an error while trying to create/compute
 a value.
-
 The `maybeRead` function is a great example of this. 
 This is a function similar to the function `read`[^1],
 but if something goes wrong the returned value is `Nothing`.
 If the value is right, it returns `Just <the value>`.
+Don't try to understand too much of this function. 
+I use a lower level function than `read`; `reads`.
 
 [^1]: Which itself is very similar to the javascript `eval` on a string containing JSON).
+
+> maybeRead :: Read a => String -> Maybe a
+> maybeRead s = case reads s of
+>                   [(x,"")]    -> Just x
+>                   _           -> Nothing
+
+Now to be a bit more readable, we define a function which goes like this:
+If the string has the wrong format, it will return `Nothing`.
+Otherwise, for example for "1,2,3", it will return `Just [1,2,3]`.
 
 > getListFromString :: String -> Maybe [Integer]
 > getListFromString str = maybeRead $ "[" ++ str ++ "]"
 
-Now to be a bit more readable, we define a function which goes like this:
 
-If the string has the wrong format, it will return `Nothing`.
-Otherwise, for example for "1,2,3", it will return `Just [1,2,3]`.
-
-We simply test the value in our main function.
+We simply have to test the value in our main function.
 
 > main = IO ()
 > main = do
@@ -62,8 +64,11 @@ In case of error, we prompt a nice error message.
 
 One very important thing to note is the type of all the function used.
 There is only one function which contains `IO` in its type: `main`. 
-That means, all other functions are pure.
+That means main is impure. 
+All other function are pure.
 
-Why purity matters? As a pure function has no side effect, you can for example
-evaluate its value in parallel on many different core without any problem.
-And you have this by design of Haskell.
+Why purity matters? 
+I certainly forget many advantages, but the two main reason are:
+
+- It is far easier to think about pure code than impure one.
+- You can evaluate pure functions in any order or in parallel without risk.
