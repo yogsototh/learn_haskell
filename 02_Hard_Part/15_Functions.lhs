@@ -19,9 +19,14 @@ Let's proceed by small steps.
 >       mysum n [] = n
 >       mysum n (x:xs) = mysum xs (n+x) 
 
+where
+
 > filter even [1..10] ⇔  [2,4,6,8,10]
 
-Now you can use the `foldl'` to accumulate a value.
+The function `filter` takes a function of type (`a -> Bool`) and a list of type `[a]`. It returns a list containing only elements for which the function returned `true`.
+
+Our next step is to use another way to simulate loop. 
+We will use the `foldl'` to accumulate a value.
 The function `foldl` capture a general coding pattern:
 
 <code class="haskell">

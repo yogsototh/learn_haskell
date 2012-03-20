@@ -29,9 +29,9 @@ function evenSum(list) {
 </code>
 
 But, in Haskell we don't have variables, nor for or while loop.
-This is why we will use recursion[^0120101].
+One solution to achieve the same result without loop is to use recursion [^0120101].
 Here is a `C` version of the recursive function.
-Note, for simplicity, I assume the int list should end with the first `null` value (`0`):
+Note, for simplicity, I assume the int list should end with the first `null` (value `0`):
 
 [^0120101]: Don't worry if you comme from imperative programming. Generally Haskell handles recursion efficiently.
 

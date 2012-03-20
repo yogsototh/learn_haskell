@@ -35,7 +35,7 @@ Suppose we want to modify slightly our function.
 We want to get the sum of all even square of element of the list.
 
 ~~~
-[1,2,3,4] ~> [1,4,9,16] ~> [4,16] ~> 20
+[1,2,3,4] ▷ [1,4,9,16] ▷ [4,16] ▷ 20
 ~~~
 
 Update the version 10 is extremely easy:
