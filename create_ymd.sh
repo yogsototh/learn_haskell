@@ -25,13 +25,29 @@ en: <%= tldr %>
 fr: <%= tlal %>
 
 > <center><sc><b>Table of Content</b></sc></center>
-> 
-> * Table of Content (generated)
-> {:toc}
+> begindiv(toc)
+>
+END
+
+# Create the TOC
+
+# get a list of 
+# depth anchor name
+grep -e '<h.' **/*.lhs | perl -pe 's#.*<h([2-6]) id="#\1 #;s#"[^>]*># "#; s#<.*#"#' |
+while read num anchor title; do
+    echo -n '> '
+    while ((num-->2)); do echo -n "  "; done
+    echo '* <a href="#'$anchor'">'${title[2,-2]}'</a>'
+done
+
+
+cat <<END
+>
+> enddiv
 
 enddiv
-
 END
+
 
 for fic in **/*.lhs; do
     echo "\n<hr/><a href=\"code/$fic\" class=\"cut\">${fic:h}/<strong>${fic:t}</strong></a>\n"
