@@ -1,4 +1,4 @@
-<h3>Infinite Structures</h3>
+<h3 id="infinite-structures">Infinite Structures</h3>
 
 It is often stated that Haskell is _lazy_.
 

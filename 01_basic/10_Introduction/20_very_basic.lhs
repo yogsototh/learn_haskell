@@ -1,4 +1,4 @@
-<h3>Very basic Haskell</h3>
+<h3 id="very-basic-haskell">Very basic Haskell</h3>
 
 Before continuing you need be warned.
 You have to know some essential properties of Haskell. 
@@ -36,7 +36,7 @@ Some part are very clear, but when you see a formula, just focus and read slower
 Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details. If you cross a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
 I'll do my best to help you thought.
 
-<h4>Function declaration</h4>
+<h4 id="function-declaration">Function declaration</h4>
 
 You might be used to declare functions like this:
 

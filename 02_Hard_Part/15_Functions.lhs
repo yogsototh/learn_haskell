@@ -1,4 +1,4 @@
-<h3> Higher Level Functions </h3>
+<h3 id="higher-level-functions">Higher Level Functions</h3>
 
 To make things even better we should use higher level functions.
 What are these beast?

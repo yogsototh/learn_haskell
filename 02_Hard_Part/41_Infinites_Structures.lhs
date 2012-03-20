@@ -1,4 +1,4 @@
-<h5>Infinite Tree</h5>
+<h4 id="infinite-tree">Infinite Tree</h4>
 
 <div class="hidden">
 
@@ -77,7 +77,6 @@ Now let's see the result:
 >       print $ take 10 shuffle
 >       putStrLn "\ntreeTakeDepth 5 (treeFromList shuffle)"
 >       print $ treeTakeDepth 5 (treeFromList shuffle)
->       print $ treeTakeDepth 5 (treeFromList [1..])
 
 ~~~
 % runghc 02_Hard_Part/41_Infinites_Structures.lhs

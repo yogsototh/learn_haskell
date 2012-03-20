@@ -1,4 +1,4 @@
-<h3> Deal With IO </h3>
+<h3 id="deal-with-io">Deal With IO</h3>
 
 In this section, I won't explain how IO works.
 I just show how to use it by providing some progressive examples.

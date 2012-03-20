@@ -12,13 +12,13 @@ I will also use `⇒` to show what is the return of an expression.
 
 ### Notations
 
-<h5>Arithmetic</h5>
+<h5 id="arithmetic">Arithmetic</h5>
 
 ~~~
 3 + 2 * 6 / 3 ⇔ 3 + ((2*6)/3)
 ~~~
 
-<h5>Logic</h5>
+<h5 id="logic">Logic</h5>
 
 ~~~
 True || False ⇒ True
@@ -27,7 +27,7 @@ True == False ⇒ False
 True /= False ⇒ True  (/=) is the operator for different
 ~~~
 
-<h5>Powers</h5>
+<h5 id="powers">Powers</h5>
 
 ~~~
 x^n     for n an integral
@@ -53,7 +53,7 @@ Data.Ratio> (11%15) * (5%3)
 11 % 9
 ~~~
 
-<h5>Lists</h5>
+<h5 id="lists">Lists</h5>
 
 ~~~
 []                      ⇔ empty list
@@ -69,7 +69,7 @@ Data.Ratio> (11%15) * (5%3)
 [10,9..1]               ⇔ [10,9,8,7,6,5,4,3,2,1]
 ~~~
 
-<h5>Strings</h5>
+<h5 id="strings">Strings</h5>
 
 In Haskell strings are list of `Char`.
 
@@ -85,7 +85,7 @@ In real code you shouldn't use list of char to represent text.
 You should mostly use `Data.Text` instead.
 If you want to represent stream of ASCII char, you should use `Data.ByteString`.
 
-<h5>Tuples</h5>
+<h5 id="tuples">Tuples</h5>
 
 The type of couple is `(a,b)`. 
 Elements in a tuple can have different type.
@@ -103,7 +103,7 @@ fst (x,y,z)     ⇒  ERROR: fst :: (a,b) -> a
 snd (x,y,z)     ⇒  ERROR: snd :: (a,b) -> b
 ~~~
 
-<h5>Deal with parenthesis</h5>
+<h5 id="deal-with-parenthesis">Deal with parenthesis</h5>
 
 To remove some parenthesis you can use two functions: `($)` and `(.)`.
 
