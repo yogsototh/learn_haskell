@@ -1,4 +1,4 @@
-### Trees
+<h3 id="trees">Trees</h3>
 
 Now we'll just give another typical example, binary trees.
 

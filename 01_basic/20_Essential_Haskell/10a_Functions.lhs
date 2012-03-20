@@ -1,4 +1,4 @@
-### Useful notations for functions
+<h3 id="useful-notations-for-functions">Useful notations for functions</h3>
 
 Just a reminder:
 

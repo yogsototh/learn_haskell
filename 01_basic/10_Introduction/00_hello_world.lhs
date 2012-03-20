@@ -1,6 +1,6 @@
-## Introduction
+<h2 id="introduction">Introduction</h2>
 
-### Install
+<h3 id="install">Install</h3>
 
 - [Haskell Platform](http://www.haskell.org/platform) is the standard way to install Haskell.
 
@@ -10,7 +10,7 @@ Tools:
 - `ghci`: Interactive Haskell (REPL)
 - `runhaskell`: Execute a program without compiling it. Convenient but very slow compared to compiled program.
 
-### Don't be afraid
+<h3 id="don-t-be-afraid">Don't be afraid</h3>
 
 Many book/articles about Haskell start by introducing some esoteric formula (quicksort, fibonacci serie, etc...).
 I will make the exact opposite.

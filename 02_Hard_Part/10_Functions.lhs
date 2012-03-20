@@ -1,8 +1,8 @@
-## Hard Part
+<h2 id="hard-part">Hard Part</h2>
 
 The hard part could now begins.
 
-### Functional style
+<h3 id="functional-style">Functional style</h3>
 
 In this section, I give a short example of the impressive refactoring ability provided by Haskell.
 We will choose a problem and resolve it the standard way. 

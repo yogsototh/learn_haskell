@@ -1,4 +1,4 @@
-## Hell Difficulty Part
+<h2 id="hell-difficulty-part">Hell Difficulty Part</h2>
 
 <%= blogimage("hell_difficulty.jpg","Hell difficulty") %>
 

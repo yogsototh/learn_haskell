@@ -1,4 +1,4 @@
-## Essential Haskell
+<h2 id="essential-haskell">Essential Haskell</h2>
 
 I suggest you to skim this part. 
 Think of it like a reference.
@@ -10,7 +10,7 @@ I use the `⇔` symbol to state that two expression are equivalent.
 It is a meta notation, `⇔` does not exists in Haskell.
 I will also use `⇒` to show what is the return of an expression.
 
-### Notations
+<h3 id="notations">Notations</h3>
 
 <h5 id="arithmetic">Arithmetic</h5>
 
