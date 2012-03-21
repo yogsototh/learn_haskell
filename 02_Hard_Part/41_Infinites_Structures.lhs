@@ -44,21 +44,15 @@
 >           change c new x 
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
-
-</div>
-
-For this example, we will use the same code as in the [tree section](#trees). 
-
-Using a fold of `treeInsert` won't work for infinite tree.
-Instead we will construct directly a `treeFromList`.
-
-
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList []    = Empty
 > treeFromList (x:xs) = Node x (treeFromList (filter (<x) xs))
 >                              (treeFromList (filter (>x) xs))
 
-Look at how elegant this code is. 
+</div>
+
+For this example, we will use the same code as in the [tree section](#trees). 
+
 Also we use a shuffle function to create pseudo-random number list:
 
 > shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
