@@ -8,18 +8,25 @@ Now we'll just give another typical example, binary trees.
 >                  | Node a (BinTree a) (BinTree a) 
 >                               deriving (Show)
 
-To generate tree easily, we create a function who add an element to a `BinTree`.
+Also we create a function which transform a list into a binary tree.
 
-> treeInsert :: (Ord a) => BinTree a -> a -> BinTree a
-> treeInsert Empty x    = Node x Empty Empty
-> treeInsert (Node y left right) x
->           | x == y    = (Node y left right)
->           | x < y     = (Node y (treeInsert left x) right)
->           | otherwise = (Node y left (treeInsert right x))
+> treeFromList :: (Ord a) => [a] -> BinTree a
+> treeFromList [] = Empty
+> treeFromList (x:xs) = Node x (treeFromList (filter (<x) xs))
+>                              (treeFromList (filter (>x) xs))
 
-Now try this:
+Look at how elegant this function is.
+In plain English: 
 
-> main = print $ foldl' treeInsert Empty [7,2,4,8]
+- a tree from list for the empty list is the empty tree.
+- a tree from a list `(x:xs)` is the list where:
+  - The root is `x`
+  - Its left subtree is the tree created from the list of the remaining element of `xs` which are strictly inferior to `x` and 
+  - the right subtree is the tree created from the elements strictly superior to `x` of the list `xs`.
+
+If you are use of imperative language
+
+> main = print $ treeFromList [7,2,4,8]
 
 You should obtain the following:
 

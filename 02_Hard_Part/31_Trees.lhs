@@ -75,19 +75,12 @@ I made a lot of improvement in order to display even strange objects.
 >               | otherwise = x:[] -- "x"
 
 
+The `treeFromList` method remain identical.
 
-The `treeInsert` method remain identical.
-
-> treeInsert :: (Ord a) => BinTree a -> a -> BinTree a
-> treeInsert Empty x    = Node x Empty Empty
-> treeInsert (Node y left right) x
->           | x == y    = (Node y left right)
->           | x < y     = (Node y (treeInsert left x) right)
->           | otherwise = (Node y left (treeInsert right x))
-
-To help creating tree, we define:
-
-> treeFromList list = foldl' treeInsert Empty list
+> treeFromList :: (Ord a) => [a] -> BinTree a
+> treeFromList [] = Empty
+> treeFromList (x:xs) = Node x (treeFromList (filter (<x) xs))
+>                              (treeFromList (filter (>x) xs))
 
 And now, we can play:
 
