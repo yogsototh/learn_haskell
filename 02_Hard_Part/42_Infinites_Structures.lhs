@@ -117,7 +117,7 @@ Now run the program and be happy:
 >       putStrLn "take 10 shuffle"
 >       print $ take 10 shuffle
 >       putStrLn "\ntreeTakeDepth 8 (treeFromList shuffle)"
->       print $ treeTakeDepth 38 (treeFromList $ shuffle)
+>       print $ treeTakeDepth 8 (treeFromList $ shuffle)
 
 You should realize the time to print each value is different.
 This is because Haskell compute each value when it needs it.
@@ -131,11 +131,11 @@ Left as an exercise to the reader:
 
 - I first tried to implement `safefilter` as follow:
   <pre>
-  safefilter' f l = if filter f (take 1000 l) == []
+  safefilter' f l = if filter f (take 10000 l) == []
                     then []
                     else filter f l
   </pre>
-  Explain why it can enter into an infinite loop.
+  Explain why it doesn't work and can enter into an infinite loop.
 - Let's consider `shuffle` to be a real random list with growing bounds.
   If you study a bit this structure, you'll discover that with probability 1,
   this structure is finite.
