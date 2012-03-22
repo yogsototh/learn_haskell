@@ -20,4 +20,28 @@ What to achieve?
 >   input <- getLine
 >   print $ sum (toList input)
 
-It should be straightforward.
+It is straightforward to understand the behavior of this program.
+But this time, let us take the time to analyze the types in more detail.
+
+~~~
+putStrLn :: String -> IO ()
+getLine  :: IO String
+print    :: Show a => a -> IO ()
+~~~
+
+Or more interrestingly, we remark each expression in the `do` block has a type of `IO a`.
+
+~~~
+putStrLn "Enter ... " :: IO ()
+getLine :: IO String
+print Something :: IO ()
+~~~
+
+We should also remark the effect of the `<-` symbol.
+
+~~~
+do
+ x <- something
+~~~
+
+If `something :: IO a` then `x :: a`.

@@ -1,4 +1,4 @@
-<h2 id="io-trick-explained">`IO` trick explained</h2>
+<h3 id="io-trick-explained">`IO` trick explained</h3>
 
 Why did we used some strange syntax, and what exactly is this `IO` type.
 It looks a bit like magic.

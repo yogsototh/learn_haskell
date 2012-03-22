@@ -20,9 +20,11 @@ This actual article contains four parts.
 - Basic Haskell: Haskell syntax, and some essential notions.
 - Hard Difficulty Part:
     - Functional style; an example from imperative to functional
-    - Types; a standard binary tree example
+    - Types; a (not so) standard binary tree example
+    - Infinite Structure; manipulate an infinite binary tree!
 - Hell Difficulty Part:
-    - Purity and IO; the Haskell solution
+    - Deal with IO; A real world example
+    - IO trick explained; the hidden detail I lacked to understand IO
     - Monads; incredible how we can generalize
     - Other links.
 

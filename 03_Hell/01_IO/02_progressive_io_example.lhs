@@ -62,7 +62,10 @@ We simply have to test the value in our main function.
 
 In case of error, we prompt a nice error message.
 
-One very important thing to note is the type of all the function used.
+Remark the type of each expression in the main's do block remains of the form `IO a`.
+The only strange construction is `error`.
+
+One very important thing to note is the type of all the defined function.
 There is only one function which contains `IO` in its type: `main`. 
 That means main is impure. 
 All other function are pure.
