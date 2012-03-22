@@ -22,7 +22,7 @@ If you want to be able to print (`Show`), read (`Read`), test equality (`Eq`) an
 > data List a = Nil | a ::: (List a) 
 >               deriving (Show,Read,Eq,Ord)
 
-When told to use deriving Show, Haskell create a `show` function for you.
+When you add `deriving (Show)` to your data declaration, Haskell create a `show` function for you.
 We'll see soon how you could use your own `show` function.
 
 > convertList [] = Nil
