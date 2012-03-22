@@ -45,6 +45,14 @@
 >           change c new x 
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
+> 
+> treeTakeDepth _ Empty = Empty
+> treeTakeDepth 0 _     = Empty
+> treeTakeDepth n (Node x left right) = let
+>           nl = treeTakeDepth (n-1) left
+>           nr = treeTakeDepth (n-1) right
+>           in
+>               Node x nl nr
 
 </div>
 
@@ -72,55 +80,32 @@ Depending of the shuffle implementation we cannot decide whether
 `filter (<x) xs` is empty.
 Then I will decide the following: 
 
- > if no element is inferior to `x` for a certain number of the firsts `xs`, we decide that the branch is empty.
+ > if no element is inferior to `x` for the firsts `xs` element, we decide that the branch is empty.
 
 The problem is that now, we can't assume that or tree is a coherent binary tree, even if in general it will be the case.
-Here is our new version of `treeFromList`
+
+Here is our new version of `treeFromList`. We simply have replaced `filter` by `safefilter`.
 
 > treeFromList :: (Ord a, Show a) => [a] -> BinTree a
 > treeFromList []    = Empty
 > treeFromList (x:xs) = Node x left right
 >                   where 
->                       sample = take 8 xs
->                       failTest tst = [] == filter tst sample
->                       left = 
->                           trace (
->                                  (show (failTest (<x))) ++ 
->                                  " (<"++(show x) ++") " ++ 
->                                  show sample ++
->                                   if (failTest (<x))
->                                     then "[]"
->                                     else  show $ head $ filter (<x) sample
->                                  ) $ 
->                                 makesubtree (<x)
->                       right = 
->                           trace (
->                                  (show (failTest (>x))) ++ 
->                                  " (>"++(show x) ++") " ++ 
->                                  show sample ++
->                                   if (failTest (>x))
->                                     then "[]"
->                                     else  show $ head $ filter (>x) sample
->                                  ) $ 
->                                 makesubtree (>x)
->                       makesubtree tst = 
->                           if failTest tst 
->                               then Empty 
->                               else treeFromList $ filter tst xs
+>                       left = treeFromList $ safefilter (<x) xs
+>                       right = treeFromList $ safefilter (>x) xs
 
-Look at how elegant this code is. 
-Also we use a shuffle function to create pseudo-random number list:
+This new function `safefilter` is almost equivalent to `filter`.
+If it cannot find an element for which the test is true after 1000 consecutive steps,
+then it considers to be the end of the search.
 
-
-and a function that troncate a tree up to a certain depth
-
-> treeTakeDepth _ Empty = Empty
-> treeTakeDepth 0 _     = Empty
-> treeTakeDepth n (Node x left right) = let
->           nl = treeTakeDepth (n-1) left
->           nr = treeTakeDepth (n-1) right
->           in
->               Node x nl nr
+> safefilter :: (a -> Bool) -> [a] -> [a]
+> safefilter f l = safefilter' f l nbTry
+>   where
+>       nbTry = 1000
+>       safefilter' _ _ 0 = []
+>       safefilter' _ [] _ = []
+>       safefilter' f (x:xs) n = if f x 
+>                                then x : safefilter' f xs nbTry 
+>                                else safefilter' f xs (n-1) 
 
 Now let's see the result:
 
@@ -130,3 +115,10 @@ Now let's see the result:
 >       putStrLn "\ntreeTakeDepth 5 (treeFromList shuffle)"
 >       print $ treeTakeDepth 6 (treeFromList $ shuffle)
 
+Left as an exercise to the reader:
+
+- Let's consider `shuffle` to be a real random list with growing bounds.
+  If you study a bit this structure, you'll discover that with probability 1,
+  this structure is finite.
+  Explain how to make the structure infinite by using directly `safefilter'` 
+  instead of `safefilter` inside `treeFromList`.
