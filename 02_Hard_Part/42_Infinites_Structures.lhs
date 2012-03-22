@@ -1,6 +1,7 @@
-<h4 id="infinite-tree">Infinite Tree</h4>
 
 <div style="display:none">
+
+This code is mostly the same as the preceeding one.
 
 > import Debug.Trace (trace)
 > import Data.List
@@ -72,53 +73,72 @@ To resolve this we make a slightly better `shuffle` function.
 >               o = 7641
 >               c = 1237
 
-This shuffle function as the property to generate number both positive and negative and further more there is no more bound.
+This shuffle function as two properties the preceeding one didn't had:
 
-But even with this version of shuffle, there is always a depth such that our function enter an infinite loop.
-This is the time to resolve the most complex part. 
-Depending of the shuffle implementation we cannot decide whether
-`filter (<x) xs` is empty.
-Then I will decide the following: 
+- It contains both positive and negative numbers
+- It (hopefully) don't have an upper nor lower bound.
 
- > if no element is inferior to `x` for the firsts `xs` element, we decide that the branch is empty.
+But having a better shuffle list isn't enough not to enter an infinite loop.
 
-The problem is that now, we can't assume that or tree is a coherent binary tree, even if in general it will be the case.
+Generally, we cannot decide whether `filter (<x) xs` is empty.
+Then to resolve this problem, I'll authorize some error in the creation of our binary tree.
+This new version of code can create binary tree which don't have the following property for some of its nodes: 
+
+ > Any element of the left (resp. right) branch must all be strictly inferior (resp. superior) to the label of the root.
+
+Remark it will remains _mostly_ an ordered binary tree.
 
 Here is our new version of `treeFromList`. We simply have replaced `filter` by `safefilter`.
 
 > treeFromList :: (Ord a, Show a) => [a] -> BinTree a
 > treeFromList []    = Empty
 > treeFromList (x:xs) = Node x left right
->                   where 
->                       left = treeFromList $ safefilter (<x) xs
->                       right = treeFromList $ safefilter (>x) xs
+>           where 
+>               left = treeFromList $ safefilter (<x) xs
+>               right = treeFromList $ safefilter (>x) xs
 
-This new function `safefilter` is almost equivalent to `filter`.
-If it cannot find an element for which the test is true after 1000 consecutive steps,
-then it considers to be the end of the search.
+This new function `safefilter` is almost equivalent to `filter` but don't enter infinite loop if the result is a finite list.
+If it cannot find an element for which the test is true after 10000 consecutive steps, then it considers to be the end of the search.
 
 > safefilter :: (a -> Bool) -> [a] -> [a]
 > safefilter f l = safefilter' f l nbTry
 >   where
->       nbTry = 1000
+>       nbTry = 10000
 >       safefilter' _ _ 0 = []
 >       safefilter' _ [] _ = []
->       safefilter' f (x:xs) n = if f x 
->                                then x : safefilter' f xs nbTry 
->                                else safefilter' f xs (n-1) 
+>       safefilter' f (x:xs) n = 
+>                   if f x 
+>                      then x : safefilter' f xs nbTry 
+>                      else safefilter' f xs (n-1) 
 
-Now let's see the result:
+Now run the program and be happy:
 
 > main = do
 >       putStrLn "take 10 shuffle"
 >       print $ take 10 shuffle
->       putStrLn "\ntreeTakeDepth 5 (treeFromList shuffle)"
->       print $ treeTakeDepth 6 (treeFromList $ shuffle)
+>       putStrLn "\ntreeTakeDepth 8 (treeFromList shuffle)"
+>       print $ treeTakeDepth 38 (treeFromList $ shuffle)
+
+You should realize the time to print each value is different.
+This is because Haskell compute each value when it needs it.
+And in this case, this is when asked to print it on the screen.
+
+Impressively enough, try to replace the depth from `8` to `100`.
+It will work without killing your RAM! 
+The flow and the memory management is done naturally by Haskell.
 
 Left as an exercise to the reader:
 
+- I first tried to implement `safefilter` as follow:
+  <pre>
+  safefilter' f l = if filter f (take 1000 l) == []
+                    then []
+                    else filter f l
+  </pre>
+  Explain why it can enter into an infinite loop.
 - Let's consider `shuffle` to be a real random list with growing bounds.
   If you study a bit this structure, you'll discover that with probability 1,
   this structure is finite.
-  Explain how to make the structure infinite by using directly `safefilter'` 
+  Explain how to make the structure theoretically infinite by using directly `safefilter'` 
   instead of `safefilter` inside `treeFromList`.
+  Also what consequences will this modification have one the execution time?

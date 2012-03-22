@@ -1,12 +1,16 @@
 <h4 id="infinite-tree">Infinite Tree</h4>
 
+For this example, we will use the same code as in the [tree section](#trees). 
+
 <div style="display:none">
+
+This code is mostly the same as the one in the [tree section](#trees).
 
 > import Data.List
 > data BinTree a = Empty 
 >                  | Node a (BinTree a) (BinTree a) 
 >                   deriving (Eq,Ord)
-
+> 
 > -- declare BinTree a to be an instance of Show
 > instance (Show a) => Show (BinTree a) where
 >   -- will start by a '<' before the root
@@ -51,9 +55,8 @@
 
 </div>
 
-For this example, we will use the same code as in the [tree section](#trees). 
 
-Also we use a shuffle function to create pseudo-random number list:
+We will use a pseudo-random number list:
 
 > shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
 
@@ -67,51 +70,35 @@ and a function that troncate a tree up to a certain depth
 >           in
 >               Node x nl nr
 
-Now let's see the result:
+See the result of:
 
 > main = do
 >       putStrLn "take 10 shuffle"
 >       print $ take 10 shuffle
->       putStrLn "\ntreeTakeDepth 5 (treeFromList shuffle)"
->       print $ treeTakeDepth 5 (treeFromList shuffle)
+>       putStrLn "\ntreeTakeDepth 4 (treeFromList shuffle)"
+>       print $ treeTakeDepth 4 (treeFromList shuffle)
 
 ~~~
 % runghc 02_Hard_Part/41_Infinites_Structures.lhs
 take 10 shuffle
 [3123,1915,707,3830,2622,1414,206,3329,2121,913]
+treeTakeDepth 4 (treeFromList shuffle)
 
-treeTakeDepth 5 (treeFromList shuffle)
 < 3123
 : |--1915
 : |  |--707
 : |  |  |--206
-: |  |  |  |--117
-: |  |  |  `--412
 : |  |  `--1414
-: |  |     |--913
-: |  |     `--1620
 : |  `--2622
 : |     |--2121
-: |     |  |--2032
-: |     |  `--2327
 : |     `--2828
-: |        |--2739
-: |        `--3034
 : `--3830
 :    |--3329
 :    |  |--3240
-:    |  |  |--3151
-:    |  |  `--3268
 :    |  `--3535
-:    |     |--3446
-:    |     `--3741
 :    `--4036
 :       |--3947
-:       |  |--3858
-:       |  `--3975
 :       `--4242
-:          |--4153
-:          `--4270
 ~~~
 
 Yay! It ends! 
@@ -120,7 +107,7 @@ Beware thought, it will only work if you always have something to put into a bra
 For example 
 
 <code class="haskell">
-treeTakeDepth 5 (treeFromList [1..]) 
+treeTakeDepth 4 (treeFromList [1..]) 
 </code>
 
 will loop forever. 
@@ -133,4 +120,4 @@ Left as an exercise to the reader:
 
 - Could you prove that there exists some number `n` such that `treeTakeDepth n (treeFromList shuffle)` will enter in an infinite loop.
 - Find an upper bound for `n`.
-- Prove there is no `shuffle` list such that for any depth the program ends.
+- Prove there is no `shuffle` list such that, for any depth, the program ends.
