@@ -18,13 +18,13 @@ Also we create a function which transform a list into a binary tree.
 Look at how elegant this function is.
 In plain English: 
 
-- a tree from list for the empty list is the empty tree.
-- a tree from a list `(x:xs)` is the list where:
+- an empty list convert to an empty tree.
+- a list `(x:xs)` convert to the tree where:
   - The root is `x`
   - Its left subtree is the tree created from the list of the remaining element of `xs` which are strictly inferior to `x` and 
   - the right subtree is the tree created from the elements strictly superior to `x` of the list `xs`.
 
-If you are use of imperative language
+If you are used of imperative language
 
 > main = print $ treeFromList [7,2,4,8]
 

@@ -35,5 +35,5 @@ by
 >                   else foo n xs
 
 This is a very useful feature.
-It makes our code both terse and easier to read.
+It makes our code both tersier and easier to read.
 

@@ -27,7 +27,7 @@ To run it, you can save this code in a `hello.hs` and:
 Hello World!
 </code>
 
-You could also download the literate haskell source.
+You could also download the literate Haskell source.
 You should see a link just above the introduction title.
 Download this file as `00_hello_world.lhs` and:
 

@@ -129,6 +129,9 @@ The flow and the memory management is done naturally by Haskell.
 
 Left as an exercise to the reader:
 
+- Even with large constant value for `deep` and `nbTry`, it seems to work nicely. But in the worst case, it can be exponential.
+  Create a worst case list to give as parameter to `treeFromList`.  
+  _hint_: think about (`[0,-1,-1,....,-1,1,-1,...,-1,1,...]`).
 - I first tried to implement `safefilter` as follow:
   <pre>
   safefilter' f l = if filter f (take 10000 l) == []
@@ -139,6 +142,5 @@ Left as an exercise to the reader:
 - Let's consider `shuffle` to be a real random list with growing bounds.
   If you study a bit this structure, you'll discover that with probability 1,
   this structure is finite.
-  Explain how to make the structure theoretically infinite by using directly `safefilter'` 
+  Explain how to make the structure theoretically infinite with probability 1 by using directly `safefilter'` 
   instead of `safefilter` inside `treeFromList`.
-  Also what consequences will this modification have one the execution time?

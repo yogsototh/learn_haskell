@@ -29,11 +29,15 @@ function evenSum(list) {
 </code>
 
 But, in Haskell we don't have variables, nor for or while loop.
-One solution to achieve the same result without loop is to use recursion [^0120101].
+One solution to achieve the same result without loop is to use recursion.
+
+ > _Remark_:  
+ > Recursion is generally perceived as slow in imperative language.
+ > But it is generally not the case in functional programming.
+ > Most of the time Haskell will handle recursive function efficiently.
+
 Here is a `C` version of the recursive function.
 Note, for simplicity, I assume the int list should end with the first `null` (value `0`):
-
-[^0120101]: Don't worry if you comme from imperative programming. Generally Haskell handles recursion efficiently.
 
 
 <code class="c">

@@ -8,6 +8,22 @@ Finaly
 `foldl'` isn't the easiest function to intuit.
 If you are not used to it, you should exercise a bit.
 
+To help you understand what's going on here, a step by step evaluation:
+
+<pre>
+  <span style="color: #CF6A4C">evenSum [1,2,3,4]</span>
+⇒ foldl' (+) 0 (<span style="color: #CF6A4C">filter even [1,2,3,4]</span>)
+⇒ <span style="color: #CF6A4C">foldl' (+) 0 <span style="color: #CDA869">[2,4]</span></span>
+⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">0+2</span>) [4]</span> 
+⇒ foldl' (+) (<span style="color: #CF6A4C">0+2</span>) [4]
+⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">2</span> [4]</span>
+⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">2+4</span>) []</span>
+⇒ foldl' (+) (<span style="color: #CF6A4C">2+4</span>) []
+⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">6</span> []</span>
+⇒ <span style="color: #CDA869">6</span>
+</pre>
+
+
 Another useful higher order function is `(.)`.
 The `(.)` function correspond to the mathematical composition.
 

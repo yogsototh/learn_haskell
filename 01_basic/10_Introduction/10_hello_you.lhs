@@ -46,4 +46,4 @@ I am afraid to terrify you.
 You might run away crying.
 For now, I won't talk about what `IO` really is.
 
-Just remember, Haskell can look a lot like other imperative languages.
+Just remember that Haskell can look a lot like other imperative languages.

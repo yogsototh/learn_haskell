@@ -33,22 +33,24 @@ Here is an example of execution[^2]:
 
 [^2]: I know I cheat. But I will talk about non-strict later.
 
-~~~
+<pre>
 *Main> evenSum [1..5]
 accumSum 0 [1,2,3,4,5]
-1 is odd 
+<span style="color: #CDA869">1 is odd</span>
 accumSum 0 [2,3,4,5]
-2 is even
-accumSum 2 [3,4,5]
-3 is odd 
-accumSum 2 [4,5]
-4 is even
-accumSum 6 [5]
-5 is odd 
-accumSum 6 []
-l == []
+<span style="color: #CDA869">2 is even</span>
+accumSum (0+2) [3,4,5]
+<span style="color: #CDA869">3 is odd</span>
+accumSum (0+2) [4,5]
+<span style="color: #CDA869">4 is even</span>
+accumSum (0+2+4) [5]
+<span style="color: #CDA869">5 is odd</span>
+accumSum (0+2+4) []
+<span style="color: #CDA869">l == []</span>
+0+2+4
+0+6
 6
-~~~
+</pre>
 
 Comming from an imperative language all should seems right.
 In reality many things can be improved.
