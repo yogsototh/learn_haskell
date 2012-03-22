@@ -1,18 +1,16 @@
 <h3 id="very-basic-haskell">Very basic Haskell</h3>
 
-Before continuing you need be warned.
-You have to know some essential properties of Haskell. 
+Before continuing you need to be warned about some essential properties of Haskell. 
 
 _Functional_
 
 Haskell is a functional language.
-If you come from imperative language, you'll have to re-learn a lot.
-But you will discover many new concepts!
+If you come from imperative language, you'll have to learn a lot of new things.
+Hopefully many of these new concepts will help you to program even in imperative languages.
 
 _Smart Static Typing_
 
-Instead of being in your way like in `C`, `C++` or `Java`.
-The type system is here to help you.
+Instead of being in your way like in `C`, `C++` or `Java`, the type system is here to help you.
 
 _Purity_
 
@@ -33,8 +31,8 @@ Inifinte lists, infinite trees etc...
 A last warning on how you should read Haskell code.
 For me, it is like reading scientific paper.
 Some part are very clear, but when you see a formula, just focus and read slower.
-Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details. If you cross a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
-I'll do my best to help you thought.
+Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details.
+If you cross a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
 
 <h4 id="function-declaration">Function declaration</h4>
 
