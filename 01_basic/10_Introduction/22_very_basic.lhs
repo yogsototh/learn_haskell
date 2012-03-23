@@ -12,16 +12,16 @@ For example, in `C`, you'll have to declare a function for `int`, for `float`, f
 But, what type should we declare?
 To discover the type Haskell as found for us, just launch ghci:
 
-<pre><code style="color: #999">
-%</code> ghci<code style="color: #999">
+<pre><span class="low">
+%</span> ghci<span class="low"><code>
 GHCi, version 7.0.4: http://www.haskell.org/ghc/  :? for help
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
 Loading package ffi-1.0 ... linking ... done.
-Prelude></code> let f x y = x*x + y*y
-<code style="color: #999">Prelude></code> :type f
-f :: Num a => a -> a -> a
+Prelude></code></span> let f x y = x*x + y*y
+<span class="low"><code>Prelude></code></span> :type f
+<code>f :: Num a => a -> a -> a</code>
 </pre>
 
 Hey? What is this strange type?

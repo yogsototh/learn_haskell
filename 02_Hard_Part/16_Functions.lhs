@@ -11,14 +11,14 @@ If you are not used to it, you should exercise a bit.
 To help you understand what's going on here, a step by step evaluation:
 
 <pre>
-  <span style="color: #CF6A4C">evenSum [1,2,3,4]</span>
-⇒ foldl' (+) 0 (<span style="color: #CF6A4C">filter even [1,2,3,4]</span>)
-⇒ <span style="color: #CF6A4C">foldl' (+) 0 <span style="color: #CDA869">[2,4]</span></span>
-⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">0+2</span>) [4]</span> 
-⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">2</span> [4]</span>
-⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">2+4</span>) []</span>
-⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">6</span> []</span>
-⇒ <span style="color: #CDA869">6</span>
+  <span class="blue">evenSum [1,2,3,4]</span>
+⇒ foldl' (+) 0 (<span class="blue">filter even [1,2,3,4]</span>)
+⇒ <span class="blue">foldl' (+) 0 <span class="yellow">[2,4]</span></span>
+⇒ <span class="yellow">foldl' (+) (<span class="blue">0+2</span>) [4]</span> 
+⇒ <span class="blue">foldl' (+) <span class="yellow">2</span> [4]</span>
+⇒ <span class="yellow">foldl' (+) (<span class="blue">2+4</span>) []</span>
+⇒ <span class="blue">foldl' (+) <span class="yellow">6</span> []</span>
+⇒ <span class="yellow">6</span>
 </pre>
 
 
