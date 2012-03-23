@@ -28,7 +28,7 @@ function evenSum(list) {
 }
 </code>
 
-But, in Haskell we don't have variables, nor for or while loop.
+But, in Haskell we don't have variable, nor for loop.
 One solution to achieve the same result without loop is to use recursion.
 
  > _Remark_:  

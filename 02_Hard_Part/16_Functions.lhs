@@ -15,10 +15,8 @@ To help you understand what's going on here, a step by step evaluation:
 ⇒ foldl' (+) 0 (<span style="color: #CF6A4C">filter even [1,2,3,4]</span>)
 ⇒ <span style="color: #CF6A4C">foldl' (+) 0 <span style="color: #CDA869">[2,4]</span></span>
 ⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">0+2</span>) [4]</span> 
-⇒ foldl' (+) (<span style="color: #CF6A4C">0+2</span>) [4]
 ⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">2</span> [4]</span>
 ⇒ <span style="color: #CDA869">foldl' (+) (<span style="color: #CF6A4C">2+4</span>) []</span>
-⇒ foldl' (+) (<span style="color: #CF6A4C">2+4</span>) []
 ⇒ <span style="color: #CF6A4C">foldl' (+) <span style="color: #CDA869">6</span> []</span>
 ⇒ <span style="color: #CDA869">6</span>
 </pre>
@@ -74,7 +72,7 @@ But there is also you can think more mathematically about your function.
 You could then use your function as any other one.
 You could compose, map, fold, filter using your new function.
 
-To modify version 1 is left as an exercise to the reader.
+To modify version 1 is left as an exercise to the reader ☺.
 
 If you believe we reached the end of generalization, then know you are very wrong.
 For example, there is a way to not only use this function on list but on any recursive type.
