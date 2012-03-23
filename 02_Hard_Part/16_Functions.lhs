@@ -11,14 +11,14 @@ If you are not used to it, you should exercise a bit.
 To help you understand what's going on here, a step by step evaluation:
 
 <pre>
-  <span class="blue">evenSum [1,2,3,4]</span>
-⇒ foldl' (+) 0 (<span class="blue">filter even [1,2,3,4]</span>)
-⇒ <span class="blue">foldl' (+) 0 <span class="yellow">[2,4]</span></span>
-⇒ <span class="yellow">foldl' (+) (<span class="blue">0+2</span>) [4]</span> 
-⇒ <span class="blue">foldl' (+) <span class="yellow">2</span> [4]</span>
-⇒ <span class="yellow">foldl' (+) (<span class="blue">2+4</span>) []</span>
-⇒ <span class="blue">foldl' (+) <span class="yellow">6</span> []</span>
-⇒ <span class="yellow">6</span>
+  <span class="yellow">evenSum [1,2,3,4]</span>
+⇒ foldl' (+) 0 (<span class="yellow">filter even [1,2,3,4]</span>)
+⇒ <span class="yellow">foldl' (+) 0 <span class="blue">[2,4]</span></span>
+⇒ <span class="blue">foldl' (+) (<span class="yellow">0+2</span>) [4]</span> 
+⇒ <span class="yellow">foldl' (+) <span class="blue">2</span> [4]</span>
+⇒ <span class="blue">foldl' (+) (<span class="yellow">2+4</span>) []</span>
+⇒ <span class="yellow">foldl' (+) <span class="blue">6</span> []</span>
+⇒ <span class="blue">6</span>
 </pre>
 
 
@@ -94,4 +94,4 @@ A lot of effort is provided to explain you how much functional approach is super
 Then when you attack the imperative style of Haskell, it is hard to understand why and how.
 
 But before talking about this Haskell super-power, we must talk about another
-essential aspect of Haskell; the _types_.
+essential aspect of Haskell: _Types_.

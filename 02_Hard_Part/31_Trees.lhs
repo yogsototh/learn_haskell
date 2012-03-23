@@ -143,12 +143,12 @@ This is why I chosen to prefix each line of tree display by `:` (except for the 
 
 <%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
 
->   putStrLn "\nTree of Binary trees of Char binary trees:"
->   print $ (treeFromList . map (treeFromList . map treeFromList))
->                [ ["YO","DAWG"]
->                , ["I","HEARD"]
->                , ["I","HEARD"]
->                , ["YOU","LIKE","TREES"] ]
+> putStrLn "\nTree of Binary trees of Char binary trees:"
+> print $ (treeFromList . map (treeFromList . map treeFromList))
+>              [ ["YO","DAWG"]
+>              , ["I","HEARD"]
+>              , ["I","HEARD"]
+>              , ["YOU","LIKE","TREES"] ]
 
 Which is equivalent to
 

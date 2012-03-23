@@ -10,15 +10,16 @@ It will be easy to detect where you used the bad parameter at the wrong place fo
 <h4 id="type-inference">Type inference</h4>
 
 Static typing is generally essential to reach fast execution time.
-But in common languages static typing has the price of bad generalization.
-What saves Haskell is that types can be inferred.
+But most static typed language are bad when it comes about generalize concepts.
+What saves Haskell is that it can _infere_ types.
 
-Here are some examples on how to simulate a simple square function in Haskell:
+Here is a simple example. 
+The square function in Haskell:
 
 > square x = x * x
 
 This function can square any Numeral type.
-You can provide square an Int, an Integer, a Float a Fractional and even Complex.
+You can provide square an Int, an Integer, a Float a Fractional and even Complex. Proof by example:
 
 ~~~
 % ghci
@@ -37,16 +38,21 @@ Prelude Data.Complex> square (2 :+ 1)
 
 `x :+ y` is the notation for the complex (<i>x + ib</i>).
 
-Now compare to the code necessary in C:
+Now compare with the necessary C code:
 
 <code class="c">
 int     int_square(int x) { return x*x; }
-float   fl_square(float x) {return x*x; }
+
+float   float_square(float x) {return x*x; }
+
 complex complex_square (complex z) {
     complex tmp; 
     tmp.real = z.real * z.real - z.img * z.img;
     tmp.img = 2 * z.img * z.real;
 }
+
+complex x,y;
+y = complex_square(x);
 </code>
 
 For each type, you need to write a new function.
@@ -97,4 +103,6 @@ instance Num (Complex a) where
 </code>
 
 The inference of type gives Haskell a feeling of the freedom that dynamic 
-typed languages provide.
+typed languages provide. 
+In the next section, we will how type could improve safety.
+Generally in Haskell "if it compiles it does what you intended" is a quite impressive propriety. Most error are catched by the type system during compilation.
