@@ -87,6 +87,7 @@ This new version of code can create binary tree which don't have the following p
  > Any element of the left (resp. right) branch must all be strictly inferior (resp. superior) to the label of the root.
 
 Remark it will remains _mostly_ an ordered binary tree.
+Furthermore, by construction, each node value is unique in the tree.
 
 Here is our new version of `treeFromList`. We simply have replaced `filter` by `safefilter`.
 
