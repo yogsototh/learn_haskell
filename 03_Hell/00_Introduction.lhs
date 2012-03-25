@@ -3,7 +3,7 @@
 <%= blogimage("hell_difficulty.jpg","Hell difficulty") %>
 
 Congratulation to get so far!
-Now, the real stuff will began.
+Now, some of the really hardcore stuff could start.
 
 If you are like me, you should get the functional style.
 You should also understand a bit more the advantages of lazyness by default.

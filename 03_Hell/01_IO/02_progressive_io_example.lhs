@@ -1,4 +1,5 @@
-But what occurs if the user enter something strange?
+Now let's see how this behave.
+For example, what occur if the user enter something strange?
 Let's try:
 
 ~~~
