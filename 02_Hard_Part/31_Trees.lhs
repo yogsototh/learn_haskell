@@ -187,9 +187,10 @@ Binary tree of Binary trees of Char binary trees:
 :    :       :    `--'S'
 ~~~
 
-Remark how you can't insert two identical tree;
+Remark how duplicate trees aren't inserted;
 there is only one tree corresponding to `"I","HEARD"`.
+We have this for (almost) free, because we have declared Tree to be an instance of `Eq`.
 
-Note how awesome this structure is.
+See how awesome this structure is.
 We can make tree containing not only integer, string and char, but also other trees.
 And we can even make a tree containing a tree of trees!
