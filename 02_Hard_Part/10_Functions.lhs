@@ -41,24 +41,24 @@ Note, for simplicity, I assume the int list should end with the first `0` value.
 
 
 <code class="c">
-int evenSum(int *list) {                                                         
-    return accumSum(0,list);                                                     
-}                                                                                
-                                                                                 
-int accumSum(int n, int *list) {                                                 
-    int x;                                                                       
-    int *xs;                                                                     
-    if (list[0] == 0) { // if the list is empty
-        return n;                                                                
-    } else {                                                                     
-        x = list[0]; // let x be the first element of the list                   
-        xs = list+1; // let xs be the list without its head                      
-        if ( 0 == (x%2) ) { // if x is even                                      
-            return accumSum(n+x, xs);                                            
-        } else {                                                                 
-            return accumSum(n, xs);                                              
-        }                                                                        
-    }                                                                            
+int evenSum(int *list) {
+    return accumSum(0,list);
+}
+
+int accumSum(int n, int *list) {
+    int x;
+    int *xs;
+    if (*list == NULL) { // if the list is empty
+        return n;
+    } else {
+        x = list[0]; // let x be the first element of the list
+        xs = list+1; // let xs be the list without x
+        if ( 0 == (x%2) ) { // if x is even
+            return accumSum(n+x, xs);
+        } else {
+            return accumSum(n, xs);
+        }
+    }
 }
 </code>
 

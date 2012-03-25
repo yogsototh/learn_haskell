@@ -5,9 +5,6 @@ int evenSum(int *list) {
     return accumSum(0,list);
 }
 
-// In C I should have declared this 
-// function before evenSum, but
-// I find it easier this way
 int accumSum(int n, int *list) {
     int x;
     int *xs;
