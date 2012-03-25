@@ -47,13 +47,6 @@ This code is mostly the same as the preceeding one.
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
 > 
-> treeTakeDepth _ Empty = Empty
-> treeTakeDepth 0 _     = Empty
-> treeTakeDepth n (Node x left right) = let
->           nl = treeTakeDepth (n-1) left
->           nr = treeTakeDepth (n-1) right
->           in
->               Node x nl nr
 
 </div>
 
@@ -62,13 +55,26 @@ Here is an infinite binary tree:
 
 > voidTree = Node 0 voidTree voidTree
 
-A complete binary tree were each node is equal to 0:
+A complete binary tree were each node is equal to 0.
+Now I will prove you can manipulate this object using the following function:
+
+> -- take all element of a BinTree 
+> -- up to some depth
+> treeTakeDepth _ Empty = Empty
+> treeTakeDepth 0 _     = Empty
+> treeTakeDepth n (Node x left right) = let
+>           nl = treeTakeDepth (n-1) left
+>           nr = treeTakeDepth (n-1) right
+>           in
+>               Node x nl nr
+
+See what occurs for this program:
 
 <code class="haskell">
 main = print $ treeTakeDepth 4 voidTree
 </code>
 
-And yes, this code run and stop giving the following result:
+This code compile, run and stop giving the following result:
 
 ~~~
 <  0
@@ -88,17 +94,19 @@ And yes, this code run and stop giving the following result:
 :       `-- 0
 ~~~
 
-But we could also make a more interresting tree here:
+Just to heat your neurones a bit more,
+let's make a slightly more interresting tree:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
 >               where
 >                  dec (Node x l r) = Node (x-1) (dec l) (dec r) 
 >                  inc (Node x l r) = Node (x+1) (inc l) (inc r) 
 
-But don't you remark this kind of construction look a lot like `map`?
-Execpt it works for `BinTree` instead of lists? 
-We then create the `treeMap` function:
+You can easily remark we could rewrite this tree by remarking we could
+create a function similar to `map` but for `BinTree`.
+Here is the `treeMap` function:
 
+> -- apply a function to each node of Tree
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
 > treeMap f Empty = Empty
 > treeMap f (Node x left right) = Node (f x) 
@@ -139,6 +147,11 @@ main = print $ treeTakeDepth 4 infTreeTwo
 :       `-- 3
 ~~~
 
+
+<div style="display:none">
+
 > main = do
 >   print $ treeTakeDepth 4 voidTree
 >   print $ treeTakeDepth 4 infTreeTwo
+
+</div>
