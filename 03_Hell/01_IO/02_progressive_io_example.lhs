@@ -64,7 +64,8 @@ We simply have to test the value in our main function.
 In case of error, we prompt a nice error message.
 
 Remark the type of each expression in the main's do block remains of the form `IO a`.
-The only strange construction is `error`.
+The only strange construction is `error`. 
+I'll say `error msg` will simply take the needed type (here `IO ()`).
 
 One very important thing to note is the type of all the defined function.
 There is only one function which contains `IO` in its type: `main`. 
