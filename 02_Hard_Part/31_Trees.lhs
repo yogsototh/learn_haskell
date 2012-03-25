@@ -3,22 +3,19 @@ I simply had fun into making a nice function to display tree in a general way.
 You can safely pass this part if you find it too difficult to follow.
 
 We have few changes to make.
-
-> import Data.List (foldl')
-
 We remove the `deriving (Show)` in the declaration of our `BinTree` type.
 And it also might be useful to make our BinTree an instance of (Eq and Ord).
-Now we can test equality and compare trees.
+We will be able to test equality and compare trees.
 
 > data BinTree a = Empty 
 >                  | Node a (BinTree a) (BinTree a) 
 >                   deriving (Eq,Ord)
 
-Without the `deriving (Show)`, Haskell doesn't create a show method for us.
-Now, we will create our version of show.
-For this, we want our newly created type `BinTree a` to be an instance of
-the type class `Show`.
-To achieve this, the general syntax is:
+Without the `deriving (Show)`, Haskell doesn't create a `show` method for us.
+We will create our own version of show.
+To achieve this, we must declare that our newly created type `BinTree a` 
+is an instance of the type class `Show`.
+The general syntax is:
 
 <code class="haskell">
 instance Show (BinTree a) where
@@ -143,8 +140,8 @@ This is why I chosen to prefix each line of tree display by `:` (except for the 
 
 <%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
 
-> putStrLn "\nTree of Binary trees of Char binary trees:"
-> print $ (treeFromList . map (treeFromList . map treeFromList))
+>   putStrLn "\nTree of Binary trees of Char binary trees:"
+>   print $ (treeFromList . map (treeFromList . map treeFromList))
 >              [ ["YO","DAWG"]
 >              , ["I","HEARD"]
 >              , ["I","HEARD"]
