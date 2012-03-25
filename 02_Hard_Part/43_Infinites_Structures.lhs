@@ -57,24 +57,46 @@ This code is mostly the same as the preceeding one.
 
 </div>
 
-Now, suppose we don't mind having an ordered binary tree.
+Suppose we don't mind having an ordered binary tree.
 Here is an infinite binary tree:
 
-> infiniTree = Node 0 (subTree (-) 0) (subTree (+) 0)
->       where
->           subTree op n = let 
->                       newVal = op n 1 
->                       in
->                         Node newVal 
->                              (subTree (-) newVal) 
->                              (subTree (+) newVal) 
+> voidTree = Node 0 voidTree voidTree
+
+A complete binary tree were each node is equal to 0:
 
 <code class="haskell">
-main = print $ treeTakeDepth 5 infiniTree
+main = print $ treeTakeDepth 4 voidTree
 </code>
 
+And yes, this code run and stop giving the following result:
+
+~~~
+<  0
+: |-- 0
+: |  |-- 0
+: |  |  |-- 0
+: |  |  `-- 0
+: |  `-- 0
+: |     |-- 0
+: |     `-- 0
+: `-- 0
+:    |-- 0
+:    |  |-- 0
+:    |  `-- 0
+:    `-- 0
+:       |-- 0
+:       `-- 0
+~~~
+
+But we could also make a more interresting tree here:
+
+> iTree = Node 0 (dec iTree) (inc iTree)
+>               where
+>                  dec (Node x l r) = Node (x-1) (dec l) (dec r) 
+>                  inc (Node x l r) = Node (x+1) (inc l) (inc r) 
+
 But don't you remark this kind of construction look a lot like `map`?
-Execpt it works for `BinTree` and not only for list.
+Execpt it works for `BinTree` instead of lists? 
 We then create the `treeMap` function:
 
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
@@ -83,14 +105,40 @@ We then create the `treeMap` function:
 >                                      (treeMap f left) 
 >                                      (treeMap f right)
 
-And our definition is better.
-
-> infiniTreeTwo :: BinTree Int
-> infiniTreeTwo = Node 0 (treeMap (\x -> x-1) infiniTreeTwo) 
->                        (treeMap (\x -> x+1) infiniTreeTwo) 
->
-> main = print $ treeTakeDepth 5 infiniTreeTwo
-
 _Hint_: I won't talk more about this here. 
 But there is a pattern for the generalization of `map` to other data structures. 
-Look at Functor and `fmap`.
+Look at Functor and `fmap` if you are interrested.
+
+Our definition is now:
+
+> infTreeTwo :: BinTree Int
+> infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo) 
+>                     (treeMap (\x -> x+1) infTreeTwo) 
+
+here is the result for 
+
+<code class="haskell">
+main = print $ treeTakeDepth 4 infTreeTwo
+</code>
+
+~~~
+<  0
+: |-- -1
+: |  |-- -2
+: |  |  |-- -3
+: |  |  `-- -1
+: |  `-- 0
+: |     |-- -1
+: |     `-- 1
+: `-- 1
+:    |-- 0
+:    |  |-- -1
+:    |  `-- 1
+:    `-- 2
+:       |-- 1
+:       `-- 3
+~~~
+
+> main = do
+>   print $ treeTakeDepth 4 voidTree
+>   print $ treeTakeDepth 4 infTreeTwo
