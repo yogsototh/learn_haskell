@@ -1,10 +1,10 @@
-<h3 id="more-on-infinite-tree">More on Infinite Tree</h4>
+<h3 id="more-on-infinite-tree">More on Infinite Tree</h3>
 
-In the section [Infinte Tree](#infinite-tree) we saw some simple construction.
-But we removed two properties of our tree:
+In the section [Infinite Structures](#infinite-structures) we saw some simple construction.
+Unfortunately we removed two properties of our tree:
 
 1 - no duplicate node value
-2 - wel ordered tree
+2 - well ordered tree
 
 In this section we will try to keep the first property.
 Concerning the second one, we must relax this one but we'll discuss on how to
