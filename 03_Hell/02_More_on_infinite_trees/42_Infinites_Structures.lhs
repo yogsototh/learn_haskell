@@ -73,11 +73,7 @@ To resolve this we make a slightly better `shuffle` function.
 >               o = 7641
 >               c = 1237
 
-This shuffle function as two properties the preceeding one didn't had:
-
-- It contains both positive and negative numbers
-- It (hopefully) don't have an upper nor lower bound.
-
+This shuffle function has the property (hopefully) not to have an upper nor lower bound.
 But having a better shuffle list isn't enough not to enter an infinite loop.
 
 Generally, we cannot decide whether `filter (<x) xs` is empty.
@@ -140,8 +136,20 @@ Left as an exercise to the reader:
                     else filter f l
   </pre>
   Explain why it doesn't work and can enter into an infinite loop.
-- Let's consider `shuffle` to be a real random list with growing bounds.
+- Suppose that `shuffle` is real random list with growing bounds.
   If you study a bit this structure, you'll discover that with probability 1,
   this structure is finite.
-  Explain how to make the structure theoretically infinite with probability 1 by using directly `safefilter'` 
-  instead of `safefilter` inside `treeFromList`.
+  Using the following code 
+  (suppose we could use `safefilter'` directly as if was not in the where of safefilter)
+  find a definition of `f` such that with probability `1`, 
+  treeFromList' shuffle is infinite. And prove it.
+  Disclamer, this is only a conjecture.
+
+<code class="haskell">
+treeFromList' []  n = Empty
+treeFromList' (x:xs) n = Node x left right
+    where
+        left = treeFromList' (safefilter' (<x) xs (f n)
+        right = treeFromList' (safefilter' (>x) xs (f n)
+        f = ???
+</code>

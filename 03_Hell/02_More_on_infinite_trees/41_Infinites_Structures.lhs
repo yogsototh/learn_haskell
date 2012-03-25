@@ -1,6 +1,14 @@
-<h4 id="infinite-tree">Infinite Tree</h4>
+<h3 id="more-on-infinite-tree">More on Infinite Tree</h4>
 
-For this example, we will use the same code as in the [tree section](#trees). 
+In the section [Infinte Tree](#infinite-tree) we saw some simple construction.
+But we removed two properties of our tree:
+
+1 - no duplicate node value
+2 - wel ordered tree
+
+In this section we will try to keep the first property.
+Concerning the second one, we must relax this one but we'll discuss on how to
+keep it as much as possible.
 
 <div style="display:none">
 
@@ -48,19 +56,21 @@ This code is mostly the same as the one in the [tree section](#trees).
 >           change c new x 
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
+>
+</div>
+
+Our first step is to create some pseudo-random number list:
+
+> shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
+
+Just as reminder here are the definition of `treeFromList`
+
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList []    = Empty
 > treeFromList (x:xs) = Node x (treeFromList (filter (<x) xs))
 >                              (treeFromList (filter (>x) xs))
 
-</div>
-
-
-We will use a pseudo-random number list:
-
-> shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
-
-and a function that troncate a tree up to a certain depth
+and `treeTakeDepth`:
 
 > treeTakeDepth _ Empty = Empty
 > treeTakeDepth 0 _     = Empty
