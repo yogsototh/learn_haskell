@@ -179,7 +179,9 @@ bind :: (World -> (a,World))
         -> (World -> (b,World)) 
 ~~~
 
-(World -> (a,World)) is the type for an IO action. Like getLine, printing something, etc... Now let's rename it for more clarity.
+`(World -> (a,World))` is the type for an IO action.
+Like getLine, printing something, etc... 
+Now let's rename it for more clarity.
 
 ~~~
 type IO a = World -> (a, World)
@@ -203,7 +205,7 @@ The first is the value to print and the other is the state of world.
 It then return a couple of type `((),World)`. 
 This means it changes the world state, but don't give anymore data.
 
-We simplify the bind type:
+This type help us simplify the type of `bind`:
 
 ~~~
 bind :: IO a 
@@ -211,10 +213,10 @@ bind :: IO a
         -> IO b
 ~~~
 
-The function bind take two actions.
+It says that `bind` take two IO actions as parameter and return another IO action.
 
-The type is quite intimidating. But stay with me here.
-On a line like 
+I know the type is quite intimidating.
+But stay with me here.  On a line like:
 
 ~~~
 let (x,w1) = action1 w0 in
@@ -222,9 +224,8 @@ let (y,w2) = action2 x w1 in
 (y,w2)
 ~~~
 
-On the first line, action1 is of type `(World -> (a,World))`.
-On the second line, action2 is of type `(a -> (World -> (b,World))`.
-
+On the first line, action1 is of type `(World -> (a,World))` (or `IO a`).
+On the second line, action2 is of type `(a -> (World -> (b,World))` (or `a -> IO b`).
 
 `bind`:
 
@@ -278,7 +279,8 @@ Didn't you remark something?
 Yes, there isn't anymore temporary World variable used anywhere!
 This is _MA_. _GIC_.
 
-We can make thinks look better. Let's call bind (>>=) which is an infix function.
+We can use a better notation.
+Let's call `bind` `(>>=)` which is an infix function.
 Infix is like (+), 3 + 4 <=> "(+) 3 4"
 
 ~~~
@@ -309,4 +311,4 @@ Is replaced by:
 
 Which is perfect for IO.
 Now we also just need a way to remove the last statement containing a World value.
-Easy, just write a simple function return
+Easy, just write a simple function `return`. 
