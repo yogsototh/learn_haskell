@@ -27,7 +27,7 @@ This function is of type `IO [Integer]`.
 Such a type means, that we retrieved a value of this type through some IO actions.
 Some people might explain while waving their hands: 
 
-    "This is an `[Integer]` inside an `IO`"
+ > «This is an `[Integer]` inside an `IO`»
 
 If you want to understand the details behind all of this, you'll have to read the next section.
 But sincerly, if you just want to _use_ IO.
@@ -40,7 +40,7 @@ Finally our main function is quite simpler:
 >   list <- askUser
 >   print $ sum list
 
-This was quite a speed explanation about how to use Haskell `IO`.
+This was quite a fast explanation about how to use Haskell `IO`.
 But the main thing to remember:
 
 - in the `do` bloc, each expression must have the type `IO a`.

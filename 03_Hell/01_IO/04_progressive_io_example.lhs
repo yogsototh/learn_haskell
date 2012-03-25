@@ -146,10 +146,25 @@ Not only this, but we can also remark we use them always
 with the following general pattern:
 
 ~~~
-let (y,w1) = action1 x w0 in
-let (z,w2) = action2 y w1 in
+let (y,w1) = action1 w0 in
+let (z,w2) = action2 w1 in
+let (t,w3) = action3 w2 in
 ...
 ~~~
+
+Each action can take 0 to some parameters.
+And in particular, each action can take a parameter from the result of a line above.
+
+For example, we could also have:
+
+~~~
+let (y,w1) = action1 x w0 in
+let (z,w2) = action2 y w1 in
+let (t,w3) = action3 y z w2 in
+...
+~~~
+
+And of course `actionN x w :: (World) -> (a,World)`.
 
 <%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
 
@@ -192,7 +207,7 @@ We simplify the bind type:
 
 ~~~
 bind :: IO a 
-        -> (b -> IO b) 
+        -> (a -> IO b) 
         -> IO b
 ~~~
 
