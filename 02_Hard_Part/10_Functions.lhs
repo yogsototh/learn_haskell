@@ -37,29 +37,28 @@ One solution to achieve the same result without loop is to use recursion.
  > Most of the time Haskell will handle recursive function efficiently.
 
 Here is a `C` version of the recursive function.
-Note, for simplicity, I assume the int list should end with the first `null` (value `0`):
+Note, for simplicity, I assume the int list should end with the first `0` value.
 
 
 <code class="c">
-int evenSum(int *list) {
-    return accumSum(0,list);
-}
-
-// In C I should have declared this 
-// function before evenSum, but
-// I find it easier this way
-int accumSum(int n, int *list) {
-    if (list == nil) { // if the list is empty
-        return n;
-    } else {
-        x = list[0]; // let x be the first element of the list
-        xs = list+1; // let xs be the list without its head
-        if ( 0 == (x%2) ) { // if x is even
-            return accumSum(n+x, xs);
-        } else {
-            return accumSum(n, xs);
-        }
-    }
+int evenSum(int *list) {                                                         
+    return accumSum(0,list);                                                     
+}                                                                                
+                                                                                 
+int accumSum(int n, int *list) {                                                 
+    int x;                                                                       
+    int *xs;                                                                     
+    if (list[0] == 0) { // if the list is empty
+        return n;                                                                
+    } else {                                                                     
+        x = list[0]; // let x be the first element of the list                   
+        xs = list+1; // let xs be the list without its head                      
+        if ( 0 == (x%2) ) { // if x is even                                      
+            return accumSum(n+x, xs);                                            
+        } else {                                                                 
+            return accumSum(n, xs);                                              
+        }                                                                        
+    }                                                                            
 }
 </code>
 
