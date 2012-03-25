@@ -164,7 +164,7 @@ let (t,w3) = action3 y z w2 in
 ...
 ~~~
 
-And of course `actionN x w :: (World) -> (a,World)`.
+And of course `actionN w :: (World) -> (a,World)`.
 
 <%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
 
