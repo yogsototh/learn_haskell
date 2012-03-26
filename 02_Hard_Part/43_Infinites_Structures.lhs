@@ -98,9 +98,9 @@ Just to heat your neurones a bit more,
 let's make a slightly more interresting tree:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
->               where
->                  dec (Node x l r) = Node (x-1) (dec l) (dec r) 
->                  inc (Node x l r) = Node (x+1) (inc l) (inc r) 
+>         where
+>            dec (Node x l r) = Node (x-1) (dec l) (dec r) 
+>            inc (Node x l r) = Node (x+1) (inc l) (inc r) 
 
 You can easily remark we could rewrite this tree by remarking we could
 create a function similar to `map` but for `BinTree`.
