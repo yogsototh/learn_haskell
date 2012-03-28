@@ -45,3 +45,18 @@ do
 ~~~
 
 If `something :: IO a` then `x :: a`.
+
+Another important remark to use `IO`.
+All line in a do block must have one of the two forms:
+
+~~~
+action1             :: IO a
+                    -- in this case, generally a = ()
+
+value <- action2    -- where
+                    -- bar z t :: IO b
+                    -- value   :: b
+~~~
+
+These two kind of line will correspond to two different way of sequencing actions.
+The meaning of this sentence should be clearer at the end of the next section.

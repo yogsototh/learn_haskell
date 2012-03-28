@@ -1,4 +1,4 @@
-<h3 id="io-trick-explained">`IO` trick explained</h3>
+<h3 id="io-trick-explained"><code>IO</code> trick explained</h3>
 
 Why did we used some strange syntax, and what exactly is this `IO` type.
 It looks a bit like magic.
@@ -27,23 +27,29 @@ For example, if you wish you could create a `while` in Haskell.
 In fact, for dealing with `IO`, imperative style is generally more appropriate.
 
 But, you should had remarked the notation is a bit unusual.
+Here is why, in detail.
 
-Here is how Haskell handle IOs.
+In an impure language, the state of the world can be seen as a huge hidden global variable. 
+This hidden variable is accessible by all function of your language.
+For example, you can read and write a file in any function.
+The fact a file exists or not, can be seen as different state of the world.
 
-Haskell consider the state of the world is an input variable for `main`.
+For Haskell this state is not hidden.
+It is explicitely said `main` is a function that _potentially_ change the state of the world.
+It's type is then something like:
 
 ~~~
 main :: World -> World
 ~~~
 
-In an impure language, the state of the world is generally like a huge hidden global variable. 
-This hidden variable is accessible by all function of your language.
-For example, you can read, write, in any function.
+Not all function could have access to this variable.
+Those who have access to this variable can potentienly be impure.
+Functions whose the world variable isn't provided to should be pure[^032001].
 
-In Haskell, instead of having a global variable accessible by all functions of your program, the state of the world is simply an input parameter of your `main` function.
-If your `main` function call another function without giving this world parameter, this function could simply not modify or read the state of the world.
+[^032001]: There are some _unsafe_ exception to this rule. But you shouldn't see such usage on a real application except might be for some debugging purpose.
 
-In reality, the real type is closer to
+Haskell consider the state of the world is an input variable for `main`.
+But the real type of main is closer to this one:
 
 ~~~
 main :: World -> ((),World)
@@ -158,13 +164,27 @@ And in particular, each action can take a parameter from the result of a line ab
 For example, we could also have:
 
 ~~~
-let (y,w1) = action1 x w0 in
-let (z,w2) = action2 y w1 in
-let (t,w3) = action3 y z w2 in
+let (_,w1) = action1 x w0   in
+let (z,w2) = action2 w1     in
+let (_,w3) = action3 x z w2 in
 ...
 ~~~
 
 And of course `actionN w :: (World) -> (a,World)`.
+
+ > IMPORTANT, there are only two important pattern for us:
+ > 
+ > ~~~
+ > let (x,w1) = action1 w0 in
+ > let (y,w2) - action2 w1 in
+ > ~~~
+ > 
+ > and
+ > 
+ > ~~~ 
+ > let (_,w1) = action1 w0 in
+ > let (y,w2) - action2 w1 in
+ > ~~~
 
 <%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
 
@@ -172,6 +192,7 @@ Now, we will make a magic trick.
 We will make the world variable "disappear".
 We will `bind` the two lines. 
 Let's define the `bind` function.
+Its type is quite intimidating at first:
 
 ~~~
 bind :: (World -> (a,World)) 
@@ -179,9 +200,8 @@ bind :: (World -> (a,World))
         -> (World -> (b,World)) 
 ~~~
 
-`(World -> (a,World))` is the type for an IO action.
-Like getLine, printing something, etc... 
-Now let's rename it for more clarity.
+But remember that `(World -> (a,World))` is the type for an IO action.
+Now let's rename it for clarity:
 
 ~~~
 type IO a = World -> (a, World)
@@ -194,8 +214,8 @@ getLine :: IO String
 print :: Show a => a -> IO ()
 ~~~
 
-`getLine` is an IO action which take a world as parameter, then return a couple (String,World).
-Which can be said as: `getLine` is of type IO String.
+`getLine` is an IO action which take a world as parameter and return a couple `(String,World)`.
+Which can be said as: `getLine` is of type `IO String`.
 Which we also see as, an IO action which will return a String "embeded inside an IO".
 
 The function `print` is also interresting.
@@ -213,10 +233,9 @@ bind :: IO a
         -> IO b
 ~~~
 
-It says that `bind` take two IO actions as parameter and return another IO action.
+It says that `bind` takes two IO actions as parameter and return another IO action.
 
-I know the type is quite intimidating.
-But stay with me here.  On a line like:
+Now, remember the _important_ patterns. The first was:
 
 ~~~
 let (x,w1) = action1 w0 in
@@ -224,14 +243,15 @@ let (y,w2) = action2 x w1 in
 (y,w2)
 ~~~
 
-On the first line, action1 is of type `(World -> (a,World))` (or `IO a`).
-On the second line, action2 is of type `(a -> (World -> (b,World))` (or `a -> IO b`).
+Look at the types:
 
-`bind`:
+~~~
+action1  :: IO a
+action2  :: a -> IO b
+(y,w2)   :: IO b
+~~~
 
-- take a function similar to all lines as first argument wich returns a `(a,World)`
-- take a function with take an `a` as argument and returns a line wich return a `(b,World)`
-- return a line wich returns a `(b,World)`.
+Doesn't seem familiar?
 
 ~~~
 (bind action1 action2) w0 =
@@ -239,7 +259,6 @@ On the second line, action2 is of type `(a -> (World -> (b,World))` (or `a -> IO
         (y, w2) = action2 x w1
     in  (y, w2)
 ~~~
-
 
 The idea is to hide the World argument with this function. Let's go:
 As example imagine if we wanted to simulate:
