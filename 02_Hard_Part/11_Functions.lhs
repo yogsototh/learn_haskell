@@ -52,7 +52,7 @@ accumSum (0+2+4) []
 6
 </pre>
 
-Comming from an imperative language all should seems right.
+Coming from an imperative language all should seems right.
 In reality many things can be improved.
 First, we can generalize the type.
 

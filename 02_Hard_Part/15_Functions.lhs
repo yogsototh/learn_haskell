@@ -66,7 +66,7 @@ But as Haskell is lazy, it doesn't evaluate `(f z x)` and push this to the stack
 This is why we generally use `foldl'` instead of `foldl`;
 `foldl'` is a _strict_ version of `foldl`.
 If you don't understand what lazy and strict means,
-don't worry, just follow the code as if `fold` and `foldl'` where identical.
+don't worry, just follow the code as if `foldl` and `foldl'` where identical.
 
 We can simplify by using directly a lambda notation.
 This way we don't have to create the temporary name `mysum`.

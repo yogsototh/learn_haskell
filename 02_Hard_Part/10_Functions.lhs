@@ -5,7 +5,7 @@ The hard part could now begins.
 <h3 id="functional-style">Functional style</h3>
 
 In this section, I give a short example of the impressive refactoring ability provided by Haskell.
-We will choose a problem and resolve it the standard way. 
+We will choose a problem and resolve it using a standard imperative way. 
 Then I will make the code evolve.
 The end result will be both more elegant and easier to adapt. 
 
@@ -18,8 +18,8 @@ I'll start by providing an imperative solution (in javascript):
 
 <code class="javascript">
 function evenSum(list) {
-    var result = 0
-    for (i=0; i< list.length ; i++) {
+    var result = 0;
+    for (var i=0; i< list.length ; i++) {
         if (list[i] % 2 ==0) {
             result += list[i];
         }
