@@ -102,9 +102,9 @@ let's make a slightly more interresting tree:
 >            dec (Node x l r) = Node (x-1) (dec l) (dec r) 
 >            inc (Node x l r) = Node (x+1) (inc l) (inc r) 
 
-You can easily remark we could rewrite this tree by remarking we could
-create a function similar to `map` but for `BinTree`.
-Here is the `treeMap` function:
+Another way to create this tree is to use an higher order function.
+This function should be similar to `map`, but should work on `BinTree` instead of list.
+Here is such a function:
 
 > -- apply a function to each node of Tree
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
@@ -114,8 +114,8 @@ Here is the `treeMap` function:
 >                                      (treeMap f right)
 
 _Hint_: I won't talk more about this here. 
-But there is a pattern for the generalization of `map` to other data structures. 
-Look at Functor and `fmap` if you are interrested.
+If you are interrested of the generalization of `map` to other data structure,
+search for functor and `fmap`.
 
 Our definition is now:
 
@@ -123,7 +123,7 @@ Our definition is now:
 > infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo) 
 >                     (treeMap (\x -> x+1) infTreeTwo) 
 
-here is the result for 
+Look at the result for 
 
 <code class="haskell">
 main = print $ treeTakeDepth 4 infTreeTwo

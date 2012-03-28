@@ -10,16 +10,16 @@ It will be easy to detect where you used the bad parameter at the wrong place fo
 <h4 id="type-inference">Type inference</h4>
 
 Static typing is generally essential to reach fast execution time.
-But most static typed language are bad when it comes about generalize concepts.
+But most static typed language are bad to generalize concepts.
 What saves Haskell is that it can _infere_ types.
 
 Here is a simple example. 
-The square function in Haskell:
+The `square` function in Haskell:
 
 > square x = x * x
 
-This function can square any Numeral type.
-You can provide square an Int, an Integer, a Float a Fractional and even Complex. Proof by example:
+This function can `square` any Numeral type.
+You can provide `square` an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:
 
 ~~~
 % ghci
@@ -91,7 +91,7 @@ z.square
 
 Even with C++ templates you are forced to write a line for each type.
 
-To be fair, there is also a definition of the multiplication of Complex in Haskell.
+To be fair, there is also a definition of the multiplication of `Complex` in Haskell.
 But it takes only one line.
 Somewhere in the source of the module `Data.Complex`:
 

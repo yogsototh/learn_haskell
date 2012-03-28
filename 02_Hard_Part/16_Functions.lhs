@@ -1,7 +1,7 @@
 Finaly
 
 > -- Version 8
-> import Data.List
+> import Data.List (foldl')
 > evenSum :: Integral a => [a] -> a
 > evenSum l = foldl' (+) 0 (filter even l)
 
@@ -30,18 +30,19 @@ The `(.)` function correspond to the mathematical composition.
 We can take advantage of this operator to curry a bit more our function:
 
 > -- Version 9
-> import Data.List
+> import Data.List (foldl')
 > evenSum :: Integral a => [a] -> a
 > evenSum = (foldl' (+) 0) . (filter even)
 
 Also, there already exists a `sum` function.
 
 > -- Version 10 
-> import Data.List
 > evenSum :: Integral a => [a] -> a
 > evenSum = sum . (filter even)
 
-What power did we gain by using `foldl'`?
+
+It is time to discuss a bit.
+What did we gain by using `foldl'`?
 
 At first, you can say it is terseness.
 But in fact, it has more to do with better thinking.
@@ -58,7 +59,9 @@ Update the version 10 is extremely easy:
 > squareEvenSum' = evenSum . (map (^2))
 > squareEvenSum'' = sum . (map (^2)) . (filter even)
 
-We just had to add another "transformation function".
+We just had to add another "transformation function"[^0216].
+
+[^0216]: You should remark `squareEvenSum''` is more efficient that the two other versions. The order of `(.)` is important.
 
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
@@ -79,9 +82,8 @@ For example, there is a way to not only use this function on list but on any rec
 If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/0
 1/db-utwente-40501F46.pdf).
 
-This example should show you how pure functional programming is
-great. Unfortunately, using pure functional programming isn't well
-suited for all usages.
+This example should show you how pure functional programming is great.
+Unfortunately, using pure functional programming isn't well suited for all usages.
 Or at least it isn't found yet.
 
 One of the great power of Haskell, is the ability to create DSL 

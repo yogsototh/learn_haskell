@@ -32,24 +32,17 @@ Our next step is to use another way to simulate loop.
 We will use the `foldl` to accumulate a value.
 The function `foldl` capture a general coding pattern:
 
-<code class="haskell">
-myfunc list = foo initialValue list
+<pre>
+myfunc list = foo <span class="blue">initialValue</span> <span class="green">list</span>
     foo accumulated []     = accumulated
-    foo tmpValue    (x:xs) = foo (bar tmpValue x) xs
-</code>
+    foo tmpValue    (x:xs) = foo (<span class="yellow">bar</span> tmpValue x) xs
+</pre>
 
 Which can be replaced by:
 
-<code class="haskell">
-myfunc list = foldl bar initialValue list
-</code>
-
-> -- Version 6
-> evenSum l = foldl mysum 0 (filter even l)
->   where mysum acc value = acc + value
-
-For each element of the list, `foldl` will add it to the next.
-And finally add 0.
+<pre>
+myfunc list = foldl <span class="yellow">bar</span> <span class="blue">initialValue</span> <span class="green">list</span>
+</pre>
 
 If you really want to know how the magic works.
 Here is the definition of `foldl`.
@@ -68,13 +61,22 @@ This is why we generally use `foldl'` instead of `foldl`;
 If you don't understand what lazy and strict means,
 don't worry, just follow the code as if `foldl` and `foldl'` where identical.
 
-We can simplify by using directly a lambda notation.
-This way we don't have to create the temporary name `mysum`.
+Now our new version of `evenSum` become:
 
-> -- Version 7
+> -- Version 6
 > -- foldl' isn't accessible by default
 > -- we need to import it from the module Data.List
 > import Data.List
+> evenSum l = foldl' mysum 0 (filter even l)
+>   where mysum acc value = acc + value
+
+Version we can simplify by using directly a lambda notation.
+This way we don't have to create the temporary name `mysum`.
+
+> -- Version 7
+> -- Generaly it is considered a good practice
+> -- to import only the necessary function(s)
+> import Data.List (foldl')
 > evenSum l = foldl' (\x y -> x+y) (filter even l)
 
 And of course, we remark 
