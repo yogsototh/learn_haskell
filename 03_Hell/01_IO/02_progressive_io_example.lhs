@@ -73,7 +73,10 @@ That means main is impure.
 All other function are pure.
 
 Why purity matters? 
-I certainly forget many advantages, but the two main reason are:
+I certainly forget many advantages, but the three main reason are:
 
 - It is far easier to think about pure code than impure one.
+- Purity protect you from all hard to reproduce bugs due to border effects.
 - You can evaluate pure functions in any order or in parallel without risk.
+
+This is why, you should generally put as most code as possible in pure functions.

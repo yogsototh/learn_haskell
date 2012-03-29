@@ -52,7 +52,11 @@ All line in a do block must have one of the two forms:
 ~~~
 action1             :: IO a
                     -- in this case, generally a = ()
+~~~
 
+or
+
+~~~
 value <- action2    -- where
                     -- bar z t :: IO b
                     -- value   :: b

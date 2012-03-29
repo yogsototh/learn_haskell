@@ -1,5 +1,6 @@
 <h3 id="io-trick-explained">IO trick explained</h3>
 
+
 Why did we used some strange syntax, and what exactly is this `IO` type.
 It looks a bit like magic.
 
@@ -8,7 +9,7 @@ on the impure part:
 
 > askUser :: IO [Integer]
 > askUser = do
->   putStrLn "Enter a list of numbers (separated by comma):"
+>   putStrLn "Enter a list of numbers (separated by commas):"
 >   input <- getLine
 >   let maybeList = getListFromString input in
 >       case maybeList of
@@ -49,7 +50,9 @@ Functions whose the world variable isn't provided to should be pure[^032001].
 [^032001]: There are some _unsafe_ exception to this rule. But you shouldn't see such usage on a real application except might be for some debugging purpose.
 
 Haskell consider the state of the world is an input variable for `main`.
-But the real type of main is closer to this one:
+But the real type of main is closer to this one[^032002]:
+
+[^032002]: For the curious the real type is `data IO a = IO {unIO :: State# RealWorld -> (# State# RealWorld, a #)}`. All the `#` as to do with optimisation and I swapped the fields in my example. But mostly, the idea is exactly the same.
 
 ~~~
 main :: World -> ((),World)
@@ -299,13 +302,14 @@ Yes, there isn't anymore temporary World variable used anywhere!
 This is _MA_. _GIC_.
 
 We can use a better notation.
-Let's call `bind` `(>>=)` which is an infix function.
-Infix is like (+), 3 + 4 <=> "(+) 3 4"
+Let's use `(>>=)` instead of `bind`. 
+`(>>=)` is an infix function like
+`(+)`; reminder `3 + 4 ⇔ (+) 3 4`
 
 ~~~
 (res,w3) = getLine >>=
-            (\line1 -> getLine >>=
-            (\line2 -> print (line1 ++ line2)))
+           \line1 -> getLine >>=
+           \line2 -> print (line1 ++ line2)
 ~~~
 
 Ho Ho Ho! Happy Christmas Everyone!
@@ -313,21 +317,90 @@ Haskell has made a syntactical sugar for us:
 
 ~~~
 do
-  y <- f x
-  z <- g y
-  t <- h y z
+  y <- action1
+  z <- action2
+  t <- action3
+  ...
 ~~~
 
 Is replaced by:
 
 ~~~
-    (f     >>= (\y ->
-     g y   >>= (\z ->
-     h y z >>= (\t ->
-      ...
-    ))))
+action1 >>= \x ->
+action2 >>= \y ->
+action3 >>= \z ->
+...
 ~~~
 
-Which is perfect for IO.
-Now we also just need a way to remove the last statement containing a World value.
-Easy, just write a simple function `return`. 
+Note you can use `x` in `action2` and `x` and `y` in `action3`.
+
+But what for line not using the `<-`?
+Easy another function `blindBind`:
+
+<code class="haskell">
+blindBind :: IO a -> IO b -> IO b
+blindBind action1 action2 w0 =
+    bind action (\_ -> action2) w0
+<code>
+
+I didn't curried this definition for clarity purpose. Of course we cans use a better notation, we'll use the `(>>)` operator.
+
+And
+
+~~~
+do
+    action1
+    action2
+    action3
+~~~
+
+Is transformed into
+
+~~~
+action1 >>
+action2 >> 
+action3
+~~~
+
+Also, another function is quite useful.
+
+~~~
+return :: a -> IO a
+return x = IO (\w -> (x,w))
+~~~
+
+This is the general way to put pure value inside the "IO context".
+`return` is quite a bad name when you learn Haskell. `return` is very different from what you might be used to. 
+
+To finish, let's translate our example:
+
+> askUser :: IO [Integer]
+> askUser = do
+>   putStrLn "Enter a list of numbers (separated by commas):"
+>   input <- getLine
+>   let maybeList = getListFromString input in
+>       case maybeList of
+>           Just l  -> return l
+>           Nothing -> askUser
+> 
+> main :: IO ()
+> main = do
+>   list <- askUser
+>   print $ sum list
+
+Is translated into:
+
+~~~
+askUser :: IO [Integer]
+askUser = 
+    putStrLn "Enter a list of numbers (separated by commas):" >>
+    getLine >>= \input ->
+    let maybeList = getListFromString input in
+      case maybeList of
+        Just l -> return l
+        Nothing -> askUser
+
+main :: IO ()
+main = askUser >>=
+  \list -> print $ sum list
+~~~
