@@ -1,11 +1,11 @@
-<h4 id="monads">Monads</h4>
+<h3 id="monads">Monads</h3>
 
 Then now the word is spoken. `IO` is a _monad_.
 More precisely, `IO` is an instance of the typeclass `Monad`.
 
 To be an instance of the typeclass `Monad` you must provide the functions `(>>)`, `(>>=)`, `return` and `fail`.
-You can safely ignore `fail` and as we saw earlier, `(>>)` can be derived from `(>>=)`.
-Then to create new Monad, you only have to implement `return` and `(>>=)`.
+You can safely ignore `fail` and as we saw earlier, `(>>)` can be generally derived from `(>>=)`.
+Then to create new Monad, you'll generally need to implement only `return` and `(>>=)`.
 Here is how the typeclass `Monad` is declared (mostly):
 
 > class Monad m  where
@@ -20,12 +20,16 @@ Here is how the typeclass `Monad` is declared (mostly):
 
  > Remarks:
  > 
- > - the type `m` must be of the form `* -> *`, which means a type taking another type as parameter.
+ > - the keyword `class` is also a false friend. 
+ >   An Haskell class is far more closer to an interface in Java.
+ > - the type `m` must be a type that take an argument. 
+ >   for example `IO a`, but also `Maybe a`, `[a]`, etc...
 
-Thus:
 
-- Monad are not about effects!
-- Monad are more about sequencing
+ > **Important remarks**:
+ > 
+ > - Monad are not about effects!
+ > - Monad are more about sequencing
 
 There exists a lot of different type that are instance of `Monad`.
 The easiest to describe is `Maybe`.
@@ -35,3 +39,10 @@ It is particularly useful to remove very deep `if..then..else..` constructions.
 
 To be a usage monad, your function must obey some rule.
 As these rule are undecidable to verify, you have to prove them before creating a new monad.
+Here are the rules:
+
+<code class="haskell">
+return a >>= k  ==  k a
+m >>= return  ==  m
+m >>= (\x -> k x >>= h)  ==  (m >>= k) >>= h
+</code>
