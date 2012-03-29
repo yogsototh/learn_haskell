@@ -26,7 +26,8 @@ en: <%= tldr %> A very short and dense tutorial for learning Haskell.
 
 fr: <%= tlal %> Un tutoriel très court mais très dense pour apprendre Haskell.
 
-> <center><sc><b>Table of Content</b></sc></center>
+> <center><hr style="width:30%;float:left;border-color:#CCCCD0;margin-top:1em"/><span class="sc"><b>Table of Content</b></span><hr style="width:30%;float:right;border-color:#CCCCD0;margin-top:1em"/></center>
+> 
 > begindiv(toc)
 >
 END

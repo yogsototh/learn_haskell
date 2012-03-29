@@ -53,7 +53,7 @@ This code is mostly the same as the preceeding one.
 Suppose we don't mind having an ordered binary tree.
 Here is an infinite binary tree:
 
-> voidTree = Node 0 voidTree voidTree
+> nullTree = Node 0 nullTree nullTree
 
 A complete binary tree were each node is equal to 0.
 Now I will prove you can manipulate this object using the following function:
@@ -71,7 +71,7 @@ Now I will prove you can manipulate this object using the following function:
 See what occurs for this program:
 
 <code class="haskell">
-main = print $ treeTakeDepth 4 voidTree
+main = print $ treeTakeDepth 4 nullTree
 </code>
 
 This code compile, run and stop giving the following result:
@@ -151,7 +151,7 @@ main = print $ treeTakeDepth 4 infTreeTwo
 <div style="display:none">
 
 > main = do
->   print $ treeTakeDepth 4 voidTree
+>   print $ treeTakeDepth 4 nullTree
 >   print $ treeTakeDepth 4 infTreeTwo
 
 </div>
