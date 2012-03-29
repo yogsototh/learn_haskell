@@ -3,16 +3,17 @@
 You already encountered recursive types.
 Typically, you can re-create lists, but with a more verbose syntax:
 
-~~~
+<code class="haskell">
 data List a = Empty | Cons a (List a)
-~~~
+</code>
+
 
 If you really want to use an easier syntax you can use infix name for constructors.
 
-~~~
+<code class="haskell">
 infixr 5 :::
 data List a = Nil | a ::: (List a)
-~~~
+</code>
 
 The number after `infixr` is the priority.
 

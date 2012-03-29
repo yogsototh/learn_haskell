@@ -29,7 +29,7 @@ Is translated into:
 > getListFromString str = maybeRead $ "[" ++ str ++ "]"
 > askUser :: IO [Integer]
 > askUser = 
->     putStrLn "Enter a list of numbers (separated by commas):" >>
+>     putStrLn "Enter a list of numbers (sep. by commas):" >>
 >     getLine >>= \input ->
 >     let maybeList = getListFromString input in
 >       case maybeList of

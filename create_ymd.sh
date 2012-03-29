@@ -15,14 +15,16 @@ author_uri: yannesposito.com
 tags:
   - Haskell
   - programming
+  - functional
+  - tutorial
 -----
 <%= blogimage("main.png","Title image") %>
 
 begindiv(intro)
 
-en: <%= tldr %>
+en: <%= tldr %> A very short and dense tutorial for learning Haskell.
 
-fr: <%= tlal %>
+fr: <%= tlal %> Un tutoriel très court mais très dense pour apprendre Haskell.
 
 > <center><sc><b>Table of Content</b></sc></center>
 > begindiv(toc)

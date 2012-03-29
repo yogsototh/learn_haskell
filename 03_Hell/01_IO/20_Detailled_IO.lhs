@@ -39,9 +39,9 @@ For Haskell this state is not hidden.
 It is explicitely said `main` is a function that _potentially_ change the state of the world.
 It's type is then something like:
 
-~~~
+<code class="haskell">
 main :: World -> World
-~~~
+</code>
 
 Not all function could have access to this variable.
 Those who have access to this variable can potentienly be impure.
@@ -54,27 +54,27 @@ But the real type of main is closer to this one[^032002]:
 
 [^032002]: For the curious the real type is `data IO a = IO {unIO :: State# RealWorld -> (# State# RealWorld, a #)}`. All the `#` as to do with optimisation and I swapped the fields in my example. But mostly, the idea is exactly the same.
 
-~~~
+<code class="haskell">
 main :: World -> ((),World)
-~~~
+</code>
 
 The `()` type is the null type.
 Nothing to see here.
 
 Now let's rewrite our main function with this in mind:
 
-~~~
+<code class="haskell">
 main w0 =
     let (list,w1) = askUser w0 in
     let (x,w2) = print (sum list,w1) in
     x 
-~~~
+</code>
 
 First, we remark, that all function which have side effect must have the type:
 
-~~~
+<code class="haskell">
 World -> (a,World)
-~~~
+</code>
 
 Where `a` is the type of result. 
 For example, a `getChar` function should have the type `World -> (Char,World)`.
@@ -103,9 +103,9 @@ Under the hood, `print` will evaluate as:
 Now, if you look at the style of the main function, it is clearly awkward.
 Let's try to make the same to the askUser function:
 
-~~~
+<code class="haskell">
 askUser :: World -> ([Integer],World)
-~~~
+</code>
 
 Before:
 
@@ -139,39 +139,39 @@ Fortunately, some have found a better way to handle this problem.
 We see a pattern.
 Each line is of the form:
 
-~~~
+<code class="haskell">
 let (y,w') = action x w in
-~~~
+</code>
 
 Even if for some line the first `x` argument isn't needed.
 The output type is a couple, `(answer, newWorldValue)`.
 Each function `f` must have a type of kind:
 
-~~~
+<code class="haskell">
 f :: World -> (a,World)
-~~~
+</code>
 
 Not only this, but we can also remark we use them always 
 with the following general pattern:
 
-~~~
+<code class="haskell">
 let (y,w1) = action1 w0 in
 let (z,w2) = action2 w1 in
 let (t,w3) = action3 w2 in
 ...
-~~~
+</code>
 
 Each action can take 0 to some parameters.
 And in particular, each action can take a parameter from the result of a line above.
 
 For example, we could also have:
 
-~~~
+<code class="haskell">
 let (_,w1) = action1 x w0   in
 let (z,w2) = action2 w1     in
 let (_,w3) = action3 x z w2 in
 ...
-~~~
+</code>
 
 And of course `actionN w :: (World) -> (a,World)`.
 
@@ -197,25 +197,25 @@ We will `bind` the two lines.
 Let's define the `bind` function.
 Its type is quite intimidating at first:
 
-~~~
+<code class="haskell">
 bind :: (World -> (a,World)) 
         -> (a -> (World -> (b,World))) 
         -> (World -> (b,World)) 
-~~~
+</code>
 
 But remember that `(World -> (a,World))` is the type for an IO action.
 Now let's rename it for clarity:
 
-~~~
+<code class="haskell">
 type IO a = World -> (a, World)
-~~~
+</code>
 
 Some example of functions:
 
-~~~
+<code class="haskell">
 getLine :: IO String
 print :: Show a => a -> IO ()
-~~~
+</code>
 
 `getLine` is an IO action which take a world as parameter and return a couple `(String,World)`.
 Which can be said as: `getLine` is of type `IO String`.
@@ -230,72 +230,72 @@ This means it changes the world state, but don't give anymore data.
 
 This type help us simplify the type of `bind`:
 
-~~~
+<code class="haskell">
 bind :: IO a 
         -> (a -> IO b) 
         -> IO b
-~~~
+</code>
 
 It says that `bind` takes two IO actions as parameter and return another IO action.
 
 Now, remember the _important_ patterns. The first was:
 
-~~~
+<code class="haskell">
 let (x,w1) = action1 w0 in
 let (y,w2) = action2 x w1 in
 (y,w2)
-~~~
+</code>
 
 Look at the types:
 
-~~~
+<code class="haskell">
 action1  :: IO a
 action2  :: a -> IO b
 (y,w2)   :: IO b
-~~~
+</code>
 
 Doesn't seem familiar?
 
-~~~
+<code class="haskell">
 (bind action1 action2) w0 =
     let (x, w1) = action1 w0
         (y, w2) = action2 x w1
     in  (y, w2)
-~~~
+</code>
 
 The idea is to hide the World argument with this function. Let's go:
 As example imagine if we wanted to simulate:
 
-~~~
+<code class="haskell">
 let (line1,w1) = getLine w0 in
 let ((),w2) = print line1 in
 ((),w2)
-~~~
+</code>
 
 Now, using the bind function:
 
-~~~
+<code class="haskell">
 (res,w2) = (bind getLine (\l -> print l)) w0
-~~~
+</code>
 
 As print is of type (World -> ((),World)), we know res = () (null type).
 If you didn't saw what was magic here, let's try with three lines this time.
 
 
-~~~
+<code class="haskell">
 let (line1,w1) = getLine w0 in
 let (line2,w2) = getLine w1 in
 let ((),w3) = print (line1 ++ line2) in
 ((),w3)
-~~~
+</code>
 
 Which is equivalent to:
 
-~~~
+<code class="haskell">
 (res,w3) = bind getLine (\line1 ->
              bind getLine (\line2 -> 
                print (line1 ++ line2)))
-~~~
+</code>
 
 Didn't you remark something?
 Yes, there isn't anymore temporary World variable used anywhere!
@@ -306,31 +306,31 @@ Let's use `(>>=)` instead of `bind`.
 `(>>=)` is an infix function like
 `(+)`; reminder `3 + 4 ⇔ (+) 3 4`
 
-~~~
+<code class="haskell">
 (res,w3) = getLine >>=
            \line1 -> getLine >>=
            \line2 -> print (line1 ++ line2)
-~~~
+</code>
 
 Ho Ho Ho! Happy Christmas Everyone!
 Haskell has made a syntactical sugar for us:
 
-~~~
+<code class="haskell">
 do
   y <- action1
   z <- action2
   t <- action3
   ...
-~~~
+</code>
 
 Is replaced by:
 
-~~~
+<code class="haskell">
 action1 >>= \x ->
 action2 >>= \y ->
 action3 >>= \z ->
 ...
-~~~
+</code>
 
 Note you can use `x` in `action2` and `x` and `y` in `action3`.
 
@@ -347,27 +347,27 @@ I didn't curried this definition for clarity purpose. Of course we can use a bet
 
 And
 
-~~~
+<code class="haskell">
 do
     action1
     action2
     action3
-~~~
+</code>
 
 Is transformed into
 
-~~~
+<code class="haskell">
 action1 >>
 action2 >> 
 action3
-~~~
+</code>
 
 Also, another function is quite useful.
 
-~~~
+<code class="haskell">
 putInIO :: a -> IO a
 putInIO x = IO (\w -> (x,w))
-~~~
+</code>
 
 This is the general way to put pure value inside the "IO context".
 The general name for `putInIO` is `return`.
