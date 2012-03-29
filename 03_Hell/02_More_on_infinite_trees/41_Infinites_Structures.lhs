@@ -3,8 +3,8 @@
 In the section [Infinite Structures](#infinite-structures) we saw some simple construction.
 Unfortunately we removed two properties of our tree:
 
-1 - no duplicate node value
-2 - well ordered tree
+1. no duplicate node value
+2. well ordered tree
 
 In this section we will try to keep the first property.
 Concerning the second one, we must relax this one but we'll discuss on how to

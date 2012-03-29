@@ -341,9 +341,9 @@ Easy another function `blindBind`:
 blindBind :: IO a -> IO b -> IO b
 blindBind action1 action2 w0 =
     bind action (\_ -> action2) w0
-<code>
+</code>
 
-I didn't curried this definition for clarity purpose. Of course we cans use a better notation, we'll use the `(>>)` operator.
+I didn't curried this definition for clarity purpose. Of course we can use a better notation, we'll use the `(>>)` operator.
 
 And
 
@@ -365,42 +365,11 @@ action3
 Also, another function is quite useful.
 
 ~~~
-return :: a -> IO a
-return x = IO (\w -> (x,w))
+putInIO :: a -> IO a
+putInIO x = IO (\w -> (x,w))
 ~~~
 
 This is the general way to put pure value inside the "IO context".
-`return` is quite a bad name when you learn Haskell. `return` is very different from what you might be used to. 
+The general name for `putInIO` is `return`.
+This is quite a bad name when you learn Haskell. `return` is very different from what you might be used to. 
 
-To finish, let's translate our example:
-
-> askUser :: IO [Integer]
-> askUser = do
->   putStrLn "Enter a list of numbers (separated by commas):"
->   input <- getLine
->   let maybeList = getListFromString input in
->       case maybeList of
->           Just l  -> return l
->           Nothing -> askUser
-> 
-> main :: IO ()
-> main = do
->   list <- askUser
->   print $ sum list
-
-Is translated into:
-
-~~~
-askUser :: IO [Integer]
-askUser = 
-    putStrLn "Enter a list of numbers (separated by commas):" >>
-    getLine >>= \input ->
-    let maybeList = getListFromString input in
-      case maybeList of
-        Just l -> return l
-        Nothing -> askUser
-
-main :: IO ()
-main = askUser >>=
-  \list -> print $ sum list
-~~~
