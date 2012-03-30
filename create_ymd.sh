@@ -6,10 +6,10 @@ isHidden:       false
 menupriority:   1
 kind:           article
 created_at:     2012-02-08T15:17:53+02:00
-en: title: Haskell the Hard Way
-en: subtitle: Haskell will blow your mind
+en: title: Learn Haskell Fast and Hard
+en: subtitle: Brain explosion with Haskell
 fr: title: Haskell comme un vrai!
-fr: subtitle: Comment se faire griller les neurones
+fr: subtitle: Se faire griller la cerverlle avec Haskell
 author_name: Yann Esposito
 author_uri: yannesposito.com
 tags:
@@ -18,7 +18,7 @@ tags:
   - functional
   - tutorial
 -----
-<%= blogimage("main.png","Title image") %>
+<%= blogimage("learn_haskell_mordor.jpg","One does not simply learn Haskell") %>
 
 begindiv(intro)
 

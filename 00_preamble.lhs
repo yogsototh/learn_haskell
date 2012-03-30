@@ -4,20 +4,26 @@ Bend his mind to Haskell can be hard.
 It was for me.
 In this article I try to provide what I lacked when I started to learn Haskell.
 
-By learning Haskell I learned far more than learning just a new language.
-Haskell use a lot of concept I've never heard about.
+As Boromir would say: "One does not simply learn Haskell".
+To learn Haskell you'll to learn far more than just a new language.
+Haskell use a lot of concept I've never heard about before.
+But many will be useful for programming even on other languages.
 
-This article might be a bit hard to follow.
+The article will certainly be hard to follow.
 This is done on purpose.
 There is no shortcut to learn Haskell.
-It is positively hard and challenging. 
+It is hard and challenging. 
+But I believe this is a good thing.
+This is like playing a very hard game.
 
-The general way to go to learn Haskell is to read: "Learn You a Haskell" and just after "Real World Haskell".
-This article contain some of the concept I prefer in Haskell.
-It can be seen as a very dense introduction to Haskell.
-
-Keep in mind this article is hardcore. 
-But I also believe it can be quite rewarding to follow.
+This article can be seen as a very dense introduction to Haskell.
+The conventional way to learn Haskell is to read two books. 
+First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
+I also believe this is the right way to go.
+But Haskell is very hard to learn by skimming these books.
+You'll have to read them in detail.
+This is why I believe such an article while hard to read can be a very good introduction to hook you up.
+Furthermore, I believe that if I had read such an article before reading the books some concepts would have been easier to learn.
 
 This actual article contains four parts.
 
