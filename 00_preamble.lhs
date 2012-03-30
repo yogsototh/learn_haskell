@@ -5,9 +5,9 @@ It was for me.
 In this article I try to provide what I lacked when I started to learn Haskell.
 
 As Boromir would say: "One does not simply learn Haskell".
-To learn Haskell you'll to learn far more than just a new language.
-Haskell use a lot of concept I've never heard about before.
-But many will be useful for programming even on other languages.
+To learn Haskell you'll need to learn far more than just a new language.
+Haskell use a lot of concepts I've never heard about before.
+But many will be useful for programming even in other languages.
 
 The article will certainly be hard to follow.
 This is done on purpose.
@@ -22,10 +22,10 @@ First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real
 I also believe this is the right way to go.
 But Haskell is very hard to learn by skimming these books.
 You'll have to read them in detail.
-This is why I believe such an article while hard to read can be a very good introduction to hook you up.
-Furthermore, I believe that if I had read such an article before reading the books some concepts would have been easier to learn.
+This is why I believe such an article while difficult to read can be a very good introduction.
+Furthermore, I believe I missed such an article while learning Haskell. 
 
-This actual article contains four parts.
+This actual (long) article contains four parts:
 
 - Introduction: a fast short example to show Haskell can be friendly.
 - Basic Haskell: Haskell syntax, and some essential notions.
