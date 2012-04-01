@@ -5,7 +5,7 @@ It was for me.
 In this article I try to provide what I lacked when I started to learn Haskell.
 
 By learning Haskell I learned far more than learning just a new language.
-Haskell use a lot of concept I've never heard about.
+Haskell use a lot of concept I had never heard about.
 
 This article might be a bit hard to follow.
 This is done on purpose.
