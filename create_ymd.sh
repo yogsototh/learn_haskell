@@ -6,10 +6,10 @@ isHidden:       false
 menupriority:   1
 kind:           article
 created_at:     2012-02-08T15:17:53+02:00
-en: title: Haskell the Hard Way
-en: subtitle: Haskell will blow your mind
+en: title: Learn Haskell Fast and Hard
+en: subtitle: Brain explosion with Haskell
 fr: title: Haskell comme un vrai!
-fr: subtitle: Comment se faire griller les neurones
+fr: subtitle: Se faire griller la cerverlle avec Haskell
 author_name: Yann Esposito
 author_uri: yannesposito.com
 tags:
@@ -55,4 +55,5 @@ END
 for fic in **/*.lhs; do
     echo "\n<hr/><a href=\"code/$fic\" class=\"cut\">${fic:h}/<strong>${fic:t}</strong></a>\n"
     cat $fic
+    echo "\n<a href=\"code/$fic\" class=\"cut\">${fic:h}/<strong>${fic:t}</strong> </a>\n"
 done | perl -pe 'BEGIN{$/="";} s#((^>.*\n)+)#<div class="codehighlight">\n<code class="haskell">\n$1</code>\n</div>#mg' | perl -pe 's#^> ?##'

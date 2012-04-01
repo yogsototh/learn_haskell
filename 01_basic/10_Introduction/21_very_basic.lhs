@@ -8,7 +8,7 @@ Now try
 You get this error:
 
 ~~~
-very_basic_2.lhs:6:23:
+21_very_basic.lhs:6:23:
     No instance for (Fractional Int)
       arising from the literal `4.2'
     Possible fix: add an instance declaration for (Fractional Int)
@@ -17,4 +17,4 @@ very_basic_2.lhs:6:23:
     In the expression: print (f 2.3 4.2)
 ~~~
 
-The problem, `2.3` isn't an Int.
+The problem: `2.3` isn't an Int.
