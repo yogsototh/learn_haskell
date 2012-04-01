@@ -4,7 +4,7 @@ You can safely pass this part if you find it too difficult to follow.
 
 We have few changes to make.
 We remove the `deriving (Show)` in the declaration of our `BinTree` type.
-And it also might be useful to make our BinTree an instance of (Eq and Ord).
+And it also might be useful to make our BinTree an instance of (`Eq` and `Ord`).
 We will be able to test equality and compare trees.
 
 > data BinTree a = Empty 

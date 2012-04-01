@@ -2,7 +2,7 @@
 
 To make things even better we should use higher level functions.
 What are these beast?
-Higher level functions are functions taking another functions as parameters.
+Higher level functions are functions taking function as parameter.
 
 Here are some examples:
 

@@ -1,14 +1,14 @@
 
 But it doesn't protect you much.
-Try to replace the last line and run the program:
+Try to swap the two parameter of `showInfos` and run the program:
 
 <code class="haskell">
     putStrLn $ showInfos color name
 </code>
 
+It will compile and execute.
 In fact you can replace Name, Color and String everywhere.
 The compiler will treat them as completely identical.
-
 
 Another method is to create your own types using the keyword `data`.
 

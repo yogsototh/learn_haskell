@@ -7,9 +7,9 @@ menupriority:   1
 kind:           article
 created_at:     2012-02-08T15:17:53+02:00
 en: title: Learn Haskell Fast and Hard
-en: subtitle: Brain explosion with Haskell
+en: subtitle: Blow your mind with Haskell
 fr: title: Haskell comme un vrai!
-fr: subtitle: Se faire griller la cerverlle avec Haskell
+fr: subtitle: Haskell à s'en faire griller les neurones
 author_name: Yann Esposito
 author_uri: yannesposito.com
 tags:

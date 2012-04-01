@@ -25,12 +25,12 @@ Furthermore there is an essential respected law in Haskell:
 
 _Lazyness_
 
-You can manipulate infinite structures. 
-Inifinte lists, infinite trees etc...
-Easier to reason using a "flow" paradigm.
+This is a very uncommon feature.
+By default, Haskell evaluate something only when it is needed.
+As consequence, it provides a very elegant way to manipulate infinite structures for example. 
 
 A last warning on how you should read Haskell code.
-For me, it is like reading scientific paper.
+For me, it is like reading scientific papers.
 Some part are very clear, but when you see a formula, just focus and read slower.
 Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details.
 If you cross a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
@@ -85,8 +85,8 @@ f x y = x*x + y*y
 
 Very clean. No parenthesis, no `def`.
 
-Don't forget, Haskell is mainly built on function and types.
-It is thus very easy to define functions and types.
+Don't forget, Haskell use functions and types a lot.
+It is thus very easy to define them.
 The syntax was particularly well thought for these objects.
 
 <h4 id="a-type-example">A Type Example</h4>
@@ -97,6 +97,7 @@ The compiler is smart enough to discover it for you.
 
 Let's play a little.
 
+> -- We declare the type using ::
 > f :: Int -> Int -> Int
 > f x y = x*x + y*y
 >

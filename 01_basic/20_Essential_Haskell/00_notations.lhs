@@ -34,7 +34,7 @@ x^n     for n an integral
 x**y    for y any kind of number (Float for example)
 ~~~
 
-Integer have no limit except the capacity of your machine:
+`Integer` have no limit except the capacity of your machine:
 
 ~~~
 4^103   
@@ -49,7 +49,7 @@ But you need to import the module `Data.Ratio`:
 $ ghci
 ....
 Prelude> :m Data.Ratio
-Data.Ratio> (11%15) * (5%3)
+Data.Ratio> (11 % 15) * (5 % 3)
 11 % 9
 ~~~
 
@@ -81,9 +81,10 @@ In Haskell strings are list of `Char`.
 "abc" ⇔ "ab"++"c"
 ~~~
 
-In real code you shouldn't use list of char to represent text.
-You should mostly use `Data.Text` instead.
-If you want to represent stream of ASCII char, you should use `Data.ByteString`.
+ > _Remark_:
+ > In real code you shouldn't use list of char to represent text.
+ > You should mostly use `Data.Text` instead.
+ > If you want to represent stream of ASCII char, you should use `Data.ByteString`.
 
 <h5 id="tuples">Tuples</h5>
 

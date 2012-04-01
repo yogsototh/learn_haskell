@@ -1,5 +1,6 @@
 The solution, 
-don't declare type and let Haskell find the most possible general type for us:
+don't declare the type for `f`.
+Haskell will infere the most general type for us:
 
 > f x y = x*x + y*y
 >
@@ -31,14 +32,15 @@ Num a => a -> a -> a
 ~~~
 
 First, let's focus on the right part `a -> a -> a`.
-Here are some notation for type in Haskell:
+To understand it, just look at a list of progressive examples: 
 
-- `Int`           → the type `Int`
-- `Int -> Int`    → the type function from `Int` to `Int`.
-- `Float -> Int`  → the type function from `Float` to `Int`.
-- `a -> Int`      → the type function from any type to `Int`.
-- `a -> a`        → the type function from any type `a` to the same type `a`.
-- `a -> a -> a`   → the type function of two arguments of any type `a` to the same type `a`.
+| The&nbsp;written&nbsp;type | It's meaning |
+| `Int`            | the type `Int`                              |
+| `Int -> Int`     | the type function from `Int` to `Int`.      |
+| `Float -> Int`   | the type function from `Float` to `Int`.    |
+| `a -> Int`       | the type function from any type to `Int`.   |
+| `a -> a`         | the type function from any type `a` to the same type `a`.  |
+| `a -> a -> a`    | the type function of two arguments of any type `a` to the same type `a`.  |
 
 In the type `a -> a -> a`, the letter `a` is a _type variable_. 
 It means `f` is a function with two argument and both argument and the result have the same type.
@@ -50,11 +52,11 @@ We declare only one function like in a dynamic typed language.
 
 Generally `a` can be any type. 
 For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
-But here with have a `Num a => `. 
+But here our type is prefixed with `Num a => `. 
 
 `Num` is a _typeclass_.
 A typeclass can be understood as a set of types.
-`Num` contains only type which behave like numbers.
+`Num` contains only types which behave like numbers.
 More precisely, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
 
 Typeclass is a very powerful language construction.

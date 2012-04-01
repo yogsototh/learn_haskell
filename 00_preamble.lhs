@@ -13,8 +13,7 @@ The article will certainly be hard to follow.
 This is done on purpose.
 There is no shortcut to learn Haskell.
 It is hard and challenging. 
-But I believe this is a good thing.
-This is like playing a very hard game.
+But I believe it is a good thing.
 
 This article can be seen as a very dense introduction to Haskell.
 The conventional way to learn Haskell is to read two books. 

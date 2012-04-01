@@ -24,7 +24,7 @@ until the input is right.
 >           Nothing -> askUser
 
 This function is of type `IO [Integer]`. 
-Such a type means, that we retrieved a value of this type through some IO actions.
+Such a type means, that we retrieved a value of type `[Integer]` through some IO actions.
 Some people might explain while waving their hands: 
 
  > «This is an `[Integer]` inside an `IO`»

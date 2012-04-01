@@ -28,7 +28,7 @@
 In this section, I will explain how to use IO, not how they work.
 You'll see how Haskell separate pure from impure part of the program.
 
-Don't be stoped by trying to understand the details behind the syntax at first.
+Don't stop because you're trying to understand the details of the syntax.
 Answer will come in the next section.
 
 What to achieve?

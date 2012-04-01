@@ -1,6 +1,6 @@
 <h4 id="trees">Trees</h4>
 
-Now we'll just give another typical example, binary trees.
+We'll just give another standard example: binary trees.
 
 > import Data.List
 >
@@ -8,7 +8,7 @@ Now we'll just give another typical example, binary trees.
 >                  | Node a (BinTree a) (BinTree a) 
 >                               deriving (Show)
 
-Also we create a function which transform a list into a binary tree.
+Also we create a function which transform a list into an ordered binary tree.
 
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList [] = Empty
