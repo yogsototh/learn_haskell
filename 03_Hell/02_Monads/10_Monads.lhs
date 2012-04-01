@@ -1,12 +1,13 @@
 <h3 id="monads">Monads</h3>
 
-Then now the word is spoken. `IO` is a _monad_.
+Now the secret can be revealed: `IO` is a _monad_.
 Being a monad means you have access to some syntactical sugar with the `do` notation.
 But mainly, you have access to some coding pattern which will ease the flow of your code.
 
  > **Important remarks**:
  > 
- > - Monad are not about effects!
+ > - Monad are not necessarily about effects!
+ >   There are a lot of _pure_ monads.
  > - Monad are more about sequencing
 
 For the Haskell language `Monad` is a typeclass.
@@ -31,23 +32,28 @@ class Monad m  where
 
  > Remarks:
  > 
- > - the keyword `class` is also a false friend. 
- >   An Haskell class is far more closer to an interface in Java.
- > - the type `m` must be a type that take an argument. 
+ > - the keyword `class` is not your friend. 
+ >   A Haskell class is _not_ a class like in object model.
+ >   A Haskell class has a lot similarities with Java interfaces.
+ >   A better word should have been `typeclass`.
+ >   That means a set of types.
+ >   For a type to belong to a class, all function of the class must be provided for this type.
+ > - In this particular example of typeclass, the type `m` must be a type that take an argument. 
  >   for example `IO a`, but also `Maybe a`, `[a]`, etc...
  > - To be a useful monad, your function must obey some rule.
- >   If your construction does not obey these rules strange thing might happens:
- >   <pre><code>
+ >   If your construction does not obey these rules strange things might happens:
+ >   
+ >   ~~~
  >   return a >>= k  ==  k a
  >   m >>= return  ==  m
  >   m >>= (\x -> k x >>= h)  ==  (m >>= k) >>= h
- >   </code></pre>
+ >   ~~~
 
 <h4 id="maybe-monad">Maybe is a monad</h4>
 
 There exists a lot of different type that are instance of `Monad`.
-The easiest to describe is `Maybe`.
-Know if you have a sequence of `Maybe` value, you could use monad to manipulate them.
+One of the easiest to describe is `Maybe`.
+If you have a sequence of `Maybe` values, you could use monad to manipulate them.
 It is particularly useful to remove very deep `if..then..else..` constructions.
 
 Imagine a complex bank operation. You are elligible to gain about 700€ only
@@ -81,16 +87,6 @@ if you can afford to follow a list of operation without being negative.
 >               True
 >
 > main = do
->   print $ elligible 300
->   print $ elligible 299
+>   print $ elligible 300 -- True
+>   print $ elligible 299 -- False
 
-
-To be a usage monad, your function must obey some rule.
-As these rule are undecidable to verify, you have to prove them before creating a new monad.
-Here are the rules:
-
-<code class="haskell">
-return a >>= k  ==  k a
-m >>= return  ==  m
-m >>= (\x -> k x >>= h)  ==  (m >>= k) >>= h
-</code>

@@ -2,6 +2,7 @@ Now, let's make it better using Maybe and the fact it is a Monad
 
 > deposit :: (Num a) => a -> a -> Maybe a
 > deposit value account = Just (account + value)
+> 
 > withdraw :: (Num a,Ord a) => a -> a -> Maybe a
 > withdraw value account = if (account < value) 
 >                          then Nothing 
@@ -17,16 +18,5 @@ Now, let's make it better using Maybe and the fact it is a Monad
 >   Just True
 > 
 > main = do
->   print $ elligible 300
->   print $ elligible 299
-
-
-To be a usage monad, your function must obey some rule.
-As these rule are undecidable to verify, you have to prove them before creating a new monad.
-Here are the rules:
-
-<code class="haskell">
-return a >>= k  ==  k a
-m >>= return  ==  m
-m >>= (\x -> k x >>= h)  ==  (m >>= k) >>= h
-</code>
+>   print $ elligible 300 -- Just True
+>   print $ elligible 299 -- Nothing

@@ -5,14 +5,14 @@ Here we go:
 
 > import Control.Monad
 >
-> allCases = [True,False]
+> allCases = [1..10]
 >
-> resolve :: [(Bool,Bool,Bool)]
+> resolve :: [(Int,Int,Int)]
 > resolve = do
 >               x <- allCases
 >               y <- allCases
 >               z <- allCases
->               guard $ (x && (not y) && z) || (not x && y && z)
+>               guard $ 4*x + 2*y < z
 >               return (x,y,z)
 > 
 > main = do
@@ -21,5 +21,28 @@ Here we go:
 MA. GIC. :
 
 ~~~
-[(True,False,True),(False,True,True)]
+[(1,1,7),(1,1,8),(1,1,9),(1,1,10),(1,2,9),(1,2,10)]
 ~~~
+
+For the list monad, there is also a syntactical sugar:
+
+>   print $ [ (x,y,z) | x <- allCases, 
+>                       y <- allCases, 
+>                       z <- allCases, 
+>                       4*x + 2*y < z ]
+
+I won't list all the monads, but there is a lot of monads.
+The usage of monad simplify the manipulation of some notion in pure languages.
+In particular, monad are very useful for: 
+
+- IO,
+- non deterministic computation,
+- generating pseudo random numbers, 
+- keeping configuration state, 
+- writing state,
+- ...
+
+If you have followed me until here, then you've done it! 
+You know monads[^03021301]!
+
+[^03021301]: Well, you'll certainly need to exercise a bit to be used to them and to understand when you can use them and create your own. But you already made a big step further.

@@ -34,15 +34,18 @@ We can take advantage of this operator to curry a bit more our function:
 > evenSum :: Integral a => [a] -> a
 > evenSum = (foldl' (+) 0) . (filter even)
 
-Also, there already exists a `sum` function.
+Also, we could rename a bit some part to make it clearer:
 
 > -- Version 10 
+> import Data.List (foldl')
+> sum' :: (Num a) => [a] -> a
+> sum' = foldl' (+) 0
 > evenSum :: Integral a => [a] -> a
-> evenSum = sum . (filter even)
-
+> evenSum = sum' . (filter even)
+>  
 
 It is time to discuss a bit.
-What did we gain by using `foldl'`?
+What did we gain by using higher order functions?
 
 At first, you can say it is terseness.
 But in fact, it has more to do with better thinking.
@@ -55,9 +58,9 @@ We want to get the sum of all even square of element of the list.
 
 Update the version 10 is extremely easy:
 
-> squareEvenSum = sum . (filter even) . (map (^2))
+> squareEvenSum = sum' . (filter even) . (map (^2))
 > squareEvenSum' = evenSum . (map (^2))
-> squareEvenSum'' = sum . (map (^2)) . (filter even)
+> squareEvenSum'' = sum' . (map (^2)) . (filter even)
 
 We just had to add another "transformation function"[^0216].
 

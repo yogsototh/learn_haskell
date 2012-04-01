@@ -1,5 +1,30 @@
 <h3 id="deal-with-io">Deal With IO</h3>
 
+ > <%=tldr%>
+ > 
+ > A typical function doing `IO` look a lot like an imperative language:
+ >
+ > ~~~
+ > f :: IO a
+ > f = do
+ >   x <- action1
+ >   action2 x
+ >   y <- action3
+ >   action4 x y
+ > ~~~
+ >
+ > - To set a value to an object we use `<-` .
+ > - The type of each line is `IO *`;
+ >   in this example:
+ >   - `action1     :: IO b`
+ >   - `action2 x   :: IO ()`
+ >   - `action3     :: IO c`
+ >   - `action4 x y :: IO a`
+ >   - `x :: b`, `y :: c`
+ > - Few objects have the type `IO a`, this should help you to choose.
+ >   In particular you cannot use pure function directly here.
+ >   To use pure function you could do `action2 (purefunction x)` for example.
+
 In this section, I will explain how to use IO, not how they work.
 You'll see how Haskell separate pure from impure part of the program.
 

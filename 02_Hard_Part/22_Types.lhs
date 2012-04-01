@@ -34,7 +34,7 @@ NameConstr  :: String -> Name
 ColorConstr :: String -> Color
 </code>
 
-The syntax of `data` is generally:
+The syntax of `data` is mainly:
 
 <code class="haskell">
 data TypeName =   ConstructorName  [types]
@@ -54,7 +54,7 @@ data Complex = Num a => Complex a a
 Also you can use the record syntax:
 
 <code class="haskell">
-data DataTypeName = DataConstrctor {
+data DataTypeName = DataConstructor {
                       field1 :: [type of field1]
                     , field2 :: [type of field2]
                     ...

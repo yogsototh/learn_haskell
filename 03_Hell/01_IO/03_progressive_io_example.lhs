@@ -40,11 +40,12 @@ Finally our main function is quite simpler:
 >   list <- askUser
 >   print $ sum list
 
-This was quite a fast explanation about how to use Haskell `IO`.
-But the main thing to remember:
+We have finished with our introduction to `IO`.
+This was quite a fast.  Here are the main things to remind:
 
 - in the `do` bloc, each expression must have the type `IO a`.
   You are then limited in the number of expression you could use.
+  For example, `getLine`, `print`, `putStrLn`, etc...
 - Try to externalize the pure function as much as possible.  
 - the `IO a` type means: an IO _action_ which return an element of type `a`.
   `IO` represent action; under the hood, `IO a` is the type of a function.

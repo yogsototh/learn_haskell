@@ -8,14 +8,14 @@ Now, a program that ask your name and display `Hello <your name>!`.
 First, let us compare with a similar program in other imperative languages:
 
 <code class="python">
-# Python
+ # Python
 print "What is your name?"
 name = raw_input()
 print "Hello %s!" % name
 </code>
 
 <code class="ruby">
-# Ruby
+ # Ruby
 puts "What is your name?"
 name = gets.chomp
 puts "Hello #{name}!"
@@ -23,7 +23,7 @@ puts "Hello #{name}!"
 
 <code class="c">
 // In C
-#include <stdio.h>
+ #include <stdio.h>
 int main (int argc, char **argv) {
     char name[666]; // <- An Evil Number!
     // What if my name is more than 665 character long?

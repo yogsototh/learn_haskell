@@ -70,7 +70,8 @@ I'll say `error msg` will simply take the needed type (here `IO ()`).
 One very important thing to note is the type of all the defined function.
 There is only one function which contains `IO` in its type: `main`. 
 That means main is impure. 
-All other function are pure.
+But main use `getListFromString` which is pure.
+It is then clear just by looking at declared types where are pure and impure functions.
 
 Why purity matters? 
 I certainly forget many advantages, but the three main reason are:

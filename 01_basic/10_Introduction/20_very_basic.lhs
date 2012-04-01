@@ -27,6 +27,7 @@ _Lazyness_
 
 You can manipulate infinite structures. 
 Inifinte lists, infinite trees etc...
+Easier to reason using a "flow" paradigm.
 
 A last warning on how you should read Haskell code.
 For me, it is like reading scientific paper.

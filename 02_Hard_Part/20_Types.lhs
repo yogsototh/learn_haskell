@@ -1,11 +1,19 @@
 <h3 id="types">Types</h3>
 
+ > <%=tldr%>
+ > 
+ > - `type Name = AnotherType` is just an alias and the compiler doesn't do any difference between `Name` and `AnotherType`.
+ > - `data Name = NameConstructor AnotherType` make a difference.
+ > - `data` can construct structures which can be recursives.
+ > - `deriving` is magic and construct functions for you.
+
 In Haskell, types are strong and static.
 
 Why is this important? It will help you _a lot_ not to make some mistake.
 In fact, most bugs are catched during the compilation of your program.
 And the main reason is because of the type inference during compilation.
 It will be easy to detect where you used the bad parameter at the wrong place for example.
+
 
 <h4 id="type-inference">Type inference</h4>
 

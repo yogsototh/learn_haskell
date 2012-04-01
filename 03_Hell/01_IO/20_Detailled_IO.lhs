@@ -1,6 +1,49 @@
 <h3 id="io-trick-explained">IO trick explained</h3>
 
 
+ > Here is a <%=tldr%> for this section.
+ > 
+ > To separate pure from impure part, 
+ > the main is defined as a function
+ > which modify the state of the world
+ > 
+ > ~~~
+ > main :: World -> World
+ > ~~~
+ > 
+ > A function is granted to have side effect only if it gets this value.
+ > But look at a typical main function:
+ >  
+ > ~~~
+ > main w0 = 
+ >     let (v1,w1) = action1 w0 in
+ >     let (v2,w2) = action2 v1 w1 in
+ >     let (v3,w3) = action3 v2 w2 in
+ >     action4 v3 w3
+ > ~~~
+ > 
+ > We have a lot of temporary elements (here `w1`, `w2` and `w3`) 
+ > which must be passed to the next action.
+ >
+ > We create a function `bind` or `(>>=)`. 
+ > With `bind` we need no more temporary name.
+ > 
+ > ~~~
+ > main =
+ >   action1 >>= action2 >>= action3 >>= action4
+ > ~~~
+ >
+ > Bonus: Haskell has a syntactical sugar for us:
+ >
+ > ~~~
+ > main = do
+ >   v1 <- action1 
+ >   v2 <- action2 v1
+ >   v3 <- action3 v2
+ >   action4 v3
+ > ~~~
+
+
 Why did we used some strange syntax, and what exactly is this `IO` type.
 It looks a bit like magic.
 
@@ -130,8 +173,7 @@ After:
 >         (l,w3)
 
 This is similar, but awkward.
-All these `let ... in`.
-Even if with Haskell you could remove most, it's still awkard.
+Look at all these temporary `w?`.
 
 The lesson, is, naive IO implementation in Pure functional language is awkward!
 
@@ -186,13 +228,13 @@ And of course `actionN w :: (World) -> (a,World)`.
  > 
  > ~~~ 
  > let (_,w1) = action1 w0 in
- > let (y,w2) - action2 w1 in
+ > let (y,w2) = action2 w1 in
  > ~~~
 
 <%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
 
 Now, we will make a magic trick.
-We will make the world variable "disappear".
+We will make the temporary world symbol "disappear".
 We will `bind` the two lines. 
 Let's define the `bind` function.
 Its type is quite intimidating at first:

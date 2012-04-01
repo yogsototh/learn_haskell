@@ -1,7 +1,7 @@
 <h4 id="recursive-type">Recursive type</h4>
 
-You already encountered recursive types.
-Typically, you can re-create lists, but with a more verbose syntax:
+You already encountered recursive types: lists.
+You can re-create lists, but with a more verbose syntax:
 
 <code class="haskell">
 data List a = Empty | Cons a (List a)

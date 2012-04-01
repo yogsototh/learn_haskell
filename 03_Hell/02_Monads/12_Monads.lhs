@@ -2,6 +2,7 @@ Not bad, but we can make it even better:
 
 > deposit :: (Num a) => a -> a -> Maybe a
 > deposit value account = Just (account + value)
+> 
 > withdraw :: (Num a,Ord a) => a -> a -> Maybe a
 > withdraw value account = if (account < value) 
 >                          then Nothing 
@@ -17,8 +18,8 @@ Not bad, but we can make it even better:
 >   return True
 > 
 > main = do
->   print $ elligible 300
->   print $ elligible 299
+>   print $ elligible 300 -- Just True
+>   print $ elligible 299 -- Nothing
 
 We have proved Monad are nice to make our code more elegant.
 Note this idea of code organization, in particular for `Maybe` can be used
@@ -32,6 +33,6 @@ In fact, this is the kind of construction we make naturally.
  > That means, you don't execute all lines. 
  > You have this for free, thanks to lazyness.
 
-The `Maybe` monad proved to be useful while being the simplest example.
+The `Maybe` monad proved to be useful while being a very simple example.
 We saw the utility of the `IO` monad.
 But now a cooler example, lists.
