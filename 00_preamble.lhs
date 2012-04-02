@@ -47,6 +47,10 @@ fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans
 fr: C'est pourquoi je pense qu'un article plus court comme celui-ci peut avoir son utilité.
 fr: De plus, un tel article m'a manqué au début de mon apprentissage.
 
+fr: Pour les francophones ; je suis désolé. 
+fr: Je n'ai pas eu le courage de tout retraduire en français.
+fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort.
+
 en: This actual (long) article contains four parts:
 fr: Cet article contient quatres parties :
 
@@ -88,7 +92,7 @@ fr:  > <pre>
 fr:  > runhaskell filename.lhs
 fr:  > </pre>
 fr:  >
-fr:  > Certain ne marcheront pas, mais la majorité vous donnera un résultat.
+fr:  > Certain ne marcheront pas, mais la majorité vous donneront un résultat.
 fr:  > Vous devriez voir un lien juste en dessous.
 
 enddiv
