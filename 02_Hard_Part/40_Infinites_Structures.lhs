@@ -1,5 +1,7 @@
 <h3 id="infinite-structures">Infinite Structures</h3>
 
+<%= blogimage("Eischer.jpg","Eischer") %>
+
 It is often stated that Haskell is _lazy_.
 
 In fact, if you are a bit pedantic, you should state that [Haskell is _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).

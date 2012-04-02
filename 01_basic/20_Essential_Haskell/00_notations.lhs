@@ -1,5 +1,7 @@
 <h2 id="essential-haskell">Essential Haskell</h2>
 
+<%= blogimage("kandinsky_gugg.jpg","Kandinsky Gugg") %>
+
 I suggest you to skim this part. 
 Think of it like a reference.
 Haskell has a lot of features. 

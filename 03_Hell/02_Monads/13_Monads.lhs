@@ -1,9 +1,11 @@
 <h4 id="the-list-monad">The list monad</h4>
 
+<%= blogimage("golconde.jpg","Golconde de Magritte") %>
+
 The list monad help us to simulate non deterministic computation.
 Here we go:
 
-> import Control.Monad
+> import Control.Monad (guard)
 >
 > allCases = [1..10]
 >
@@ -17,6 +19,7 @@ Here we go:
 > 
 > main = do
 >   print resolve
+
 
 MA. GIC. :
 

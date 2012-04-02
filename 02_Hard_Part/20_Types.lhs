@@ -1,5 +1,7 @@
 <h3 id="types">Types</h3>
 
+<%= blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat") %>
+
  > <%=tldr%>
  > 
  > - `type Name = AnotherType` is just an alias and the compiler doesn't do any difference between `Name` and `AnotherType`.
