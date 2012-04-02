@@ -64,7 +64,7 @@ en: - Hell Difficulty Part:
 en:     - Deal with IO; A very minimal example
 en:     - IO trick explained; the hidden detail I lacked to understand IO
 en:     - Monads; incredible how we can generalize
-en:     - More on infinite tree; a discussion on infinite tree manipulation.
+en:     - More on infinite tree; a more math oriented discussion about infinite trees
 
 fr: - Introduction : un exemple rapide pour montrer qu'Haskell peut être facile.
 fr: - Les bases d'Haskell : La syntaxe et des notions essentielles
@@ -76,7 +76,7 @@ fr: - Partie de difficulté infernale :
 fr:     - Utiliser les IO : un exemple très minimal ;
 fr:     - Le truc des IO révélé : les détails cachés d'IO qui m'ont manqués
 fr:     - Les monades : incroyable à quel point on peut généraliser
-fr:     - Revenons sur les arbres infinis : un discussion sur les arbres infinis
+fr:     - Revenons sur les arbres infinis : une discussion plus mathématique sur la manipulation d'arbres infinis.
 
 en:  > Note: Each time you'll see a separator with a filename ending in `.lhs`, you could click the filename to get this file. If you save the file as `filename.lhs`, you can run it with 
 en:  > <pre>
