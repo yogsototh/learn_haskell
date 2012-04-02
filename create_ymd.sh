@@ -18,7 +18,7 @@ tags:
   - functional
   - tutorial
 -----
-<%= blogimage("dangerous_book.png","Man reading a book has is head exploding") %>
+<%= blogimage("dangerous_book.png","Man reading an Haskell book. His head explode.") %>
 
 begindiv(intro)
 
