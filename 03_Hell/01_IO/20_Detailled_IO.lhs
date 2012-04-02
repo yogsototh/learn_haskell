@@ -64,9 +64,8 @@ on the impure part:
 >   list <- askUser
 >   print $ sum list
 
-First noticiable thing: 
-the structure of these function is very similar to the one of an imperative language.
-Haskell is powerful enough to create structure such that the code looks like it is imperative.
+First remark; it looks like an imperative structure.
+Haskell is powerful enough to make some pure code to look imperative.
 For example, if you wish you could create a `while` in Haskell.
 In fact, for dealing with `IO`, imperative style is generally more appropriate.
 
@@ -164,16 +163,16 @@ Before:
 After:
 
 > askUser w0 =
->     let (_,w1)     = putStrLn "Enter a list of numbers:"
->         (input,w2) = getLine w1
->         (l,w3)     = case getListFromString input of
+>     let (_,w1)     = putStrLn "Enter a list of numbers:" in
+>     let (input,w2) = getLine w1 in
+>     let (l,w3)     = case getListFromString input of
 >                       Just l   -> (l,w2)
 >                       Nothing  -> askUser w2
 >     in
 >         (l,w3)
 
 This is similar, but awkward.
-Look at all these temporary `w?`.
+Look at all these temporary `w?` names.
 
 The lesson, is, naive IO implementation in Pure functional language is awkward!
 
