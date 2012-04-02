@@ -1,5 +1,7 @@
 <h4 id="higher-level-functions">Higher Level Functions</h4>
 
+<%= blogimage("escher_polygon.png","Escher") %>
+
 To make things even better we should use higher level functions.
 What are these beast?
 Higher level functions are functions taking function as parameter.
