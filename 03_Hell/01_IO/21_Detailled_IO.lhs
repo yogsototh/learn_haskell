@@ -42,6 +42,4 @@ Is translated into:
 
 You can compile this code to verify it continues to work.
 
-Left as an exercise to the masochistic reader:
-
-- rewrite everything without using `(>>)`, `(>>=)` and `return`.
+Imagine what it would look like without the `(>>)` and `(>>=)`.
