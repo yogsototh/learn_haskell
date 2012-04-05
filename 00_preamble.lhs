@@ -51,8 +51,8 @@ fr: Pour les francophones ; je suis désolé.
 fr: Je n'ai pas eu le courage de tout retraduire en français.
 fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort.
 
-en: This actual (long) article contains four parts:
-fr: Cet article contient quatres parties :
+en: This actual (long) article contains five parts:
+fr: Cet article contient cinq parties :
 
 en: - Introduction: a fast short example to show Haskell can be friendly.
 en: - Basic Haskell: Haskell syntax, and some essential notions.
@@ -64,6 +64,7 @@ en: - Hell Difficulty Part:
 en:     - Deal with IO; A very minimal example
 en:     - IO trick explained; the hidden detail I lacked to understand IO
 en:     - Monads; incredible how we can generalize
+en: - Appendix:
 en:     - More on infinite tree; a more math oriented discussion about infinite trees
 
 fr: - Introduction : un exemple rapide pour montrer qu'Haskell peut être facile.
@@ -76,6 +77,7 @@ fr: - Partie de difficulté infernale :
 fr:     - Utiliser les IO : un exemple très minimal ;
 fr:     - Le truc des IO révélé : les détails cachés d'IO qui m'ont manqués
 fr:     - Les monades : incroyable à quel point on peut généraliser
+fr: - Appendice :
 fr:     - Revenons sur les arbres infinis : une discussion plus mathématique sur la manipulation d'arbres infinis.
 
 en:  > Note: Each time you'll see a separator with a filename ending in `.lhs`, you could click the filename to get this file. If you save the file as `filename.lhs`, you can run it with 
