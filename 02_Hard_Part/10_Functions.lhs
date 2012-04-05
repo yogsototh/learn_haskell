@@ -14,6 +14,9 @@ The end result will be both more elegant and easier to adapt.
 Let's resolve the following problem:
 
  > Given a list of integer, return the sum of its even numbers.
+ > 
+ > example:
+ > `[1,2,3,4,5] ⇒  2 + 4 ⇒  6`
 
 To show differences between functional and imperative approach, 
 I'll start by providing an imperative solution (in javascript):

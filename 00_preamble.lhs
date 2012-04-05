@@ -4,16 +4,14 @@ fr: Adapter son esprit à Haskell peut être difficile.
 fr: Ce le fût pour moi.
 fr: Dans cet article, j'essaye de fournir les informations qui m'ont manquées quand j'essayais d'apprendre Haskell.
 
-en: Bend his mind to Haskell can be hard.
+en: Learn Haskell can be hard.
 en: It was for me.
-en: In this article I try to provide what I lacked when I started to learn Haskell.
+en: In this article I try to provide what I lacked during my learning.
 
 fr: Apprendre Haskell ce n'est pas simplement apprendre un nouveau langage de programmation.
 fr: Il faut y associer un tas de notions que je n'avais jamais vues avant.
 fr: Beaucoup de concepts servent aussi dans la programmation de langages plus communs.
 
-en: As Boromir would say: "One does not simply learn Haskell".
-en: To learn Haskell you'll need to learn far more than just a new language.
 en: Haskell use a lot of concepts I've never heard about before.
 en: But many will be useful for programming even in other languages.
 
@@ -29,14 +27,13 @@ en: There is no shortcut to learn Haskell.
 en: It is hard and challenging. 
 en: But I believe it is a good thing.
 
-en: This article can be seen as a very dense introduction to Haskell.
-en: The conventional way to learn Haskell is to read two books. 
+en: This article is a very dense introduction to Haskell.
+en: The conventional path to go to learn Haskell is to read two books. 
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
 en: But Haskell is very hard to learn by skimming these books.
 en: You'll have to read them in detail.
-en: This is why I believe such an article while difficult to read can be a very good introduction.
-en: Furthermore, I believe I missed such an article while learning Haskell. 
+en: This article while difficult to read can hopefully be a very good introduction.
 
 fr: Cet article peut être vu comme une introduction très dense d'Haskell.
 fr: La manière conventionnelle d'apprendre Haskell est de lire deux livres.
@@ -51,7 +48,7 @@ fr: Pour les francophones ; je suis désolé.
 fr: Je n'ai pas eu le courage de tout retraduire en français.
 fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort.
 
-en: This actual (long) article contains five parts:
+en: The article contains five parts:
 fr: Cet article contient cinq parties :
 
 en: - Introduction: a fast short example to show Haskell can be friendly.
@@ -80,7 +77,9 @@ fr:     - Les monades : incroyable à quel point on peut généraliser
 fr: - Appendice :
 fr:     - Revenons sur les arbres infinis : une discussion plus mathématique sur la manipulation d'arbres infinis.
 
-en:  > Note: Each time you'll see a separator with a filename ending in `.lhs`, you could click the filename to get this file. If you save the file as `filename.lhs`, you can run it with 
+en:  > Note: Each time you'll see a separator with a filename ending in `.lhs`, 
+en:  > you could click the filename to get this file. 
+en:  > If you save the file as `filename.lhs`, you can run it with 
 en:  > <pre>
 en:  > runhaskell filename.lhs
 en:  > </pre>

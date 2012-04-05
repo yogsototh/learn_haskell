@@ -20,6 +20,8 @@ Generally your function won't modify anything of the outside world.
 This means, it can't modify the value of a variable, can't get user input, can't write on the screen, can't launch a missile.
 On the other hand, parallelism will be very easy to achieve.
 Haskell makes it clear where effects occurs and where you are pure.
+Also, it will be far easier to reason about your program.
+Most bug will be prevented in pure part of your program.
 
 Furthermore there is an essential respected law in Haskell:
 

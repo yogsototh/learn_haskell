@@ -1,4 +1,4 @@
-Now, a program that ask your name and display `Hello <your name>!`.
+Now, a program asking your name and reply "Hello" using the name you entered:
 
 > main = do
 >     print "What is your name?"
