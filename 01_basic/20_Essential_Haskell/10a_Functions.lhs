@@ -58,7 +58,7 @@ Another equivalent version:
  > Notation warning: indentation is _important_ in Haskell.
  > Like in Python, a bad indendation could break your code!
 
-<div style="display:hidden">
+<div style="display:none">
 
 > main = do
 >       print $ square 10

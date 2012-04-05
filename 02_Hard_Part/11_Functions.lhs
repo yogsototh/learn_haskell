@@ -60,7 +60,7 @@ First, we can generalize the type.
 evenSum :: Integral a => [a] -> a
 </code>
 
-<div style="display:hidden">
+<div style="display:none">
 
 > main = do print $ evenSum [1..10]
 

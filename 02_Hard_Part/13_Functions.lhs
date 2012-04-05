@@ -43,7 +43,7 @@ foo (x:xs) = if even x
 This is a very useful feature.
 It makes our code both tersier and easier to read.
 
-<div style="display:hidden">
+<div style="display:none">
 
 > main = print $ evenSum [1..10]
 
