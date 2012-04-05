@@ -14,3 +14,8 @@ This way our `accumSum` function won't polute the global name space.
 >                             then accumSum (n+x) xs
 >                             else accumSum n xs
 
+<div style="display:hidden">
+
+> main = print $ evenSum [1..10]
+
+</div>
