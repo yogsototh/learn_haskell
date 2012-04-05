@@ -57,6 +57,7 @@ This code is mostly the same as the one in the [tree section](#trees).
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
 >
+
 </div>
 
 Our first step is to create some pseudo-random number list:

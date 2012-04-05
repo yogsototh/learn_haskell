@@ -51,19 +51,21 @@ It looks a bit like magic.
 For now let's just forget about all the pure part of our program, and focus
 on the impure part:
 
-> askUser :: IO [Integer]
-> askUser = do
->   putStrLn "Enter a list of numbers (separated by commas):"
->   input <- getLine
->   let maybeList = getListFromString input in
->       case maybeList of
->           Just l  -> return l
->           Nothing -> askUser
-> 
-> main :: IO ()
-> main = do
->   list <- askUser
->   print $ sum list
+<code class="haskell">
+askUser :: IO [Integer]
+askUser = do
+  putStrLn "Enter a list of numbers (separated by commas):"
+  input <- getLine
+  let maybeList = getListFromString input in
+      case maybeList of
+          Just l  -> return l
+          Nothing -> askUser
+
+main :: IO ()
+main = do
+  list <- askUser
+  print $ sum list
+</code>
 
 First remark; it looks like an imperative structure.
 Haskell is powerful enough to make some pure code to look imperative.
@@ -152,25 +154,29 @@ askUser :: World -> ([Integer],World)
 
 Before:
 
-> askUser :: IO [Integer]
-> askUser = do
->   putStrLn "Enter a list of numbers:"
->   input <- getLine
->   let maybeList = getListFromString input in
->       case maybeList of
->           Just l  -> return l
->           Nothing -> askUser
+<code class="haskell">
+askUser :: IO [Integer]
+askUser = do
+  putStrLn "Enter a list of numbers:"
+  input <- getLine
+  let maybeList = getListFromString input in
+      case maybeList of
+          Just l  -> return l
+          Nothing -> askUser
+</code>
 
 After:
 
-> askUser w0 =
->     let (_,w1)     = putStrLn "Enter a list of numbers:" in
->     let (input,w2) = getLine w1 in
->     let (l,w3)     = case getListFromString input of
->                       Just l   -> (l,w2)
->                       Nothing  -> askUser w2
->     in
->         (l,w3)
+<code class="haskell">
+askUser w0 =
+    let (_,w1)     = putStrLn "Enter a list of numbers:" in
+    let (input,w2) = getLine w1 in
+    let (l,w3)     = case getListFromString input of
+                      Just l   -> (l,w2)
+                      Nothing  -> askUser w2
+    in
+        (l,w3)
+</code>
 
 This is similar, but awkward.
 Look at all these temporary `w?` names.

@@ -52,7 +52,7 @@ Otherwise, for example for "1,2,3", it will return `Just [1,2,3]`.
 
 We simply have to test the value in our main function.
 
-> main = IO ()
+> main :: IO ()
 > main = do
 >   putStrLn "Enter a list of numbers (separated by comma):"
 >   input <- getLine

@@ -26,7 +26,9 @@ What saves Haskell is that it can _infere_ types.
 Here is a simple example. 
 The `square` function in Haskell:
 
-> square x = x * x
+<code class="haskell">
+square x = x * x
+</code>
 
 This function can `square` any Numeral type.
 You can provide `square` an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:

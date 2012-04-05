@@ -9,7 +9,9 @@ Higher level functions are functions taking function as parameter.
 Here are some examples:
 
 <div style="display:none">
+
 > import Data.List (foldl')
+
 </div>
 
 <code class="haskell">
