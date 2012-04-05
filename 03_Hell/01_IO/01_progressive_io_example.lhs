@@ -1,5 +1,7 @@
 <h3 id="deal-with-io">Deal With IO</h3>
 
+<%= blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche") %>
+
  > <%=tldr%>
  > 
  > A typical function doing `IO` look a lot like an imperative language:

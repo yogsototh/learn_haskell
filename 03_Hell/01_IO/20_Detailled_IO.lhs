@@ -1,5 +1,6 @@
 <h3 id="io-trick-explained">IO trick explained</h3>
 
+<%= blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe") %>
 
  > Here is a <%=tldr%> for this section.
  > 
