@@ -15,25 +15,36 @@ Use value instead of general parameter name.
 Instead of saying: `foo l = if l == [] then <x> else <y>`
 You simply state:  
 
-> foo [] =  <x>
-> foo l  =  <y>
+<code class="haskell">
+foo [] =  <x>
+foo l  =  <y>
+</code>
 
 But pattern matching go even further. 
 It is also able to inspect inside datas. 
 We can replace
 
->  foo l =  let x  = head l 
->               xs = tail l
->           in if even x 
->               then foo (n+x) xs
->               else foo n xs
+<code class="haskell">
+foo l =  let x  = head l 
+             xs = tail l
+         in if even x 
+             then foo (n+x) xs
+             else foo n xs
+</code>
 
 by
 
->  foo (x:xs) = if even x 
->                   then foo (n+x) xs
->                   else foo n xs
+<code class="haskell">
+foo (x:xs) = if even x 
+                 then foo (n+x) xs
+                 else foo n xs
+</code>
 
 This is a very useful feature.
 It makes our code both tersier and easier to read.
 
+<div style="display:hidden">
+
+> main = print $ evenSum [1..10]
+
+</div>
