@@ -43,17 +43,31 @@ _Tests_
 
 An implementation of the absolute function.
 
-> abs x :: Num a => a -> a
-> abs = if x >= 0 then x else -x
+> absolute :: (Ord a, Num a) => a -> a
+> absolute x = if x >= 0 then x else -x
 
 Note: the `if .. then .. else` Haskell notation is more like the
 `¤?¤:¤` C operator. You cannot forget the `else`.
 
 Another equivalent version:
 
-> abs' x
->      | x >= 0 = x
->      | otherwise = -x
+> absolute' x
+>     | x >= 0 = x
+>     | otherwise = -x
 
  > Notation warning: indentation is _important_ in Haskell.
  > Like in Python, a bad indendation could break your code!
+
+<div style="display:hidden">
+
+> main = do
+>       print $ square 10
+>       print $ square' 10
+>       print $ square'' 10
+>       print $ square''' 10
+>       print $ absolute 10
+>       print $ absolute (-10)
+>       print $ absolute' 10
+>       print $ absolute' (-10)
+
+</div>
