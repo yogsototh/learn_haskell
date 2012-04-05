@@ -1,9 +1,11 @@
 Finaly
 
-> -- Version 8
-> import Data.List (foldl')
-> evenSum :: Integral a => [a] -> a
-> evenSum l = foldl' (+) 0 (filter even l)
+<code class="haskell">
+-- Version 8
+import Data.List (foldl')
+evenSum :: Integral a => [a] -> a
+evenSum l = foldl' (+) 0 (filter even l)
+</code>
 
 `foldl'` isn't the easiest function to intuit.
 If you are not used to it, you should exercise a bit.
@@ -25,14 +27,18 @@ To help you understand what's going on here, a step by step evaluation:
 Another useful higher order function is `(.)`.
 The `(.)` function correspond to the mathematical composition.
 
-> (f . g . h) x ⇔  f ( g (h x))
+<code class="haskell">
+(f . g . h) x ⇔  f ( g (h x))
+</code>
 
 We can take advantage of this operator to curry a bit more our function:
 
-> -- Version 9
-> import Data.List (foldl')
-> evenSum :: Integral a => [a] -> a
-> evenSum = (foldl' (+) 0) . (filter even)
+<code class="haskell">
+-- Version 9
+import Data.List (foldl')
+evenSum :: Integral a => [a] -> a
+evenSum = (foldl' (+) 0) . (filter even)
+</code>
 
 Also, we could rename a bit some part to make it clearer:
 
@@ -100,3 +106,9 @@ Then when you attack the imperative style of Haskell, it is hard to understand w
 
 But before talking about this Haskell super-power, we must talk about another
 essential aspect of Haskell: _Types_.
+
+<div style="display:non"">
+
+> main = print $ evenSum [1..10]
+
+</div>

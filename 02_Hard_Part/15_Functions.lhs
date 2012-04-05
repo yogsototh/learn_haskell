@@ -8,12 +8,6 @@ Higher level functions are functions taking function as parameter.
 
 Here are some examples:
 
-<div style="display:none">
-
-> import Data.List (foldl')
-
-</div>
-
 <code class="haskell">
 filter :: (a -> Bool) -> [a] -> [a]
 map :: (a -> b) -> [a] -> [b]
@@ -91,7 +85,7 @@ This way we don't have to create the temporary name `mysum`.
 > -- Generaly it is considered a good practice
 > -- to import only the necessary function(s)
 > import Data.List (foldl')
-> evenSum l = foldl' (\x y -> x+y) (filter even l)
+> evenSum l = foldl' (\x y -> x+y) 0 (filter even l)
 
 And of course, we remark 
 
