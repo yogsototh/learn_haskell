@@ -1,33 +1,29 @@
 begindiv(intro)
 
 en: I really believe all developer should learn Haskell.
-en: I don't believe all should be super Haskell ninjas.
-en: But at least, they should discover what Haskell has to offer.
+en: I don't think all should be super Haskell ninjas,
+en: but at least, they should discover what Haskell has to offer.
 en: Learning Haskell open your mind.
 fr: Je pense vraiment que
 fr: tous les développeurs devraient apprendre Haskell.
-fr: Peut-être pas être un super ninja spécialiste d'Haskell, 
+fr: Peut-être pas être Haskell ninja, 
 fr: mais au moins savoir ce que ce langage a de particulier.
 fr: Son apprentissage ouvre énormément l'esprit.
 
-en: Mainstream languages share the same foundations.
-en: The main difference between them is the syntax.
-en: Just after come the object model (if they have one).
-en: And the last major difference is between compiled and interpreted languages.
-en: But fundamental concepts are the same:
-fr: La plupart des langages sont finalement assez proches.
-fr: Leur principale façon de se différencier est la syntaxe.
-fr: Après la syntaxe c'est le mode d'exécution, compilé ou script?
-fr: Mais les concepts fondamentaux restent les même :
+en: Mainstream languages share the same foundations:
+fr: La plupart des langages partagent les mêmes fondamentaux :
 
 en: - variables
 en: - loops
-en: - pointers (even if last languages try to hide them)
-en: - objects and classes (for most)
+en: - pointers[^0001]
+en: - data structures, objects and classes (for most)
 fr: - les variables
 fr: - les boucles
-fr: - les pointeurs
-fr: - les classes et objets
+fr: - les pointeurs[^0001]
+fr: - les structures de données, les objets et les classes
+
+en: [^0001]: Even if most recent languages try to hide them, they are present.
+fr: [^0001]: Même si tous les langages récent essayent de les cachés, ils restent présents.
 
 en: Haskell is very different.
 en: This language use a lot of concepts I've never heard about before.
@@ -43,7 +39,7 @@ fr: Plier son esprit à Haskell peut être difficile.
 fr: Ce le fût pour moi.
 fr: Dans cet article, j'essaye de fournir les informations qui m'ont manquées lors de mon apprentissage.
 
-en: I will certainly be hard to follow this article.
+en: This article will certainly be hard to follow.
 en: This is done on purpose.
 en: There is no shortcut to learn Haskell.
 en: It is hard and challenging. 
@@ -56,21 +52,20 @@ fr: C'est difficile.
 fr: Mais je pense que c'est une bonne chose.
 fr: C'est parce qu'Haskell est difficile qu'il est intéressant.
 
-en: The conventional path to go to learn Haskell is to read two books. 
+en: The conventional method to learn Haskell is to read two books. 
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
-en: But Haskell is very hard to learn by only skimming these books.
-en: You'll have to read them in detail.
+en: But, to learn what Haskell is all about, you'll have to read them in detail.
 fr: La manière conventionnelle d'apprendre Haskell est de lire deux livres.
 fr: En premier ["Learn You a Haskell"](http://learnyouahaskell.com) 
 fr: et ensuite ["Real World Haskell"](http://www.realworldhaskell.org).
 fr: Je pense aussi que c'est la bonne manière de s'y prendre.
 fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans se plonger réellement dans ces livres.
 
-en: On the other hand, this article is a very hard and dense overview of all major aspect of Haskell.
-en: I also added some information I lacked while I learned Haskell.
+en: On the other hand, this article is a very hard and dense overview of all major aspects of Haskell.
+en: I also added some informations I lacked while I learned Haskell.
 fr: Cet article fait un résumé très dense et rapide des aspect majeurs d'Haskell.
-fr: J'y ai aussi rajouté des informations qui m'on manqué pendant l'apprentissage de ce langage.
+fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentissage de ce langage.
 
 fr: Pour les francophones ; je suis désolé. 
 fr: Je n'ai pas eu le courage de tout retraduire en français.
