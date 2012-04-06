@@ -62,7 +62,7 @@ function f(x,y) {
 in Python:
 
 <code class="python">
-def f(x,y) =
+def f(x,y):
     return x*x + y*y;
 </code>
 

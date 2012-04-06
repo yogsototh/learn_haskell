@@ -22,7 +22,7 @@ At first I won't show you any Haskell super power.
 I will start with similarities between Haskell and other programming languages.
 Let's jump in the obligatory "Hello World".
 
-> main = print "Hello World!"
+> main = putStrLn "Hello World!"
 
 To run it, you can save this code in a `hello.hs` and:
 
