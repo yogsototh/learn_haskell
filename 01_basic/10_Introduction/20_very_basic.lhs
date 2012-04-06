@@ -27,7 +27,7 @@ Furthermore there is an essential respected law in Haskell:
 
  > Applying a function with the same parameter always return the same value.
 
-_Lazyness_
+_Laziness_
 
 This is a very uncommon feature.
 By default, Haskell evaluate something only when it is needed.
