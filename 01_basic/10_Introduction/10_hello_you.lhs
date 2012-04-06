@@ -5,7 +5,7 @@ Now, a program asking your name and reply "Hello" using the name you entered:
 >     name <- getLine
 >     print ("Hello " ++ name ++ "!")
 
-First, let us compare with a similar program in other imperative languages:
+First, let us compare with a similar program in some imperative languages:
 
 <code class="python">
  # Python
@@ -41,4 +41,4 @@ In Haskell, there is a `main` function and every object has a type.
 The type of `main` is `IO ()`.
 This means, `main` will cause side effects.
 
-Just remember that Haskell can look a lot like other imperative languages.
+Just remember that Haskell can look a lot like mainstream imperative languages.

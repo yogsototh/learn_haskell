@@ -29,7 +29,7 @@ Furthermore there is an essential respected law in Haskell:
 
 _Laziness_
 
-This is a very uncommon feature.
+Laziness by default is a very uncommon language design.
 By default, Haskell evaluate something only when it is needed.
 As consequence, it provides a very elegant way to manipulate infinite structures for example. 
 
