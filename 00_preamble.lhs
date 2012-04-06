@@ -70,6 +70,8 @@ fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentis
 fr: Pour les francophones ; je suis désolé. 
 fr: Je n'ai pas eu le courage de tout retraduire en français.
 fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort de traduire l'article en entier.
+fr: Et si vous vous sentez d'avoir une bonne âme je ne suis pas contre un peu d'aide.
+fr: Les sources de cet article sont sur [gihub](http://github.com/yogsototh/learn_haskell.git).
 
 en: The article contains five parts:
 fr: Cet article contient cinq parties :
