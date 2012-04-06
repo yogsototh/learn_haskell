@@ -6,7 +6,7 @@ en: but at least, they should discover what Haskell has to offer.
 en: Learning Haskell open your mind.
 fr: Je pense vraiment que
 fr: tous les développeurs devraient apprendre Haskell.
-fr: Peut-être pas être Haskell ninja, 
+fr: Peut-être pas devenir des ninjas d'Haskell, 
 fr: mais au moins savoir ce que ce langage a de particulier.
 fr: Son apprentissage ouvre énormément l'esprit.
 
