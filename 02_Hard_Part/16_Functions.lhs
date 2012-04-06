@@ -107,7 +107,7 @@ Then when you attack the imperative style of Haskell, it is hard to understand w
 But before talking about this Haskell super-power, we must talk about another
 essential aspect of Haskell: _Types_.
 
-<div style="display:non"">
+<div style="display:none">
 
 > main = print $ evenSum [1..10]
 
