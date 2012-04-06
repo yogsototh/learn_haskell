@@ -40,10 +40,5 @@ A major part of this tutorial will explain why.
 In Haskell, there is a `main` function and every object has a type.
 The type of `main` is `IO ()`.
 This means, `main` will cause side effects.
-`IO` is a ... . 
-Wait! No! I won't say it now!
-I am afraid to terrify you.
-You might run away crying.
-For now, I won't talk about what `IO` really is.
 
 Just remember that Haskell can look a lot like other imperative languages.
