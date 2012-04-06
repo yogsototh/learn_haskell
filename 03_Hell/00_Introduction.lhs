@@ -4,7 +4,7 @@ Congratulation to get so far!
 Now, some of the really hardcore stuff could start.
 
 If you are like me, you should get the functional style.
-You should also understand a bit more the advantages of lazyness by default.
+You should also understand a bit more the advantages of laziness by default.
 But you also don't really understand were to start to make a real program.
 And in particular:
 

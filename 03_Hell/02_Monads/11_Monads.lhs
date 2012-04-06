@@ -8,8 +8,8 @@ Now, let's make it better using Maybe and the fact it is a Monad
 >                          then Nothing 
 >                          else Just (account - value)
 > 
-> elligible :: (Num a, Ord a) => a -> Maybe Bool
-> elligible account = do
+> eligible :: (Num a, Ord a) => a -> Maybe Bool
+> eligible account = do
 >   account1 <- deposit 100 account 
 >   account2 <- withdraw 200 account1 
 >   account3 <- deposit 100 account2 
@@ -18,5 +18,5 @@ Now, let's make it better using Maybe and the fact it is a Monad
 >   Just True
 > 
 > main = do
->   print $ elligible 300 -- Just True
->   print $ elligible 299 -- Nothing
+>   print $ eligible 300 -- Just True
+>   print $ eligible 299 -- Nothing

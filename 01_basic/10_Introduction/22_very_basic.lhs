@@ -1,6 +1,6 @@
 The solution, 
 don't declare the type for `f`.
-Haskell will infere the most general type for us:
+Haskell will infer the most general type for us:
 
 > f x y = x*x + y*y
 >
@@ -54,18 +54,18 @@ Generally `a` can be any type.
 For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
 But here our type is prefixed with `Num a => `. 
 
-`Num` is a _typeclass_.
-A typeclass can be understood as a set of types.
+`Num` is a _type class_.
+A type class can be understood as a set of types.
 `Num` contains only types which behave like numbers.
 More precisely, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
 
-Typeclass is a very powerful language construction.
+Type class is a very powerful language construction.
 We can do some incredibly powerful stuff with this.
 More on this later.
 
 Finally, `Num a => a -> a -> a` means:
 
-Let `a` be a type belonging to the `Num` typeclass.
+Let `a` be a type belonging to the `Num` type class.
 This is a function from type `a` to (`a -> a`).
 
 Yes, strange. 

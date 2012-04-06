@@ -23,7 +23,7 @@ _Infix notation_
 
 Note `^` use infix notation. 
 For each infix operator there its associated prefix notation.
-You just have to put it inside parathesis.
+You just have to put it inside parenthesis.
 
 > square' x = (^) x 2
 > 
@@ -56,7 +56,7 @@ Another equivalent version:
 >     | otherwise = -x
 
  > Notation warning: indentation is _important_ in Haskell.
- > Like in Python, a bad indendation could break your code!
+ > Like in Python, a bad indentation could break your code!
 
 <div style="display:none">
 

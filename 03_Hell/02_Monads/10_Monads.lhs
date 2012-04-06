@@ -12,10 +12,10 @@ But mainly, you have access to some coding pattern which will ease the flow of y
  >   There are a lot of _pure_ monads.
  > - Monad are more about sequencing
 
-For the Haskell language `Monad` is a typeclass.
-To be an instance of this typeclass, you must provide the functions `(>>=)` and `return`.
+For the Haskell language `Monad` is a type class.
+To be an instance of this type class, you must provide the functions `(>>=)` and `return`.
 The function `(>>)` will be derived from `(>>=)`.
-Here is how the typeclass `Monad` is declared (mostly):
+Here is how the type class `Monad` is declared (mostly):
 
 <code class="haskell">
 class Monad m  where
@@ -40,7 +40,7 @@ class Monad m  where
  >   A better word should have been `typeclass`.
  >   That means a set of types.
  >   For a type to belong to a class, all function of the class must be provided for this type.
- > - In this particular example of typeclass, the type `m` must be a type that take an argument. 
+ > - In this particular example of type class, the type `m` must be a type that take an argument. 
  >   for example `IO a`, but also `Maybe a`, `[a]`, etc...
  > - To be a useful monad, your function must obey some rule.
  >   If your construction does not obey these rules strange things might happens:
@@ -58,14 +58,14 @@ One of the easiest to describe is `Maybe`.
 If you have a sequence of `Maybe` values, you could use monad to manipulate them.
 It is particularly useful to remove very deep `if..then..else..` constructions.
 
-Imagine a complex bank operation. You are elligible to gain about 700€ only
+Imagine a complex bank operation. You are eligible to gain about 700€ only
 if you can afford to follow a list of operation without being negative.
 
 > deposit  value account = account + value
 > withdraw value account = account - value
 >
-> elligible :: (Num a,Ord a) => a -> Bool
-> elligible account = 
+> eligible :: (Num a,Ord a) => a -> Bool
+> eligible account = 
 >   let account1 = deposit 100 account in
 >     if (account1 < 0) 
 >     then False
@@ -89,6 +89,6 @@ if you can afford to follow a list of operation without being negative.
 >               True
 >
 > main = do
->   print $ elligible 300 -- True
->   print $ elligible 299 -- False
+>   print $ eligible 300 -- True
+>   print $ eligible 299 -- False
 

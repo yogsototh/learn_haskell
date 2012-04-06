@@ -21,7 +21,7 @@ foo l  =  <y>
 </code>
 
 But pattern matching go even further. 
-It is also able to inspect inside datas. 
+It is also able to inspect inside data. 
 We can replace
 
 <code class="haskell">
@@ -41,7 +41,7 @@ foo (x:xs) = if even x
 </code>
 
 This is a very useful feature.
-It makes our code both tersier and easier to read.
+It makes our code both terser and easier to read.
 
 <div style="display:none">
 

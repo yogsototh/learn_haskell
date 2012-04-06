@@ -55,7 +55,7 @@ getLine  :: IO String
 print    :: Show a => a -> IO ()
 ~~~
 
-Or more interrestingly, we remark each expression in the `do` block has a type of `IO a`.
+Or more interestingly, we remark each expression in the `do` block has a type of `IO a`.
 
 <pre>
 main = do

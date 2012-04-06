@@ -9,7 +9,7 @@ If we force our function to work with different type, it will fail:
 > y = 2.4
 > main = print (f x y) -- won't work because type x ‡ type y
 
-The comiler complains. 
+The compiler complains. 
 The two parameter must have the same type.
 
 If you believe it is a bad idea, and the compiler should make the transformation 

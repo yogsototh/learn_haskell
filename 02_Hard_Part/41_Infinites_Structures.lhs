@@ -1,7 +1,7 @@
 
 <div style="display:none">
 
-This code is mostly the same as the preceeding one.
+This code is mostly the same as the preceding one.
 
 > import Debug.Trace (trace)
 > import Data.List
@@ -95,7 +95,7 @@ This code compile, run and stop giving the following result:
 ~~~
 
 Just to heat your neurones a bit more,
-let's make a slightly more interresting tree:
+let's make a slightly more interesting tree:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
 >         where
@@ -114,7 +114,7 @@ Here is such a function:
 >                                      (treeMap f right)
 
 _Hint_: I won't talk more about this here. 
-If you are interrested of the generalization of `map` to other data structure,
+If you are interested of the generalization of `map` to other data structure,
 search for functor and `fmap`.
 
 Our definition is now:

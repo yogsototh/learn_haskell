@@ -44,7 +44,7 @@ en: This is done on purpose.
 en: There is no shortcut to learn Haskell.
 en: It is hard and challenging. 
 en: But I believe this is a good thing.
-en: This is because it is hard that Haskell is interresting.
+en: This is because it is hard that Haskell is interesting.
 fr: Cet article sera certainement difficile à suivre.
 fr: Mais c'est voulu.
 fr: Il n'y a pas de raccourci pour apprendre Haskell.

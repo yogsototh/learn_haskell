@@ -1,5 +1,5 @@
 Next, we can use sub functions using `where` or `let`.
-This way our `accumSum` function won't polute the global name space.
+This way our `accumSum` function won't pollute the global name space.
 
 > -- Version 2
 > evenSum :: Integral a => [a] -> a

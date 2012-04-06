@@ -1,4 +1,4 @@
-Finaly
+Finally
 
 <code class="haskell">
 -- Version 8

@@ -81,7 +81,7 @@ For example, you can read and write a file in any function.
 The fact a file exists or not, can be seen as different state of the world.
 
 For Haskell this state is not hidden.
-It is explicitely said `main` is a function that _potentially_ change the state of the world.
+It is explicitly said `main` is a function that _potentially_ change the state of the world.
 It's type is then something like:
 
 <code class="haskell">
@@ -89,7 +89,7 @@ main :: World -> World
 </code>
 
 Not all function could have access to this variable.
-Those who have access to this variable can potentienly be impure.
+Those who have access to this variable can potentially be impure.
 Functions whose the world variable isn't provided to should be pure[^032001].
 
 [^032001]: There are some _unsafe_ exception to this rule. But you shouldn't see such usage on a real application except might be for some debugging purpose.

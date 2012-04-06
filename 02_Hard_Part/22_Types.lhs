@@ -61,7 +61,7 @@ data DataTypeName = DataConstructor {
                     , fieldn :: [type of fieldn] }
 </code>
 
-And many accessor are made for you.
+And many accessors are made for you.
 Furthermore you can use another order when setting values.
 
 Example:

@@ -16,7 +16,7 @@ Tools:
 
 <%= blogimage("munch_TheScream.jpg","The Scream") %>
 
-Many book/articles about Haskell start by introducing some esoteric formula (quicksort, fibonacci serie, etc...).
+Many book/articles about Haskell start by introducing some esoteric formula (quick sort, Fibonacci, etc...).
 I will make the exact opposite.
 At first I won't show you any Haskell super power.
 I will start with similarities between Haskell and other programming languages.

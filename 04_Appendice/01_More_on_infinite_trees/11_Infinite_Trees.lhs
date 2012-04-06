@@ -1,7 +1,7 @@
 
 <div style="display:none">
 
-This code is mostly the same as the preceeding one.
+This code is mostly the same as the preceding one.
 
 > import Debug.Trace (trace)
 > import Data.List
@@ -143,7 +143,7 @@ Left as an exercise to the reader:
   (suppose we could use `safefilter'` directly as if was not in the where of safefilter)
   find a definition of `f` such that with probability `1`, 
   treeFromList' shuffle is infinite. And prove it.
-  Disclamer, this is only a conjecture.
+  Disclaimer, this is only a conjecture.
 
 <code class="haskell">
 treeFromList' []  n = Empty

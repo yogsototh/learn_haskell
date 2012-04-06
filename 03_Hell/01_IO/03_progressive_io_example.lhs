@@ -1,4 +1,4 @@
-Our next evolution will be to ask the user again and again util it enters a valid answer.
+Our next evolution will be to ask the user again and again until it enters a valid answer.
 
 We keep the first part:
 
@@ -30,8 +30,8 @@ Some people might explain while waving their hands:
  > «This is an `[Integer]` inside an `IO`»
 
 If you want to understand the details behind all of this, you'll have to read the next section.
-But sincerly, if you just want to _use_ IO.
-Just exercise a litlle and remember to think about the type.
+But sincerely, if you just want to _use_ IO.
+Just exercise a little and remember to think about the type.
 
 Finally our main function is quite simpler:
 

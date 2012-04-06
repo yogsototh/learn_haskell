@@ -12,7 +12,7 @@
 In Haskell, types are strong and static.
 
 Why is this important? It will help you _a lot_ not to make some mistake.
-In Haskell, most bugs are catched during the compilation of your program.
+In Haskell, most bugs are caught during the compilation of your program.
 And the main reason is because of the type inference during compilation.
 It will be easy to detect where you used the bad parameter at the wrong place for example.
 
@@ -116,7 +116,7 @@ instance Num (Complex a) where
 
 The inference of type gives Haskell a feeling of the freedom that dynamic 
 typed languages provide. 
-But unlike dynamic typed languages, most error are catched before the execution.
+But unlike dynamic typed languages, most error are caught before the execution.
 Generally, in Haskell:
 
  > "if it compiles it certainly does what you intended" 

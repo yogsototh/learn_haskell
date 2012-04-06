@@ -82,7 +82,7 @@ Version we can simplify by using directly a lambda notation.
 This way we don't have to create the temporary name `mysum`.
 
 > -- Version 7
-> -- Generaly it is considered a good practice
+> -- Generally it is considered a good practice
 > -- to import only the necessary function(s)
 > import Data.List (foldl')
 > evenSum l = foldl' (\x y -> x+y) 0 (filter even l)

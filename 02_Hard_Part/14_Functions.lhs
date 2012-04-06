@@ -1,4 +1,4 @@
-We also can currify a bit our definition by removing the `l`:
+We also can curry a bit our definition by removing the `l`:
 
 > -- Version 4
 > evenSum :: Integral a => [a] -> a

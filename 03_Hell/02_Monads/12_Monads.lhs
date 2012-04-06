@@ -8,8 +8,8 @@ Not bad, but we can make it even better:
 >                          then Nothing 
 >                          else Just (account - value)
 > 
-> elligible :: (Num a, Ord a) => a -> Maybe Bool
-> elligible account =
+> eligible :: (Num a, Ord a) => a -> Maybe Bool
+> eligible account =
 >   deposit 100 account >>=
 >   withdraw 200 >>=
 >   deposit 100  >>=
@@ -18,8 +18,8 @@ Not bad, but we can make it even better:
 >   return True
 > 
 > main = do
->   print $ elligible 300 -- Just True
->   print $ elligible 299 -- Nothing
+>   print $ eligible 300 -- Just True
+>   print $ eligible 299 -- Nothing
 
 We have proved Monad are nice to make our code more elegant.
 Note this idea of code organization, in particular for `Maybe` can be used
@@ -31,7 +31,7 @@ In fact, this is the kind of construction we make naturally.
  > The first element in the sequence being evaluated to `Nothing` will stop
  > the complete evaluation. 
  > That means, you don't execute all lines. 
- > You have this for free, thanks to lazyness.
+ > You have this for free, thanks to laziness.
 
 The `Maybe` monad proved to be useful while being a very simple example.
 We saw the utility of the `IO` monad.
