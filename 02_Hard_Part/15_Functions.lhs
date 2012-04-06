@@ -91,7 +91,7 @@ And of course, we remark
 
 <code class="haskell">
 (\x y -> x+y) ⇔ (+)
-<code class="haskell">
+</code>
 
 <div style="display:none">
 
