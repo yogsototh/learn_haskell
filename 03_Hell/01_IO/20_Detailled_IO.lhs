@@ -391,7 +391,8 @@ blindBind action1 action2 w0 =
     bind action (\_ -> action2) w0
 </code>
 
-I didn't curried this definition for clarity purpose. Of course we can use a better notation, we'll use the `(>>)` operator.
+I didn't simplified this definition for clarity purpose.
+Of course we can use a better notation, we'll use the `(>>)` operator.
 
 And
 

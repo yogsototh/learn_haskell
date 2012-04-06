@@ -30,7 +30,7 @@ You just have to put it inside parenthesis.
 > square'' x = (^2) x
 
 We can remove `x` in the left and right side!
-It's called currying.
+It's called η-reduction.
 
 > square''' = (^2)
 

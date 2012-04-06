@@ -10,7 +10,9 @@ Next, we can use pattern matching.
 >                 else accumSum n xs
 
 What is pattern matching? 
-Use value instead of general parameter name.
+Use value instead of general parameter name[^021301].
+
+[^021301]: For the brave, a more complete explanation of pattern matching can be found [here](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html).
 
 Instead of saying: `foo l = if l == [] then <x> else <y>`
 You simply state:  

@@ -1,4 +1,4 @@
-In Haskell you can simplify function definition by curry them.
+In Haskell you can simplify function definition by η-reducing them.
 For example,  instead of writing:
 
 <code class="haskell">

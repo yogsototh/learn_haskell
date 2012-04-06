@@ -31,7 +31,7 @@ The `(.)` function correspond to the mathematical composition.
 (f . g . h) x ⇔  f ( g (h x))
 </code>
 
-We can take advantage of this operator to curry a bit more our function:
+We can take advantage of this operator to η-reduce our function:
 
 <code class="haskell">
 -- Version 9
