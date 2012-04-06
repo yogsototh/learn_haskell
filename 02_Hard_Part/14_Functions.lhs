@@ -1,4 +1,17 @@
-We also can curry a bit our definition by removing the `l`:
+In haskell you can simplify function definition by curry them.
+For example,  instead of writing:
+
+<code class="haskell">
+f x = (some expresion) x
+</code>
+
+you can simply write
+
+<code class="haskell">
+f x = some expression
+</code>
+
+We use this method to remove the `l`:
 
 > -- Version 4
 > evenSum :: Integral a => [a] -> a

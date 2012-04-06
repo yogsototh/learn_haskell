@@ -36,11 +36,11 @@ To understand it, just look at a list of progressive examples:
 
 | The&nbsp;written&nbsp;type | It's meaning |
 | `Int`            | the type `Int`                              |
-| `Int -> Int`     | the type function from `Int` to `Int`.      |
-| `Float -> Int`   | the type function from `Float` to `Int`.    |
-| `a -> Int`       | the type function from any type to `Int`.   |
-| `a -> a`         | the type function from any type `a` to the same type `a`.  |
-| `a -> a -> a`    | the type function of two arguments of any type `a` to the same type `a`.  |
+| `Int -> Int`     | the type function from `Int` to `Int`       |
+| `Float -> Int`   | the type function from `Float` to `Int`     |
+| `a -> Int`       | the type function from any type to `Int`    |
+| `a -> a`         | the type function from any type `a` to the same type `a`  |
+| `a -> a -> a`    | the type function of two arguments of any type `a` to the same type `a`  |
 
 In the type `a -> a -> a`, the letter `a` is a _type variable_. 
 It means `f` is a function with two argument and both argument and the result have the same type.
@@ -71,6 +71,7 @@ This is a function from type `a` to (`a -> a`).
 Yes, strange. 
 In fact, in Haskell no function really have two arguments.
 Instead all functions have only one argument.
+But we remark that taking two argument is equivalent to taking one argument and returning a function taking the second argument as parameter.
 
 More precisely `f 3 4` is equivalent to `(f 3) 4`. 
 Note `f 3` is a function:

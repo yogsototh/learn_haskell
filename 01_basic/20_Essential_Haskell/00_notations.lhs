@@ -32,7 +32,7 @@ True /= False ⇒ True  (/=) is the operator for different
 <h5 id="powers">Powers</h5>
 
 ~~~
-x^n     for n an integral
+x^n     for n an integral (understand Int or Integer)
 x**y    for y any kind of number (Float for example)
 ~~~
 
