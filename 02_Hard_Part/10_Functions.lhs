@@ -53,7 +53,7 @@ int evenSum(int *list) {
 int accumSum(int n, int *list) {
     int x;
     int *xs;
-    if (*list == NULL) { // if the list is empty
+    if (*list == 0) { // if the list is empty
         return n;
     } else {
         x = list[0]; // let x be the first element of the list
