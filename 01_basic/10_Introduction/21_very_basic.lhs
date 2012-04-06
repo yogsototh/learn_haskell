@@ -17,4 +17,4 @@ You get this error:
     In the expression: print (f 2.3 4.2)
 ~~~
 
-The problem: `2.3` isn't an Int.
+The problem: `4.2` isn't an Int.
