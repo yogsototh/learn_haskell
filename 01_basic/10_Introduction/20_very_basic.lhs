@@ -63,7 +63,7 @@ in Python:
 
 <code class="python">
 def f(x,y):
-    return x*x + y*y;
+    return x*x + y*y
 </code>
 
 in Ruby:
