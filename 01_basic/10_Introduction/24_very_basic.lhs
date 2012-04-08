@@ -1,4 +1,4 @@
-If we force our function to work with different type, it will fail:
+If we force our function to work with different types, it will fail:
 
 > f :: Num a => a -> a -> a
 > f x y = x*x + y*y
@@ -10,7 +10,7 @@ If we force our function to work with different type, it will fail:
 > main = print (f x y) -- won't work because type x ≠ type y
 
 The compiler complains. 
-The two parameter must have the same type.
+The two parameters must have the same type.
 
 If you believe it is a bad idea, and the compiler should make the transformation 
 from a type to another for you, you should really watch this great (and funny) video:
