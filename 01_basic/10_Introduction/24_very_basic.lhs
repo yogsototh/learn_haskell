@@ -7,7 +7,7 @@ If we force our function to work with different type, it will fail:
 > x = 3
 > y :: Float
 > y = 2.4
-> main = print (f x y) -- won't work because type x ‡ type y
+> main = print (f x y) -- won't work because type x ≠ type y
 
 The compiler complains. 
 The two parameter must have the same type.
