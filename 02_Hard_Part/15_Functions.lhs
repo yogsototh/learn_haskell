@@ -21,7 +21,7 @@ Let's proceed by small steps.
 evenSum l = mysum 0 (filter even l)
     where 
       mysum n [] = n
-      mysum n (x:xs) = mysum xs (n+x) 
+      mysum n (x:xs) = mysum (n+x) xs 
 </code>
 
 where
