@@ -106,9 +106,9 @@ fst (x,y,z)     ⇒  ERROR: fst :: (a,b) -> a
 snd (x,y,z)     ⇒  ERROR: snd :: (a,b) -> b
 ~~~
 
-<h5 id="deal-with-parenthesis">Deal with parenthesis</h5>
+<h5 id="deal-with-parentheses">Deal with parentheses</h5>
 
-To remove some parenthesis you can use two functions: `($)` and `(.)`.
+To remove some parentheses you can use two functions: `($)` and `(.)`.
 
 ~~~
 -- By default:
