@@ -10,17 +10,17 @@ Tools:
 
 - `ghc`: Compiler similar to gcc for `C`.
 - `ghci`: Interactive Haskell (REPL)
-- `runhaskell`: Execute a program without compiling it. Convenient but very slow compared to compiled program.
+- `runhaskell`: Execute a program without compiling it. Convenient but very slow compared to compiled programs.
 
 <h3 id="don-t-be-afraid">Don't be afraid</h3>
 
 <%= blogimage("munch_TheScream.jpg","The Scream") %>
 
 Many book/articles about Haskell start by introducing some esoteric formula (quick sort, Fibonacci, etc...).
-I will make the exact opposite.
+I will do the exact opposite.
 At first I won't show you any Haskell super power.
 I will start with similarities between Haskell and other programming languages.
-Let's jump in the obligatory "Hello World".
+Let's jump to the mandatory "Hello World".
 
 > main = putStrLn "Hello World!"
 

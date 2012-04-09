@@ -1,4 +1,4 @@
-Now, a program asking your name and reply "Hello" using the name you entered:
+Now, a program asking your name and replying "Hello" using the name you entered:
 
 > main = do
 >     print "What is your name?"
@@ -35,7 +35,7 @@ int main (int argc, char **argv) {
 </code>
 
 The structure is the same, but there are some syntax differences.
-A major part of this tutorial will explain why.
+A major part of this tutorial will be dedicated to explaining why.
 
 In Haskell, there is a `main` function and every object has a type.
 The type of `main` is `IO ()`.

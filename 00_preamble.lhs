@@ -23,11 +23,11 @@ fr: - les pointeurs[^0001]
 fr: - les structures de données, les objets et les classes
 
 en: [^0001]: Even if most recent languages try to hide them, they are present.
-fr: [^0001]: Même si tous les langages récent essayent de les cachés, ils restent présents.
+fr: [^0001]: Même si tous les langages récents essayent de les cacher, ils restent présents.
 
 en: Haskell is very different.
-en: This language use a lot of concepts I've never heard about before.
-en: Many of those concept will help you become a better programmer.
+en: This language uses a lot of concepts I had never heard about before.
+en: Many of those concepts will help you become a better programmer.
 fr: Haskell est très différent.
 fr: Ce langage utilise des concepts dont je n'avais jamais entendu parlé avant.
 fr: Beaucoup de ces concepts pourront vous aider à devenir un meilleur développeur.
@@ -40,11 +40,11 @@ fr: Ce le fût pour moi.
 fr: Dans cet article, j'essaye de fournir les informations qui m'ont manquées lors de mon apprentissage.
 
 en: This article will certainly be hard to follow.
-en: This is done on purpose.
-en: There is no shortcut to learn Haskell.
+en: This is on purpose.
+en: There is no shortcut to learning Haskell.
 en: It is hard and challenging. 
 en: But I believe this is a good thing.
-en: This is because it is hard that Haskell is interesting.
+en: It is because it is hard that Haskell is interesting.
 fr: Cet article sera certainement difficile à suivre.
 fr: Mais c'est voulu.
 fr: Il n'y a pas de raccourci pour apprendre Haskell.
@@ -52,7 +52,7 @@ fr: C'est difficile.
 fr: Mais je pense que c'est une bonne chose.
 fr: C'est parce qu'Haskell est difficile qu'il est intéressant.
 
-en: The conventional method to learn Haskell is to read two books. 
+en: The conventional method to learning Haskell is to read two books. 
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
 en: But, to learn what Haskell is all about, you'll have to read them in detail.
@@ -62,7 +62,7 @@ fr: et ensuite ["Real World Haskell"](http://www.realworldhaskell.org).
 fr: Je pense aussi que c'est la bonne manière de s'y prendre.
 fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans se plonger réellement dans ces livres.
 
-en: On the other hand, this article is a very hard and dense overview of all major aspects of Haskell.
+en: On the other hand, this article is a very brief and dense overview of all major aspects of Haskell.
 en: I also added some informations I lacked while I learned Haskell.
 fr: Cet article fait un résumé très dense et rapide des aspect majeurs d'Haskell.
 fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentissage de ce langage.
@@ -76,10 +76,10 @@ fr: Les sources de cet article sont sur [gihub](http://github.com/yogsototh/lear
 en: The article contains five parts:
 fr: Cet article contient cinq parties :
 
-en: - Introduction: a fast short example to show Haskell can be friendly.
+en: - Introduction: a short example to show Haskell can be friendly.
 en: - Basic Haskell: Haskell syntax, and some essential notions.
 en: - Hard Difficulty Part:
-en:     - Functional style; an example from imperative to functional style
+en:     - Functional style; a progressive example, from imperative to functional style
 en:     - Types; types and a standard binary tree example
 en:     - Infinite Structure; manipulate an infinite binary tree!
 en: - Hell Difficulty Part:
@@ -113,7 +113,7 @@ en:  > Some might not work, but most will.
 en:  > You should see a link just below.
 
 fr:  > Note: Chaque fois que vous voyez un séparateur avec un nom de fichier se terminant par `lhs`, vous pouvez cliquer sur le nom de fichier et télécharger le fichier. 
-fr:  > Si vous sauvegarez le fichier sour le nom `filename.lhs`, vous pouvez l'exécuter avec :
+fr:  > Si vous sauvegardez le fichier sour le nom `filename.lhs`, vous pouvez l'exécuter avec :
 fr:  > <pre>
 fr:  > runhaskell filename.lhs
 fr:  > </pre>
