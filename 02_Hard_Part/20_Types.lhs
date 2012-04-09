@@ -70,38 +70,54 @@ y = complex_square(x);
 For each type, you need to write a new function.
 The only way to work around this problem is to use some meta-programming trick.
 For example using the pre-processor.
-In C++ there is a better way, the C++ templates:
+In C++ there is a better way, the C++ templates[^022001]:
+
+[^022001]: I know there is a cleaner way, to do this in C++. This is only an example.
 
 <code class="c++">
-class Number<T> {
-    T value;
-    square() {
-        value = value*value;
-    }
+#include "Complex.h"
+using namespace std;
+
+template<typename T>
+T square(T x)
+{
+    return x*x;
 }
 
-Number<int> i;
-i.square;
-
-Number<float> f;
-f.square;
-
-class Complex {
-    int real;
-    int img;
-    Complex operator<*>(Complex z) {
-        Complex result;
-        result.real = real*z.real - img*z.img;
-        result.img  = img*z.real + real*z.img;
-        return res;
-    }
+// An example of usage:
+int main() {
+    cout << square<int>(5) << endl;
+    cout << square<double>(5.3) << endl;
+    Complex z=Complex(5,3);
+    cout << square<Complex>(z) << endl;
+    return 0;
 }
-
-Number<Complex> z;
-z.square
 </code>
 
-Even with C++ templates you are forced to write a line for each type.
+Even with this example of C++ templates you are forced to write the type on the call of the function.
+Not to mention the definiton of the class Complex
+
+<code class="c++">
+// Just an example
+class Complex
+{
+private:
+    double real_; 
+    double img_; 
+
+public:
+    Complex(double real, double img) : real_(real), 
+                                       img_(img) {} 
+
+    // overloaded the multiplication operator
+    Complex operator*(Complex z) {
+        return Complex(
+                   real_*z.real_ - img_*z.img_,
+                    img_*z.real_ + real_*z.img_);
+    }
+
+    ...
+</code>
 
 To be fair, there is also a definition of the multiplication of `Complex` in Haskell.
 But it takes only one line.
