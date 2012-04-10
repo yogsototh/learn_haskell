@@ -227,7 +227,7 @@ And of course `actionN w :: (World) -> (a,World)`.
  > 
  > ~~~
  > let (x,w1) = action1 w0 in
- > let (y,w2) = action2 w1 in
+ > let (y,w2) = action2 x w1 in
  > ~~~
  > 
  > and
