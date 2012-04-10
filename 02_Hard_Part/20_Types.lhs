@@ -11,17 +11,17 @@
 
 In Haskell, types are strong and static.
 
-Why is this important? It will help you _a lot_ not to make some mistake.
+Why is this important? It will help you _greatly_ to avoid mistakes.
 In Haskell, most bugs are caught during the compilation of your program.
 And the main reason is because of the type inference during compilation.
-It will be easy to detect where you used the bad parameter at the wrong place for example.
+It will be easy to detect where you used the wrong parameter at the wrong place for example.
 
 
 <h4 id="type-inference">Type inference</h4>
 
 Static typing is generally essential to reach fast execution time.
-But most static typed language are bad to generalize concepts.
-What saves Haskell is that it can _infere_ types.
+But most statically typed languages are bad at generalizing concepts.
+Haskell's saving grace is that it can _infer_ types.
 
 Here is a simple example. 
 The `square` function in Haskell:
@@ -31,7 +31,7 @@ square x = x * x
 </code>
 
 This function can `square` any Numeral type.
-You can provide `square` an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:
+You can provide `square` with an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:
 
 ~~~
 % ghci
@@ -50,7 +50,7 @@ Prelude Data.Complex> square (2 :+ 1)
 
 `x :+ y` is the notation for the complex (<i>x + ib</i>).
 
-Now compare with the necessary C code:
+Now compare with the amount of code necessary in C:
 
 <code class="c">
 int     int_square(int x) { return x*x; }
@@ -106,9 +106,9 @@ In C++ you must declare that a function can work with different types.
 In Haskell this is the opposite. 
 The function will be as general as possible by default.
 
-The inference of type gives Haskell a feeling of the freedom that dynamic 
+Type inference gives Haskell the feeling of freedom that dynamically
 typed languages provide. 
-But unlike dynamic typed languages, most error are caught before the execution.
+But unlike dynamically typed languages, most errors are caught before the execution.
 Generally, in Haskell:
 
  > "if it compiles it certainly does what you intended" 

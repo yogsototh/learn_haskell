@@ -39,5 +39,5 @@ Also, note in Haskell there is a notation for infinite lists
 [1,3..] ⇔ [1,3,5,7,9,11...]
 ~~~
 
-And most function will work with them. 
-Also there exists the function `take` equivalent to our `take'`.
+And most functions will work with them.
+Also, there is a built-in function `take` which is equivalent to our `take'`.

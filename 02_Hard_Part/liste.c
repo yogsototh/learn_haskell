@@ -32,7 +32,7 @@ int *createList(int n) {
 
 
 // the length of the string to be displayed to
-// show the list of integer
+// show the list of integers
 int strLengthForList(int *list) {
     int res=0;
     int p;
@@ -45,7 +45,7 @@ int strLengthForList(int *list) {
         }
         list++;
     }
-    // I don't remove the two more char value
+    // I don't remove the two additional char values
     // because I must take into account [ and ]
     return res;
 }

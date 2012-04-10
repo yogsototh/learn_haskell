@@ -1,10 +1,10 @@
 Just for fun, let's code a better display for our trees.
-I simply had fun into making a nice function to display tree in a general way.
-You can safely pass this part if you find it too difficult to follow.
+I simply had fun making a nice function to display trees in a general way.
+You can safely skip this part if you find it too difficult to follow.
 
-We have few changes to make.
-We remove the `deriving (Show)` in the declaration of our `BinTree` type.
-And it also might be useful to make our BinTree an instance of (`Eq` and `Ord`).
+We have a few changes to make.
+We remove the `deriving (Show)` from the declaration of our `BinTree` type.
+And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`).
 We will be able to test equality and compare trees.
 
 > data BinTree a = Empty 
@@ -12,7 +12,7 @@ We will be able to test equality and compare trees.
 >                   deriving (Eq,Ord)
 
 Without the `deriving (Show)`, Haskell doesn't create a `show` method for us.
-We will create our own version of show.
+We will create our own version of `show`.
 To achieve this, we must declare that our newly created type `BinTree a` 
 is an instance of the type class `Show`.
 The general syntax is:
@@ -22,9 +22,9 @@ instance Show (BinTree a) where
    show t = ... -- You declare your function here
 </code>
 
-Here is my version on how to show a binary tree.
+Here is my version of how to show a binary tree.
 Don't worry about the apparent complexity.
-I made a lot of improvement in order to display even strange objects.
+I made a lot of improvements in order to display even stranger objects.
 
 > -- declare BinTree a to be an instance of Show
 > instance (Show a) => Show (BinTree a) where
@@ -33,8 +33,8 @@ I made a lot of improvement in order to display even strange objects.
 >   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
 >     where
 >     -- treeshow pref Tree 
->     --   show a tree and start each line with pref
->     -- We don't display Empty tree
+>     --   shows a tree and starts each line with pref
+>     -- We don't display the Empty tree
 >     treeshow pref Empty = ""
 >     -- Leaf
 >     treeshow pref (Node x Empty Empty) = 
@@ -50,20 +50,20 @@ I made a lot of improvement in order to display even strange objects.
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
->     -- Tree with left and right sons non empty
+>     -- Tree with left and right children non empty
 >     treeshow pref (Node x left right) = 
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
->     -- show a tree using some prefixes to make it nice
+>     -- shows a tree using some prefixes to make it nice
 >     showSon pref before next t = 
 >                   pref ++ before ++ treeshow (pref ++ next) t
 >
->     -- pshow replace "\n" by "\n"++pref
+>     -- pshow replaces "\n" by "\n"++pref
 >     pshow pref x = replace '\n' ("\n"++pref) (show x)
 >
->     -- replace on char by another string
+>     -- replaces one char by another string
 >     replace c new string =
 >       concatMap (change c new) string
 >       where
@@ -72,7 +72,7 @@ I made a lot of improvement in order to display even strange objects.
 >               | otherwise = x:[] -- "x"
 
 
-The `treeFromList` method remain identical.
+The `treeFromList` method remains identical.
 
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList [] = Empty
@@ -100,8 +100,8 @@ Int binary tree:
 ~~~
 
 Now it is far better! 
-The root is shown by starting by the `<` character.
-And each other line start by a `:`.
+The root is shown by starting the line with the `<` character.
+And each following line starts with a `:`.
 But we could also use another type.
 
 >   putStrLn "\nString binary tree:"
@@ -136,7 +136,7 @@ Binary tree of Char binary trees:
 :    :    `--'r'
 ~~~
 
-This is why I chosen to prefix each line of tree display by `:` (except for the root).
+This is why I chose to prefix each line of tree display by `:` (except for the root).
 
 <%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
 
@@ -187,10 +187,10 @@ Binary tree of Binary trees of Char binary trees:
 :    :       :    `--'S'
 ~~~
 
-Remark how duplicate trees aren't inserted;
+Notice how duplicate trees aren't inserted;
 there is only one tree corresponding to `"I","HEARD"`.
 We have this for (almost) free, because we have declared Tree to be an instance of `Eq`.
 
 See how awesome this structure is.
-We can make tree containing not only integer, string and char, but also other trees.
+We can make trees containing not only integers, strings and chars, but also other trees.
 And we can even make a tree containing a tree of trees!
