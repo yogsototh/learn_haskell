@@ -31,7 +31,7 @@ Ok, modules loaded: Main.
 
 Here is an example of execution[^2]: 
 
-[^2]: I know I cheat. But I will talk about non-strict later.
+[^2]: I know I'm cheating. But I will talk about non-strict later.
 
 <pre>
 *Main> evenSum [1..5]
@@ -52,7 +52,7 @@ accumSum (0+2+4) []
 6
 </pre>
 
-Coming from an imperative language all should seems right.
+Coming from an imperative language all should seem right.
 In reality many things can be improved.
 First, we can generalize the type.
 

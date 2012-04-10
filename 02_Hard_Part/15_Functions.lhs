@@ -3,8 +3,8 @@
 <%= blogimage("escher_polygon.png","Escher") %>
 
 To make things even better we should use higher order functions.
-What are these beast?
-Higher order functions are functions taking function as parameter.
+What are these beasts?
+Higher order functions are functions taking functions as parameter.
 
 Here are some examples:
 
@@ -32,9 +32,9 @@ filter even [1..10] ⇔  [2,4,6,8,10]
 
 The function `filter` takes a function of type (`a -> Bool`) and a list of type `[a]`. It returns a list containing only elements for which the function returned `true`.
 
-Our next step is to use another way to simulate loop. 
-We will use the `foldl` to accumulate a value.
-The function `foldl` capture a general coding pattern:
+Our next step is to use another way to simulate a loop.
+We will use the `foldl` function to accumulate a value.
+The function `foldl` captures a general coding pattern:
 
 <pre>
 myfunc list = foo <span class="blue">initialValue</span> <span class="green">list</span>
@@ -61,13 +61,13 @@ foldl f z [x1,...xn]
 ⇔  f (... (f (f z x1) x2) ...) xn
 </code>
 
-But as Haskell is lazy, it doesn't evaluate `(f z x)` and push this to the stack.
+But as Haskell is lazy, it doesn't evaluate `(f z x)` and pushes it to the stack.
 This is why we generally use `foldl'` instead of `foldl`;
 `foldl'` is a _strict_ version of `foldl`.
 If you don't understand what lazy and strict means,
 don't worry, just follow the code as if `foldl` and `foldl'` where identical.
 
-Now our new version of `evenSum` become:
+Now our new version of `evenSum` becomes:
 
 <code class="haskell">
 -- Version 6
@@ -87,7 +87,7 @@ This way we don't have to create the temporary name `mysum`.
 > import Data.List (foldl')
 > evenSum l = foldl' (\x y -> x+y) 0 (filter even l)
 
-And of course, we remark 
+And of course, we note that
 
 <code class="haskell">
 (\x y -> x+y) ⇔ (+)

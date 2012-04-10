@@ -1,5 +1,5 @@
 In Haskell you can simplify function definition by η-reducing them.
-For example,  instead of writing:
+For example, instead of writing:
 
 <code class="haskell">
 f x = (some expresion) x

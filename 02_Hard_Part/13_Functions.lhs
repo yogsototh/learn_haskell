@@ -10,7 +10,7 @@ Next, we can use pattern matching.
 >                 else accumSum n xs
 
 What is pattern matching? 
-Use value instead of general parameter name[^021301].
+Use values instead of general parameter names[^021301].
 
 [^021301]: For the brave, a more complete explanation of pattern matching can be found [here](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html).
 
@@ -22,8 +22,8 @@ foo [] =  <x>
 foo l  =  <y>
 </code>
 
-But pattern matching go even further. 
-It is also able to inspect inside data. 
+But pattern matching goes even further.
+It is also able to inspect the inner data of a complex value.
 We can replace
 
 <code class="haskell">
@@ -34,7 +34,7 @@ foo l =  let x  = head l
              else foo n xs
 </code>
 
-by
+with
 
 <code class="haskell">
 foo (x:xs) = if even x 
