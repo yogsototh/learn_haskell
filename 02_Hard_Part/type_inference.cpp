@@ -1,4 +1,5 @@
-#include "Complex.h"
+#include <iostream>
+#include <complex>
 using namespace std;
 
 template<typename T>
@@ -8,9 +9,13 @@ T square(T x)
 }
 
 int main() {
-    cout << square<int>(5) << endl;
-    cout << square<double>(5.3) << endl;
-    Complex z=Complex(5,3);
-    cout << square<Complex>(z) << endl;
+    // int
+    int sqr_of_five = square(5);
+    cout << sqr_of_five << endl;
+    // double
+    cout << (double)square(5.3) << endl;
+    // complex
+    cout << square( complex<double>(5,3) ) 
+         << endl;
     return 0;
 }

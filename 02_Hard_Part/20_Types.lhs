@@ -70,12 +70,11 @@ y = complex_square(x);
 For each type, you need to write a new function.
 The only way to work around this problem is to use some meta-programming trick.
 For example using the pre-processor.
-In C++ there is a better way, the C++ templates[^022001]:
-
-[^022001]: I know there is a cleaner way, to do this in C++. This is only an example.
+In C++ there is a better way, the C++ templates:
 
 <code class="c++">
-#include "Complex.h"
+#include <iostream>
+#include <complex>
 using namespace std;
 
 template<typename T>
@@ -84,51 +83,26 @@ T square(T x)
     return x*x;
 }
 
-// An example of usage:
 int main() {
-    cout << square<int>(5) << endl;
-    cout << square<double>(5.3) << endl;
-    Complex z=Complex(5,3);
-    cout << square<Complex>(z) << endl;
+    // int
+    int sqr_of_five = square(5);
+    cout << sqr_of_five << endl;
+    // double
+    cout << (double)square(5.3) << endl;
+    // complex
+    cout << square( complex<double>(5,3) ) 
+         << endl;
     return 0;
 }
 </code>
 
-Even with this example of C++ templates you are forced to write the type on the call of the function.
-Not to mention the definiton of the class Complex
+C++ does a far better job than C. 
+For complex problem, it become difficult to decrypt; see 
+[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) for example.
 
-<code class="c++">
-// Just an example
-class Complex
-{
-private:
-    double real_; 
-    double img_; 
-
-public:
-    Complex(double real, double img) : real_(real), 
-                                       img_(img) {} 
-
-    // overloaded the multiplication operator
-    Complex operator*(Complex z) {
-        return Complex(
-                   real_*z.real_ - img_*z.img_,
-                    img_*z.real_ + real_*z.img_);
-    }
-
-    ...
-</code>
-
-To be fair, there is also a definition of the multiplication of `Complex` in Haskell.
-But it takes only one line.
-Somewhere in the source of the module `Data.Complex`:
-
-<code class="haskell">
-instance Num (Complex a) where
-  ...
-  (x:+y) * (x':+y')   =  (x*x'-y*y') :+ (x*y'+y*x')
-  ...
-</code>
+In C++ you have to declare a function can work with many different types.
+In Haskell this is the opposite. 
+The function will be as general as possible by default.
 
 The inference of type gives Haskell a feeling of the freedom that dynamic 
 typed languages provide. 
