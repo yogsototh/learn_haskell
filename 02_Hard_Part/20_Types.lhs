@@ -97,10 +97,12 @@ int main() {
 </code>
 
 C++ does a far better job than C. 
-For complex problem, it become difficult to decrypt; see 
-[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) for example.
+For more complex function the syntax can be hard to follow:
+look at 
+[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) 
+for example.
 
-In C++ you have to declare a function can work with many different types.
+In C++ you must declare that a function can work with different types.
 In Haskell this is the opposite. 
 The function will be as general as possible by default.
 
