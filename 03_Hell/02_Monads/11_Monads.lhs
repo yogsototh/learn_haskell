@@ -1,4 +1,4 @@
-Now, let's make it better using Maybe and the fact it is a Monad
+Now, let's make it better using Maybe and the fact that it is a Monad
 
 > deposit :: (Num a) => a -> a -> Maybe a
 > deposit value account = Just (account + value)
