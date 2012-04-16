@@ -1,4 +1,4 @@
-Now let's see how this behave.
+Now let's see how this program behaves.
 For example, what occur if the user enter something strange?
 Let's try:
 
@@ -12,14 +12,14 @@ Let's try:
 Argh! An evil error message and a crash! 
 The first evolution will be to answer with a more friendly message.
 
-For this, we must detect, something went wrong.
+In order to do this, we must detect that something went wrong.
 Here is one way to do this.
 Use the type `Maybe`.
 It is a very common type in Haskell.
 
 > import Data.Maybe
 
-What is this thing? Maybe is a type which takes one parameter.
+What is this thing? `Maybe` is a type which takes one parameter.
 Its definition is:
 
 <code class="haskell">
@@ -61,23 +61,24 @@ We simply have to test the value in our main function.
 >           Just l  -> print (sum l)
 >           Nothing -> error "Bad format. Good Bye."
 
-In case of error, we prompt a nice error message.
+In case of error, we display a nice error message.
 
-Remark the type of each expression in the main's do block remains of the form `IO a`.
+Note that the type of each expression in the main's do block remains of the form `IO a`.
 The only strange construction is `error`. 
 I'll say `error msg` will simply take the needed type (here `IO ()`).
 
-One very important thing to note is the type of all the defined function.
+One very important thing to note is the type of all the functions defined so far.
 There is only one function which contains `IO` in its type: `main`. 
-That means main is impure. 
-But main use `getListFromString` which is pure.
-It is then clear just by looking at declared types where are pure and impure functions.
+This means main is impure.
+But main uses `getListFromString` which is pure.
+It is then clear just by looking at declared types which functions are pure and
+which are impure.
 
-Why purity matters? 
-I certainly forget many advantages, but the three main reason are:
+Why does purity matter?
+I certainly forget many advantages, but the three main reasons are:
 
 - It is far easier to think about pure code than impure one.
-- Purity protect you from all hard to reproduce bugs due to border effects.
+- Purity protects you from all the hard to reproduce bugs due to side effects.
 - You can evaluate pure functions in any order or in parallel without risk.
 
-This is why, you should generally put as most code as possible in pure functions.
+This is why you should generally put as most code as possible inside pure functions.

@@ -40,6 +40,6 @@ Is translated into:
 > main = askUser >>=
 >   \list -> print $ sum list
 
-You can compile this code to verify it continues to work.
+You can compile this code to verify it keeps working.
 
 Imagine what it would look like without the `(>>)` and `(>>=)`.

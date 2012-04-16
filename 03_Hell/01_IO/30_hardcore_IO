@@ -2,13 +2,13 @@ First, let's take a look at the IO type.
 
 > newtype IO a = IO (State# RealWorld -> (# State# RealWorld,a #))
 
-Ho gosh! What is this notation?
+Oh gosh! What is this notation?
 
 I said it will be Haskell the hard way. It is.
 Now make it easier.
 
-First, we need to understand basic concepts.
-You can just forget about all these sharp sybols.
+First, we need to understand some basic concepts.
+You can just forget about all these sharp symbols.
 
 > newtype IO a = IO (State RealWorld -> (State RealWorld, a))
 
@@ -21,7 +21,7 @@ RealWorld is deeply magical.
 It is primitive, but it is not unlifted (hence ptrArg).
 We never manipulate values of type RealWorld; it's only used in the type system, to parameterise `State#`.
 
-Hu? It is a type with nothing inside it. 
+Uh? It is a type with nothing inside it.
 No representation for it at all. 
 It is just a name.
 
@@ -33,7 +33,7 @@ It is a data with one parameter, a type of state.
 
 The only purpose of the type parameter (`s`) is to keep different state threads separate.
 
-In fact, let's try to traduce 
+In fact, let's try to translate
 
 > newtype IO a = IO (State RealWorld -> (State RealWorld, a))
 
@@ -46,21 +46,21 @@ of type (State RealWorld, String).
 
 Which if we simplify another time can be said as:
 
-IO String is a function for a state of the world to anotherstate of the world and an String value.
+IO String is a function which turns one state of the world into another state of the world and an String value.
 
-It seems it fit nicely a function like `getLine`.
+It seems to fit nicely with a function like `getLine`.
 
-getLine can be functino in which we provide a state of the real world.
-Then getLine do his job, then after that, it provide us a couple.
+`getLine` can be a function to which we provide a state of the real world.
+Then `getLine` does its job, then after this, it provides us with a couple of
+values.
 The String containing the content of the line read, and the changed world state.
 Changed because, when we had read something, the state of the world changed.
 
-Congratulation to have followed the first _Hardcore Haskell IO_ level 1.
+Congratulations for having followed the first _Hardcore Haskell IO_ level 1.
 
-Now, it will be time to go to level 2.
+Now, it is time to go to level 2.
 
-To make things clearer, I will augment the verbosity of the type. And instead of writting `IO a`. I will write `World -> (World,a)`.
+To make things clearer, I will increase the verbosity of the type. And instead of writing `IO a`. I will write `World -> (World,a)`.
 
 It was a nice help for me. 
 It is often hard to remember that "IO a" is in fact a function.
-
