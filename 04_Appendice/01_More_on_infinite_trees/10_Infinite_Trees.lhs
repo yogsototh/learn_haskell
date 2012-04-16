@@ -1,13 +1,14 @@
 <h3 id="more-on-infinite-tree">More on Infinite Tree</h3>
 
-In the section [Infinite Structures](#infinite-structures) we saw some simple construction.
-Unfortunately we removed two properties of our tree:
+In the section [Infinite Structures](#infinite-structures) we saw some simple
+constructions.
+Unfortunately we removed two properties from our tree:
 
 1. no duplicate node value
 2. well ordered tree
 
 In this section we will try to keep the first property.
-Concerning the second one, we must relax this one but we'll discuss on how to
+Concerning the second one, we must relax it but we'll discuss how to
 keep it as much as possible.
 
 <div style="display:none">
@@ -64,7 +65,7 @@ Our first step is to create some pseudo-random number list:
 
 > shuffle = map (\x -> (x*3123) `mod` 4331) [1..]
 
-Just as reminder here are the definition of `treeFromList`
+Just as a reminder, here is the definition of `treeFromList`
 
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList []    = Empty
@@ -122,13 +123,13 @@ treeTakeDepth 4 (treeFromList [1..])
 </code>
 
 will loop forever. 
-Simply because, it will try to access the head of `filter (<1) [2..]`.
-But filter is not smart enought to understand that the result is the empty list.
+Simply because it will try to access the head of `filter (<1) [2..]`.
+But `filter` is not smart enought to understand that the result is the empty list.
 
-Nonetheless, it is still a very cool example of what non strict program has to offer.
+Nonetheless, it is still a very cool example of what non strict programs have to offer.
 
 Left as an exercise to the reader:
 
-- Could you prove that there exists some number `n` such that `treeTakeDepth n (treeFromList shuffle)` will enter in an infinite loop.
+- Prove the existence of a number `n` so that `treeTakeDepth n (treeFromList shuffle)` will enter an infinite loop.
 - Find an upper bound for `n`.
-- Prove there is no `shuffle` list such that, for any depth, the program ends.
+- Prove there is no `shuffle` list so that, for any depth, the program ends.
