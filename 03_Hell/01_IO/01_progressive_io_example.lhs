@@ -4,7 +4,7 @@
 
  > <%=tldr%>
  > 
- > A typical function doing `IO` look a lot like an imperative language:
+ > A typical function doing `IO` looks a lot like an imperative program:
  >
  > ~~~
  > f :: IO a
@@ -23,15 +23,15 @@
  >   - `action3     :: IO c`
  >   - `action4 x y :: IO a`
  >   - `x :: b`, `y :: c`
- > - Few objects have the type `IO a`, this should help you to choose.
- >   In particular you cannot use pure function directly here.
- >   To use pure function you could do `action2 (purefunction x)` for example.
+ > - Few objects have the type `IO a`, this should help you choose.
+ >   In particular you cannot use pure functions directly here.
+ >   To use pure functions you could do `action2 (purefunction x)` for example.
 
-In this section, I will explain how to use IO, not how they work.
-You'll see how Haskell separate pure from impure part of the program.
+In this section, I will explain how to use IO, not how it works.
+You'll see how Haskell separates the pure from the impure parts of the program.
 
 Don't stop because you're trying to understand the details of the syntax.
-Answer will come in the next section.
+Answers will come in the next section.
 
 What to achieve?
 
@@ -55,7 +55,7 @@ getLine  :: IO String
 print    :: Show a => a -> IO ()
 ~~~
 
-Or more interestingly, we remark each expression in the `do` block has a type of `IO a`.
+Or more interestingly, we note that each expression in the `do` block has a type of `IO a`.
 
 <pre>
 main = do
@@ -64,7 +64,7 @@ main = do
   print Something       :: <span class="high">IO ()</span>
 </pre>
 
-We should also remark the effect of the `<-` symbol.
+We should also pay attention to the effect of the `<-` symbol.
 
 ~~~
 do
@@ -73,8 +73,8 @@ do
 
 If `something :: IO a` then `x :: a`.
 
-Another important remark to use `IO`.
-All line in a do block must have one of the two forms:
+Another important note about using `IO`.
+All lines in a do block must be of one of the two forms:
 
 ~~~
 action1             :: IO a
@@ -89,5 +89,5 @@ value <- action2    -- where
                     -- value   :: b
 ~~~
 
-These two kind of line will correspond to two different way of sequencing actions.
-The meaning of this sentence should be clearer at the end of the next section.
+These two kinds of line will correspond to two different ways of sequencing actions.
+The meaning of this sentence should be clearer by the end of the next section.

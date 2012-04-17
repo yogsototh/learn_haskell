@@ -2,7 +2,7 @@
 
 <%= blogimage("golconde.jpg","Golconde de Magritte") %>
 
-The list monad help us to simulate non deterministic computation.
+The list monad helps us to simulate non deterministic computations.
 Here we go:
 
 > import Control.Monad (guard)
@@ -34,8 +34,8 @@ For the list monad, there is also a syntactical sugar:
 >                       z <- allCases, 
 >                       4*x + 2*y < z ]
 
-I won't list all the monads, but there is a lot of monads.
-The usage of monad simplify the manipulation of some notion in pure languages.
+I won't list all the monads, but there are many monads.
+Using monads simplifies the manipulation of several notions in pure languages.
 In particular, monad are very useful for: 
 
 - IO,
@@ -48,4 +48,6 @@ In particular, monad are very useful for:
 If you have followed me until here, then you've done it! 
 You know monads[^03021301]!
 
-[^03021301]: Well, you'll certainly need to exercise a bit to be used to them and to understand when you can use them and create your own. But you already made a big step further.
+[^03021301]: Well, you'll certainly need to practice a bit to get used to them
+and to understand when you can use them and create your own. But you already
+made a big step in this direction.
