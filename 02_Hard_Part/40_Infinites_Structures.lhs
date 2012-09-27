@@ -1,6 +1,6 @@
 <h3 id="infinite-structures">Infinite Structures</h3>
 
-blogimage("escher_infinite_lizards.jpg","Escher") 
+blogimage("escher_infinite_lizards.jpg","Escher")
 
 It is often stated that Haskell is _lazy_.
 
@@ -18,18 +18,18 @@ For example in Haskell you can do:
 > -- numbers = [1,2,..]
 > numbers :: [Integer]
 > numbers = 0:map (1+) numbers
-> 
+>
 > take' n [] = []
 > take' 0 l = []
 > take' n (x:xs) = x:take' (n-1) xs
-> 
+>
 > main = print $ take' 10 numbers
 
 And it stops.
 
 How?
 
-Instead of trying to evaluate `numbers` entirely, 
+Instead of trying to evaluate `numbers` entirely,
 it evaluates elements only when needed.
 
 Also, note in Haskell there is a notation for infinite lists

@@ -1,10 +1,10 @@
 <h2 id="essential-haskell">Essential Haskell</h2>
 
-blogimage("kandinsky_gugg.jpg","Kandinsky Gugg") 
+blogimage("kandinsky_gugg.jpg","Kandinsky Gugg")
 
-I suggest you to skim this part. 
+I suggest you to skim this part.
 Think of it like a reference.
-Haskell has a lot of features. 
+Haskell has a lot of features.
 Many informations are missing here.
 Get back here if notation feels strange.
 
@@ -39,7 +39,7 @@ x**y    for y any kind of number (Float for example)
 `Integer` have no limit except the capacity of your machine:
 
 ~~~
-4^103   
+4^103
 102844034832575377634685573909834406561420991602098741459288064
 ~~~
 
@@ -90,7 +90,7 @@ In Haskell strings are list of `Char`.
 
 <h5 id="tuples">Tuples</h5>
 
-The type of couple is `(a,b)`. 
+The type of couple is `(a,b)`.
 Elements in a tuple can have different type.
 
 ~~~
@@ -115,7 +115,7 @@ To remove some parentheses you can use two functions: `($)` and `(.)`.
 f g h x         ⇔  (((f g) h) x)
 
 -- the $ replace parenthesis from the $
--- to the end of the expression 
+-- to the end of the expression
 f g $ h x       ⇔  f g (h x) ⇔ (f g) (h x)
 f $ g h x       ⇔  f (g h x) ⇔ f ((g h) x)
 f $ g $ h x     ⇔  f (g (h x))

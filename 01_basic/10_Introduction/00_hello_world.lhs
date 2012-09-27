@@ -2,7 +2,7 @@
 
 <h3 id="install">Install</h3>
 
-blogimage("Haskell-logo.png", "Haskell logo") 
+blogimage("Haskell-logo.png", "Haskell logo")
 
 - [Haskell Platform](http://www.haskell.org/platform) is the standard way to install Haskell.
 
@@ -14,7 +14,7 @@ Tools:
 
 <h3 id="don-t-be-afraid">Don't be afraid</h3>
 
-blogimage("munch_TheScream.jpg","The Scream") 
+blogimage("munch_TheScream.jpg","The Scream")
 
 Many book/articles about Haskell start by introducing some esoteric formula (quick sort, Fibonacci, etc...).
 I will do the exact opposite.

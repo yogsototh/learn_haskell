@@ -1,6 +1,6 @@
 <h4 id="higher-order-functions">Higher Order Functions</h4>
 
-blogimage("escher_polygon.png","Escher") 
+blogimage("escher_polygon.png","Escher")
 
 To make things even better we should use higher order functions.
 What are these beasts?
@@ -19,9 +19,9 @@ Let's proceed by small steps.
 <code class="haskell">
 -- Version 5
 evenSum l = mysum 0 (filter even l)
-    where 
+    where
       mysum n [] = n
-      mysum n (x:xs) = mysum (n+x) xs 
+      mysum n (x:xs) = mysum (n+x) xs
 </code>
 
 where

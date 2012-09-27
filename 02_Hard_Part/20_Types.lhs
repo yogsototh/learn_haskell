@@ -1,9 +1,9 @@
 <h3 id="types">Types</h3>
 
-blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat") 
+blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat")
 
- > <%=tldr%>
- > 
+ > %tldr
+ >
  > - `type Name = AnotherType` is just an alias and the compiler doesn't do any difference between `Name` and `AnotherType`.
  > - `data Name = NameConstructor AnotherType` make a difference.
  > - `data` can construct structures which can be recursives.
@@ -23,7 +23,7 @@ Static typing is generally essential to reach fast execution time.
 But most statically typed languages are bad at generalizing concepts.
 Haskell's saving grace is that it can _infer_ types.
 
-Here is a simple example. 
+Here is a simple example.
 The `square` function in Haskell:
 
 <code class="haskell">
@@ -58,7 +58,7 @@ int     int_square(int x) { return x*x; }
 float   float_square(float x) {return x*x; }
 
 complex complex_square (complex z) {
-    complex tmp; 
+    complex tmp;
     tmp.real = z.real * z.real - z.img * z.img;
     tmp.img = 2 * z.img * z.real;
 }
@@ -90,25 +90,25 @@ int main() {
     // double
     cout << (double)square(5.3) << endl;
     // complex
-    cout << square( complex<double>(5,3) ) 
+    cout << square( complex<double>(5,3) )
          << endl;
     return 0;
 }
 </code>
 
-C++ does a far better job than C. 
+C++ does a far better job than C.
 For more complex function the syntax can be hard to follow:
-look at 
-[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) 
+look at
+[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/)
 for example.
 
 In C++ you must declare that a function can work with different types.
-In Haskell this is the opposite. 
+In Haskell this is the opposite.
 The function will be as general as possible by default.
 
 Type inference gives Haskell the feeling of freedom that dynamically
-typed languages provide. 
+typed languages provide.
 But unlike dynamically typed languages, most errors are caught before the execution.
 Generally, in Haskell:
 
- > "if it compiles it certainly does what you intended" 
+ > "if it compiles it certainly does what you intended"

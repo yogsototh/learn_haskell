@@ -1,34 +1,34 @@
 <h3 id="io-trick-explained">IO trick explained</h3>
 
-blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe") 
+blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe")
 
- > Here is a <%=tldr%> for this section.
- > 
+ > Here is a %tldr for this section.
+ >
  > To separate pure and impure parts,
  > `main` is defined as a function
  > which modifies the state of the world
- > 
+ >
  > ~~~
  > main :: World -> World
  > ~~~
- > 
+ >
  > A function is guaranteed to have side effects only if it has this type.
  > But look at a typical main function:
- >  
+ >
  > ~~~
- > main w0 = 
+ > main w0 =
  >     let (v1,w1) = action1 w0 in
  >     let (v2,w2) = action2 v1 w1 in
  >     let (v3,w3) = action3 v2 w2 in
  >     action4 v3 w3
  > ~~~
- > 
- > We have a lot of temporary elements (here `w1`, `w2` and `w3`) 
+ >
+ > We have a lot of temporary elements (here `w1`, `w2` and `w3`)
  > which must be passed on to the next action.
  >
- > We create a function `bind` or `(>>=)`. 
+ > We create a function `bind` or `(>>=)`.
  > With `bind` we don't need temporary names anymore.
- > 
+ >
  > ~~~
  > main =
  >   action1 >>= action2 >>= action3 >>= action4
@@ -38,7 +38,7 @@ blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe")
  >
  > ~~~
  > main = do
- >   v1 <- action1 
+ >   v1 <- action1
  >   v2 <- action2 v1
  >   v3 <- action3 v2
  >   action4 v3
@@ -75,7 +75,7 @@ In fact, for dealing with `IO`, imperative style is generally more appropriate.
 But you should had noticed the notation is a bit unusual.
 Here is why, in detail.
 
-In an impure language, the state of the world can be seen as a huge hidden global variable. 
+In an impure language, the state of the world can be seen as a huge hidden global variable.
 This hidden variable is accessible by all functions of your language.
 For example, you can read and write a file in any function.
 The fact that a file exists or not can be seen as different states of the world.
@@ -112,7 +112,7 @@ Now let's rewrite our main function with this in mind:
 main w0 =
     let (list,w1) = askUser w0 in
     let (x,w2) = print (sum list,w1) in
-    x 
+    x
 </code>
 
 First, we note that all functions which have side effects must have the type:
@@ -223,31 +223,31 @@ let (_,w3) = action3 x z w2 in
 And of course `actionN w :: (World) -> (a,World)`.
 
  > IMPORTANT, there are only two important patterns to consider:
- > 
+ >
  > ~~~
  > let (x,w1) = action1 w0 in
  > let (y,w2) = action2 x w1 in
  > ~~~
- > 
+ >
  > and
- > 
- > ~~~ 
+ >
+ > ~~~
  > let (_,w1) = action1 w0 in
  > let (y,w2) = action2 w1 in
  > ~~~
 
-leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") 
+leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick")
 
 Now, we will do a magic trick.
 We will make the temporary world symbol "disappear".
-We will `bind` the two lines. 
+We will `bind` the two lines.
 Let's define the `bind` function.
 Its type is quite intimidating at first:
 
 <code class="haskell">
-bind :: (World -> (a,World)) 
-        -> (a -> (World -> (b,World))) 
-        -> (World -> (b,World)) 
+bind :: (World -> (a,World))
+        -> (a -> (World -> (b,World)))
+        -> (World -> (b,World))
 </code>
 
 But remember that `(World -> (a,World))` is the type for an IO action.
@@ -278,8 +278,8 @@ This means it changes the state of the world, but doesn't yield anymore data.
 This type helps us simplify the type of `bind`:
 
 <code class="haskell">
-bind :: IO a 
-        -> (a -> IO b) 
+bind :: IO a
+        -> (a -> IO b)
         -> IO b
 </code>
 
@@ -340,7 +340,7 @@ Which is equivalent to:
 
 <code class="haskell">
 (res,w3) = bind getLine (\line1 ->
-             bind getLine (\line2 -> 
+             bind getLine (\line2 ->
                print (line1 ++ line2)))
 </code>
 
@@ -349,7 +349,7 @@ Yes, no temporary World variables are used anywhere!
 This is _MA_. _GIC_.
 
 We can use a better notation.
-Let's use `(>>=)` instead of `bind`. 
+Let's use `(>>=)` instead of `bind`.
 `(>>=)` is an infix function like
 `(+)`; reminder `3 + 4 ⇔ (+) 3 4`
 
@@ -406,7 +406,7 @@ Is transformed into
 
 <code class="haskell">
 action1 >>
-action2 >> 
+action2 >>
 action3
 </code>
 
@@ -419,4 +419,4 @@ putInIO x = IO (\w -> (x,w))
 
 This is the general way to put pure values inside the "IO context".
 The general name for `putInIO` is `return`.
-This is quite a bad name when you learn Haskell. `return` is very different from what you might be used to. 
+This is quite a bad name when you learn Haskell. `return` is very different from what you might be used to.

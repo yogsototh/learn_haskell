@@ -4,17 +4,17 @@ The hard part can now begin.
 
 <h3 id="functional-style">Functional style</h3>
 
-blogimage("hr_giger_biomechanicallandscape_500.jpg","Biomechanical Landscape by H.R. Giger") 
+blogimage("hr_giger_biomechanicallandscape_500.jpg","Biomechanical Landscape by H.R. Giger")
 
 In this section, I will give a short example of the impressive refactoring ability provided by Haskell.
 We will select a problem and solve it using a standard imperative way.
 Then I will make the code evolve.
-The end result will be both more elegant and easier to adapt. 
+The end result will be both more elegant and easier to adapt.
 
 Let's solve the following problem:
 
  > Given a list of integers, return the sum of the even numbers in the list.
- > 
+ >
  > example:
  > `[1,2,3,4,5] ⇒  2 + 4 ⇒  6`
 
@@ -36,7 +36,7 @@ function evenSum(list) {
 But, in Haskell we don't have variables, nor for loop.
 One solution to achieve the same result without loops is to use recursion.
 
- > _Remark_:  
+ > _Remark_:
  > Recursion is generally perceived as slow in imperative languages.
  > But it is generally not the case in functional programming.
  > Most of the time Haskell will handle recursive functions efficiently.

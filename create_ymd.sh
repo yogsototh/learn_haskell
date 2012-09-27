@@ -18,23 +18,23 @@ tags:
   - functional
   - tutorial
 -----
-<%= blogimage("magritte_pleasure_principle.jpg","Magritte pleasure principle") %>
+blogimage("magritte_pleasure_principle.jpg","Magritte pleasure principle")
 
 begindiv(intro)
 
-en: <%= tldr %> A very short and dense tutorial for learning Haskell.
+en: %tldr A very short and dense tutorial for learning Haskell.
 
-fr: <%= tlal %> Un tutoriel très court mais très dense pour apprendre Haskell.
+fr: %tlal Un tutoriel très court mais très dense pour apprendre Haskell.
 
 > <center><hr style="width:30%;float:left;border-color:#CCCCD0;margin-top:1em"/><span class="sc"><b>Table of Content</b></span><hr style="width:30%;float:right;border-color:#CCCCD0;margin-top:1em"/></center>
-> 
+>
 > begindiv(toc)
 >
 END
 
 # Create the TOC
 
-# get a list of 
+# get a list of
 # depth anchor name
 grep -e '<h.' **/*.lhs | perl -pe 's#.*<h([2-6]) id="#\1 #;s#"[^>]*># "#; s#<.*#"#' |
 while read num anchor title; do

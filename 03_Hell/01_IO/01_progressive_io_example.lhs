@@ -1,9 +1,9 @@
 <h3 id="deal-with-io">Deal With IO</h3>
 
-blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche") 
+blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche")
 
- > <%=tldr%>
- > 
+ > %tldr
+ >
  > A typical function doing `IO` looks a lot like an imperative program:
  >
  > ~~~

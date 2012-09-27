@@ -7,13 +7,13 @@ We remove the `deriving (Show)` from the declaration of our `BinTree` type.
 And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`).
 We will be able to test equality and compare trees.
 
-> data BinTree a = Empty 
->                  | Node a (BinTree a) (BinTree a) 
+> data BinTree a = Empty
+>                  | Node a (BinTree a) (BinTree a)
 >                   deriving (Eq,Ord)
 
 Without the `deriving (Show)`, Haskell doesn't create a `show` method for us.
 We will create our own version of `show`.
-To achieve this, we must declare that our newly created type `BinTree a` 
+To achieve this, we must declare that our newly created type `BinTree a`
 is an instance of the type class `Show`.
 The general syntax is:
 
@@ -32,32 +32,32 @@ I made a lot of improvements in order to display even stranger objects.
 >   -- and put a : a begining of line
 >   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
 >     where
->     -- treeshow pref Tree 
+>     -- treeshow pref Tree
 >     --   shows a tree and starts each line with pref
 >     -- We don't display the Empty tree
 >     treeshow pref Empty = ""
 >     -- Leaf
->     treeshow pref (Node x Empty Empty) = 
+>     treeshow pref (Node x Empty Empty) =
 >                   (pshow pref x)
 >
 >     -- Right branch is empty
->     treeshow pref (Node x left Empty) = 
+>     treeshow pref (Node x left Empty) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " left)
 >
 >     -- Left branch is empty
->     treeshow pref (Node x Empty right) = 
+>     treeshow pref (Node x Empty right) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
 >     -- Tree with left and right children non empty
->     treeshow pref (Node x left right) = 
+>     treeshow pref (Node x left right) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
 >
 >     -- shows a tree using some prefixes to make it nice
->     showSon pref before next t = 
+>     showSon pref before next t =
 >                   pref ++ before ++ treeshow (pref ++ next) t
 >
 >     -- pshow replaces "\n" by "\n"++pref
@@ -67,7 +67,7 @@ I made a lot of improvements in order to display even stranger objects.
 >     replace c new string =
 >       concatMap (change c new) string
 >       where
->           change c new x 
+>           change c new x
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
 
@@ -99,7 +99,7 @@ Int binary tree:
 :       `--23
 ~~~
 
-Now it is far better! 
+Now it is far better!
 The root is shown by starting the line with the `<` character.
 And each following line starts with a `:`.
 But we could also use another type.
@@ -120,7 +120,7 @@ As we can test equality and order trees, we can
 make tree of trees!
 
 >   putStrLn "\nBinary tree of Char binary trees:"
->   print ( treeFromList 
+>   print ( treeFromList
 >            (map treeFromList ["baz","zara","bar"]))
 
 ~~~
@@ -138,7 +138,7 @@ Binary tree of Char binary trees:
 
 This is why I chose to prefix each line of tree display by `:` (except for the root).
 
-blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") 
+blogimage("yo_dawg_tree.jpg","Yo Dawg Tree")
 
 >   putStrLn "\nTree of Binary trees of Char binary trees:"
 >   print $ (treeFromList . map (treeFromList . map treeFromList))
@@ -151,7 +151,7 @@ Which is equivalent to
 
 <code class="haskell">
 print ( treeFromList (
-          map treeFromList 
+          map treeFromList
              [ map treeFromList ["YO","DAWG"]
              , map treeFromList ["I","HEARD"]
              , map treeFromList ["I","HEARD"]

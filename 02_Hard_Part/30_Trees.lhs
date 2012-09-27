@@ -1,13 +1,13 @@
 <h4 id="trees">Trees</h4>
 
-blogimage("magritte-l-arbre.jpg","Magritte, l'Arbre") 
+blogimage("magritte-l-arbre.jpg","Magritte, l'Arbre")
 
 We'll just give another standard example: binary trees.
 
 > import Data.List
 >
-> data BinTree a = Empty 
->                  | Node a (BinTree a) (BinTree a) 
+> data BinTree a = Empty
+>                  | Node a (BinTree a) (BinTree a)
 >                               deriving (Show)
 
 We will also create a function which turns a list into an ordered binary tree.
@@ -18,7 +18,7 @@ We will also create a function which turns a list into an ordered binary tree.
 >                              (treeFromList (filter (>x) xs))
 
 Look at how elegant this function is.
-In plain English: 
+In plain English:
 
 - an empty list will be converted to an empty tree.
 - a list `(x:xs)` will be converted to a tree where:
