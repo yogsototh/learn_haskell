@@ -325,7 +325,7 @@ Now, using the bind function:
 (res,w2) = (bind getLine (\l -> print l)) w0
 </code>
 
-As print is of type (World -> ((),World)), we know res = () (null type).
+As print is of type `(World -> ((),World))`, we know `res = ()` (null type).
 If you didn't see what was magic here, let's try with three lines this time.
 
 
