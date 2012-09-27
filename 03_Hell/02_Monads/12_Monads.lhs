@@ -33,6 +33,19 @@ In fact, this is the kind of construction we make naturally.
  > That means, you don't execute all lines. 
  > You have this for free, thanks to laziness.
 
+You could also replay these example with the definition of `(>>=)` for `Maybe`
+in mind:
+
+<code class="haskell">
+instance Monad Maybe where
+    (>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
+    Nothing  >>= _  = Nothing
+    (Just x) >>= f  = f x
+
+    return x = Just x
+</code>
+
+
 The `Maybe` monad proved to be useful while being a very simple example.
 We saw the utility of the `IO` monad.
 But now a cooler example, lists.
