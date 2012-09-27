@@ -1,6 +1,6 @@
 <h4 id="higher-order-functions">Higher Order Functions</h4>
 
-<%= blogimage("escher_polygon.png","Escher") %>
+blogimage("escher_polygon.png","Escher") 
 
 To make things even better we should use higher order functions.
 What are these beasts?

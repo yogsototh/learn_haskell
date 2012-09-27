@@ -1,6 +1,6 @@
 <h3 id="very-basic-haskell">Very basic Haskell</h3>
 
-<%= blogimage("picasso_owl.jpg","Picasso minimal owl") %>
+blogimage("picasso_owl.jpg","Picasso minimal owl") 
 
 Before continuing you need to be warned about some essential properties of Haskell.
 

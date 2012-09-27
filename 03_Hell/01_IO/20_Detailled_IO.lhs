@@ -1,6 +1,6 @@
 <h3 id="io-trick-explained">IO trick explained</h3>
 
-<%= blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe") %>
+blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe") 
 
  > Here is a <%=tldr%> for this section.
  > 
@@ -236,7 +236,7 @@ And of course `actionN w :: (World) -> (a,World)`.
  > let (y,w2) = action2 w1 in
  > ~~~
 
-<%= leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") %>
+leftblogimage("jocker_pencil_trick.jpg","Jocker pencil trick") 
 
 Now, we will do a magic trick.
 We will make the temporary world symbol "disappear".

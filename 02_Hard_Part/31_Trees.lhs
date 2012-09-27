@@ -138,7 +138,7 @@ Binary tree of Char binary trees:
 
 This is why I chose to prefix each line of tree display by `:` (except for the root).
 
-<%= blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") %>
+blogimage("yo_dawg_tree.jpg","Yo Dawg Tree") 
 
 >   putStrLn "\nTree of Binary trees of Char binary trees:"
 >   print $ (treeFromList . map (treeFromList . map treeFromList))

@@ -1,6 +1,6 @@
 <h4 id="trees">Trees</h4>
 
-<%= blogimage("magritte-l-arbre.jpg","Magritte, l'Arbre") %>
+blogimage("magritte-l-arbre.jpg","Magritte, l'Arbre") 
 
 We'll just give another standard example: binary trees.
 

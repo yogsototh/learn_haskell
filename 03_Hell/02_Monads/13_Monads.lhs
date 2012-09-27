@@ -1,6 +1,6 @@
 <h4 id="the-list-monad">The list monad</h4>
 
-<%= blogimage("golconde.jpg","Golconde de Magritte") %>
+blogimage("golconde.jpg","Golconde de Magritte") 
 
 The list monad helps us to simulate non deterministic computations.
 Here we go:

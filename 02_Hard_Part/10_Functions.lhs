@@ -4,7 +4,7 @@ The hard part can now begin.
 
 <h3 id="functional-style">Functional style</h3>
 
-<%= blogimage("hr_giger_biomechanicallandscape_500.jpg","Biomechanical Landscape by H.R. Giger") %>
+blogimage("hr_giger_biomechanicallandscape_500.jpg","Biomechanical Landscape by H.R. Giger") 
 
 In this section, I will give a short example of the impressive refactoring ability provided by Haskell.
 We will select a problem and solve it using a standard imperative way.

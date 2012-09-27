@@ -1,6 +1,6 @@
 <h3 id="types">Types</h3>
 
-<%= blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat") %>
+blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat") 
 
  > <%=tldr%>
  > 

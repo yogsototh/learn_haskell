@@ -1,6 +1,6 @@
 <h3 id="infinite-structures">Infinite Structures</h3>
 
-<%= blogimage("escher_infinite_lizards.jpg","Escher") %>
+blogimage("escher_infinite_lizards.jpg","Escher") 
 
 It is often stated that Haskell is _lazy_.
 
