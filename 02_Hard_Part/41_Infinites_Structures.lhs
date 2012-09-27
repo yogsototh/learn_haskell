@@ -1,7 +1,7 @@
 
 <div style="display:none">
 
-This code is mostly the same as the preceding one.
+This code is mostly the same as the previous one.
 
 > import Debug.Trace (trace)
 > import Data.List
@@ -55,7 +55,7 @@ Here is an infinite binary tree:
 
 > nullTree = Node 0 nullTree nullTree
 
-A complete binary tree were each node is equal to 0.
+A complete binary tree where each node is equal to 0.
 Now I will prove you can manipulate this object using the following function:
 
 > -- take all element of a BinTree 
@@ -74,7 +74,7 @@ See what occurs for this program:
 main = print $ treeTakeDepth 4 nullTree
 </code>
 
-This code compile, run and stop giving the following result:
+This code compiles, runs and stops giving the following result:
 
 ~~~
 <  0
@@ -94,7 +94,7 @@ This code compile, run and stop giving the following result:
 :       `-- 0
 ~~~
 
-Just to heat your neurones a bit more,
+Just to heat up your neurones a bit more,
 let's make a slightly more interesting tree:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
@@ -102,7 +102,7 @@ let's make a slightly more interesting tree:
 >            dec (Node x l r) = Node (x-1) (dec l) (dec r) 
 >            inc (Node x l r) = Node (x+1) (inc l) (inc r) 
 
-Another way to create this tree is to use an higher order function.
+Another way to create this tree is to use a higher order function.
 This function should be similar to `map`, but should work on `BinTree` instead of list.
 Here is such a function:
 
@@ -114,7 +114,7 @@ Here is such a function:
 >                                      (treeMap f right)
 
 _Hint_: I won't talk more about this here. 
-If you are interested of the generalization of `map` to other data structure,
+If you are interested by the generalization of `map` to other data structures,
 search for functor and `fmap`.
 
 Our definition is now:

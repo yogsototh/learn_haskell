@@ -10,7 +10,7 @@ We'll just give another standard example: binary trees.
 >                  | Node a (BinTree a) (BinTree a) 
 >                               deriving (Show)
 
-Also we create a function which transform a list into an ordered binary tree.
+We will also create a function which turns a list into an ordered binary tree.
 
 > treeFromList :: (Ord a) => [a] -> BinTree a
 > treeFromList [] = Empty
@@ -21,10 +21,10 @@ Look at how elegant this function is.
 In plain English: 
 
 - an empty list will be converted to an empty tree.
-- a list `(x:xs)` will be converted to the tree where:
+- a list `(x:xs)` will be converted to a tree where:
   - The root is `x`
-  - Its left subtree is the tree created from the list of the remaining element of `xs` which are strictly inferior to `x` and 
-  - the right subtree is the tree created from the elements strictly superior to `x` of the list `xs`.
+  - Its left subtree is the tree created from members of the list `xs` which are strictly inferior to `x` and
+  - the right subtree is the tree created from members of the list `xs` which are strictly superior to `x`.
 
 > main = print $ treeFromList [7,2,4,8]
 
