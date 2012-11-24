@@ -118,7 +118,7 @@ fr:  > <pre>
 fr:  > runhaskell filename.lhs
 fr:  > </pre>
 fr:  >
-fr:  > Certain ne marcheront pas, mais la majorité vous donneront un résultat.
+fr:  > Certains ne marcheront pas, mais la majorité vous donneront un résultat.
 fr:  > Vous devriez voir un lien juste en dessous.
 
 enddiv
