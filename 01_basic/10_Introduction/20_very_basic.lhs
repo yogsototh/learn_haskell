@@ -23,7 +23,7 @@ Haskell makes it clear where effects occur and where you are pure.
 Also, it will be far easier to reason about your program.
 Most bugs will be prevented in the pure parts of your program.
 
-Furthermore pure functions follow a fundamental law in Haskell:
+Furthermore, pure functions follow a fundamental law in Haskell:
 
  > Applying a function with the same parameters always returns the same value.
 
@@ -31,7 +31,7 @@ _Laziness_
 
 Laziness by default is a very uncommon language design.
 By default, Haskell evaluates something only when it is needed.
-In consequence, it provides a very elegant way to manipulate infinite structures for example.
+In consequence, it provides a very elegant way to manipulate infinite structures, for example.
 
 A last warning on how you should read Haskell code.
 For me, it is like reading scientific papers.
@@ -41,7 +41,7 @@ If you meet a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and
 
 <h4 id="function-declaration">Function declaration</h4>
 
-You might be used to declare functions like this:
+You might be used to declaring functions like this:
 
 In `C`:
 
@@ -91,7 +91,7 @@ Very clean. No parenthesis, no `def`.
 
 Don't forget, Haskell uses functions and types a lot.
 It is thus very easy to define them.
-The syntax was particularly well thought for these objects.
+The syntax was particularly well thought out for these objects.
 
 <h4 id="a-type-example">A Type Example</h4>
 
