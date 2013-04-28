@@ -49,9 +49,12 @@ So instead of having a forced type like in `C` and having to declare a function
 for `int`, `long`, `float`, `double`, etc., we declare only one function like
 in a dynamically typed language.
 
-Generally `a` can be any type. 
-For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
-But here our type is prefixed with `Num a => `. 
+This is sometimes called parametric polymorphism. It's also called having your
+cake and eating it too.
+
+Generally `a` can be any type, for example a `String` or an `Int`, but also
+more complex types, like `Trees`, other functions, etc. But here our type is
+prefixed with `Num a => `.
 
 `Num` is a _type class_.
 A type class can be understood as a set of types.
