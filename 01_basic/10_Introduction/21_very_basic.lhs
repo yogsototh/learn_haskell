@@ -5,7 +5,7 @@ Now try
 >
 > main = print (f 2.3 4.2)
 
-You get this error:
+You should get this error:
 
 ~~~
 21_very_basic.lhs:6:23:
