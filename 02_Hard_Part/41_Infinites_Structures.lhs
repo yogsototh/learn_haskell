@@ -114,7 +114,7 @@ Here is such a function:
 >                                      (treeMap f right)
 
 _Hint_: I won't talk more about this here. 
-If you are interested by the generalization of `map` to other data structures,
+If you are interested in the generalization of `map` to other data structures,
 search for functor and `fmap`.
 
 Our definition is now:

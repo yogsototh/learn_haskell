@@ -1,5 +1,5 @@
 Now let's see how this program behaves.
-For example, what occur if the user enter something strange?
+For example, what happens if the user enters something strange?
 Let's try:
 
 ~~~
@@ -10,12 +10,11 @@ Let's try:
 ~~~
 
 Argh! An evil error message and a crash! 
-The first evolution will be to answer with a more friendly message.
+Our first improvement will simply be to answer with a more friendly message.
 
 In order to do this, we must detect that something went wrong.
-Here is one way to do this.
-Use the type `Maybe`.
-It is a very common type in Haskell.
+Here is one way to do this: use the type `Maybe`.
+This is a very common type in Haskell.
 
 > import Data.Maybe
 
@@ -65,20 +64,20 @@ In case of error, we display a nice error message.
 
 Note that the type of each expression in the main's do block remains of the form `IO a`.
 The only strange construction is `error`. 
-I'll say `error msg` will simply take the needed type (here `IO ()`).
+I'll just say here that `error msg` takes the needed type (here `IO ()`).
 
 One very important thing to note is the type of all the functions defined so far.
 There is only one function which contains `IO` in its type: `main`. 
 This means main is impure.
 But main uses `getListFromString` which is pure.
-It is then clear just by looking at declared types which functions are pure and
+So it's clear just by looking at declared types which functions are pure and
 which are impure.
 
 Why does purity matter?
-I certainly forget many advantages, but the three main reasons are:
+Among the many advantages, here are three:
 
-- It is far easier to think about pure code than impure one.
-- Purity protects you from all the hard to reproduce bugs due to side effects.
+- It is far easier to think about pure code than impure code.
+- Purity protects you from all the hard-to-reproduce bugs that are due to side effects.
 - You can evaluate pure functions in any order or in parallel without risk.
 
 This is why you should generally put as most code as possible inside pure functions.

@@ -15,7 +15,7 @@ infixr 5 :::
 data List a = Nil | a ::: (List a)
 </code>
 
-The number after `infixr` is the priority.
+The number after `infixr` gives the precedence.
 
 If you want to be able to print (`Show`), read (`Read`), test equality (`Eq`) and compare (`Ord`) your new data structure you can tell Haskell to derive the appropriate functions for you.
 
@@ -23,7 +23,7 @@ If you want to be able to print (`Show`), read (`Read`), test equality (`Eq`) an
 > data List a = Nil | a ::: (List a) 
 >               deriving (Show,Read,Eq,Ord)
 
-When you add `deriving (Show)` to your data declaration, Haskell create a `show` function for you.
+When you add `deriving (Show)` to your data declaration, Haskell creates a `show` function for you.
 We'll see soon how you can use your own `show` function.
 
 > convertList [] = Nil
