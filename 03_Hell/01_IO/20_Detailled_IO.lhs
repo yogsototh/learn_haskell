@@ -103,7 +103,7 @@ But the real type of main is closer to this one[^032002]:
 main :: World -> ((),World)
 </code>
 
-The `()` type is the null type.
+The `()` type is the unit type.
 Nothing to see here.
 
 Now let's rewrite our main function with this in mind:
