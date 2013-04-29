@@ -73,7 +73,7 @@ do
 
 If `something :: IO a` then `x :: a`.
 
-Another important note about using `IO`.
+Another important note about using `IO`:
 All lines in a do block must be of one of the two forms:
 
 ~~~

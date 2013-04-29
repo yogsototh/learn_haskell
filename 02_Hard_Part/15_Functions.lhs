@@ -4,7 +4,7 @@ blogimage("escher_polygon.png","Escher")
 
 To make things even better we should use higher order functions.
 What are these beasts?
-Higher order functions are functions taking functions as parameter.
+Higher order functions are functions taking functions as parameters.
 
 Here are some examples:
 
@@ -32,8 +32,8 @@ filter even [1..10] ⇔  [2,4,6,8,10]
 
 The function `filter` takes a function of type (`a -> Bool`) and a list of type `[a]`. It returns a list containing only elements for which the function returned `true`.
 
-Our next step is to use another way to simulate a loop.
-We will use the `foldl` function to accumulate a value.
+Our next step is to use another technique to accomplish the same thing as a loop.
+We will use the `foldl` function to accumulate a value as we pass through the list.
 The function `foldl` captures a general coding pattern:
 
 <pre>
@@ -48,8 +48,7 @@ Which can be replaced by:
 myfunc list = foldl <span class="yellow">bar</span> <span class="blue">initialValue</span> <span class="green">list</span>
 </pre>
 
-If you really want to know how the magic works.
-Here is the definition of `foldl`.
+If you really want to know how the magic works, here is the definition of `foldl`:
 
 <code class="haskell">
 foldl f z [] = z
@@ -61,11 +60,11 @@ foldl f z [x1,...xn]
 ⇔  f (... (f (f z x1) x2) ...) xn
 </code>
 
-But as Haskell is lazy, it doesn't evaluate `(f z x)` and pushes it to the stack.
+But as Haskell is lazy, it doesn't evaluate `(f z x)` and  simply pushes it onto the stack.
 This is why we generally use `foldl'` instead of `foldl`;
 `foldl'` is a _strict_ version of `foldl`.
 If you don't understand what lazy and strict means,
-don't worry, just follow the code as if `foldl` and `foldl'` where identical.
+don't worry, just follow the code as if `foldl` and `foldl'` were identical.
 
 Now our new version of `evenSum` becomes:
 
@@ -78,7 +77,7 @@ evenSum l = foldl' mysum 0 (filter even l)
   where mysum acc value = acc + value
 </code>
 
-Version we can simplify by using directly a lambda notation.
+We can also simplify this by using directly a lambda notation.
 This way we don't have to create the temporary name `mysum`.
 
 > -- Version 7

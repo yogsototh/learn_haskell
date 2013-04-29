@@ -1,13 +1,11 @@
-The solution, 
-don't declare the type for `f`.
-Haskell will infer the most general type for us:
+The solution: don't declare a type for `f` for the moment and let Haskell infer the most general type for us:
 
 > f x y = x*x + y*y
 >
 > main = print (f 2.3 4.2)
 
 It works! 
-Great, we don't have to declare a new function for every single type.
+Luckily, we don't have to declare a new function for every single type.
 For example, in `C`, you'll have to declare a function for `int`, for `float`, for `long`, for `double`, etc...
 
 But, what type should we declare?
@@ -44,20 +42,24 @@ To understand it, just look at a list of progressive examples:
 
 In the type `a -> a -> a`, the letter `a` is a _type variable_. 
 It means `f` is a function with two arguments and both arguments and the result have the same type.
-The type variable `a` could take many different type value.
+The type variable `a` could take many different type values.
 For example `Int`, `Integer`, `Float`...
 
-So instead of having a forced type like in `C` with declaring the function for `int`, `long`, `float`, `double`, etc... 
-We declare only one function like in a dynamically typed language.
+So instead of having a forced type like in `C` and having to declare a function
+for `int`, `long`, `float`, `double`, etc., we declare only one function like
+in a dynamically typed language.
 
-Generally `a` can be any type. 
-For example a `String`, an `Int`, but also more complex types, like `Trees`, other functions, etc...
-But here our type is prefixed with `Num a => `. 
+This is sometimes called parametric polymorphism. It's also called having your
+cake and eating it too.
+
+Generally `a` can be any type, for example a `String` or an `Int`, but also
+more complex types, like `Trees`, other functions, etc. But here our type is
+prefixed with `Num a => `.
 
 `Num` is a _type class_.
 A type class can be understood as a set of types.
 `Num` contains only types which behave like numbers.
-More precisely, `Num` is class containing types who implement a specific list of functions, and in particular `(+)` and `(*)`.
+More precisely, `Num` is class containing types which implement a specific list of functions, and in particular `(+)` and `(*)`.
 
 Type classes are a very powerful language construct.
 We can do some incredibly powerful stuff with this.
@@ -71,7 +73,7 @@ This is a function from type `a` to (`a -> a`).
 Yes, strange. 
 In fact, in Haskell no function really has two arguments.
 Instead all functions have only one argument.
-But we will note that taking two arguments is equivalent to taking one argument and returning a function taking the second argument as parameter.
+But we will note that taking two arguments is equivalent to taking one argument and returning a function taking the second argument as a parameter.
 
 More precisely `f 3 4` is equivalent to `(f 3) 4`. 
 Note `f 3` is a function:
@@ -87,8 +89,8 @@ g y ⇔ 3*3 + y*y
 
 Another notation exists for functions. 
 The lambda notation allows us to create functions without assigning them a name.
-We call them anonymous function.
-We could have written:
+We call them anonymous functions.
+We could also have written:
 
 ~~~
 g = \y -> 3*3 + y*y
@@ -96,5 +98,5 @@ g = \y -> 3*3 + y*y
 
 The `\` is used because it looks like `λ` and is ASCII.
 
-If you are not used to functional programming your brain should start to heat up.
+If you are not used to functional programming your brain should be starting to heat up.
 It is time to make a real application.

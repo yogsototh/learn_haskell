@@ -2,15 +2,15 @@
 
 blogimage("kandinsky_gugg.jpg","Kandinsky Gugg")
 
-I suggest you to skim this part.
-Think of it like a reference.
+I suggest that you skim this part.
+Think of it as a reference.
 Haskell has a lot of features.
-Many informations are missing here.
-Get back here if notation feels strange.
+A lot of information is missing here.
+Come back here if the notation feels strange.
 
 I use the `⇔` symbol to state that two expression are equivalent.
 It is a meta notation, `⇔` does not exists in Haskell.
-I will also use `⇒` to show what is the return of an expression.
+I will also use `⇒` to show what the return value of an expression is.
 
 <h3 id="notations">Notations</h3>
 
@@ -36,7 +36,7 @@ x^n     for n an integral (understand Int or Integer)
 x**y    for y any kind of number (Float for example)
 ~~~
 
-`Integer` have no limit except the capacity of your machine:
+`Integer` has no limit except the capacity of your machine:
 
 ~~~
 4^103
@@ -86,15 +86,15 @@ In Haskell strings are list of `Char`.
  > _Remark_:
  > In real code you shouldn't use list of char to represent text.
  > You should mostly use `Data.Text` instead.
- > If you want to represent stream of ASCII char, you should use `Data.ByteString`.
+ > If you want to represent a stream of ASCII char, you should use `Data.ByteString`.
 
 <h5 id="tuples">Tuples</h5>
 
 The type of couple is `(a,b)`.
-Elements in a tuple can have different type.
+Elements in a tuple can have different types.
 
 ~~~
--- All these tuple are valid
+-- All these tuples are valid
 (2,"foo")
 (3,'a',[2,3])
 ((2,"a"),"c",3)

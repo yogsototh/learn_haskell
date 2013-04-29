@@ -67,21 +67,21 @@ main = do
   print $ sum list
 </code>
 
-First remark; it looks like an imperative structure.
+First remark: this looks imperative.
 Haskell is powerful enough to make impure code look imperative.
 For example, if you wish you could create a `while` in Haskell.
-In fact, for dealing with `IO`, imperative style is generally more appropriate.
+In fact, for dealing with `IO`, an imperative style is generally more appropriate.
 
-But you should had noticed the notation is a bit unusual.
+But you should have noticed that the notation is a bit unusual.
 Here is why, in detail.
 
 In an impure language, the state of the world can be seen as a huge hidden global variable.
 This hidden variable is accessible by all functions of your language.
 For example, you can read and write a file in any function.
-The fact that a file exists or not can be seen as different states of the world.
+Whether a file exists or not is a difference in the possible states that the world can take.
 
-For Haskell this state is not hidden.
-It is explicitly said `main` is a function that _potentially_ changes the state of the world.
+In Haskell this state is not hidden.
+Rather, it is _explicitly_ said that `main` is a function that _potentially_ changes the state of the world.
 Its type is then something like:
 
 <code class="haskell">
@@ -92,18 +92,18 @@ Not all functions may have access to this variable.
 Those which have access to this variable are impure.
 Functions to which the world variable isn't provided are pure[^032001].
 
-[^032001]: There are some _unsafe_ exceptions to this rule. But you shouldn't see such use on a real application except maybe for debugging purpose.
+[^032001]: There are some _unsafe_ exceptions to this rule. But you shouldn't see such use in a real application except maybe for debugging purposes.
 
 Haskell considers the state of the world as an input variable to `main`.
 But the real type of main is closer to this one[^032002]:
 
-[^032002]: For the curious the real type is `data IO a = IO {unIO :: State# RealWorld -> (# State# RealWorld, a #)}`. All the `#` as to do with optimisation and I swapped the fields in my example. But mostly, the idea is exactly the same.
+[^032002]: For the curious the real type is `data IO a = IO {unIO :: State# RealWorld -> (# State# RealWorld, a #)}`. All the `#` has to do with optimisation and I swapped the fields in my example. But this is the basic idea.
 
 <code class="haskell">
 main :: World -> ((),World)
 </code>
 
-The `()` type is the null type.
+The `()` type is the unit type.
 Nothing to see here.
 
 Now let's rewrite our main function with this in mind:
@@ -121,7 +121,7 @@ First, we note that all functions which have side effects must have the type:
 World -> (a,World)
 </code>
 
-Where `a` is the type of the result.
+where `a` is the type of the result.
 For example, a `getChar` function should have the type `World -> (Char,World)`.
 
 Another thing to note is the trick to fix the order of evaluation.
@@ -131,13 +131,13 @@ In Haskell, in order to evaluate `f a b`, you have many choices:
 - first eval `b` then `a` then `f a b`.
 - eval `a` and `b` in parallel then `f a b`
 
-This is true, because we should work in a pure language.
+This is true because we're working in a pure part of the language.
 
 Now, if you look at the main function, it is clear you must eval the first
-line before the second one since, to evaluate the second line you have
+line before the second one since to evaluate the second line you have
 to get a parameter given by the evaluation of the first line.
 
-Such trick works nicely.
+This trick works nicely.
 The compiler will at each step provide a pointer to a new real world id.
 Under the hood, `print` will evaluate as:
 
@@ -181,7 +181,7 @@ askUser w0 =
 This is similar, but awkward.
 Look at all these temporary `w?` names.
 
-The lesson, is, naive IO implementation in Pure functional languages is awkward!
+The lesson is: naive IO implementation in Pure functional languages is awkward!
 
 Fortunately, there is a better way to handle this problem.
 We see a pattern.
@@ -222,7 +222,7 @@ let (_,w3) = action3 x z w2 in
 
 And of course `actionN w :: (World) -> (a,World)`.
 
- > IMPORTANT, there are only two important patterns to consider:
+ > IMPORTANT: there are only two important patterns to consider:
  >
  > ~~~
  > let (x,w1) = action1 w0 in
@@ -257,23 +257,22 @@ Now let's rename it for clarity:
 type IO a = World -> (a, World)
 </code>
 
-Some example of functions:
+Some examples of functions:
 
 <code class="haskell">
 getLine :: IO String
 print :: Show a => a -> IO ()
 </code>
 
-`getLine` is an IO action which takes a world as parameter and returns a couple `(String,World)`.
-Which can be summarized as: `getLine` is of type `IO String`.
-Which we also see as, an IO action which will return a String "embeded inside an IO".
+`getLine` is an IO action which takes world as a parameter and returns a couple `(String,World)`.
+This can be summarized as: `getLine` is of type `IO String`, which we also see as an IO action which will return a String "embeded inside an IO".
 
 The function `print` is also interesting.
 It takes one argument which can be shown.
 In fact it takes two arguments.
 The first is the value to print and the other is the state of world.
 It then returns a couple of type `((),World)`.
-This means it changes the state of the world, but doesn't yield anymore data.
+This means that it changes the state of the world, but doesn't yield any more data.
 
 This type helps us simplify the type of `bind`:
 
@@ -283,7 +282,7 @@ bind :: IO a
         -> IO b
 </code>
 
-It says that `bind` takes two IO actions as parameter and return another IO action.
+It says that `bind` takes two IO actions as parameters and returns another IO action.
 
 Now, remember the _important_ patterns. The first was:
 
@@ -359,7 +358,7 @@ Let's use `(>>=)` instead of `bind`.
            \line2 -> print (line1 ++ line2)
 </code>
 
-Ho Ho Ho! Happy Christmas Everyone!
+Ho Ho Ho! Merry Christmas Everyone!
 Haskell has made syntactical sugar for us:
 
 <code class="haskell">
@@ -379,7 +378,7 @@ action3 >>= \z ->
 ...
 </code>
 
-Note you can use `x` in `action2` and `x` and `y` in `action3`.
+Note that you can use `x` in `action2` and `x` and `y` in `action3`.
 
 But what about the lines not using the `<-`?
 Easy, another function `blindBind`:
@@ -390,7 +389,7 @@ blindBind action1 action2 w0 =
     bind action (\_ -> action2) w0
 </code>
 
-I didn't simplify this definition for clarity purpose.
+I didn't simplify this definition for the purposes of clarity.
 Of course we can use a better notation, we'll use the `(>>)` operator.
 
 And
