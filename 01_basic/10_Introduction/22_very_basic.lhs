@@ -32,13 +32,21 @@ Num a => a -> a -> a
 First, let's focus on the right part `a -> a -> a`.
 To understand it, just look at a list of progressive examples: 
 
-| The&nbsp;written&nbsp;type | Its meaning |
-| `Int`            | the type `Int`                              |
-| `Int -> Int`     | the type function from `Int` to `Int`       |
-| `Float -> Int`   | the type function from `Float` to `Int`     |
-| `a -> Int`       | the type function from any type to `Int`    |
-| `a -> a`         | the type function from any type `a` to the same type `a`  |
-| `a -> a -> a`    | the type function of two arguments of any type `a` to the same type `a`  |
+--------------------------------------------------------------------------------------------------
+The&nbsp;written&nbsp;type Its meaning
+-------------------------- -----------------------------------------------------------------------
+`Int`                      the type `Int`
+
+`Int -> Int`               the type function from `Int` to `Int`
+
+`Float -> Int`             the type function from `Float` to `Int`
+
+`a -> Int`                 the type function from any type to `Int`
+
+`a -> a`                   the type function from any type `a` to the same type `a`
+
+`a -> a -> a`              the type function of two arguments of any type `a` to the same type `a`
+--------------------------------------------------------------------------------------------------
 
 In the type `a -> a -> a`, the letter `a` is a _type variable_. 
 It means `f` is a function with two arguments and both arguments and the result have the same type.
