@@ -5,7 +5,7 @@ First, let's take a look at the IO type.
 Oh gosh! What is this notation?
 
 I said it will be Haskell the hard way. It is.
-Now make it easier.
+Now let's make it easier.
 
 First, we need to understand some basic concepts.
 You can just forget about all these sharp symbols.
@@ -37,24 +37,23 @@ In fact, let's try to translate
 
 > newtype IO a = IO (State RealWorld -> (State RealWorld, a))
 
-In a more Human and intuitive terms with an example.
+into more human and intuitive terms with an example:
 
 > IO String = IO (State RealWorld -> (State RealWorld, String))
 
 `IO String` is a function from a type (State RealWorld) to a couple
 of type (State RealWorld, String).
 
-Which if we simplify another time can be said as:
+If we simplify once more, we can put it this way:
 
-IO String is a function which turns one state of the world into another state of the world and an String value.
+IO String is a function which turns one state of the world into another state of the world and a String value.
 
 It seems to fit nicely with a function like `getLine`.
 
 `getLine` can be a function to which we provide a state of the real world.
 Then `getLine` does its job, then after this, it provides us with a couple of
-values.
-The String containing the content of the line read, and the changed world state.
-Changed because, when we had read something, the state of the world changed.
+values: the String containing the content of the line read, and the changed world state.
+The world has changed because when we had read something, the state of the world changed.
 
 Congratulations for having followed the first _Hardcore Haskell IO_ level 1.
 
@@ -62,5 +61,4 @@ Now, it is time to go to level 2.
 
 To make things clearer, I will increase the verbosity of the type. And instead of writing `IO a`. I will write `World -> (World,a)`.
 
-It was a nice help for me. 
-It is often hard to remember that "IO a" is in fact a function.
+It was a real help for me to represent it this way because it is often hard to remember that "IO a" is in fact a function.

@@ -4,8 +4,7 @@ You can safely skip this part if you find it too difficult to follow.
 
 We have a few changes to make.
 We remove the `deriving (Show)` from the declaration of our `BinTree` type.
-And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`).
-We will be able to test equality and compare trees.
+And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`) so we will be able to test equality and compare trees.
 
 > data BinTree a = Empty
 >                  | Node a (BinTree a) (BinTree a)
@@ -191,6 +190,6 @@ Notice how duplicate trees aren't inserted;
 there is only one tree corresponding to `"I","HEARD"`.
 We have this for (almost) free, because we have declared Tree to be an instance of `Eq`.
 
-See how awesome this structure is.
+See how awesome this structure is:
 We can make trees containing not only integers, strings and chars, but also other trees.
 And we can even make a tree containing a tree of trees!

@@ -13,4 +13,4 @@ And in particular:
 - Why is there a strange imperative-like notation for dealing with IO?
 
 Be prepared, the answers might be complex.
-But they all be very rewarding.
+But they are all very rewarding.

@@ -1,4 +1,4 @@
-Our next evolution will be to prompt the user again and again until she enters a valid answer.
+Our next iteration will be to prompt the user again and again until she enters a valid answer.
 
 We keep the first part:
 
@@ -11,7 +11,7 @@ We keep the first part:
 > getListFromString :: String -> Maybe [Integer]
 > getListFromString str = maybeRead $ "[" ++ str ++ "]"
 
-Now, we create a function which will ask the user for an list of integers
+Now we create a function which will ask the user for an list of integers
 until the input is right.
 
 > askUser :: IO [Integer]
@@ -30,10 +30,9 @@ Some people might explain while waving their hands:
  > «This is an `[Integer]` inside an `IO`»
 
 If you want to understand the details behind all of this, you'll have to read the next section.
-But sincerely, if you just want to _use_ IO.
-Just practice a little and remember to think about the type.
+But really, if you just want to _use_ IO just practice a little and remember to think about the type.
 
-Finally our main function is quite simpler:
+Finally our main function is much simpler:
 
 > main :: IO ()
 > main = do

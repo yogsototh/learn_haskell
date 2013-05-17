@@ -12,7 +12,7 @@ f :: a -> b -> c    ⇔ f is a function from a to (b→c)
 f :: (a -> b) -> c  ⇔ f is a function from (a→b) to c
 ~~~
 
-Defining the type of a function before its declaration isn't mandatory.
+Remember that defining the type of a function before its declaration isn't mandatory.
 Haskell infers the most general type for you.
 But it is considered a good practice to do so.
 
@@ -21,7 +21,7 @@ _Infix notation_
 > square :: Num a => a -> a  
 > square x = x^2
 
-Note `^` use infix notation. 
+Note `^` uses infix notation.
 For each infix operator there its associated prefix notation.
 You just have to put it inside parenthesis.
 
@@ -34,7 +34,7 @@ It's called η-reduction.
 
 > square''' = (^2)
 
-Note we can declare function with `'` in their name.
+Note we can declare functions with `'` in their name.
 Here:
 
  > `square` ⇔  `square'` ⇔ `square''` ⇔ `square '''`
@@ -56,7 +56,7 @@ Another equivalent version:
 >     | otherwise = -x
 
  > Notation warning: indentation is _important_ in Haskell.
- > Like in Python, a bad indentation could break your code!
+ > Like in Python, bad indentation can break your code!
 
 <div style="display:none">
 

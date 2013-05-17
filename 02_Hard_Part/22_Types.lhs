@@ -24,10 +24,9 @@ Another method is to create your own types using the keyword `data`.
 > main = putStrLn $ showInfos name color
 
 Now if you switch parameters of `showInfos`, the compiler complains!
-A possible mistake you could never do again.
-The only price is to be more verbose. 
+So this is a potential mistake you will never make again and the only price is to be more verbose. 
 
-Also remark constructor are functions:
+Also notice that constructors are functions:
 
 <code class="haskell">
 NameConstr  :: String -> Name

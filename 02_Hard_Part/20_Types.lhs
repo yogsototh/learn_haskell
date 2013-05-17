@@ -4,27 +4,26 @@ blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of p
 
  > %tldr
  >
- > - `type Name = AnotherType` is just an alias and the compiler doesn't do any difference between `Name` and `AnotherType`.
- > - `data Name = NameConstructor AnotherType` make a difference.
+ > - `type Name = AnotherType` is just an alias and the compiler doesn't mark any difference between `Name` and `AnotherType`.
+ > - `data Name = NameConstructor AnotherType` does mark a difference.
  > - `data` can construct structures which can be recursives.
- > - `deriving` is magic and create functions for you.
+ > - `deriving` is magic and creates functions for you.
 
 In Haskell, types are strong and static.
 
 Why is this important? It will help you _greatly_ to avoid mistakes.
 In Haskell, most bugs are caught during the compilation of your program.
 And the main reason is because of the type inference during compilation.
-It will be easy to detect where you used the wrong parameter at the wrong place for example.
+Type inference makes it easy to detect where you used the wrong parameter at the wrong place, for example.
 
 
 <h4 id="type-inference">Type inference</h4>
 
-Static typing is generally essential to reach fast execution time.
+Static typing is generally essential for fast execution.
 But most statically typed languages are bad at generalizing concepts.
 Haskell's saving grace is that it can _infer_ types.
 
-Here is a simple example.
-The `square` function in Haskell:
+Here is a simple example, the `square` function in Haskell:
 
 <code class="haskell">
 square x = x * x
@@ -68,9 +67,8 @@ y = complex_square(x);
 </code>
 
 For each type, you need to write a new function.
-The only way to work around this problem is to use some meta-programming trick.
-For example using the pre-processor.
-In C++ there is a better way, the C++ templates:
+The only way to work around this problem is to use some meta-programming trick, for example using the pre-processor.
+In C++ there is a better way, C++ templates:
 
 <code class="c++">
 #include <iostream>
@@ -96,19 +94,19 @@ int main() {
 }
 </code>
 
-C++ does a far better job than C.
-For more complex function the syntax can be hard to follow:
-look at
+C++ does a far better job than C in this regard.
+But for more complex functions the syntax can be hard to follow:
+see
 [this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/)
 for example.
 
 In C++ you must declare that a function can work with different types.
-In Haskell this is the opposite.
+In Haskell, the opposite is the case.
 The function will be as general as possible by default.
 
 Type inference gives Haskell the feeling of freedom that dynamically
 typed languages provide.
-But unlike dynamically typed languages, most errors are caught before the execution.
+But unlike dynamically typed languages, most errors are caught before run time.
 Generally, in Haskell:
 
  > "if it compiles it certainly does what you intended"

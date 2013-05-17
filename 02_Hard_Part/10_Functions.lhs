@@ -7,7 +7,7 @@ The hard part can now begin.
 blogimage("hr_giger_biomechanicallandscape_500.jpg","Biomechanical Landscape by H.R. Giger")
 
 In this section, I will give a short example of the impressive refactoring ability provided by Haskell.
-We will select a problem and solve it using a standard imperative way.
+We will select a problem and solve it in a standard imperative way.
 Then I will make the code evolve.
 The end result will be both more elegant and easier to adapt.
 
@@ -18,8 +18,8 @@ Let's solve the following problem:
  > example:
  > `[1,2,3,4,5] ⇒  2 + 4 ⇒  6`
 
-To show differences between the functional and imperative approach,
-I'll start by providing an imperative solution (in Javascript):
+To show differences between functional and imperative approaches,
+I'll start by providing an imperative solution (in JavaScript):
 
 <code class="javascript">
 function evenSum(list) {
@@ -33,16 +33,16 @@ function evenSum(list) {
 }
 </code>
 
-But, in Haskell we don't have variables, nor for loop.
+In Haskell, by contrast, we don't have variables or a for loop.
 One solution to achieve the same result without loops is to use recursion.
 
  > _Remark_:
  > Recursion is generally perceived as slow in imperative languages.
- > But it is generally not the case in functional programming.
+ > But this is generally not the case in functional programming.
  > Most of the time Haskell will handle recursive functions efficiently.
 
 Here is a `C` version of the recursive function.
-Note that for simplicity, I assume the int list ends with the first `0` value.
+Note that for simplicity I assume the int list ends with the first `0` value.
 
 
 <code class="c">
@@ -68,7 +68,7 @@ int accumSum(int n, int *list) {
 </code>
 
 Keep this code in mind. We will translate it into Haskell.
-But before, I need to introduce three simple but useful functions we will use:
+First, however, I need to introduce three simple but useful functions we will use:
 
 <code class="haskell">
 even :: Integral a => a -> Bool

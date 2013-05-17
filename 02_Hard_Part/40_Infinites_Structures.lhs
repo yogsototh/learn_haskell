@@ -2,12 +2,12 @@
 
 blogimage("escher_infinite_lizards.jpg","Escher")
 
-It is often stated that Haskell is _lazy_.
+It is often said that Haskell is _lazy_.
 
-In fact, if you are a bit pedantic, you should state that [Haskell is _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).
+In fact, if you are a bit pedantic, you should say that [Haskell is _non-strict_](http://www.haskell.org/haskellwiki/Lazy_vs._non-strict).
 Laziness is just a common implementation for non-strict languages.
 
-Then what does not-strict means? From the Haskell wiki:
+Then what does "not-strict" mean? From the Haskell wiki:
 
  > Reduction (the mathematical term for evaluation) proceeds from the outside in.
  >
@@ -39,5 +39,5 @@ Also, note in Haskell there is a notation for infinite lists
 [1,3..] ⇔ [1,3,5,7,9,11...]
 ~~~
 
-And most functions will work with them.
+and most functions will work with them.
 Also, there is a built-in function `take` which is equivalent to our `take'`.

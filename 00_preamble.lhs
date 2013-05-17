@@ -1,9 +1,9 @@
 begindiv(intro)
 
-en: I really believe all developer should learn Haskell.
-en: I don't think all should be super Haskell ninjas,
-en: but at least, they should discover what Haskell has to offer.
-en: Learning Haskell open your mind.
+en: I really believe all developers should learn Haskell.
+en: I don't think everyone needs to be super Haskell ninjas,
+en: but they should at least discover what Haskell has to offer.
+en: Learning Haskell opens your mind.
 fr: Je pense vraiment que
 fr: tous les développeurs devraient apprendre Haskell.
 fr: Peut-être pas devenir des ninjas d'Haskell, 
@@ -26,13 +26,13 @@ en: [^0001]: Even if most recent languages try to hide them, they are present.
 fr: [^0001]: Même si tous les langages récents essayent de les cacher, ils restent présents.
 
 en: Haskell is very different.
-en: This language uses a lot of concepts I had never heard about before.
+en: The language uses a lot of concepts I had never heard about before.
 en: Many of those concepts will help you become a better programmer.
 fr: Haskell est très différent.
 fr: Ce langage utilise des concepts dont je n'avais jamais entendu parlé avant.
 fr: Beaucoup de ces concepts pourront vous aider à devenir un meilleur développeur.
 
-en: But, learning Haskell can be hard.
+en: But learning Haskell can be hard.
 en: It was for me.
 en: In this article I try to provide what I lacked during my learning.
 fr: Plier son esprit à Haskell peut être difficile.
@@ -55,15 +55,15 @@ fr: C'est parce qu'Haskell est difficile qu'il est intéressant.
 en: The conventional method to learning Haskell is to read two books. 
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
-en: But, to learn what Haskell is all about, you'll have to read them in detail.
+en: But to learn what Haskell is all about, you'll have to read them in detail.
 fr: La manière conventionnelle d'apprendre Haskell est de lire deux livres.
 fr: En premier ["Learn You a Haskell"](http://learnyouahaskell.com) 
 fr: et ensuite ["Real World Haskell"](http://www.realworldhaskell.org).
 fr: Je pense aussi que c'est la bonne manière de s'y prendre.
 fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans se plonger réellement dans ces livres.
 
-en: On the other hand, this article is a very brief and dense overview of all major aspects of Haskell.
-en: I also added some informations I lacked while I learned Haskell.
+en: In contrast, this article is a very brief and dense overview of all major aspects of Haskell.
+en: I also added some information I lacked while I learned Haskell.
 fr: Cet article fait un résumé très dense et rapide des aspect majeurs d'Haskell.
 fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentissage de ce langage.
 
@@ -102,8 +102,8 @@ fr:     - Les monades : incroyable à quel point on peut généraliser
 fr: - Appendice :
 fr:     - Revenons sur les arbres infinis : une discussion plus mathématique sur la manipulation d'arbres infinis.
 
-en:  > Note: Each time you'll see a separator with a filename ending in `.lhs`, 
-en:  > you could click the filename to get this file. 
+en:  > Note: Each time you see a separator with a filename ending in `.lhs`
+en:  > you can click the filename to get this file.
 en:  > If you save the file as `filename.lhs`, you can run it with 
 en:  > <pre>
 en:  > runhaskell filename.lhs

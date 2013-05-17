@@ -12,6 +12,6 @@ If we force our function to work with different types, it will fail:
 The compiler complains. 
 The two parameters must have the same type.
 
-If you believe it is a bad idea, and the compiler should make the transformation 
-from a type to another for you, you should really watch this great (and funny) video:
+If you believe that this is a bad idea, and that the compiler should make the transformation 
+from one type to another for you, you should really watch this great (and funny) video:
 [WAT](https://www.destroyallsoftware.com/talks/wat)
