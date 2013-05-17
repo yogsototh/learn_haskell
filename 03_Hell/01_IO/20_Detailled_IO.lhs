@@ -338,9 +338,9 @@ let ((),w3) = print (line1 ++ line2) in
 Which is equivalent to:
 
 <code class="haskell">
-(res,w3) = bind getLine (\line1 ->
-             bind getLine (\line2 ->
-               print (line1 ++ line2)))
+(res,w3) = (bind getLine (\line1 ->
+             (bind getLine (\line2 ->
+               print (line1 ++ line2))))) w0
 </code>
 
 Didn't you notice something?
@@ -353,9 +353,9 @@ Let's use `(>>=)` instead of `bind`.
 `(+)`; reminder `3 + 4 ⇔ (+) 3 4`
 
 <code class="haskell">
-(res,w3) = getLine >>=
-           \line1 -> getLine >>=
-           \line2 -> print (line1 ++ line2)
+(res,w3) = (getLine >>=
+           (\line1 -> getLine >>=
+           (\line2 -> print (line1 ++ line2)))) w0
 </code>
 
 Ho Ho Ho! Merry Christmas Everyone!
@@ -372,10 +372,11 @@ do
 Is replaced by:
 
 <code class="haskell">
-action1 >>= \x ->
-action2 >>= \y ->
-action3 >>= \z ->
+action1 >>= (\x ->
+action2 >>= (\y ->
+action3 >>= (\z ->
 ...
+)))
 </code>
 
 Note that you can use `x` in `action2` and `x` and `y` in `action3`.

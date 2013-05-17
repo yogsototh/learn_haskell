@@ -79,9 +79,9 @@ More precisely `f 3 4` is equivalent to `(f 3) 4`.
 Note `f 3` is a function:
 
 ~~~
-f :: Num a :: a -> a -> a
+f :: Num a => a -> a -> a
 
-g :: Num a :: a -> a
+g :: Num a => a -> a
 g = f 3
 
 g y ⇔ 3*3 + y*y

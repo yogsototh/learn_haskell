@@ -2,25 +2,22 @@
 
 cat <<END
 -----
-isHidden:       false
+theme: scientific
+image: /Scratch/img/blog/Haskell-the-Hard-Way/magritte_pleasure_principle.jpg
 menupriority:   1
-kind:           article
-created_at:     2012-02-08T15:17:53+02:00
+kind: article
+published: 2012-02-08
 en: title: Learn Haskell Fast and Hard
 en: subtitle: Blow your mind with Haskell
 fr: title: Haskell comme un vrai!
 fr: subtitle: Haskell à s'en faire griller les neurones
-author_name: Yann Esposito
-author_uri: yannesposito.com
-tags:
-  - Haskell
-  - programming
-  - functional
-  - tutorial
+author: Yann Esposito
+authoruri: yannesposito.com
+tags: Haskell, programming, functional, tutorial
 -----
 blogimage("magritte_pleasure_principle.jpg","Magritte pleasure principle")
 
-begindiv(intro)
+<div class="intro">
 
 en: %tldr A very short and dense tutorial for learning Haskell.
 
@@ -31,7 +28,7 @@ fr: Merci à [Oleg Taykalo](https://plus.google.com/u/0/113751420744109290534) v
 
 > <center><hr style="width:30%;float:left;border-color:#CCCCD0;margin-top:1em"/><span class="sc"><b>Table of Content</b></span><hr style="width:30%;float:right;border-color:#CCCCD0;margin-top:1em"/></center>
 >
-> begindiv(toc)
+> <div class="toc">
 >
 END
 
@@ -49,9 +46,9 @@ done
 
 cat <<END
 >
-> enddiv
+> </div>
 
-enddiv
+</div>
 END
 
 
@@ -59,7 +56,11 @@ for fic in **/*.lhs; do
     contains_haskell=$(( $( egrep '^>' $fic | wc -l) > 0 ))
     ((contains_haskell)) && \
         echo "\n<hr/><a href=\"code/$fic\" class=\"cut\">${fic:h}/<strong>${fic:t}</strong></a>\n"
-    cat $fic
+    cat $fic | \
+    perl -pe 's#begindiv\(([^)]*)\)#<div class="$1">#' | \
+    perl -pe 's#enddiv#</div>#' | \
+    perl -pe 's#^<code class="([^"]*)">#~~~~~~ {.$1}#' | \
+    perl -pe 's#^</code>#~~~~~~#'
     ((contains_haskell)) && \
         echo "\n<a href=\"code/$fic\" class=\"cut\">${fic:h}/<strong>${fic:t}</strong> </a>\n"
-done | perl -pe 'BEGIN{$/="";} s#((^>.*\n)+)#<div class="codehighlight">\n<code class="haskell">\n$1</code>\n</div>#mg' | perl -pe 's#^> ?##' | perl -pe 's/^ #/#/'
+done | perl -pe 'BEGIN{$/="";} s#((^>.*\n)+)#<div class="codehighlight">\n~~~~~~ {.haskell}\n$1~~~~~~\n</div>#mg' | perl -pe 's#^> ?##' | perl -pe 's/^ #/#/'
