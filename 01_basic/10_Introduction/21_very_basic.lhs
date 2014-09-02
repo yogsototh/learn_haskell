@@ -1,11 +1,13 @@
-Now try
+en: Now try
+fr: Maintenant essayez
 
 > f :: Int -> Int -> Int
 > f x y = x*x + y*y
 >
 > main = print (f 2.3 4.2)
 
-You should get this error:
+en: You should get this error:
+fr: Vous devriz avoir cette erreur:
 
 ~~~
 21_very_basic.lhs:6:23:
@@ -17,4 +19,5 @@ You should get this error:
     In the expression: print (f 2.3 4.2)
 ~~~
 
-The problem: `4.2` isn't an Int.
+en: The problem: `4.2` isn't an Int.
+fr: Le problème est que `4.2` n'est pas de type `Int` (_NDT: Il n'est pas un entier_)
