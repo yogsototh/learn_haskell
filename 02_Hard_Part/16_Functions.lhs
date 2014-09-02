@@ -66,11 +66,8 @@ Updating version 10 is extremely easy:
 
 > squareEvenSum = sum' . (filter even) . (map (^2))
 > squareEvenSum' = evenSum . (map (^2))
-> squareEvenSum'' = sum' . (map (^2)) . (filter even)
 
 We just had to add another "transformation function"[^0216].
-
-[^0216]: Notice that `squareEvenSum''` is more efficient that the two other versions. The order of `(.)` is important.
 
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
