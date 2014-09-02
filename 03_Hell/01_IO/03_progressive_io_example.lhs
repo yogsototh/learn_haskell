@@ -42,7 +42,7 @@ Finally our main function is much simpler:
 We have finished with our introduction to `IO`.
 This was quite fast. Here are the main things to remember:
 
-- in the `do` bloc, each expression must have the type `IO a`.
+- in the `do` block, each expression must have the type `IO a`.
   You are then limited in the number of expressions available.
   For example, `getLine`, `print`, `putStrLn`, etc...
 - Try to externalize the pure functions as much as possible.

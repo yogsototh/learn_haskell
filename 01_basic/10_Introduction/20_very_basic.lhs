@@ -37,7 +37,7 @@ A last warning about how you should read Haskell code.
 For me, it is like reading scientific papers.
 Some parts are very clear, but when you see a formula, just focus and read slower.
 Also, while learning Haskell, it _really_ doesn't matter much if you don't understand syntax details.
-If you meet a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follows the flow of the code.
+If you meet a `>>=`, `<$>`, `<-` or any other weird symbol, just ignore them and follow the flow of the code.
 
 <h4 id="function-declaration">Function declaration</h4>
 

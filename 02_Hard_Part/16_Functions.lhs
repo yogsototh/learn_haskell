@@ -88,8 +88,7 @@ Modifying version 1 is left as an exercise to the reader ☺.
 
 If you believe we have reached the end of generalization, then know you are very wrong.
 For example, there is a way to not only use this function on lists but on any recursive type.
-If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/0
-1/db-utwente-40501F46.pdf).
+If you want to know how, I suggest you to read this quite fun article: [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire by Meijer, Fokkinga and Paterson](http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf).
 
 This example should show you how great pure functional programming is.
 Unfortunately, using pure functional programming isn't well suited to all usages.
