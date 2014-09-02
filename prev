@@ -1,16 +1,14 @@
 #!/usr/bin/env zsh
 
-webroot="$HOME/Sites/webroot"
+webroot="$HOME/Sites/yblog"
 
 print -- "Create article"
-./create_ymd.sh > $webroot/latest.ymd
+./create_ymd.sh > $webroot/multi/blog/Haskell-the-Hard-Way.md
 
 print -- "Copy sources"
 for langue in en fr; do
-    dst="$webroot/output/Scratch/$langue/blog/Haskell-the-Hard-Way/code"
+    dst="$webroot/Scratch/$langue/blog/Haskell-the-Hard-Way/code"
+    print $dst
     [[ ! -d $dst ]] && mkdir -p $dst
     cp -r *.lhs ??_*(/)  $dst
 done
-
-cd $webroot
-./tasks/recompile

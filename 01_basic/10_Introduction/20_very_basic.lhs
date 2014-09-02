@@ -140,18 +140,18 @@ en: Although it is not mandatory, type information for functions is usually made
 en: explicit. It's not mandatory because the compiler is smart enough to discover
 en: it for you. It's a good idea because it indicates intent and understanding.
 fr: Même si ce n'est pas obligatoire, les informations de type pour les fonctions sont habituellement déclarées
-fr: explicitement. Ce n'est pas indispensable car le compilateur est suffisament intelligent pour le déduire
+fr: explicitement. Ce n'est pas indispensable car le compilateur est suffisamment intelligent pour le déduire
 fr: à votre place. Cependant, c'est une bonne idée car cela montre bien l'intention du développeur et facilite la compréhension.
 
 en: Let's play a little.
+en: We declare the type using `::`
 fr: Jouons un peu.
+fr: On déclare le type en utilisant `::`
 
-en: > -- We declare the type using ::
-fr: > -- On déclare le type en utilisant:
-> f :: Int -> Int -> Int
-> f x y = x*x + y*y
+>  f :: Int -> Int -> Int
+>  f x y = x*x + y*y
 >
-> main = print (f 2 3)
+>  main = print (f 2 3)
 
 ~~~
 ~ runhaskell 20_very_basic.lhs

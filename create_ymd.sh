@@ -37,11 +37,15 @@ END
 
 # get a list of
 # depth anchor name
-grep -e '<h.' **/*.lhs | perl -pe 's#.*<h([2-6]) id="#\1 #;s#"[^>]*># "#; s#<.*#"#' |
-while read num anchor title; do
-    echo -n '> '
-    while ((num-->2)); do echo -n "  "; done
-    echo '* <a href="#'$anchor'">'${title[2,-2]}'</a>'
+grep -e '<h.' **/*.lhs | perl -pe 'if (/^.*?:..:/) {s#^.*?:(..):.*<h([2-6]) id="#$1 $2 #; } else {s#.*<h([2-6]) id="#all $1 #;} ; s#"[^>]*># "#; s#<.*#"#' |
+while read language num anchor title; do
+    if [[ $language = "all" ]]; then
+        echo -n '> '
+    else
+        echo -n $language': > '
+    fi
+        while ((num-->2)); do echo -n "  "; done
+        echo '* <a href="#'$anchor'">'${title[2,-2]}'</a>'
 done
 
 
