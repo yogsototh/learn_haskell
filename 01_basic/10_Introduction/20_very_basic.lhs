@@ -1,5 +1,5 @@
 en: <h3 id="very-basic-haskell">Very basic Haskell</h3>
-fr: <h3 id="very-basic-haskell">Les grandes bases de Haskell</h3>
+fr: <h3 id="very-basic-haskell">Les bases de Haskell</h3>
 
 blogimage("picasso_owl.jpg","Picasso minimal owl")
 

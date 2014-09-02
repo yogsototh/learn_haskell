@@ -1,5 +1,5 @@
 en: <h2 id="essential-haskell">Essential Haskell</h2>
-fr: <h2 id="essential-haskell">Essential Haskell</h2>
+fr: <h2 id="essential-haskell">Notions essentielles</h2>
 
 blogimage("kandinsky_gugg.jpg","Kandinsky Gugg")
 
