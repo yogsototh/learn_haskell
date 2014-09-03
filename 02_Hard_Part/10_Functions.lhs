@@ -98,7 +98,8 @@ head :: [a] -> a
 tail :: [a] -> [a]
 </code>
 
-`even` verifies if a number is even.
+en: `even` verifies if a number is even.
+fr: `even` vérifie si un nombre est pair.
 
 <code class="haskell">
 even :: Integral a => a -> Bool
@@ -106,7 +107,8 @@ even 3  ⇒ False
 even 2  ⇒ True
 </code>
 
-`head` returns the first element of a list:
+en: `head` returns the first element of a list:
+fr: 
 
 <code class="haskell">
 head :: [a] -> a
