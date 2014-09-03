@@ -47,8 +47,8 @@ fr: <h5 id="powers">Puissances</h5>
 ~~~
 en: x^n     for n an integral (understand Int or Integer)
 en: x**y    for y any kind of number (Float for example)
-en: x^n     pour n un entier (comprenez Int ou Integer)
-en: x**y    pour y tout type de nombre (Float par exemple)
+fr: x^n     pour n un entier (comprenez Int ou Integer)
+fr: x**y    pour y tout type de nombre (Float par exemple)
 ~~~
 
 en: `Integer` has no limit except the capacity of your machine:

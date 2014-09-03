@@ -8,8 +8,7 @@ fr: Si nous forçons notre fonction à travailler avec des types différents, le
 > x = 3
 > y :: Float
 > y = 2.4
-en: > -- won't work because type x ≠ type y
-fr: > -- ne marchera pas car type de x ≠ type de y
+> -- won't work because type x ≠ type y
 > main = print (f x y)
 
 en: The compiler complains. 
