@@ -148,7 +148,8 @@ snd (x,y,z)     ⇒  ERROR: snd :: (a,b) -> b
 en: <h5 id="deal-with-parentheses">Deal with parentheses</h5>
 fr: <h5 id="deal-with-parentheses">Traiter avec les parenthèses</h5>
 
-To remove some parentheses you can use two functions: `($)` and `(.)`.
+en: To remove some parentheses you can use two functions: `($)` and `(.)`.
+fr: Pour enlever des parenthèses vous pouvez utiliser deux fonctions: `($)` et `(.)`.
 
 ~~~
 en: -- By default:
