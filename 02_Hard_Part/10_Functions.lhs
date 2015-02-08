@@ -98,7 +98,8 @@ head :: [a] -> a
 tail :: [a] -> [a]
 </code>
 
-`even` verifies if a number is even.
+en: `even` verifies if a number is even.
+fr: `even` vérifie si un nombre est pair.
 
 <code class="haskell">
 even :: Integral a => a -> Bool
@@ -106,7 +107,8 @@ even 3  ⇒ False
 even 2  ⇒ True
 </code>
 
-`head` returns the first element of a list:
+en: `head` returns the first element of a list:
+fr: `head` retourne le premier élément d'une liste:
 
 <code class="haskell">
 head :: [a] -> a
@@ -114,14 +116,18 @@ head [1,2,3] ⇒ 1
 head []      ⇒ ERROR
 </code>
 
-`tail` returns all elements of a list, except the first:
+en: `tail` returns all elements of a list, except the first:
+fr: `tail` retourne tous les éléments d'une liste, sauf le premier:
 
 <code class="haskell">
 tail :: [a] -> [a]
 tail [1,2,3] ⇒ [2,3]
 tail [3]     ⇒ []
-tail []      ⇒ ERROR
+en: tail []      ⇒ ERROR
+fr: tail []      ⇒ ERREUR
 </code>
 
-Note that for any non empty list `l`,
-`l ⇔ (head l):(tail l)`
+en: Note that for any non empty list `l`,
+en:  `l ⇔ (head l):(tail l)`
+fr: Remarquez que pour toute liste non-vide `l`,
+fr:  `l ⇔ (head l):(tail l)`

@@ -1,17 +1,23 @@
-In Haskell you can simplify function definitions by η-reducing them.
-For example, instead of writing:
+en: In Haskell you can simplify function definitions by η-reducing them.
+en: For example, instead of writing:
+fr: Avec Haskell, nous pouvons simplifier les défitions des fonctions en les _η-réduisant_ .
+fr: Par exemple, au lieu d'écrire: 
 
 <code class="haskell">
-f x = (some expresion) x
+en: f x = (some expresion) x
+fr: f x = (expression) x
 </code>
 
-you can simply write
+en: you can simply write
+fr: Nous pouvons écrire
 
 <code class="haskell">
-f = some expression
+en: f = some expression
+fr: f = expression
 </code>
 
-We use this method to remove the `l`:
+en: We use this method to remove the `l`:
+fr: Utilisons cette méthode pour retirer le `l`:
 
 > -- Version 4
 > evenSum :: Integral a => [a] -> a
