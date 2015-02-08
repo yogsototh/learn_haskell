@@ -1,4 +1,5 @@
-Next, we can use pattern matching.
+en: Next, we can use pattern matching.
+fr: Puis on utilise le _pattern matching_
 
 > -- Version 3
 > evenSum l = accumSum 0 l
@@ -9,22 +10,30 @@ Next, we can use pattern matching.
 >                 then accumSum (n+x) xs
 >                 else accumSum n xs
 
-What is pattern matching? 
-Use values instead of general parameter names[^021301].
+en: What is pattern matching? 
+en: Use values instead of general parameter names[^021301].
+fr: Qu'est ce que le _pattern matching_ ?
+fr: Il s'agit d'utiliser des valeurs au lieu de noms de paramètres généraux.
 
-[^021301]: For the brave, a more complete explanation of pattern matching can be found [here](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html).
+en: [^021301]: For the brave, a more complete explanation of pattern matching can be found [here](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html).
+fr: [^021301]: Pour les plus courageux, une explication plus complète du _pattern matching_ peut être trouvée [ici](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html) (_NdT: En anglais_)
 
-Instead of saying: `foo l = if l == [] then <x> else <y>`
-You simply state:  
+en: Instead of saying: `foo l = if l == [] then <x> else <y>`
+en: You simply state:  
+fr: Au lieu d'écrire: `foo l = if l == [] then <x> else <y>`
+fr: Vous écrivez tout simplement :
 
 <code class="haskell">
 foo [] =  <x>
 foo l  =  <y>
 </code>
 
-But pattern matching goes even further.
-It is also able to inspect the inner data of a complex value.
-We can replace
+en: But pattern matching goes even further.
+en: It is also able to inspect the inner data of a complex value.
+en: We can replace
+fr: Mais le _pattern matching_ peut aller encore plus loin.
+fr: Il est également capable d'inspect les données internes d'un valeur complexe.
+fr: Nous pouvons ainsi remplacer
 
 <code class="haskell">
 foo l =  let x  = head l 
@@ -34,7 +43,8 @@ foo l =  let x  = head l
              else foo n xs
 </code>
 
-with
+en: with
+fr: par
 
 <code class="haskell">
 foo (x:xs) = if even x 
@@ -42,8 +52,10 @@ foo (x:xs) = if even x
                  else foo n xs
 </code>
 
-This is a very useful feature.
-It makes our code both terser and easier to read.
+en: This is a very useful feature.
+en: It makes our code both terser and easier to read.
+fr: C'est une caractéristique très utile.
+fr: Notre code est ainsi plus concis et plus facile à lire.
 
 <div style="display:none">
 

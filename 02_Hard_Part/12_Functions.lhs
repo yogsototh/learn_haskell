@@ -1,5 +1,7 @@
-Next, we can use sub functions using `where` or `let`.
-This way our `accumSum` function won't pollute the namespace of our module.
+en: Next, we can use sub functions using `where` or `let`.
+fr: Ensuite, nous pouvons utiliser des sous-fonctions grâce à `where` et `let`.
+en: This way our `accumSum` function won't pollute the namespace of our module.
+fr: Ansi, notre fonction `accumSum` ne polluera pas le _namespace_ de notre module
 
 > -- Version 2
 > evenSum :: Integral a => [a] -> a
