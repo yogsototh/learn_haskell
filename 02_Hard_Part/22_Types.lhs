@@ -51,16 +51,19 @@ data TypeName =   ConstructorName  [types]
                 | ...
 </code>
 
-Generally the usage is to use the same name for the
-DataTypeName and DataTypeConstructor.
+en: Generally the usage is to use the same name for the
+en: DataTypeName and DataTypeConstructor.
+fr: Généralement on utilise le même nom pour le DatatTypeName et le DataTypeConstructor.
 
-Example:
+en: Example:
+fr: Exemple:
 
 <code class="haskell">
 data Complex = Num a => Complex a a
 </code>
 
-Also you can use the record syntax:
+en: Also you can use the record syntax:
+fr: Vous pouvez également utiliser cette syntaxe:
 
 <code class="haskell">
 data DataTypeName = DataConstructor {
@@ -70,8 +73,8 @@ data DataTypeName = DataConstructor {
                     , fieldn :: [type of fieldn] }
 </code>
 
-And many accessors are made for you.
-Furthermore you can use another order when setting values.
+en: And many accessors are made for you.
+en: Furthermore you can use another order when setting values.
 
 Example:
 
