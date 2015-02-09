@@ -1,4 +1,5 @@
-<h3 id="types">Types</h3>
+en: <h3 id="types">Types</h3>
+fr: <h3 id="types">Les types</h3>
 
 blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of port Lligat")
 
@@ -9,28 +10,39 @@ blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of p
  > - `data` can construct structures which can be recursives.
  > - `deriving` is magic and creates functions for you.
 
-In Haskell, types are strong and static.
+en: In Haskell, types are strong and static.
+fr: En Haskell, les types sont forts et statiques.
 
-Why is this important? It will help you _greatly_ to avoid mistakes.
-In Haskell, most bugs are caught during the compilation of your program.
-And the main reason is because of the type inference during compilation.
-Type inference makes it easy to detect where you used the wrong parameter at the wrong place, for example.
+en: Why is this important? It will help you _greatly_ to avoid mistakes.
+en: In Haskell, most bugs are caught during the compilation of your program.
+en: And the main reason is because of the type inference during compilation.
+en: Type inference makes it easy to detect where you used the wrong parameter at the wrong place, for example.
+fr: Pourquoi est-ce important? Cela vous aidera a éviter _beaucoup_ d'erreurs.
+fr: En Haskell, la majorité des bugs est repérée durant la compilation de votre programme.
+fr: Et la raison principale de cela est l'inférence de type durant la compilation.
+fr: L'inférence de type permet de détecter plus facilement lorsque vous utilisez le mauvais paramètre au mauvais endroit, par exemple
 
+en: <h4 id="type-inference">Type inference</h4>
+fr: <h4 id="type-inference">Inférence de type</h4>
 
-<h4 id="type-inference">Type inference</h4>
+en: Static typing is generally essential for fast execution.
+en: But most statically typed languages are bad at generalizing concepts.
+en: Haskell's saving grace is that it can _infer_ types.
+fr: Le typage statique est généralement essentiel pour une exécution rapide.
+fr: Mais la plupart des langages typés statiquement ont du mal à généraliser des concepts.
+fr: La "grâce salvatrice" de Haskell est qu'il peut _inférer_ des types.
 
-Static typing is generally essential for fast execution.
-But most statically typed languages are bad at generalizing concepts.
-Haskell's saving grace is that it can _infer_ types.
-
-Here is a simple example, the `square` function in Haskell:
+en: Here is a simple example, the `square` function in Haskell:
+fr: Voici un exemple simple, la fonction `square` en Haskell: 
 
 <code class="haskell">
 square x = x * x
 </code>
 
-This function can `square` any Numeral type.
-You can provide `square` with an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:
+en: This function can `square` any Numeral type.
+en: You can provide `square` with an `Int`, an `Integer`, a `Float` a `Fractional` and even `Complex`. Proof by example:
+fr: Cette fonction peut mettre au carré n'importe quel type `Numeral`.
+fr: Vous pouvez l'utilser avec un `Int`, un `Integer`, un `Float`, un `Fractional` ou même un `Complex`. Preuve par l'exemple:
 
 ~~~
 % ghci
@@ -41,15 +53,18 @@ Prelude> square 2
 4
 Prelude> square 2.1
 4.41
-Prelude> -- load the Data.Complex module
+en: Prelude> -- load the Data.Complex module
+fr: Prelude> -- charge le module Data.Complex
 Prelude> :m Data.Complex
 Prelude Data.Complex> square (2 :+ 1)
 3.0 :+ 4.0
 ~~~
 
-`x :+ y` is the notation for the complex (<i>x + ib</i>).
+en: `x :+ y` is the notation for the complex (<i>x + iy</i>).
+fr: `x :+ y` est la notation pour le complex (<i>x + iy</i>)
 
-Now compare with the amount of code necessary in C:
+en: Now compare with the amount of code necessary in C:
+fr: Comparons maintenant avec la quantité de code nécessaire pour le faire en C:
 
 <code class="c">
 int     int_square(int x) { return x*x; }
@@ -66,9 +81,12 @@ complex x,y;
 y = complex_square(x);
 </code>
 
-For each type, you need to write a new function.
-The only way to work around this problem is to use some meta-programming trick, for example using the pre-processor.
-In C++ there is a better way, C++ templates:
+en: For each type, you need to write a new function.
+en: The only way to work around this problem is to use some meta-programming trick, for example using the pre-processor.
+en: In C++ there is a better way, C++ templates:
+fr: Pour chaque type, vous avfez besoin d'écrire une nouvelle fonction.
+fr: Le seul moyen de se débarsser de se problème est d'utiliser des trucs de méta-programmation, par exemple via le pré-processeur.
+fr: en C++ il y a un meilleur moyen, les _templates_:
 
 <code class="c++">
 #include <iostream>
@@ -94,19 +112,26 @@ int main() {
 }
 </code>
 
-C++ does a far better job than C in this regard.
-But for more complex functions the syntax can be hard to follow:
-see
-[this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/)
-for example.
+en: C++ does a far better job than C in this regard.
+en: But for more complex functions the syntax can be hard to follow:
+en: see [this article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) for example.
+fr: C++ fait un bien meilleur travail que C ici.
+fr: Mais pour des fonctions plus complexes, la syntaxe sera difficile à suivre.
+fr: Voyez [cet article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/) pour quelques exemples. (_NDT: toujours en anglais)
 
-In C++ you must declare that a function can work with different types.
-In Haskell, the opposite is the case.
-The function will be as general as possible by default.
+en: In C++ you must declare that a function can work with different types.
+en: In Haskell, the opposite is the case.
+en: The function will be as general as possible by default.
+fr: En C++ vous devez déclarer qu'un fonction peut marcher avec différents types.
+fr: En Haskell, c'est le cas contraire.
+fr: La fonction sera aussi générale que possible par défaut.
 
-Type inference gives Haskell the feeling of freedom that dynamically
-typed languages provide.
-But unlike dynamically typed languages, most errors are caught before run time.
-Generally, in Haskell:
+en: Type inference gives Haskell the feeling of freedom that dynamically typed languages provide.
+en: But unlike dynamically typed languages, most errors are caught before run time.
+en: Generally, in Haskell:
+fr: L'inférence de type donne à Haskell le sentiment de liberté que les langages dyumaniquement typés proposent.
+fr: Mais contrairement aux langages dynamiquement typés, la majorité des erreurs est détectée avant de lancer le programme.
+fr: Généralement, en Haskell:
 
- > "if it compiles it certainly does what you intended"
+en:  > "if it compiles it certainly does what you intended"
+fr:  > "Si ça compile, ça fera certainement ce à quoi vous vous attendiez."
