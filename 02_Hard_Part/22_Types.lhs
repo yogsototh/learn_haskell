@@ -75,8 +75,11 @@ data DataTypeName = DataConstructor {
 
 en: And many accessors are made for you.
 en: Furthermore you can use another order when setting values.
+fr: Et les accesseurs sont définis automatiquement.
+fr: En outre, vous pouvez utiliser une autre ordre lorsque vous définissez des valeurs.
 
-Example:
+en: Example:
+fr: Exemple:
 
 <code class="haskell">
 data Complex = Num a => Complex { real :: a, img :: a}
