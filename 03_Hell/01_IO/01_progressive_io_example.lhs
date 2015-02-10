@@ -91,17 +91,19 @@ do
 ~~~
 
 en: If `something :: IO a` then `x :: a`.
-fr: Si 
+fr: Si `something :: IO a` alors `x :: a`.
 
-Another important note about using `IO`:
-All lines in a do block must be of one of the two forms:
+en: Another important note about using `IO`:
+en: All lines in a do block must be of one of the two forms:
+fr: Une autre remarque important sur l'`IO`:
+fr: Toutes les lignes d'un bloc `do` doivent être d'une des deux formes:
 
 ~~~
 action1             :: IO a
                     -- in this case, generally a = ()
 ~~~
 
-or
+ou
 
 ~~~
 value <- action2    -- where
@@ -109,5 +111,7 @@ value <- action2    -- where
                     -- value   :: b
 ~~~
 
-These two kinds of line will correspond to two different ways of sequencing actions.
-The meaning of this sentence should be clearer by the end of the next section.
+en: These two kinds of line will correspond to two different ways of sequencing actions.
+en: The meaning of this sentence should be clearer by the end of the next section.
+fr: Ces deux types de ligne correspondent à deux différents types de séquençage d'action.
+fr: La signification de cette phrase devrait être plus claire à la fin de la prochaine section.
