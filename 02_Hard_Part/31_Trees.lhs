@@ -1,20 +1,31 @@
-Just for fun, let's code a better display for our trees.
-I simply had fun making a nice function to display trees in a general way.
-You can safely skip this part if you find it too difficult to follow.
+en: Just for fun, let's code a better display for our trees.
+en: I simply had fun making a nice function to display trees in a general way.
+en: You can safely skip this part if you find it too difficult to follow.
+fr: Juste pour le plaisir, codons un meilleur affichage pour nos arbres.
+fr: Je me suis simplement amusé à faire une belle fonction pour afficher les arbres de façon générale.
+fr: Vous pouvez passer cette partie si vous la trouvez difficile à suivre.
 
-We have a few changes to make.
-We remove the `deriving (Show)` from the declaration of our `BinTree` type.
-And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`) so we will be able to test equality and compare trees.
+en: We have a few changes to make.
+en: We remove the `deriving (Show)` from the declaration of our `BinTree` type.
+en: And it might also be useful to make our BinTree an instance of (`Eq` and `Ord`) so we will be able to test equality and compare trees.
+fr: Nous avons quelques changements à faire.
+fr: Enlevons le `deriving (Show)` de la déclaration de notre type `BinTree`.
+fr: Il serait aussi utile de faire de BinTree une instance de (`Eq` et `Ord`), nous serons ainsi capable de tester l'égalité et de comparer des arbres.
 
 > data BinTree a = Empty
 >                  | Node a (BinTree a) (BinTree a)
 >                   deriving (Eq,Ord)
 
-Without the `deriving (Show)`, Haskell doesn't create a `show` method for us.
-We will create our own version of `show`.
-To achieve this, we must declare that our newly created type `BinTree a`
-is an instance of the type class `Show`.
-The general syntax is:
+en: Without the `deriving (Show)`, Haskell doesn't create a `show` method for us.
+en: We will create our own version of `show`.
+en: To achieve this, we must declare that our newly created type `BinTree a`
+en: is an instance of the type class `Show`.
+en: The general syntax is:
+fr: Sans le `deriving (Show)`, Haskell ne crée pas de méthode `show` pour nous.
+fr: Nous allons créer notre propre version.
+fr: Pour accomplir cela, nous devons déclarer que notre type `BinTree a` 
+fr: est une instance de la classe de type `Show`.
+fr: 
 
 <code class="haskell">
 instance Show (BinTree a) where
