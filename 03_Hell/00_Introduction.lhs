@@ -19,10 +19,10 @@ fr: et en particulier:
 
 en: - How do you deal with effects?
 en: - Why is there a strange imperative-like notation for dealing with IO?
-fr: - 
-fr: -
+fr: - Comment s'occuper des effets?
+fr: - Pourquoi y a t-il une étrange notation impérative lorsque l'on s'occupe de l'Entrée/Sortie? (E/S, _IO_ en anglais.)
 
 en: Be prepared, the answers might be complex.
 en: But they are all very rewarding.
-fr:
-fr:
+fr: Soyez préparés,  les réponses risquent d'être compliquées.
+fr: Mais elles en valent la peine.
