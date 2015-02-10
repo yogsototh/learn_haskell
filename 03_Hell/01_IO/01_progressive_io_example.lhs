@@ -1,11 +1,13 @@
-<h3 id="deal-with-io">Deal With IO</h3>
+en: <h3 id="deal-with-io">Deal With IO</h3>
+fr: <h3 id="deal-with-io">S'occuper de l'E/S (IO)</h3>
 
 blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche")
 
  > %tldr
  >
- > A typical function doing `IO` looks a lot like an imperative program:
- >
+en:  > A typical function doing `IO` looks a lot like an imperative program:
+fr:  > Une fonction typique qui fait de l'`IO` ressemble à un programme impératif:
+ > 
  > ~~~
  > f :: IO a
  > f = do
@@ -15,28 +17,41 @@ blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche")
  >   action4 x y
  > ~~~
  >
- > - To set a value to an object we use `<-` .
- > - The type of each line is `IO *`;
- >   in this example:
+en:  > - To set a value to an object we use `<-` .
+en:  > - The type of each line is `IO *`;
+en:  >   in this example:
+fr:  > - Pour définir la valeur d'un objet on utilise `<-` .
+fr:  > - Le type de chaque ligne est `IO *`;
+fr:  >   dans cet exemple:
  >   - `action1     :: IO b`
  >   - `action2 x   :: IO ()`
  >   - `action3     :: IO c`
  >   - `action4 x y :: IO a`
  >   - `x :: b`, `y :: c`
- > - Few objects have the type `IO a`, this should help you choose.
- >   In particular you cannot use pure functions directly here.
- >   To use pure functions you could do `action2 (purefunction x)` for example.
+en:  > - Few objects have the type `IO a`, this should help you choose.
+en:  >   In particular you cannot use pure functions directly here.
+en:  >   To use pure functions you could do `action2 (purefunction x)` for example.
+fr:  > - Quelques objets ont le type `IO a`, cela devrait vous aider à choisir.
+fr:  >   En particulier vous ne pouvez pas utiliser de fonctions pures directement ici.
+fr:  >   Pour utiliser des fonctions pures vous pourriez faire `action2 (pureFunction x)` par exemple.
 
-In this section, I will explain how to use IO, not how it works.
-You'll see how Haskell separates the pure from the impure parts of the program.
+en: In this section, I will explain how to use IO, not how it works.
+en: You'll see how Haskell separates the pure from the impure parts of the program.
+fr: Dans cette section, je vais expliquer comment utiliser l'IO, pas comment ça marche.
+fr: Vous verrez comment Haskell sépare les parties pures et impures du programme.
 
-Don't stop because you're trying to understand the details of the syntax.
-Answers will come in the next section.
+en: Don't stop because you're trying to understand the details of the syntax.
+en: Answers will come in the next section.
+fr: Ne vous arrêtez pas sur les détails de la syntaxe
+fr: Les réponses viendront dans la section suivante.
 
-What to achieve?
+en: What to achieve?
+fr: Que cherchons-nous à faire?
 
- > Ask a user to enter a list of numbers.
- > Print the sum of the numbers
+en:  > Ask a user to enter a list of numbers.
+en:  > Print the sum of the numbers
+fr:  > Demander une liste de nombres à l'utilisateur.
+fr:  > Afficher la somme de ces nombres.
 
 > toList :: String -> [Integer]
 > toList input = read ("[" ++ input ++ "]")
@@ -46,8 +61,10 @@ What to achieve?
 >   input <- getLine
 >   print $ sum (toList input)
 
-It should be straightforward to understand the behavior of this program.
-Let's analyze the types in more detail.
+en: It should be straightforward to understand the behavior of this program.
+en: Let's analyze the types in more detail.
+fr: Il devrait être simple de comprendre le comportement de ce programme.
+fr: Analysons les types en détails.
 
 ~~~
 putStrLn :: String -> IO ()
@@ -55,7 +72,8 @@ getLine  :: IO String
 print    :: Show a => a -> IO ()
 ~~~
 
-Or more interestingly, we note that each expression in the `do` block has a type of `IO a`.
+en: Or more interestingly, we note that each expression in the `do` block has a type of `IO a`.
+fr: Ou, plus intéressant, on remarque que chaque expression dans le bloc `do` est de type `IO a`.
 
 <pre>
 main = do
@@ -64,14 +82,16 @@ main = do
   print Something       :: <span class="high">IO ()</span>
 </pre>
 
-We should also pay attention to the effect of the `<-` symbol.
+en: We should also pay attention to the effect of the `<-` symbol.
+fr: Nous devrions aussi prêter attention à l'effet du symbole `<-`.
 
 ~~~
 do
  x <- something
 ~~~
 
-If `something :: IO a` then `x :: a`.
+en: If `something :: IO a` then `x :: a`.
+fr: Si 
 
 Another important note about using `IO`:
 All lines in a do block must be of one of the two forms:
