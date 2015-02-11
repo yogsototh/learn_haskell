@@ -84,24 +84,40 @@ fr: Nous avons juste à tester la valeur dans notre fonction principale.
 >           Just l  -> print (sum l)
 >           Nothing -> error "Bad format. Good Bye."
 
-In case of error, we display a nice error message.
+fr: En cas d'erreur, on affiche un joli message.
+en: In case of error, we display a nice error message.
 
-Note that the type of each expression in the main's do block remains of the form `IO a`.
-The only strange construction is `error`. 
-I'll just say here that `error msg` takes the needed type (here `IO ()`).
+fr: Remarquez que le type de chaque expresstion dans le bloc `do` de `main` reste de la forme `IO a`.
+en: Note that the type of each expression in the main's `do` block remains of the form `IO a`.
+fr: La seule construction étrange est `error`.
+en: The only strange construction is `error`. 
+fr: Je dirais juste que `error msg` prend le type nécessaire (ici, `IO ()`).
+en: I'll just say here that `error msg` takes the needed type (here `IO ()`).
 
-One very important thing to note is the type of all the functions defined so far.
-There is only one function which contains `IO` in its type: `main`. 
-This means main is impure.
-But main uses `getListFromString` which is pure.
-So it's clear just by looking at declared types which functions are pure and
-which are impure.
+fr: Un chose très importante à noter est le type de toutes les fonctions définies jusqu'ici.
+en: One very important thing to note is the type of all the functions defined so far.
+fr: Il n'y a qu'une seule fonction qui contient `IO` dans son type: `main`.
+en: There is only one function which contains `IO` in its type: `main`. 
+fr: Cela signifie que `main` est impure.
+en: This means main is impure.
+fr: Mais `main` utilise `getListFromString`, qui est pure.
+en: But main uses `getListFromString` which is pure.
+fr: Nous pouvons donc facilement repérer quelles fonctions sont pures
+en: So it's clear just by looking at declared types which functions are pure and
+fr: et lesquelles sont impures, seulement en regardant leurs type.
+en: which are impure.
 
-Why does purity matter?
-Among the many advantages, here are three:
+fr: Pourquoi la pureté a-t-elle de l'importance?
+en: Why does purity matter?
+fr: Parmis ses nombreux avantages, en voici trois:
+en: Among the many advantages, here are three:
 
-- It is far easier to think about pure code than impure code.
-- Purity protects you from all the hard-to-reproduce bugs that are due to side effects.
-- You can evaluate pure functions in any order or in parallel without risk.
+fr: - Il est beaucoup plus facile de penser à du code pur qu'à du code impur.
+en: - It is far easier to think about pure code than impure code.
+fr: - La pureté vous protège de tous les bugs difficiles à reproduire qui sont dûs aux effets collatéraux.
+en: - Purity protects you from all the hard-to-reproduce bugs that are due to side effects.
+fr: - Vous pouvez évaluer des fonctions pures dans n'importe quell ordre ou en parallèle, sans prendre de risques.
+en: - You can evaluate pure functions in any order or in parallel without risk.
 
-This is why you should generally put as most code as possible inside pure functions.
+fr: C'est pourquoi vous devriez mettre le plus de code possible dans des fonctions pures.
+en: This is why you should generally put as most code as possible inside pure functions.
