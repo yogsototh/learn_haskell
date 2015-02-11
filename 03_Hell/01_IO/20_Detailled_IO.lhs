@@ -1,21 +1,29 @@
-<h3 id="io-trick-explained">IO trick explained</h3>
+fr: <h3 id="io-trick-explained">Le truc des IO révélé</h3>
+en: <h3 id="io-trick-explained">IO trick explained</h3>
 
 blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe")
 
- > Here is a %tldr for this section.
+fr:  > Voici un %tlal pour cette section.
+en:  > Here is a %tldr for this section.
  >
- > To separate pure and impure parts,
- > `main` is defined as a function
- > which modifies the state of the world
+fr:  > Pour séparer les parties pures et impures,
+en:  > To separate pure and impure parts,
+fr:  > `main` est définie comme une fonction.
+en:  > `main` is defined as a function
+fr:  > qui modifie l'état du monde.
+en:  > which modifies the state of the world
  >
  > ~~~
  > main :: World -> World
  > ~~~
  >
- > A function is guaranteed to have side effects only if it has this type.
- > But look at a typical main function:
+fr:  > Une fonction aura des effets collatéraux si elle a ce type.
+en:  > A function is guaranteed to have side effects only if it has this type.
+fr:  > Mais regardez cette fonction `main` typique:
+en:  > But look at a typical main function:
  >
  > ~~~
+ > 
  > main w0 =
  >     let (v1,w1) = action1 w0 in
  >     let (v2,w2) = action2 v1 w1 in
@@ -23,18 +31,23 @@ blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe")
  >     action4 v3 w3
  > ~~~
  >
- > We have a lot of temporary elements (here `w1`, `w2` and `w3`)
- > which must be passed on to the next action.
+fr:  > Nous avons beaucoup d'élements temporaires (ici, `w1`, `w2` et `w3`) 
+en:  > We have a lot of temporary elements (here `w1`, `w2` and `w3`)
+fr:  > qui doivent être passés à la prochauine action.
+en:  > which must be passed on to the next action.
  >
- > We create a function `bind` or `(>>=)`.
- > With `bind` we don't need temporary names anymore.
+fr:  > Nous créons une fonction `bind` ou `(>>=)`.
+en:  > We create a function `bind` or `(>>=)`.
+fr:  > Avec `bind` nous n'avons plus besoin de noms temporaires.
+en:  > With `bind` we don't need temporary names anymore.
  >
  > ~~~
  > main =
  >   action1 >>= action2 >>= action3 >>= action4
  > ~~~
  >
- > Bonus: Haskell has syntactical sugar for us:
+fr:  > Bonus: Haskell a un sucre syntaxique:
+en:  > Bonus: Haskell has syntactical sugar for us:
  >
  > ~~~
  > main = do
@@ -45,11 +58,15 @@ blogimage("magritte_pipe.jpg","Magritte, ceci n'est pas une pipe")
  > ~~~
 
 
-Why did we use this strange syntax, and what exactly is this `IO` type?
-It looks a bit like magic.
+fr: Pourquoi avons-nous utilisé cette syntaxe étrange, et quel est exactement le type `IO`?
+en: Why did we use this strange syntax, and what exactly is this `IO` type?
+fr: Cela peut sembler un peu magique.
+en: It looks a bit like magic.
 
-For now let's just forget all about the pure parts of our program, and focus
-on the impure parts:
+fr: Pour l'instant, oublions les parties pures de notre programme, et concentrons-nous
+en: For now let's just forget all about the pure parts of our program, and focus
+fr: sur les parties impures:
+en: on the impure parts:
 
 <code class="haskell">
 askUser :: IO [Integer]
@@ -67,32 +84,49 @@ main = do
   print $ sum list
 </code>
 
-First remark: this looks imperative.
-Haskell is powerful enough to make impure code look imperative.
-For example, if you wish you could create a `while` in Haskell.
-In fact, for dealing with `IO`, an imperative style is generally more appropriate.
+fr: Première remarque: on dirait de l'impératif.
+en: First remark: this looks imperative.
+fr: Haskell est assez puissant pour faire sembler impératif du code impur.
+en: Haskell is powerful enough to make impure code look imperative.
+fr: Par exemple, si vous le vouliez vous pourriez créer `while` en Haskell.
+en: For example, if you wish you could create a `while` in Haskell.
+fr: En fait, pour utiliser les `IO`, le style impératif est généralement plus approprié.
+en: In fact, for dealing with `IO`, an imperative style is generally more appropriate.
 
-But you should have noticed that the notation is a bit unusual.
-Here is why, in detail.
+fr: Mais vous devriez avoir remarqué que la notation est inhabituelle.
+en: But you should have noticed that the notation is a bit unusual.
+fr: Voici pourquoi, en détail.
+en: Here is why, in detail.
 
-In an impure language, the state of the world can be seen as a huge hidden global variable.
-This hidden variable is accessible by all functions of your language.
-For example, you can read and write a file in any function.
-Whether a file exists or not is a difference in the possible states that the world can take.
+fr: Dans un langage impur, l'état du monde peut être vu comme une énorme variable globale cachée.
+en: In an impure language, the state of the world can be seen as a huge hidden global variable.
+fr: Cette variable cachée est accessible par toutes les fonctions du langage/
+en: This hidden variable is accessible by all functions of your language.
+fr: Par exemple, vous pouvez lire et écrire un fichier dans n'importe quelle fonction.
+en: For example, you can read and write a file in any function.
+fr: L'existence hypothétique du fichier est une différence dans les états possibles que le monde peut prendre.
+en: Whether a file exists or not is a difference in the possible states that the world can take.
 
-In Haskell this state is not hidden.
-Rather, it is _explicitly_ said that `main` is a function that _potentially_ changes the state of the world.
-Its type is then something like:
+fr: En Haskell cet état n'est pas caché.
+en: In Haskell this state is not hidden.
+fr: Au contraire, il est dit _explicitement_ que `main` est une fonction qui change _potentiellement_ l'état du monde.
+en: Rather, it is _explicitly_ said that `main` is a function that _potentially_ changes the state of the world.
+fr: Son type est donc quelque chose comme:
+en: Its type is then something like:
 
 <code class="haskell">
 main :: World -> World
 </code>
 
-Not all functions may have access to this variable.
-Those which have access to this variable are impure.
-Functions to which the world variable isn't provided are pure[^032001].
+fr: 
+en: Not all functions may have access to this variable.
+fr: 
+en: Those which have access to this variable are impure.
+fr: 
+en: Functions to which the world variable isn't provided are pure[^032001].
 
-[^032001]: There are some _unsafe_ exceptions to this rule. But you shouldn't see such use in a real application except maybe for debugging purposes.
+fr: [^032001]: 
+en: [^032001]: There are some _unsafe_ exceptions to this rule. But you shouldn't see such use in a real application except maybe for debugging purposes.
 
 Haskell considers the state of the world as an input variable to `main`.
 But the real type of main is closer to this one[^032002]:
