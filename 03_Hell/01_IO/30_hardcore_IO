@@ -62,3 +62,5 @@ Now, it is time to go to level 2.
 To make things clearer, I will increase the verbosity of the type. And instead of writing `IO a`. I will write `World -> (World,a)`.
 
 It was a real help for me to represent it this way because it is often hard to remember that "IO a" is in fact a function.
+
+fr:

@@ -50,13 +50,17 @@ This code is mostly the same as the previous one.
 
 </div>
 
-Suppose we don't mind having an ordered binary tree.
-Here is an infinite binary tree:
+en: Suppose we don't mind having an ordered binary tree.
+en: Here is an infinite binary tree:
+fr: Supposons que nous ne nous préoccupions pas d'avoir une arbre ordonné.
+fr: Voici un arbre binaire infini:
 
 > nullTree = Node 0 nullTree nullTree
 
-A complete binary tree where each node is equal to 0.
-Now I will prove you can manipulate this object using the following function:
+en: A complete binary tree where each node is equal to 0.
+en: Now I will prove you can manipulate this object using the following function:
+fr: Un arbre complet où chaque noeud est égal à 0.
+fr: Maintenant je vais vous prouver que nous pouvons manipuler cet arbre avec la fonction suivante:
 
 > -- take all element of a BinTree 
 > -- up to some depth
@@ -68,13 +72,15 @@ Now I will prove you can manipulate this object using the following function:
 >           in
 >               Node x nl nr
 
-See what occurs for this program:
+en: See what occurs for this program:
+fr: Regardez ce qui se passe avec ce programme:
 
 <code class="haskell">
 main = print $ treeTakeDepth 4 nullTree
 </code>
 
-This code compiles, runs and stops giving the following result:
+en: This code compiles, runs and stops giving the following result:
+fr: Le code compile, se lance et s'arrête en donnant ce résultat:
 
 ~~~
 <  0
@@ -94,17 +100,22 @@ This code compiles, runs and stops giving the following result:
 :       `-- 0
 ~~~
 
-Just to heat up your neurones a bit more,
-let's make a slightly more interesting tree:
+en: Just to heat up your neurones a bit more,
+en: let's make a slightly more interesting tree:
+fr: Pour nous chauffer encore un peu les neurones,
+fr: faisons un arbre plus intéressant:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
 >         where
 >            dec (Node x l r) = Node (x-1) (dec l) (dec r) 
 >            inc (Node x l r) = Node (x+1) (inc l) (inc r) 
 
-Another way to create this tree is to use a higher order function.
-This function should be similar to `map`, but should work on `BinTree` instead of list.
-Here is such a function:
+en: Another way to create this tree is to use a higher order function.
+en: This function should be similar to `map`, but should work on `BinTree` instead of list.
+en: Here is such a function:
+fr: Un autre moyen de créer cet arbre est d'utiliser une fonction d'ordre supérieur.
+fr: Cette fonction devrait être similaire à `map` n, mais devrais travailler sur un `BinTree` au lieu d'une liste. 
+fr: Voici cette fonction:
 
 > -- apply a function to each node of Tree
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
@@ -113,17 +124,22 @@ Here is such a function:
 >                                      (treeMap f left) 
 >                                      (treeMap f right)
 
-_Hint_: I won't talk more about this here. 
-If you are interested in the generalization of `map` to other data structures,
-search for functor and `fmap`.
+en: _Hint_: I won't talk more about this here. 
+en: If you are interested in the generalization of `map` to other data structures,
+en: search for functor and `fmap`.
+fr: _NB_: Je ne parlerais pas plus de cette fonction ici.
+fr: Si vous vous intéressez à la généralisation de `map`à d'autre structures de données,
+fr: cherchez des informations sur les foncteurs et `fmap`.
 
-Our definition is now:
+en: Our definition is now:
+fr: Notre définition est maintenant:
 
 > infTreeTwo :: BinTree Int
 > infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo) 
 >                     (treeMap (\x -> x+1) infTreeTwo) 
 
-Look at the result for 
+en: Look at the result for 
+fr: Regardez le résultat pour
 
 <code class="haskell">
 main = print $ treeTakeDepth 4 infTreeTwo

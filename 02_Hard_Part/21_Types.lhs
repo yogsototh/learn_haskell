@@ -1,7 +1,10 @@
-<h4 id="type-construction">Type construction</h4>
+en: <h4 id="type-construction">Type construction</h4>
+fr: <h4 id="type-construction">Construction de types</h4>
 
-You can construct your own types.
-First, you can use aliases or type synonyms.
+en: You can construct your own types.
+en: First, you can use aliases or type synonyms.
+fr: Vous pouvez construire vos propres types.
+fr: D'abord, vous pouvez utiliser des alias ou des synonymes de types.
 
 > type Name   = String
 > type Color  = String
