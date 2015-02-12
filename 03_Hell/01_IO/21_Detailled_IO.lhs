@@ -1,4 +1,5 @@
-To finish, let's translate our example:
+fr: Pour finir, traduisons notre exemple:
+en: To finish, let's translate our example:
 
 <code class="haskell">
 
@@ -17,7 +18,8 @@ main = do
   print $ sum list
 </code>
 
-Is translated into:
+fr: Est traduis en:
+en: Is translated into:
 
 > import Data.Maybe
 > 
@@ -40,6 +42,8 @@ Is translated into:
 > main = askUser >>=
 >   \list -> print $ sum list
 
-You can compile this code to verify that it works.
+fr: vous pouvez compiler ce code pour vérifier qu'il marche.
+en: You can compile this code to verify that it works.
 
-Imagine what it would look like without the `(>>)` and `(>>=)`.
+fr: Imaginez à quoi il ressemblerait sans le `(>>)` et `(>>=)`.
+en: Imagine what it would look like without the `(>>)` and `(>>=)`.
