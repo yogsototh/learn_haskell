@@ -77,13 +77,19 @@ en:  >   If your construction does not obey these rules strange things might hap
 fr: <h4 id="maybe-monad">Maybe est une monade</h4>
 en: <h4 id="maybe-monad">Maybe is a monad</h4>
 
-There are a lot of different types that are instances of `Monad`.
-One of the easiest to describe is `Maybe`.
-If you have a sequence of `Maybe` values, you can use monads to manipulate them.
-It is particularly useful to remove very deep `if..then..else..` constructions.
+fr: Il y a beaucoup de types différents qui sont des instances de `Monad`.
+en: There are a lot of different types that are instances of `Monad`.
+fr: L'un des plus faciles à décrire est `Maybe`.
+en: One of the easiest to describe is `Maybe`.
+fr: Si vous avez une séquence de valeurs `Maybe`, vous pouvez utiliser les monades pour les manipuler.
+en: If you have a sequence of `Maybe` values, you can use monads to manipulate them.
+fr: C'est particulièrement utile pour enlever des constructions `if..then..else..` trop nombreuses.
+en: It is particularly useful to remove very deep `if..then..else..` constructions.
 
-Imagine a complex bank operation. You are eligible to gain about 700€ only
-if you can afford to follow a list of operations without your balance dipping below zero.
+fr: Imaginez une opération bancaire complexe. Vous êtes éligible pour gagner 700€ seulement si
+en: Imagine a complex bank operation. You are eligible to gain about 700€ only
+fr: vous pouvez effectuer une liste d'opérations sans tomber en dessous de zéro.
+en: if you can afford to follow a list of operations without your balance dipping below zero.
 
 > deposit  value account = account + value
 > withdraw value account = account - value
