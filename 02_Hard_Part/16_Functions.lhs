@@ -135,7 +135,6 @@ fr: programming. Understanding this was really hard for me to grasp when first
 fr: learning Haskell. A lot of effort tends to go into explaining the superiority
 fr: of the functional approach. Then when you start using an imperative style with
 fr: Haskell, it can be hard to understand when and how to use it.
-fr: (_NDT: Je ne parviens pas à traduire correctement cette partie pour des raisons qui m'échappent..._)
 
 en: But before talking about this Haskell super-power, we must talk about another
 en: essential aspect of Haskell: _Types_.
