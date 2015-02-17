@@ -1,4 +1,5 @@
-Now, let's make it better using Maybe and the fact that it is a Monad
+fr: Maintenant, améliorons cela en utilisant le fait que `Maybe` est une Monade.
+en: Now, let's make it better using Maybe and the fact that it is a Monad
 
 > deposit :: (Num a) => a -> a -> Maybe a
 > deposit value account = Just (account + value)
