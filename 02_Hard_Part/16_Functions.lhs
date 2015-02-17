@@ -130,11 +130,11 @@ en: programming. Understanding this was really hard for me to grasp when first
 en: learning Haskell. A lot of effort tends to go into explaining the superiority
 en: of the functional approach. Then when you start using an imperative style with
 en: Haskell, it can be hard to understand when and how to use it.
-fr: In fact, Haskell is also great when you want to write imperative style
-fr: programming. Understanding this was really hard for me to grasp when first
-fr: learning Haskell. A lot of effort tends to go into explaining the superiority
-fr: of the functional approach. Then when you start using an imperative style with
-fr: Haskell, it can be hard to understand when and how to use it.
+fr: En fait, Haskell peut très bien vous permettre d'écrire des programmes impératifs.
+fr: Comprendre cela a été très difficile pour moi lorsque j'apprenais Haskell.
+fr: Beaucoup d'efforts tendent à expliquer la supériorité de l'approche fonctionnele.
+fr: Puis lorsque vous commencez à utliser le style impératif en Haskell,
+fr: Il peut être difficile de comprendre quand et où l'utliser.
 
 en: But before talking about this Haskell super-power, we must talk about another
 en: essential aspect of Haskell: _Types_.
