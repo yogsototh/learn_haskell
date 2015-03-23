@@ -5,7 +5,7 @@ fr: La soulution: ne déclarez pas de type pour `f` pour le moment et laissez Ha
 >
 > main = print (f 2.3 4.2)
 
-en: It works! 
+en: It works!
 en: Luckily, we don't have to declare a new function for every single type.
 en: For example, in `C`, you'll have to declare a function for `int`, for `float`, for `long`, for `double`, etc...
 fr: Maintenant, ça marche!
@@ -37,7 +37,7 @@ Num a => a -> a -> a
 ~~~
 
 en: First, let's focus on the right part `a -> a -> a`.
-en: To understand it, just look at a list of progressive examples: 
+en: To understand it, just look at a list of progressive examples:
 fr: Preumièrement, concentrons-nous sur la partie de droite: `a -> a -> a`.
 fr: Pour le comprendre, regardez cette liste d'exemples progressifs:
 
@@ -56,7 +56,7 @@ en: `a -> a`                   the type function from any type `a` to the same t
 en: 
 en: `a -> a -> a`              the type function of two arguments of any type `a` to the same type `a`
 en: --------------------------------------------------------------------------------------------------
-fr: -------------------------------------------------------------------------------------------------------------------------------------- 
+fr: --------------------------------------------------------------------------------------------------------------------------------------
 fr: Le&nbsp;type&nbsp;écrit    Son sens
 fr: -------------------------- -----------------------------------------------------------------------------------------------------------
 fr: `Int`                      Le type `Int`
@@ -72,7 +72,7 @@ fr:
 fr: `a -> a -> a`              Le type de la fonction qui prend de arguments de n'importe quel type`a` et retourne une variable de type `a`
 fr: --------------------------------------------------------------------------------------------------------------------------------------
 
-en: In the type `a -> a -> a`, the letter `a` is a _type variable_. 
+en: In the type `a -> a -> a`, the letter `a` is a _type variable_.
 en: It means `f` is a function with two arguments and both arguments and the result have the same type.
 en: The type variable `a` could take many different type values.
 en: For example `Int`, `Integer`, `Float`...
@@ -85,7 +85,7 @@ en: So instead of having a forced type like in `C` and having to declare a funct
 en: for `int`, `long`, `float`, `double`, etc., we declare only one function like
 en: in a dynamically typed language.
 fr: Donc à la place d'avoir un type forcé comme en `C` et de devoir déclarer une fonction
-fr: pour `int`, `long`, `float`, `double`, etc., nous déclarons une seule fonction comme 
+fr: pour `int`, `long`, `float`, `double`, etc., nous déclarons une seule fonction comme
 fr: dans un langage typé de façon dynamique.
 
 en: This is sometimes called parametric polymorphism. It's also called having your
@@ -125,7 +125,7 @@ en: This is a function from type `a` to (`a -> a`).
 fr: soit `a` un type qui appartient à la classe `Num`.
 fr: C'est une fonction qui prend une variable de type `a` et retourne une fonction de type `(a -> a)`
 
-en: Yes, strange. 
+en: Yes, strange.
 en: In fact, in Haskell no function really has two arguments.
 en: Instead all functions have only one argument.
 en: But we will note that taking two arguments is equivalent to taking one argument and returning a function taking the second argument as a parameter.
@@ -134,7 +134,7 @@ fr: En fait, en Haskell aucune fonction ne prend réellement deux arguments.
 fr: Au lieu de cela toutes les fonctions n'ont qu'un argument unique.
 fr: Mais nous retiendrons que prendre deux arguments est équivalent à n'en prendre qu'un et à retourner une fonction qui prend le second argument en paramètre.
 
-en: More precisely `f 3 4` is equivalent to `(f 3) 4`. 
+en: More precisely `f 3 4` is equivalent to `(f 3) 4`.
 en: Note `f 3` is a function:
 fr: Plus précisement `f 3 4` est équivalent à `(f 3) 4 `.
 fr: Remarque: `f 3` est une fonction:
@@ -148,7 +148,7 @@ g = f 3
 g y ⇔ 3*3 + y*y
 ~~~
 
-en: Another notation exists for functions. 
+en: Another notation exists for functions.
 en: The lambda notation allows us to create functions without assigning them a name.
 en: We call them anonymous functions.
 en: We could also have written:

@@ -165,7 +165,7 @@ f $ g h x       ⇔  f (g h x) ⇔ f ((g h) x)
 f $ g $ h x     ⇔  f (g (h x))
 
 en: -- (.) the composition function
-fr: -- (.) premet de faire des compositions de fonctions
+fr: -- (.) permet de faire des compositions de fonctions
 (f . g) x       ⇔  f (g x)
 (f . g . h) x   ⇔  f (g (h x))
 ~~~

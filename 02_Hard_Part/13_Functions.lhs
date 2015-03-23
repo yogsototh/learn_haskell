@@ -3,14 +3,14 @@ fr: Puis on utilise le _pattern matching_
 
 > -- Version 3
 > evenSum l = accumSum 0 l
->     where 
+>     where
 >         accumSum n [] = n
->         accumSum n (x:xs) = 
+>         accumSum n (x:xs) =
 >              if even x
 >                 then accumSum (n+x) xs
 >                 else accumSum n xs
 
-en: What is pattern matching? 
+en: What is pattern matching?
 en: Use values instead of general parameter names[^021301].
 fr: Qu'est ce que le _pattern matching_ ?
 fr: Il s'agit d'utiliser des valeurs au lieu de noms de paramètres généraux.
@@ -19,7 +19,7 @@ en: [^021301]: For the brave, a more complete explanation of pattern matching ca
 fr: [^021301]: Pour les plus courageux, une explication plus complète du _pattern matching_ peut être trouvée [ici](http://www.cs.auckland.ac.nz/references/haskell/haskell-intro-html/patterns.html) (_NdT: En anglais_)
 
 en: Instead of saying: `foo l = if l == [] then <x> else <y>`
-en: You simply state:  
+en: You simply state:
 fr: Au lieu d'écrire: `foo l = if l == [] then <x> else <y>`
 fr: Vous écrivez tout simplement :
 
@@ -36,9 +36,9 @@ fr: Il est également capable d'inspect les données internes d'un valeur comple
 fr: Nous pouvons ainsi remplacer
 
 <code class="haskell">
-foo l =  let x  = head l 
+foo l =  let x  = head l
              xs = tail l
-         in if even x 
+         in if even x
              then foo (n+x) xs
              else foo n xs
 </code>
@@ -47,7 +47,7 @@ en: with
 fr: par
 
 <code class="haskell">
-foo (x:xs) = if even x 
+foo (x:xs) = if even x
                  then foo (n+x) xs
                  else foo n xs
 </code>

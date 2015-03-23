@@ -23,7 +23,7 @@ en: is an instance of the type class `Show`.
 en: The general syntax is:
 fr: Sans le `deriving (Show)`, Haskell ne crée pas de méthode `show` pour nous.
 fr: Nous allons créer notre propre version.
-fr: Pour accomplir cela, nous devons déclarer que notre type `BinTree a` 
+fr: Pour accomplir cela, nous devons déclarer que notre type `BinTree a`
 fr: est une instance de la classe de type `Show`.
 fr: La syntaxe générale est:
 
@@ -226,6 +226,6 @@ fr: Nous avons ceci presque gratuitement, car nous avons déclaré Tree comme in
 en: See how awesome this structure is:
 en: We can make trees containing not only integers, strings and chars, but also other trees.
 en: And we can even make a tree containing a tree of trees!
-fr:Voyez à quel point cette structure est formidable: 
-fr: Nous pouvons faire des arbres contenant seulement des entiers, des chaînes de caractères, mais aussi d'autres arbres. 
+fr:Voyez à quel point cette structure est formidable:
+fr: Nous pouvons faire des arbres contenant seulement des entiers, des chaînes de caractères, mais aussi d'autres arbres.
 fr: Et nous pouvons même faire un arbre contenant un arbre d'arbres!

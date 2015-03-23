@@ -20,7 +20,7 @@ fr: Pour mieux comprendre ce qui se passe ici, étudions une évaluation étape 
   <span class="yellow">evenSum [1,2,3,4]</span>
 ⇒ foldl' (+) 0 (<span class="yellow">filter even [1,2,3,4]</span>)
 ⇒ <span class="yellow">foldl' (+) 0 <span class="blue">[2,4]</span></span>
-⇒ <span class="blue">foldl' (+) (<span class="yellow">0+2</span>) [4]</span> 
+⇒ <span class="blue">foldl' (+) (<span class="yellow">0+2</span>) [4]</span>
 ⇒ <span class="yellow">foldl' (+) <span class="blue">2</span> [4]</span>
 ⇒ <span class="blue">foldl' (+) (<span class="yellow">2+4</span>) []</span>
 ⇒ <span class="yellow">foldl' (+) <span class="blue">6</span> []</span>
@@ -50,13 +50,13 @@ evenSum = (foldl' (+) 0) . (filter even)
 en: Also, we could rename some parts to make it clearer:
 fr: Nous pouvons maintenant renommer certaines parties pour rendre le tout plus clair:
 
-> -- Version 10 
+> -- Version 10
 > import Data.List (foldl')
 > sum' :: (Num a) => [a] -> a
 > sum' = foldl' (+) 0
 > evenSum :: Integral a => [a] -> a
 > evenSum = sum' . (filter even)
->  
+>
 
 en: It is time to discuss the direction our code has moved as we introduced more functional idioms.
 en: What did we gain by using higher order functions?

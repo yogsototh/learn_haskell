@@ -30,7 +30,7 @@ fr: Une autre méthode est de créer vos propres type avec le mot-clé `data`.
 > main = putStrLn $ showInfos name color
 
 en: Now if you switch parameters of `showInfos`, the compiler complains!
-en: So this is a potential mistake you will never make again and the only price is to be more verbose. 
+en: So this is a potential mistake you will never make again and the only price is to be more verbose.
 fr: Maintenant, si vous échangez les paramètres de`showInfos`, le compilateur se plaint!
 fr: C'est donc une erreur que vous ne refairez jamais, au suel prix d'être plus bavard.
 

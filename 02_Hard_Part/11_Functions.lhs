@@ -5,13 +5,13 @@ fr: La fonction `evenSum` retourne la somme de tous les nombres pairs d'une list
 
 > -- Version 1
 > evenSum :: [Integer] -> Integer
-> 
+>
 > evenSum l = accumSum 0 l
-> 
+>
 > accumSum n l = if l == []
 >                   then n
->                   else let x = head l 
->                            xs = tail l 
+>                   else let x = head l
+>                            xs = tail l
 >                        in if even x
 >                               then accumSum (n+x) xs
 >                               else accumSum n xs
@@ -25,14 +25,14 @@ fr: Pour tester une fonction nous pouvons utiliser `ghci`:
 Loading package ghc-prim ... linking ... done.
 Loading package integer-gmp ... linking ... done.
 Loading package base ... linking ... done.
-Prelude&gt;</span> :load 11_Functions.lhs 
+Prelude&gt;</span> :load 11_Functions.lhs
 <span class="low">[1 of 1] Compiling Main             ( 11_Functions.lhs, interpreted )
 Ok, modules loaded: Main.
 *Main&gt;</span> evenSum [1..5]
 6
 </pre>
 
-en: Here is an example of execution[^2]: 
+en: Here is an example of execution[^2]:
 fr: Voici un exemple d'exécution[^2]:
 
 en: [^2]: I know I'm cheating. But I will talk about non-strictness later.

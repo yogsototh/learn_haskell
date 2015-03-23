@@ -36,7 +36,7 @@ fr: où
 filter even [1..10] ⇔  [2,4,6,8,10]
 </code>
 
-en: The function `filter` takes a function of type (`a -> Bool`) and a list of type `[a]`. 
+en: The function `filter` takes a function of type (`a -> Bool`) and a list of type `[a]`.
 en: It returns a list containing only elements for which the function returned `true`.
 fr: La fonction `filter` prend une fonction du type (`a -> Bool`) et une liste de type `[a]`.
 fr: Elle retourne une liste qui contient seulement les élements pour qui la fonction  a retourné `True`.
@@ -85,7 +85,7 @@ fr: Si vous ne comprenez pas encore ce que _paresseux_ ou _strict_ signifie,
 fr: ne vous inquiétez pas, suivez le code comme si `foldl'` et `foldl` étaient identiques
 
 en: Now our new version of `evenSum` becomes:
-fr: Maintenant notre version de `evenSum` devient: 
+fr: Maintenant notre version de `evenSum` devient:
 
 <code class="haskell">
 -- Version 6

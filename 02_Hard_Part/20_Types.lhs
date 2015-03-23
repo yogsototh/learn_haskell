@@ -33,7 +33,7 @@ fr: Mais la plupart des langages typés statiquement ont du mal à généraliser
 fr: La "grâce salvatrice" de Haskell est qu'il peut _inférer_ des types.
 
 en: Here is a simple example, the `square` function in Haskell:
-fr: Voici un exemple simple, la fonction `square` en Haskell: 
+fr: Voici un exemple simple, la fonction `square` en Haskell:
 
 <code class="haskell">
 square x = x * x

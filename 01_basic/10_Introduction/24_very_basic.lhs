@@ -11,12 +11,12 @@ fr: Si nous forçons notre fonction à travailler avec des types différents, le
 > -- won't work because type x ≠ type y
 > main = print (f x y)
 
-en: The compiler complains. 
+en: The compiler complains.
 en: The two parameters must have the same type.
 fr: Le compilateur se plaint.
 fr: Les deux paramètres doivent avoir le même type.
 
-en: If you believe that this is a bad idea, and that the compiler should make the transformation 
+en: If you believe that this is a bad idea, and that the compiler should make the transformation
 en: from one type to another for you, you should really watch this great (and funny) video:
 en: [WAT](https://www.destroyallsoftware.com/talks/wat)
 fr: Si vous pensez que c'est une mauvaise idée et que le compilateur devrait faire la transformation

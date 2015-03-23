@@ -5,7 +5,7 @@ fr: Nous gardons la première partie:
 en: We keep the first part:
 
 > import Data.Maybe
-> 
+>
 > maybeRead :: Read a => String -> Maybe a
 > maybeRead s = case reads s of
 >                   [(x,"")]    -> Just x
@@ -28,11 +28,11 @@ en: until the input is right.
 >           Nothing -> askUser
 
 fr: Cette fonction est de type `IO [Integer]`.
-en: This function is of type `IO [Integer]`. 
+en: This function is of type `IO [Integer]`.
 fr: cela signifie que la valeur trouvée est de type `[Integer`] et est le résultat d'actions d'E/S.
 en: Such a type means that we retrieved a value of type `[Integer]` through some IO actions.
 fr: Certaines personnes expliqueraient en agitant leurs mains:
-en: Some people might explain while waving their hands: 
+en: Some people might explain while waving their hands:
 
 fr:  > «C'est un `[Integer]` dans un `IO`»
 en:  > «This is an `[Integer]` inside an `IO`»
@@ -75,6 +75,6 @@ en: If you practice a bit, you should be able to _use_ `IO`.
 
 fr:  > -Exercices_:
 en:  > _Exercises_:
- > 
+ >
 fr:  > - Faites un programme qui additionne tous ses arguments. Utilisez la fonction `getArgs`.
 en:  > - Make a program that sums all of its arguments. Hint: use the function `getArgs`.

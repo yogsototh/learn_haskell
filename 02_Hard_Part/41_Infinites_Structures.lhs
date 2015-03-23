@@ -5,8 +5,8 @@ This code is mostly the same as the previous one.
 
 > import Debug.Trace (trace)
 > import Data.List
-> data BinTree a = Empty 
->                  | Node a (BinTree a) (BinTree a) 
+> data BinTree a = Empty
+>                  | Node a (BinTree a) (BinTree a)
 >                   deriving (Eq,Ord)
 
 > -- declare BinTree a to be an instance of Show
@@ -16,37 +16,37 @@ This code is mostly the same as the previous one.
 >   show t = "< " ++ replace '\n' "\n: " (treeshow "" t)
 >     where
 >     treeshow pref Empty = ""
->     treeshow pref (Node x Empty Empty) = 
+>     treeshow pref (Node x Empty Empty) =
 >                   (pshow pref x)
-> 
->     treeshow pref (Node x left Empty) = 
+>
+>     treeshow pref (Node x left Empty) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " left)
-> 
->     treeshow pref (Node x Empty right) = 
+>
+>     treeshow pref (Node x Empty right) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
-> 
->     treeshow pref (Node x left right) = 
+>
+>     treeshow pref (Node x left right) =
 >                   (pshow pref x) ++ "\n" ++
 >                   (showSon pref "|--" "|  " left) ++ "\n" ++
 >                   (showSon pref "`--" "   " right)
-> 
+>
 >     -- show a tree using some prefixes to make it nice
->     showSon pref before next t = 
+>     showSon pref before next t =
 >                   pref ++ before ++ treeshow (pref ++ next) t
-> 
+>
 >     -- pshow replace "\n" by "\n"++pref
 >     pshow pref x = replace '\n' ("\n"++pref) (" " ++ show x)
-> 
+>
 >     -- replace on char by another string
 >     replace c new string =
 >       concatMap (change c new) string
 >       where
->           change c new x 
+>           change c new x
 >               | x == c = new
 >               | otherwise = x:[] -- "x"
-> 
+>
 
 </div>
 
@@ -62,7 +62,7 @@ en: Now I will prove you can manipulate this object using the following function
 fr: Un arbre complet où chaque noeud est égal à 0.
 fr: Maintenant je vais vous prouver que nous pouvons manipuler cet arbre avec la fonction suivante:
 
-> -- take all element of a BinTree 
+> -- take all element of a BinTree
 > -- up to some depth
 > treeTakeDepth _ Empty = Empty
 > treeTakeDepth 0 _     = Empty
@@ -107,24 +107,24 @@ fr: faisons un arbre plus intéressant:
 
 > iTree = Node 0 (dec iTree) (inc iTree)
 >         where
->            dec (Node x l r) = Node (x-1) (dec l) (dec r) 
->            inc (Node x l r) = Node (x+1) (inc l) (inc r) 
+>            dec (Node x l r) = Node (x-1) (dec l) (dec r)
+>            inc (Node x l r) = Node (x+1) (inc l) (inc r)
 
 en: Another way to create this tree is to use a higher order function.
 en: This function should be similar to `map`, but should work on `BinTree` instead of list.
 en: Here is such a function:
 fr: Un autre moyen de créer cet arbre est d'utiliser une fonction d'ordre supérieur.
-fr: Cette fonction devrait être similaire à `map` n, mais devrais travailler sur un `BinTree` au lieu d'une liste. 
+fr: Cette fonction devrait être similaire à `map` n, mais devrais travailler sur un `BinTree` au lieu d'une liste.
 fr: Voici cette fonction:
 
 > -- apply a function to each node of Tree
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
 > treeMap f Empty = Empty
-> treeMap f (Node x left right) = Node (f x) 
->                                      (treeMap f left) 
+> treeMap f (Node x left right) = Node (f x)
+>                                      (treeMap f left)
 >                                      (treeMap f right)
 
-en: _Hint_: I won't talk more about this here. 
+en: _Hint_: I won't talk more about this here.
 en: If you are interested in the generalization of `map` to other data structures,
 en: search for functor and `fmap`.
 fr: _NB_: Je ne parlerais pas plus de cette fonction ici.
@@ -135,10 +135,10 @@ en: Our definition is now:
 fr: Notre définition est maintenant:
 
 > infTreeTwo :: BinTree Int
-> infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo) 
->                     (treeMap (\x -> x+1) infTreeTwo) 
+> infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo)
+>                     (treeMap (\x -> x+1) infTreeTwo)
 
-en: Look at the result for 
+en: Look at the result for
 fr: Regardez le résultat pour
 
 <code class="haskell">

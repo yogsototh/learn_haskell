@@ -1,7 +1,7 @@
 en: In Haskell you can simplify function definitions by η-reducing them.
 en: For example, instead of writing:
 fr: Avec Haskell, nous pouvons simplifier les défitions des fonctions en les _η-réduisant_ .
-fr: Par exemple, au lieu d'écrire: 
+fr: Par exemple, au lieu d'écrire:
 
 <code class="haskell">
 en: f x = (some expresion) x
@@ -21,11 +21,11 @@ fr: Utilisons cette méthode pour retirer le `l`:
 
 > -- Version 4
 > evenSum :: Integral a => [a] -> a
-> 
+>
 > evenSum = accumSum 0
->     where 
+>     where
 >         accumSum n [] = n
->         accumSum n (x:xs) = 
+>         accumSum n (x:xs) =
 >              if even x
 >                 then accumSum (n+x) xs
 >                 else accumSum n xs

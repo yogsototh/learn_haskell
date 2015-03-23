@@ -15,7 +15,7 @@ en: f :: (a -> b) -> c  ⇔ f is a function from (a→b) to c
 fr: x :: Int            ⇔ x est de type Int
 fr: x :: a              ⇔ x peut être de n'importe quel type
 fr: x :: Num a => a     ⇔ x peut être de n'importe quel type a
-fr:                       tant qu a appartient à la classe de type Num 
+fr:                       tant qu' a appartient à la classe de type Num 
 fr: f :: a -> b         ⇔ f est une fonction qui prend un a et retourne un b
 fr: f :: a -> b -> c    ⇔ f est une fonction qui prend un a et retourne un (b→c)
 fr: f :: (a -> b) -> c  ⇔ f est une fonction qui prend un (a→b) et retourne un c
@@ -31,7 +31,7 @@ fr: Mais c'est considéré comme une bonne pratique.
 en: _Infix notation_
 fr: _Notation Infixée_
 
-> square :: Num a => a -> a  
+> square :: Num a => a -> a
 > square x = x^2
 
 en: Note `^` uses infix notation.

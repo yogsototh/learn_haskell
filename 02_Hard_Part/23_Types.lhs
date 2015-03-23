@@ -26,7 +26,7 @@ en: If you want to be able to print (`Show`), read (`Read`), test equality (`Eq`
 fr: Si vous voulez pouvoir écrire (`Show`), lire (`Read`), tester l'égalite (`Eq`) et comparer (`Ord`) votre nouvelle structure, vous pouvez demander à Haskell de dériver les fonctions appropriées pour vous.
 
 > infixr 5 :::
-> data List a = Nil | a ::: (List a) 
+> data List a = Nil | a ::: (List a)
 >               deriving (Show,Read,Eq,Ord)
 
 en: When you add `deriving (Show)` to your data declaration, Haskell creates a `show` function for you.

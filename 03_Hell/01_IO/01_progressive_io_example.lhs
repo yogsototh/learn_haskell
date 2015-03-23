@@ -7,7 +7,7 @@ blogimage("magritte_carte_blanche.jpg","Magritte, Carte blanche")
  >
 en:  > A typical function doing `IO` looks a lot like an imperative program:
 fr:  > Une fonction typique qui fait de l'`IO` ressemble à un programme impératif:
- > 
+ >
  > ~~~
  > f :: IO a
  > f = do

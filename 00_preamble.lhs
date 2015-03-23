@@ -6,7 +6,7 @@ en: but they should at least discover what Haskell has to offer.
 en: Learning Haskell opens your mind.
 fr: Je pense vraiment que
 fr: tous les développeurs devraient apprendre Haskell.
-fr: Peut-être pas devenir des ninjas d'Haskell, 
+fr: Peut-être pas devenir des ninjas d'Haskell,
 fr: mais au moins savoir ce que ce langage a de particulier.
 fr: Son apprentissage ouvre énormément l'esprit.
 
@@ -42,7 +42,7 @@ fr: Dans cet article, j'essaye de fournir les informations qui m'ont manquées l
 en: This article will certainly be hard to follow.
 en: This is on purpose.
 en: There is no shortcut to learning Haskell.
-en: It is hard and challenging. 
+en: It is hard and challenging.
 en: But I believe this is a good thing.
 en: It is because it is hard that Haskell is interesting.
 fr: Cet article sera certainement difficile à suivre.
@@ -52,12 +52,12 @@ fr: C'est difficile.
 fr: Mais je pense que c'est une bonne chose.
 fr: C'est parce qu'Haskell est difficile qu'il est intéressant.
 
-en: The conventional method to learning Haskell is to read two books. 
+en: The conventional method to learning Haskell is to read two books.
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
 en: But to learn what Haskell is all about, you'll have to read them in detail.
 fr: La manière conventionnelle d'apprendre Haskell est de lire deux livres.
-fr: En premier ["Learn You a Haskell"](http://learnyouahaskell.com) 
+fr: En premier ["Learn You a Haskell"](http://learnyouahaskell.com)
 fr: et ensuite ["Real World Haskell"](http://www.realworldhaskell.org).
 fr: Je pense aussi que c'est la bonne manière de s'y prendre.
 fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans se plonger réellement dans ces livres.
@@ -67,7 +67,7 @@ en: I also added some information I lacked while I learned Haskell.
 fr: Cet article fait un résumé très dense et rapide des aspect majeurs d'Haskell.
 fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentissage de ce langage.
 
-fr: Pour les francophones ; je suis désolé. 
+fr: Pour les francophones ; je suis désolé.
 fr: Je n'ai pas eu le courage de tout retraduire en français.
 fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort de traduire l'article en entier.
 fr: Et si vous vous sentez d'avoir une bonne âme je ne suis pas contre un peu d'aide.
@@ -91,7 +91,7 @@ en:     - More on infinite tree; a more math oriented discussion about infinite 
 
 fr: - Introduction : un exemple rapide pour montrer qu'Haskell peut être facile.
 fr: - Les bases d'Haskell : La syntaxe et des notions essentielles
-fr: - Partie difficile : 
+fr: - Partie difficile :
 fr:     - Style fonctionnel : un exemple progressif, du style impératif au style fonctionnel ;
 fr:     - Types : la syntaxe et un exemple d'arbre binaire ;
 fr:     - Structure infinie : manipulons un arbre infini !
@@ -104,7 +104,7 @@ fr:     - Revenons sur les arbres infinis : une discussion plus mathématique su
 
 en:  > Note: Each time you see a separator with a filename ending in `.lhs`
 en:  > you can click the filename to get this file.
-en:  > If you save the file as `filename.lhs`, you can run it with 
+en:  > If you save the file as `filename.lhs`, you can run it with
 en:  > <pre>
 en:  > runhaskell filename.lhs
 en:  > </pre>
@@ -112,7 +112,7 @@ en:  >
 en:  > Some might not work, but most will.
 en:  > You should see a link just below.
 
-fr:  > Note: Chaque fois que vous voyez un séparateur avec un nom de fichier se terminant par `lhs`, vous pouvez cliquer sur le nom de fichier et télécharger le fichier. 
+fr:  > Note: Chaque fois que vous voyez un séparateur avec un nom de fichier se terminant par `lhs`, vous pouvez cliquer sur le nom de fichier et télécharger le fichier.
 fr:  > Si vous sauvegardez le fichier sour le nom `filename.lhs`, vous pouvez l'exécuter avec :
 fr:  > <pre>
 fr:  > runhaskell filename.lhs

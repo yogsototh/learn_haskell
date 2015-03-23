@@ -13,7 +13,7 @@ fr: Essayons:
 ~~~
 
 
-en: Argh! An evil error message and a crash! 
+en: Argh! An evil error message and a crash!
 fr: Argh! Un message d'erreur et un crash!
 en: Our first improvement will simply be to answer with a more friendly message.
 fr: Notre première amélioration sera de répondre avec un message plus amical.
@@ -41,7 +41,7 @@ en: This is a nice way to tell there was an error while trying to create/compute
 fr: une valeur.
 en: a value.
 fr: La fonction `maybeRead` est un bon exemple de cela.
-en: The `maybeRead` function is a great example of this. 
+en: The `maybeRead` function is a great example of this.
 fr: C'est une fonction similaire à `read`[^1],
 en: This is a function similar to the function `read`[^1],
 fr: mais si quelque chose ne va pas la valeur retournée est `Nothing`.
@@ -49,7 +49,7 @@ en: but if something goes wrong the returned value is `Nothing`.
 fr: Si la valeur est bonne, la valeur retournée est `Just <la valeur>`.
 en: If the value is right, it returns `Just <the value>`.
 fr: N'essayez pas trop de comprendre cette fonction.
-en: Don't try to understand too much of this function. 
+en: Don't try to understand too much of this function.
 fr: J'utilise un fonction de plus bas niveau que `read`; `reads`.
 en: I use a lower level function than `read`; `reads`.
 
@@ -90,14 +90,14 @@ en: In case of error, we display a nice error message.
 fr: Remarquez que le type de chaque expresstion dans le bloc `do` de `main` reste de la forme `IO a`.
 en: Note that the type of each expression in the main's `do` block remains of the form `IO a`.
 fr: La seule construction étrange est `error`.
-en: The only strange construction is `error`. 
+en: The only strange construction is `error`.
 fr: Je dirais juste que `error msg` prend le type nécessaire (ici, `IO ()`).
 en: I'll just say here that `error msg` takes the needed type (here `IO ()`).
 
 fr: Un chose très importante à noter est le type de toutes les fonctions définies jusqu'ici.
 en: One very important thing to note is the type of all the functions defined so far.
 fr: Il n'y a qu'une seule fonction qui contient `IO` dans son type: `main`.
-en: There is only one function which contains `IO` in its type: `main`. 
+en: There is only one function which contains `IO` in its type: `main`.
 fr: Cela signifie que `main` est impure.
 en: This means main is impure.
 fr: Mais `main` utilise `getListFromString`, qui est pure.
