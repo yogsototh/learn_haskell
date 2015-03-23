@@ -7,7 +7,7 @@ fr: Maintenant essayez
 > main = print (f 2.3 4.2)
 
 en: You should get this error:
-fr: Vous devriz avoir cette erreur:
+fr: Vous devriez avoir cette erreur:
 
 ~~~
 21_very_basic.lhs:6:23:
