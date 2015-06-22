@@ -43,7 +43,7 @@ fr: La partie principale de ce tutoriel sera consacrée à expliquer cela.
 
 en: In Haskell there is a `main` function and every object has a type.
 en: The type of `main` is `IO ()`.
-en: This means `main` will cause side effects. expliquer cela.
+en: This means `main` will cause side effects.
 fr: En Haskell il y a une fonction `main` tous les objets ont un type.
 fr: Le type de `main` est `IO ()`.
 fr: Cela veut dire que `main` causera des effets secondaires.
