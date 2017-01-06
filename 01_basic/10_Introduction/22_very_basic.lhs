@@ -38,7 +38,7 @@ Num a => a -> a -> a
 
 en: First, let's focus on the right part `a -> a -> a`.
 en: To understand it, just look at a list of progressive examples:
-fr: Preumièrement, concentrons-nous sur la partie de droite: `a -> a -> a`.
+fr: Premièrement, concentrons-nous sur la partie de droite: `a -> a -> a`.
 fr: Pour le comprendre, regardez cette liste d'exemples progressifs:
 
 en: --------------------------------------------------------------------------------------------------
