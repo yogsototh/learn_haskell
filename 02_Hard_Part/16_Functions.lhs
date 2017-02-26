@@ -30,7 +30,7 @@ fr: Pour mieux comprendre ce qui se passe ici, étudions une évaluation étape 
 
 en: Another useful higher order function is `(.)`.
 en: The `(.)` function corresponds to mathematical composition.
-fr: Une autr fonction d'ordre supérieur utile est `(.)`.
+fr: Une autre fonction d'ordre supérieur utile est `(.)`.
 fr: Elle correspond à une composition en mathématiques.
 
 <code class="haskell">
