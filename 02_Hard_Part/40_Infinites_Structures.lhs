@@ -12,17 +12,17 @@ fr: En fait, si vous êtes un petit peu pédant, vous devriez dire que [Haskell 
 fr: La paresse est juste une implémentation commune aux langages non-stricts.
 
 en: Then what does "not-strict" mean? From the Haskell wiki:
-fr: Alors que signifie "non-strict"? D'après le wiki de Haskell:
+fr: Alors que signifie "non-strict"? D'après le wiki de Haskell :
 
 en:  > Reduction (the mathematical term for evaluation) proceeds from the outside in.
 en:  >
 en:  > so if you have `(a+(b*c))` then you first reduce `+` first, then you reduce the inner `(b*c)`
-fr:  > Réduction (terme mathématique pour évaluation) procède depuis l'extérieur.
+fr:  > La réduction (terme mathématique pour "évaluation") procède depuis l'extérieur.
 fr:  >
-fr:  > donc si vous avez `(a+(b*c))` alors vous réduisez `+` d'abord, puis vous réduisez `(b*c)`
+fr:  > Donc si vous avez `(a+(b*c))`, alors vous réduisez `+` d'abord, puis vous réduisez `(b*c)`
 
 en: For example in Haskell you can do:
-fr: Par exemple en Haskell vous pouvez faire:
+fr: Par exemple en Haskell vous pouvez faire :
 
 > -- numbers = [1,2,..]
 > numbers :: [Integer]
@@ -38,7 +38,7 @@ en: And it stops.
 fr: Et ça s'arrête.
 
 en: How?
-fr: Comment?
+fr: Comment ?
 
 en: Instead of trying to evaluate `numbers` entirely,
 en: it evaluates elements only when needed.
