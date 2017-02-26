@@ -23,7 +23,7 @@ en: The number after `infixr` gives the precedence.
 fr: Le nombre après `infixr` donne la priorité.
 
 en: If you want to be able to print (`Show`), read (`Read`), test equality (`Eq`) and compare (`Ord`) your new data structure you can tell Haskell to derive the appropriate functions for you.
-fr: Si vous voulez pouvoir écrire (`Show`), lire (`Read`), tester l'égalite (`Eq`) et comparer (`Ord`) votre nouvelle structure, vous pouvez demander à Haskell de dériver les fonctions appropriées pour vous.
+fr: Si vous voulez pouvoir écrire (`Show`), lire (`Read`), tester l'égalité (`Eq`) et comparer (`Ord`) votre nouvelle structure, vous pouvez demander à Haskell de dériver les fonctions appropriées pour vous.
 
 > infixr 5 :::
 > data List a = Nil | a ::: (List a)
@@ -42,7 +42,7 @@ fr: Nous verrons bientôt comment utiliser sa propre fonction `show`.
 >       print (convertList [0,1])
 
 en: This prints:
-fr: Ceci écrit:
+fr: Ceci donne :
 
 ~~~
 0 ::: (1 ::: Nil)
