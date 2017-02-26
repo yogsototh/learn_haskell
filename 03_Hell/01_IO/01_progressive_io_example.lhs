@@ -113,5 +113,5 @@ value <- action2    -- where
 
 en: These two kinds of line will correspond to two different ways of sequencing actions.
 en: The meaning of this sentence should be clearer by the end of the next section.
-fr: Ces deux types de ligne correspondent à deux différents types de séquençage d'action.
+fr: Ces deux types de ligne correspondent à deux types différents de séquençage d'action.
 fr: La signification de cette phrase devrait être plus claire à la fin de la prochaine section.
