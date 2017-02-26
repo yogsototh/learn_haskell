@@ -53,14 +53,14 @@ This code is mostly the same as the previous one.
 en: Suppose we don't mind having an ordered binary tree.
 en: Here is an infinite binary tree:
 fr: Supposons que nous ne nous préoccupions pas d'avoir une arbre ordonné.
-fr: Voici un arbre binaire infini:
+fr: Voici un arbre binaire infini :
 
 > nullTree = Node 0 nullTree nullTree
 
 en: A complete binary tree where each node is equal to 0.
 en: Now I will prove you can manipulate this object using the following function:
 fr: Un arbre complet où chaque noeud est égal à 0.
-fr: Maintenant je vais vous prouver que nous pouvons manipuler cet arbre avec la fonction suivante:
+fr: Maintenant je vais vous prouver que nous pouvons manipuler cet arbre avec la fonction suivante :
 
 > -- take all element of a BinTree
 > -- up to some depth
@@ -73,14 +73,14 @@ fr: Maintenant je vais vous prouver que nous pouvons manipuler cet arbre avec la
 >               Node x nl nr
 
 en: See what occurs for this program:
-fr: Regardez ce qui se passe avec ce programme:
+fr: Regardez ce qui se passe avec ce programme :
 
 <code class="haskell">
 main = print $ treeTakeDepth 4 nullTree
 </code>
 
 en: This code compiles, runs and stops giving the following result:
-fr: Le code compile, se lance et s'arrête en donnant ce résultat:
+fr: Le code compile, se lance et s'arrête en donnant ce résultat :
 
 ~~~
 <  0
@@ -103,7 +103,7 @@ fr: Le code compile, se lance et s'arrête en donnant ce résultat:
 en: Just to heat up your neurones a bit more,
 en: let's make a slightly more interesting tree:
 fr: Pour nous chauffer encore un peu les neurones,
-fr: faisons un arbre plus intéressant:
+fr: faisons un arbre plus intéressant :
 
 > iTree = Node 0 (dec iTree) (inc iTree)
 >         where
@@ -114,8 +114,8 @@ en: Another way to create this tree is to use a higher order function.
 en: This function should be similar to `map`, but should work on `BinTree` instead of list.
 en: Here is such a function:
 fr: Un autre moyen de créer cet arbre est d'utiliser une fonction d'ordre supérieur.
-fr: Cette fonction devrait être similaire à `map` n, mais devrais travailler sur un `BinTree` au lieu d'une liste.
-fr: Voici cette fonction:
+fr: Cette fonction devrait être similaire à `map` n, mais devrait travailler sur un `BinTree` au lieu d'une liste.
+fr: Voici cette fonction :
 
 > -- apply a function to each node of Tree
 > treeMap :: (a -> b) -> BinTree a -> BinTree b
@@ -127,12 +127,12 @@ fr: Voici cette fonction:
 en: _Hint_: I won't talk more about this here.
 en: If you are interested in the generalization of `map` to other data structures,
 en: search for functor and `fmap`.
-fr: _NB_: Je ne parlerais pas plus de cette fonction ici.
-fr: Si vous vous intéressez à la généralisation de `map`à d'autre structures de données,
+fr: _NB_: Je ne parlerai pas plus de cette fonction ici.
+fr: Si vous vous intéressez à la généralisation de `map` à d'autres structures de données,
 fr: cherchez des informations sur les foncteurs et `fmap`.
 
 en: Our definition is now:
-fr: Notre définition est maintenant:
+fr: Notre définition est maintenant :
 
 > infTreeTwo :: BinTree Int
 > infTreeTwo = Node 0 (treeMap (\x -> x-1) infTreeTwo)
