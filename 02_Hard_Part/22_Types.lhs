@@ -31,11 +31,11 @@ fr: Une autre méthode est de créer vos propres type avec le mot-clé `data`.
 
 en: Now if you switch parameters of `showInfos`, the compiler complains!
 en: So this is a potential mistake you will never make again and the only price is to be more verbose.
-fr: Maintenant, si vous échangez les paramètres de`showInfos`, le compilateur se plaint!
-fr: C'est donc une erreur que vous ne refairez jamais, au suel prix d'être plus bavard.
+fr: Maintenant, si vous échangez les paramètres de `showInfos`, le compilateur se plaint!
+fr: Au seul prix d'être plus verbeux, vous écartez définitivement cette erreur potentielle.
 
 en: Also notice that constructors are functions:
-fr: Remarquez aussi que les constructeurs sont des fonctions:
+fr: Remarquez aussi que les constructeurs sont des fonctions :
 
 <code class="haskell">
 NameConstr  :: String -> Name
@@ -56,14 +56,14 @@ en: DataTypeName and DataTypeConstructor.
 fr: Généralement on utilise le même nom pour le DatatTypeName et le DataTypeConstructor.
 
 en: Example:
-fr: Exemple:
+fr: Exemple :
 
 <code class="haskell">
 data Complex a = Num a => Complex a a
 </code>
 
 en: Also you can use the record syntax:
-fr: Vous pouvez également utiliser cette syntaxe:
+fr: Vous pouvez également utiliser cette syntaxe :
 
 <code class="haskell">
 data DataTypeName = DataConstructor {
@@ -75,11 +75,11 @@ data DataTypeName = DataConstructor {
 
 en: And many accessors are made for you.
 en: Furthermore you can use another order when setting values.
-fr: Et les accesseurs sont définis automatiquement.
+fr: Et de nombreux accesseurs sont définis pour vous.
 fr: En outre, vous pouvez utiliser une autre ordre lorsque vous définissez des valeurs.
 
 en: Example:
-fr: Exemple:
+fr: Exemple :
 
 <code class="haskell">
 data Complex a = Num a => Complex { real :: a, img :: a}
