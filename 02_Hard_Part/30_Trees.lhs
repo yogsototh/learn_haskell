@@ -23,7 +23,7 @@ fr: Créons aussi une fonctions qui transforme une liste en un arbre binaire ord
 en: Look at how elegant this function is.
 en: In plain English:
 fr: Remarquez à quel point cette fonction est élégante.
-fr: En français:
+fr: En français :
 
 en: - an empty list will be converted to an empty tree.
 en: - a list `(x:xs)` will be converted to a tree where:
@@ -31,7 +31,7 @@ en:   - The root is `x`
 en:   - Its left subtree is the tree created from members of the list `xs` which are strictly inferior to `x` and
 en:   - the right subtree is the tree created from members of the list `xs` which are strictly superior to `x`.
 fr: - une liste vide est convertie en un arbre vide
-fr: - une liste `(x:xs)` sera convertie en un arbre où:
+fr: - une liste `(x:xs)` sera convertie en un arbre où :
 fr:   - La racine est `x`
 fr:   - Le "sous-arbre" de gauche est l'arbre créé à partir des membres de la liste `xs` strictement inférieurs à `x`
 fr:   - Le "sous-arbre" de droite est l'arbre créé à partir des membres de la liste `xs` strictement superieurs à `x`
@@ -39,11 +39,11 @@ fr:   - Le "sous-arbre" de droite est l'arbre créé à partir des membres de la
 > main = print $ treeFromList [7,2,4,8]
 
 en: You should obtain the following:
-fr: Vious devriez obtenir:
+fr: Vous devriez obtenir :
 
 ~~~
 Node 7 (Node 2 Empty (Node 4 Empty Empty)) (Node 8 Empty Empty)
 ~~~
 
 en: This is an informative but quite unpleasant representation of our tree.
-fr: C'est représentation de notre arbre informative mais déplaisante.
+fr: C'est une représentation de notre arbre informative mais plutôt déplaisante.
