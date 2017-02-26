@@ -1,4 +1,4 @@
-fr: Pour finir, traduisons notre exemple:
+fr: Pour finir, traduisons notre exemple :
 en: To finish, let's translate our example:
 
 <code class="haskell">
@@ -18,7 +18,7 @@ main = do
   print $ sum list
 </code>
 
-fr: Est traduis en:
+fr: Se traduit en :
 en: Is translated into:
 
 > import Data.Maybe
@@ -42,7 +42,7 @@ en: Is translated into:
 > main = askUser >>=
 >   \list -> print $ sum list
 
-fr: vous pouvez compiler ce code pour vérifier qu'il marche.
+fr: Vous pouvez compiler ce code pour vérifier qu'il marche.
 en: You can compile this code to verify that it works.
 
 fr: Imaginez à quoi il ressemblerait sans le `(>>)` et `(>>=)`.

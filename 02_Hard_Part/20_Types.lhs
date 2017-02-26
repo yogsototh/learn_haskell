@@ -61,7 +61,7 @@ Prelude Data.Complex> square (2 :+ 1)
 ~~~
 
 en: `x :+ y` is the notation for the complex (<i>x + iy</i>).
-fr: `x :+ y` est la notation pour le complex (<i>x + iy</i>)
+fr: `x :+ y` est la notation pour le complexe (<i>x + iy</i>)
 
 en: Now compare with the amount of code necessary in C:
 fr: Comparons maintenant avec la quantité de code nécessaire pour le faire en C:
@@ -84,8 +84,8 @@ y = complex_square(x);
 en: For each type, you need to write a new function.
 en: The only way to work around this problem is to use some meta-programming trick, for example using the pre-processor.
 en: In C++ there is a better way, C++ templates:
-fr: Pour chaque type, vous avfez besoin d'écrire une nouvelle fonction.
-fr: Le seul moyen de se débarsser de se problème est d'utiliser des trucs de méta-programmation, par exemple via le pré-processeur.
+fr: Pour chaque type, vous avez besoin d'écrire une nouvelle fonction.
+fr: Le seul moyen de se débarrasser de ce problème est d'utiliser des astuces de méta-programmation, par exemple en utilisant le pré-processeur.
 fr: en C++ il y a un meilleur moyen, les _templates_:
 
 <code class="c++">
@@ -122,16 +122,16 @@ fr: Voyez [cet article](http://bartoszmilewski.com/2009/10/21/what-does-haskell-
 en: In C++ you must declare that a function can work with different types.
 en: In Haskell, the opposite is the case.
 en: The function will be as general as possible by default.
-fr: En C++ vous devez déclarer qu'un fonction peut marcher avec différents types.
-fr: En Haskell, c'est le cas contraire.
+fr: En C++ vous devez déclarer qu'une fonction peut marcher avec différents types.
+fr: En Haskell, c'est le contraire.
 fr: La fonction sera aussi générale que possible par défaut.
 
 en: Type inference gives Haskell the feeling of freedom that dynamically typed languages provide.
 en: But unlike dynamically typed languages, most errors are caught before run time.
 en: Generally, in Haskell:
-fr: L'inférence de type donne à Haskell le sentiment de liberté que les langages dyumaniquement typés proposent.
+fr: L'inférence de type donne à Haskell le sentiment de liberté que les langages dynamiquement typés proposent.
 fr: Mais contrairement aux langages dynamiquement typés, la majorité des erreurs est détectée avant de lancer le programme.
 fr: Généralement, en Haskell:
 
 en:  > "if it compiles it certainly does what you intended"
-fr:  > "Si ça compile, ça fera certainement ce à quoi vous vous attendiez."
+fr:  > "Si ça compile, ça fait certainement ce que vous attendiez."

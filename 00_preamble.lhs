@@ -11,7 +11,7 @@ fr: mais au moins savoir ce que ce langage a de particulier.
 fr: Son apprentissage ouvre énormément l'esprit.
 
 en: Mainstream languages share the same foundations:
-fr: La plupart des langages partagent les mêmes fondamentaux :
+fr: La plupart des langages partagent les mêmes fondements :
 
 en: - variables
 en: - loops
@@ -29,14 +29,14 @@ en: Haskell is very different.
 en: The language uses a lot of concepts I had never heard about before.
 en: Many of those concepts will help you become a better programmer.
 fr: Haskell est très différent.
-fr: Ce langage utilise des concepts dont je n'avais jamais entendu parlé avant.
+fr: Ce langage utilise des concepts dont je n'avais jamais entendu parler avant.
 fr: Beaucoup de ces concepts pourront vous aider à devenir un meilleur développeur.
 
 en: But learning Haskell can be hard.
 en: It was for me.
 en: In this article I try to provide what I lacked during my learning.
 fr: Plier son esprit à Haskell peut être difficile.
-fr: Ce le fût pour moi.
+fr: Ce le fut pour moi.
 fr: Dans cet article, j'essaye de fournir les informations qui m'ont manquées lors de mon apprentissage.
 
 en: This article will certainly be hard to follow.
@@ -50,28 +50,28 @@ fr: Mais c'est voulu.
 fr: Il n'y a pas de raccourci pour apprendre Haskell.
 fr: C'est difficile.
 fr: Mais je pense que c'est une bonne chose.
-fr: C'est parce qu'Haskell est difficile qu'il est intéressant.
+fr: C'est entre autres parce qu'Haskell est difficile qu'il est intéressant.
 
 en: The conventional method to learning Haskell is to read two books.
 en: First ["Learn You a Haskell"](http://learnyouahaskell.com) and just after ["Real World Haskell"](http://www.realworldhaskell.org).
 en: I also believe this is the right way to go.
 en: But to learn what Haskell is all about, you'll have to read them in detail.
 fr: La manière conventionnelle d'apprendre Haskell est de lire deux livres.
-fr: En premier ["Learn You a Haskell"](http://learnyouahaskell.com)
+fr: D'abord ["Learn You a Haskell"](http://haskell.fr/lyah/)
 fr: et ensuite ["Real World Haskell"](http://www.realworldhaskell.org).
 fr: Je pense aussi que c'est la bonne manière de s'y prendre.
 fr: Mais apprendre même un tout petit peu d'Haskell est presque impossible sans se plonger réellement dans ces livres.
 
 en: In contrast, this article is a very brief and dense overview of all major aspects of Haskell.
 en: I also added some information I lacked while I learned Haskell.
-fr: Cet article fait un résumé très dense et rapide des aspect majeurs d'Haskell.
+fr: Cet article fait un résumé très dense et rapide des aspects majeurs d'Haskell.
 fr: J'y ai aussi rajouté des informations qui m'ont manqué pendant l'apprentissage de ce langage.
 
-fr: Pour les francophones ; je suis désolé.
+fr: Pour les francophones : je suis désolé.
 fr: Je n'ai pas eu le courage de tout retraduire en français.
 fr: Sachez cependant que si vous êtes plusieurs à insister, je ferai certainement l'effort de traduire l'article en entier.
 fr: Et si vous vous sentez d'avoir une bonne âme je ne suis pas contre un peu d'aide.
-fr: Les sources de cet article sont sur [gihub](http://github.com/yogsototh/learn_haskell.git).
+fr: Les sources de cet article sont sur [github](http://github.com/yogsototh/learn_haskell.git).
 
 en: The article contains five parts:
 fr: Cet article contient cinq parties :

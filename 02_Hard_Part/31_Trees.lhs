@@ -25,7 +25,7 @@ fr: Sans le `deriving (Show)`, Haskell ne crée pas de méthode `show` pour nous
 fr: Nous allons créer notre propre version.
 fr: Pour accomplir cela, nous devons déclarer que notre type `BinTree a`
 fr: est une instance de la classe de type `Show`.
-fr: La syntaxe générale est:
+fr: La syntaxe générale est :
 
 <code class="haskell">
 instance Show (BinTree a) where
@@ -38,7 +38,7 @@ en: Don't worry about the apparent complexity.
 en: I made a lot of improvements in order to display even stranger objects.
 fr: Voici ma version pour afficher un arbre binaire.
 fr: Ne vous inquiétez pas de sa complexité apparente.
-fr: J'ai fais beaucoup d'améliorations pour afficher même les objets les plus étranges.
+fr: J'ai fait beaucoup d'améliorations pour afficher même les objets les plus étranges.
 
 > -- declare BinTree a to be an instance of Show
 > instance (Show a) => Show (BinTree a) where
@@ -95,7 +95,7 @@ fr: La méthode `treeFromList` reste identique.
 >                              (treeFromList (filter (>x) xs))
 
 en: And now, we can play:
-fr: Et maintenant, nous pouvons jouer:
+fr: Et maintenant, nous pouvons jouer :
 
 > main = do
 >   putStrLn "Int binary tree:"
@@ -120,9 +120,9 @@ en: Now it is far better!
 en: The root is shown by starting the line with the `<` character.
 en: And each following line starts with a `:`.
 en: But we could also use another type.
-fr: Maintenant c'est beaucoup mieux!
-fr: La racine est montré en commençant la ligne avec le caractère `<`.
-fr: Et chaqeue ligne suivante commence avec un `:`.
+fr: Maintenant c'est beaucoup mieux !
+fr: La racine est montrée en commençant la ligne avec le caractère `<`.
+fr: Et chaque ligne suivante est commence par `:`.
 fr: Mais nous pourrions aussi utiliser un autre type.
 
 >   putStrLn "\nString binary tree:"
@@ -130,7 +130,7 @@ fr: Mais nous pourrions aussi utiliser un autre type.
 
 ~~~
 en: String binary tree:
-fr: Arbre binaire de chaïnes de caractères
+fr: Arbre binaire de chaînes de caractères
 < "foo"
 : |--"bar"
 : |  `--"baz"
@@ -149,7 +149,7 @@ fr: nous pouvons aussi faire des arbres d'arbres!
 
 ~~~
 en: Binary tree of Char binary trees:
-fr: Arbre binaire d'arbres binaires de Char:
+fr: Arbre binaire d'arbres binaires de Char :
 < < 'b'
 : : |--'a'
 : : `--'z'
@@ -186,11 +186,11 @@ print ( treeFromList (
 </code>
 
 en: and gives:
-fr: et donne:
+fr: et donne :
 
 ~~~
 en: Binary tree of Binary trees of Char binary trees:
-fr: Arbre d'arbres d'arbres de char:
+fr: Arbre d'arbres d'arbres de Char :
 < < < 'Y'
 : : : `--'O'
 : : `--< 'D'
@@ -226,6 +226,6 @@ fr: Nous avons ceci presque gratuitement, car nous avons déclaré Tree comme in
 en: See how awesome this structure is:
 en: We can make trees containing not only integers, strings and chars, but also other trees.
 en: And we can even make a tree containing a tree of trees!
-fr:Voyez à quel point cette structure est formidable:
+fr: Voyez à quel point cette structure est formidable :
 fr: Nous pouvons faire des arbres contenant seulement des entiers, des chaînes de caractères, mais aussi d'autres arbres.
 fr: Et nous pouvons même faire un arbre contenant un arbre d'arbres!
