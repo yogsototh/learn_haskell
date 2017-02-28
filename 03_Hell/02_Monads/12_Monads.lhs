@@ -1,4 +1,4 @@
-fr: Pas mauvais, mais nous pouvons faire encore mieux:
+fr: Pas mauvais, mais nous pouvons faire encore mieux :
 en: Not bad, but we can make it even better:
 
 > deposit :: (Num a) => a -> a -> Maybe a
@@ -31,7 +31,7 @@ en: in most imperative languages.
 fr: En fait, c'est le type de construction que nous faisons naturellement.
 en: In fact, this is the kind of construction we make naturally.
 
-fr:  > Un remarque importante:
+fr:  > Une remarque importante :
 en:  > An important remark:
  > 
 fr:  > Le premier élement de la séquence qui sera évalué comme `Nothing` stoppera
@@ -40,12 +40,12 @@ fr:  > l'évaluation.
 en:  > the complete evaluation. 
 fr:  > Cela signifie que vous n'exécutez pas toutes les lignes.
 en:  > This means you don't execute all lines.
-fr:  > Vous avgfez cela gratuitement, grâce à la paresse.
+fr:  > Cela découle du caractère paresseux de Haskell.
 en:  > You get this for free, thanks to laziness.
 
 fr: Vous pourriez aussi revoir ces exemples avec la définition de `(>>=)` pour `Maybe`
 en: You could also replay these example with the definition of `(>>=)` for `Maybe`
-fr: en tête:
+fr: en tête :
 en: in mind:
 
 <code class="haskell">
@@ -62,5 +62,5 @@ fr: La monade `Maybe` a prouvé par un simple exemple qu'elle est utile.
 en: The `Maybe` monad proved to be useful while being a very simple example.
 fr: Nous avons vu l'utilité de la monade `IO`.
 en: We saw the utility of the `IO` monad.
-fr: Mais maintenant, voici un exemple plus cool, les listes.
+fr: Mais maintenant, voici un exemple encore plus cool : les listes.
 en: But now for a cooler example, lists.

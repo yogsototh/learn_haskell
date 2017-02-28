@@ -73,7 +73,7 @@ print    :: Show a => a -> IO ()
 ~~~
 
 en: Or more interestingly, we note that each expression in the `do` block has a type of `IO a`.
-fr: Ou, plus intéressant, on remarque que chaque expression dans le bloc `do` est de type `IO a`.
+fr: Ou, de manièree plus intéressante, on remarque que chaque expression dans le bloc `do` est de type `IO a`.
 
 <pre>
 main = do
@@ -95,8 +95,8 @@ fr: Si `something :: IO a` alors `x :: a`.
 
 en: Another important note about using `IO`:
 en: All lines in a do block must be of one of the two forms:
-fr: Une autre remarque important sur l'`IO`:
-fr: Toutes les lignes d'un bloc `do` doivent être d'une des deux formes:
+fr: Une autre remarque importante sur l'`IO`:
+fr: Toutes les lignes d'un bloc `do` doivent être d'une des deux formes suivantes :
 
 ~~~
 action1             :: IO a
@@ -113,5 +113,5 @@ value <- action2    -- where
 
 en: These two kinds of line will correspond to two different ways of sequencing actions.
 en: The meaning of this sentence should be clearer by the end of the next section.
-fr: Ces deux types de ligne correspondent à deux différents types de séquençage d'action.
+fr: Ces deux types de ligne correspondent à deux types différents de séquençage d'action.
 fr: La signification de cette phrase devrait être plus claire à la fin de la prochaine section.
