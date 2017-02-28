@@ -46,6 +46,8 @@ fr: - [Joomy Korkut](http://github.com/joom) pour sa traduction en Turc:
 fr:   [Zor Yoldan Haskell](https://github.com/joom/zor-yoldan-haskell)
 fr: - [lepereceval](https://github.com/lepereceval)
 fr:   pour sa traduction française que je n'ai pas eu le courage de faire !
+fr: - [Younesse Kaddar](https://github.com/youqad)
+fr:   pour toutes ses corrections de style et d'orthographe.
 
 
 > <center><hr style="width:30%;float:left;border-color:#CCCCD0;margin-top:1em"/><span class="sc"><b>Table of Content</b></span><hr style="width:30%;float:right;border-color:#CCCCD0;margin-top:1em"/></center>
