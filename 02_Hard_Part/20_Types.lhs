@@ -5,10 +5,14 @@ blogimage("salvador-dali-the-madonna-of-port-lligat.jpg","Dali, the madonna of p
 
  > %tldr
  >
- > - `type Name = AnotherType` is just an alias and the compiler doesn't mark any difference between `Name` and `AnotherType`.
- > - `data Name = NameConstructor AnotherType` does mark a difference.
- > - `data` can construct structures which can be recursives.
- > - `deriving` is magic and creates functions for you.
+en: > - `type Name = AnotherType` is just an alias and the compiler doesn't mark any difference between `Name` and `AnotherType`.
+en: > - `data Name = NameConstructor AnotherType` does mark a difference.
+en: > - `data` can construct structures which can be recursives.
+en: > - `deriving` is magic and creates functions for you.
+fr: > - `type Name = AnotherType` n'est qu'un alias de type, le compilateur ne fera pas la différence entre les deux.
+fr: > - `data Name = NameConstructor AnotherType` le compilateur fera la différence.
+fr: > - `data` permet de construire de nouvelles structures qui peuvent être récursives.
+fr: > - `deriving` est magique et créé automatiquement des fonctions pour vous.
 
 en: In Haskell, types are strong and static.
 fr: En Haskell, les types sont forts et statiques.
@@ -20,7 +24,7 @@ en: Type inference makes it easy to detect where you used the wrong parameter at
 fr: Pourquoi est-ce important? Cela vous aidera a éviter _beaucoup_ d'erreurs.
 fr: En Haskell, la majorité des bugs est repérée durant la compilation de votre programme.
 fr: Et la raison principale de cela est l'inférence de type durant la compilation.
-fr: L'inférence de type permet de détecter plus facilement lorsque vous utilisez le mauvais paramètre au mauvais endroit, par exemple
+fr: L'inférence de type permet de détecter plus facilement lorsque vous utilisez le mauvais paramètre au mauvais endroit, par exemple.
 
 en: <h4 id="type-inference">Type inference</h4>
 fr: <h4 id="type-inference">Inférence de type</h4>
