@@ -69,7 +69,7 @@ fr: `a -> Int`                 Le type de la fonction qui prend n'importe quel t
 fr: 
 fr: `a -> a`                   Le type de la fonction qui prend n'importe quel type `a` et retourne une variable du même type `a`
 fr: 
-fr: `a -> a -> a`              Le type de la fonction qui prend de arguments de n'importe quel type`a` et retourne une variable de type `a`
+fr: `a -> a -> a`              Le type de la fonction qui prend deux arguments de n'importe quel type`a` et retourne une variable de type `a`
 fr: --------------------------------------------------------------------------------------------------------------------------------------
 
 en: In the type `a -> a -> a`, the letter `a` is a _type variable_.
