@@ -39,7 +39,7 @@ en: For each infix operator there its associated prefix notation.
 en: You just have to put it inside parenthesis.
 fr: Remarquez que `^` utilise une notation infixée.
 fr: Pour chaque opérateur infixe il y a une notation préfixée associée.
-fr: Vous devz juste l'écrire entre parenthèses.
+fr: Vous devez juste l'écrire entre parenthèses.
 
 > square' x = (^) x 2
 > 
