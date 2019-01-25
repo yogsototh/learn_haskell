@@ -11,7 +11,7 @@ fr: Aujourd'huil je considère que la manière la plus aisée d'installer Haskel
 
 en: There are other way to install Haskell on your system you could visit,
 en: you can learn more about it by visiting
-fr: Il y a d'autres maniètres d'installer Haskell sur votre system,
+fr: Il y a d'autres manières d'installer Haskell sur votre système,
 fr: vous pouvez en savoir plus en visitant
 [haskell.org](https://haskell.org)
 en: or
