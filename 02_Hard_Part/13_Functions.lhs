@@ -32,7 +32,7 @@ en: But pattern matching goes even further.
 en: It is also able to inspect the inner data of a complex value.
 en: We can replace
 fr: Mais le _pattern matching_ peut aller encore plus loin.
-fr: Il est également capable d'inspect les données internes d'un valeur complexe.
+fr: Il est également capable d'inspecter les données internes d'un valeur complexe.
 fr: Nous pouvons ainsi remplacer
 
 <code class="haskell">
