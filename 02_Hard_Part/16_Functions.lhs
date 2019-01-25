@@ -81,7 +81,7 @@ fr: Mettre la version 10 à jour est très facile:
 > squareEvenSum' = evenSum . (map (^2))
 
 en: We just had to add another "transformation function"[^0216].
-fr: Nous avons juste eu à ajouter une autre "fonction de trabsformation"[^0216].
+fr: Nous avons juste eu à ajouter une autre "fonction de transformation".
 
 ~~~
 map (^2) [1,2,3,4] ⇔ [1,4,9,16]
